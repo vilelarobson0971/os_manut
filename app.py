@@ -290,13 +290,28 @@ def dashboard():
         
         if not status_counts.empty:
             fig, ax = plt.subplots(figsize=(4, 2))
-            sns.barplot(
+            bars = sns.barplot(
                 x=status_counts.values,
                 y=status_counts.index,
                 palette="viridis",
                 ax=ax
             )
-            plt.xlabel("Quantidade", fontsize=9)
+            
+            # Remover eixo X e seus rótulos
+            ax.set_xlabel('')
+            ax.set_xticks([])
+            
+            # Adicionar valores dentro das barras
+            for bar in bars.patches:
+                width = bar.get_width()
+                ax.text(width - 0.3 * width,  # Posição X (ajuste conforme necessário)
+                        bar.get_y() + bar.get_height()/2,  # Posição Y (centro da barra)
+                        f'{int(width)}',  # Valor formatado
+                        va='center',  # Alinhamento vertical
+                        ha='right',   # Alinhamento horizontal
+                        color='white',
+                        fontsize=8)
+            
             plt.ylabel("Status", fontsize=9)
             ax.set_yticklabels(ax.get_yticklabels(), fontsize=8)
             ax.set_title("Distribuição por Status", fontsize=10)
@@ -307,26 +322,69 @@ def dashboard():
     with tab2:
         st.subheader("Distribuição por Tipo de Manutenção")
         tipo_counts = df["Tipo"].value_counts()
-        fig, ax = plt.subplots(figsize=(2, 1))
-        sns.barplot(x=tipo_counts.values, y=tipo_counts.index, palette="viridis", ax=ax)
-        plt.xlabel("Quantidade", fontsize=6)
-        plt.ylabel("Tipo", fontsize=6)
-        ax.set_yticklabels(ax.get_yticklabels(), fontsize=3)
-        ax.set_xticklabels(ax.get_xticklabels(), fontsize=3)
-        ax.set_title("Distribuição por Tipo de Manutenção", fontsize=6)
-        st.pyplot(fig)
+        
+        if not tipo_counts.empty:
+            fig, ax = plt.subplots(figsize=(4, 2))
+            bars = sns.barplot(
+                x=tipo_counts.values,
+                y=tipo_counts.index,
+                palette="viridis",
+                ax=ax
+            )
+            
+            # Remover eixo X e seus rótulos
+            ax.set_xlabel('')
+            ax.set_xticks([])
+            
+            # Adicionar valores dentro das barras
+            for bar in bars.patches:
+                width = bar.get_width()
+                ax.text(width - 0.3 * width,
+                        bar.get_y() + bar.get_height()/2,
+                        f'{int(width)}',
+                        va='center',
+                        ha='right',
+                        color='white',
+                        fontsize=8)
+            
+            plt.ylabel("Tipo", fontsize=9)
+            ax.set_yticklabels(ax.get_yticklabels(), fontsize=8)
+            ax.set_title("Distribuição por Tipo de Manutenção", fontsize=10)
+            st.pyplot(fig)
+        else:
+            st.warning("Nenhum dado de tipo disponível")
 
     with tab3:
         st.subheader("OS por Executante")
         executante_counts = df[df["Executante"] != ""]["Executante"].value_counts()
+        
         if not executante_counts.empty:
-            fig, ax = plt.subplots(figsize=(2, 1))
-            sns.barplot(x=executante_counts.values, y=executante_counts.index, palette="rocket", ax=ax)
-            plt.xlabel("Quantidade de OS", fontsize=4)
-            plt.ylabel("Executante", fontsize=4)
-            ax.set_yticklabels(ax.get_yticklabels(), fontsize=3)
-            ax.set_xticklabels(ax.get_xticklabels(), fontsize=3)
-            ax.set_title("OS por Executante", fontsize=6)
+            fig, ax = plt.subplots(figsize=(4, 2))
+            bars = sns.barplot(
+                x=executante_counts.values,
+                y=executante_counts.index,
+                palette="rocket",
+                ax=ax
+            )
+            
+            # Remover eixo X e seus rótulos
+            ax.set_xlabel('')
+            ax.set_xticks([])
+            
+            # Adicionar valores dentro das barras
+            for bar in bars.patches:
+                width = bar.get_width()
+                ax.text(width - 0.3 * width,
+                        bar.get_y() + bar.get_height()/2,
+                        f'{int(width)}',
+                        va='center',
+                        ha='right',
+                        color='white',
+                        fontsize=8)
+            
+            plt.ylabel("Executante", fontsize=9)
+            ax.set_yticklabels(ax.get_yticklabels(), fontsize=8)
+            ax.set_title("OS por Executante", fontsize=10)
             st.pyplot(fig)
         else:
             st.warning("Nenhuma OS atribuída a executantes")
