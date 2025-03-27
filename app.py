@@ -68,13 +68,13 @@ def fazer_backup():
     return None
 
 def limpar_backups_antigos(max_backups):
-    backups = sorted(glob.glob(os.path.join(BACKUP_DIR, "ordens_servico_*.csv")))
+    backups = sorted(glob.glob(os.path.join(BACKUP_DIR, "ordens_servico_*.csv"))
     while len(backups) > max_backups:
         os.remove(backups[0])
         backups.pop(0)
 
 def carregar_ultimo_backup():
-    backups = sorted(glob.glob(os.path.join(BACKUP_DIR, "ordens_servico_*.csv")))
+    backups = sorted(glob.glob(os.path.join(BACKUP_DIR, "ordens_servico_*.csv"))
     if backups:
         return backups[-1]
     return None
@@ -148,6 +148,7 @@ def cadastrar_os():
         descricao = st.text_area("Descrição da atividade*")
         solicitante = st.text_input("Solicitante*")
         local = st.text_input("Local*")
+        tipo = st.selectbox("Tipo de Serviço", list(TIPOS_MANUTENCAO.values()))
 
         submitted = st.form_submit_button("Cadastrar OS")
         if submitted:
@@ -164,7 +165,7 @@ def cadastrar_os():
                     "Data": data_formatada,
                     "Solicitante": solicitante,
                     "Local": local,
-                    "Tipo": "",
+                    "Tipo": tipo,
                     "Status": "Pendente",
                     "Executante": "",
                     "Data Conclusão": ""
@@ -249,6 +250,14 @@ def atualizar_os():
 
         col1, col2 = st.columns(2)
         with col1:
+            # Campo para selecionar o tipo de serviço
+            tipo_atual = str(os_data["Tipo"]) if pd.notna(os_data["Tipo"]) else ""
+            tipo = st.selectbox(
+                "Tipo de Serviço",
+                [""] + list(TIPOS_MANUTENCAO.values()),
+                index=0 if tipo_atual == "" else list(TIPOS_MANUTENCAO.values()).index(tipo_atual)
+            )
+
             novo_status = st.selectbox(
                 "Status*",
                 list(STATUS_OPCOES.values()),
@@ -290,7 +299,7 @@ def atualizar_os():
             elif novo_status == "Concluído" and not data_conclusao:
                 st.error("Informe a data de conclusão!")
             else:
-                df.loc[df["ID"] == os_id, ["Status", "Executante"]] = [novo_status, executante]
+                df.loc[df["ID"] == os_id, ["Status", "Executante", "Tipo"]] = [novo_status, executante, tipo]
                 if novo_status == "Concluído":
                     df.loc[df["ID"] == os_id, "Data Conclusão"] = data_conclusao
                 df.to_csv(FILENAME, index=False)
