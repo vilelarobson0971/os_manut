@@ -287,11 +287,11 @@ def dashboard():
     with tab1:
         st.subheader("Distribuição por Status")
         status_counts = df["Status"].value_counts()
-        fig, ax = plt.subplots(figsize=(0.6, 0.4))
+        fig, ax = plt.subplots(figsize=(1, 0.8))
         status_counts.plot.pie(autopct="%1.1f%%", startangle=90, ax=ax,
-                     textprops={'fontsize': 1.5},  # Diminui a fonte das porcentagens
+                     textprops={'fontsize': 3},  # Diminui a fonte das porcentagens
                      ylabel=None)  # Remover a label "count"
-        ax.set_title("Distribuição por Status", fontsize=1.5)  # Diminui a fonte do título
+        ax.set_title("Distribuição por Status", fontsize=3)  # Diminui a fonte do título
         ax.set_ylabel("")  # Garante remoção do label vertical
         st.pyplot(fig)
 
