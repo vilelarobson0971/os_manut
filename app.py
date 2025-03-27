@@ -68,13 +68,13 @@ def fazer_backup():
     return None
 
 def limpar_backups_antigos(max_backups):
-    backups = sorted(glob.glob(os.path.join(BACKUP_DIR, "ordens_servico_*.csv"))
+    backups = sorted(glob.glob(os.path.join(BACKUP_DIR, "ordens_servico_*.csv")))
     while len(backups) > max_backups:
         os.remove(backups[0])
         backups.pop(0)
 
 def carregar_ultimo_backup():
-    backups = sorted(glob.glob(os.path.join(BACKUP_DIR, "ordens_servico_*.csv"))
+    backups = sorted(glob.glob(os.path.join(BACKUP_DIR, "ordens_servico_*.csv")))
     if backups:
         return backups[-1]
     return None
