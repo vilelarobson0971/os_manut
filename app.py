@@ -309,7 +309,7 @@ def dashboard():
                         f'{int(width)}',  # Valor formatado
                         va='center',  # Alinhamento vertical
                         ha='right',   # Alinhamento horizontal
-                        color='black',
+                        color='yellow',
                         fontsize=8)
             
             plt.ylabel("Status", fontsize=9)
@@ -344,7 +344,7 @@ def dashboard():
                         f'{int(width)}',
                         va='center',
                         ha='right',
-                        color='black',
+                        color='yellow',
                         fontsize=8)
             
             plt.ylabel("Tipo", fontsize=9)
@@ -379,7 +379,7 @@ def dashboard():
                         f'{int(width)}',
                         va='center',
                         ha='right',
-                        color='black',
+                        color='yellow',
                         fontsize=8)
             
             plt.ylabel("Executante", fontsize=9)
