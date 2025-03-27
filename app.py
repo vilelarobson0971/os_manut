@@ -282,14 +282,14 @@ def dashboard():
     with tab1:
         st.subheader("Distribuição por Status")
         status_counts = df["Status"].value_counts()
-        fig, ax = plt.subplots(figsize=(8, 6))
+        fig, ax = plt.subplots(figsize=(6, 4))  # Reduzido de (8,6) para (6,4)
         status_counts.plot.pie(autopct="%1.1f%%", startangle=90, ax=ax)
         st.pyplot(fig)
 
     with tab2:
         st.subheader("Distribuição por Tipo de Manutenção")
         tipo_counts = df["Tipo"].value_counts()
-        fig, ax = plt.subplots(figsize=(10, 6))
+        fig, ax = plt.subplots(figsize=(8, 4))  # Reduzido de (10,6) para (8,4)
         sns.barplot(x=tipo_counts.values, y=tipo_counts.index, palette="viridis", ax=ax)
         plt.xlabel("Quantidade")
         st.pyplot(fig)
@@ -298,7 +298,7 @@ def dashboard():
         st.subheader("OS por Executante")
         executante_counts = df[df["Executante"] != ""]["Executante"].value_counts()
         if not executante_counts.empty:
-            fig, ax = plt.subplots(figsize=(10, 6))
+            fig, ax = plt.subplots(figsize=(8, 4))  # Reduzido de (10,6) para (8,4)
             sns.barplot(x=executante_counts.values, y=executante_counts.index, palette="rocket", ax=ax)
             plt.xlabel("Quantidade de OS")
             st.pyplot(fig)
