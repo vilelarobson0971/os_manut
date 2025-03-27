@@ -135,8 +135,12 @@ def cadastrar_os():
                 df = pd.concat([df, nova_os], ignore_index=True)
                 df.to_csv(FILENAME, index=False)
                 st.success("Ordem cadastrada com sucesso!")
-                time.sleep(1.5)
-                st.experimental_rerun()
+                time.sleep(1)
+                st.session_state.cadastro_realizado = True
+
+    if st.session_state.get('cadastro_realizado', False):
+        st.session_state.cadastro_realizado = False
+        st.rerun()
 
 
 def listar_os():
@@ -225,15 +229,14 @@ def atualizar_os():
                                 if executante_atual in executantes else 0)
 
             executante = st.selectbox(
-                "Executante*" if novo_status in ["Em execução", "Concluído"] else "Executante",
+                "Executante",
                 [""] + executantes,
-                index=index_executante,
-                disabled=novo_status not in ["Em execução", "Concluído"]
+                index=index_executante
             )
 
         with col2:
             data_conclusao = st.text_input(
-                "Data de conclusão*" if novo_status == "Concluído" else "Data de conclusão",
+                "Data de conclusão (DD/MM/AAAA ou DDMMAAAA)",
                 value=str(os_data['Data Conclusão']) if pd.notna(os_data['Data Conclusão']) else "",
                 disabled=novo_status != "Concluído"
             )
@@ -251,8 +254,8 @@ def atualizar_os():
                     df.loc[df["ID"] == os_id, "Data Conclusão"] = data_conclusao
                 df.to_csv(FILENAME, index=False)
                 st.success("OS atualizada com sucesso!")
-                time.sleep(1.5)
-                st.experimental_rerun()
+                time.sleep(1)
+                st.rerun()
 
 
 def dashboard():
@@ -312,8 +315,8 @@ def gerenciar_executantes():
                     executantes.append(novo)
                     salvar_executantes(executantes)
                     st.success(f"Executante '{novo}' adicionado com sucesso!")
-                    time.sleep(1.5)
-                    st.experimental_rerun()
+                    time.sleep(1)
+                    st.rerun()
 
     with tab2:
         if not executantes:
@@ -327,28 +330,33 @@ def gerenciar_executantes():
                     executantes.remove(selecionado)
                     salvar_executantes(executantes)
                     st.success(f"Executante '{selecionado}' removido com sucesso!")
-                    time.sleep(1.5)
-                    st.experimental_rerun()
+                    time.sleep(1)
+                    st.rerun()
 
 
 def main():
+    # Inicializa estados da sessão
     if 'cadastro_realizado' not in st.session_state:
         st.session_state.cadastro_realizado = False
     if 'atualizacao_realizada' not in st.session_state:
         st.session_state.atualizacao_realizada = False
 
-    st.sidebar.title("Menu Principal")
-    menu_opcoes = [
-        "🏠 Página Inicial",
-        "📝 Cadastrar OS",
-        "📋 Listar OS",
-        "🔍 Buscar OS",
-        "🔄 Atualizar OS",
-        "📊 Dashboard",
-        "👷 Gerenciar Executantes"
-    ]
-    opcao = st.sidebar.selectbox("Selecione a opção:", menu_opcoes)
+    # Menu principal
+    st.sidebar.title("Menu")
+    opcao = st.sidebar.selectbox(
+        "Selecione",
+        [
+            "🏠 Página Inicial",
+            "📝 Cadastrar OS",
+            "📋 Listar OS",
+            "🔍 Buscar OS",
+            "🔄 Atualizar OS",
+            "📊 Dashboard",
+            "👷 Gerenciar Executantes"
+        ]
+    )
 
+    # Navegação
     if opcao == "🏠 Página Inicial":
         pagina_inicial()
     elif opcao == "📝 Cadastrar OS":
@@ -364,9 +372,10 @@ def main():
     elif opcao == "👷 Gerenciar Executantes":
         gerenciar_executantes()
 
+    # Rodapé
     st.sidebar.markdown("---")
     st.sidebar.markdown("**Sistema de Ordens de Serviço**")
-    st.sidebar.markdown("Versão 1.0")
+    st.sidebar.markdown("Versão 2.0")
     st.sidebar.markdown("Desenvolvido por Robson Vilela")
 
 
