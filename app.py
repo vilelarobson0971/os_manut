@@ -112,7 +112,7 @@ def formatar_data(data):
         st.error("Data inválida! Use o formato DD/MM/AAAA.")
         return None
 
-# Funções principais (mantidas as mesmas, exceto pela adição de backup após operações críticas)
+# Funções principais
 def pagina_inicial():
     col1, col2 = st.columns([1, 15])
     with col1:
@@ -177,7 +177,321 @@ def cadastrar_os():
                 time.sleep(1)
                 st.rerun()
 
-# [...] (As outras funções principais permanecem iguais, exceto por adicionar fazer_backup() após operações de escrita)
+def listar_os():
+    st.header("📋 Listagem Completa de OS")
+    df = carregar_csv()
+
+    if df.empty:
+        st.warning("Nenhuma ordem de serviço cadastrada ainda.")
+    else:
+        with st.expander("Filtrar OS"):
+            col1, col2 = st.columns(2)
+            with col1:
+                filtro_status = st.selectbox("Status", ["Todos"] + list(STATUS_OPCOES.values()))
+            with col2:
+                filtro_tipo = st.selectbox("Tipo de Manutenção", ["Todos"] + list(TIPOS_MANUTENCAO.values()))
+
+        if filtro_status != "Todos":
+            df = df[df["Status"] == filtro_status]
+        if filtro_tipo != "Todos":
+            df = df[df["Tipo"] == filtro_tipo]
+
+        st.dataframe(df, use_container_width=True)
+
+def buscar_os():
+    st.header("🔍 Busca Avançada")
+    df = carregar_csv()
+
+    if df.empty:
+        st.warning("Nenhuma OS cadastrada para busca.")
+        return
+
+    with st.container():
+        col1, col2 = st.columns([1, 3])
+        with col1:
+            criterio = st.radio("Critério de busca:",
+                              ["ID", "Solicitante", "Local", "Status", "Tipo", "Executante"])
+        with col2:
+            if criterio == "ID":
+                busca = st.number_input("Digite o ID da OS", min_value=1)
+                resultado = df[df["ID"] == busca]
+            elif criterio == "Status":
+                busca = st.selectbox("Selecione o status", list(STATUS_OPCOES.values()))
+                resultado = df[df["Status"] == busca]
+            elif criterio == "Tipo":
+                busca = st.selectbox("Selecione o tipo", list(TIPOS_MANUTENCAO.values()))
+                resultado = df[df["Tipo"] == busca]
+            else:
+                busca = st.text_input(f"Digite o {criterio.lower()}")
+                resultado = df[df[criterio].astype(str).str.contains(busca, case=False)]
+
+    if not resultado.empty:
+        st.success(f"Encontradas {len(resultado)} OS:")
+        st.dataframe(resultado, use_container_width=True)
+    else:
+        st.warning("Nenhuma OS encontrada com os critérios informados.")
+
+def atualizar_os():
+    st.header("🔄 Atualizar Ordem de Serviço")
+    df = carregar_csv()
+
+    nao_concluidas = df[df["Status"] != "Concluído"]
+    if nao_concluidas.empty:
+        st.warning("Nenhuma OS pendente")
+        return
+
+    os_id = st.selectbox("Selecione a OS", nao_concluidas["ID"])
+    os_data = df[df["ID"] == os_id].iloc[0]
+
+    with st.form("atualizar_form"):
+        st.write(f"**Descrição:** {os_data['Descrição']}")
+        st.write(f"**Solicitante:** {os_data['Solicitante']}")
+
+        col1, col2 = st.columns(2)
+        with col1:
+            novo_status = st.selectbox(
+                "Status*",
+                list(STATUS_OPCOES.values()),
+                index=list(STATUS_OPCOES.values()).index(os_data["Status"])
+            )
+
+            executantes = carregar_executantes()
+            executante_atual = str(os_data["Executante"]) if pd.notna(os_data["Executante"]) else ""
+            index_executante = (executantes.index(executante_atual) + 1
+                              if executante_atual in executantes else 0)
+
+            executante = st.selectbox(
+                "Executante",
+                [""] + executantes,
+                index=index_executante
+            )
+
+        with col2:
+            if novo_status != "Pendente":
+                data_atual = datetime.now().strftime("%d/%m/%Y")
+                data_conclusao = st.text_input(
+                    "Data de atualização",
+                    value=data_atual if pd.isna(os_data['Data Conclusão']) or os_data['Status'] == "Pendente" else str(
+                        os_data['Data Conclusão']),
+                    disabled=novo_status != "Concluído"
+                )
+            else:
+                data_conclusao = st.text_input(
+                    "Data de conclusão (DD/MM/AAAA ou DDMMAAAA)",
+                    value=str(os_data['Data Conclusão']) if pd.notna(os_data['Data Conclusão']) else "",
+                    disabled=True
+                )
+
+        submitted = st.form_submit_button("Atualizar OS")
+
+        if submitted:
+            if novo_status in ["Em execução", "Concluído"] and not executante:
+                st.error("Selecione um executante para este status!")
+            elif novo_status == "Concluído" and not data_conclusao:
+                st.error("Informe a data de conclusão!")
+            else:
+                df.loc[df["ID"] == os_id, ["Status", "Executante"]] = [novo_status, executante]
+                if novo_status == "Concluído":
+                    df.loc[df["ID"] == os_id, "Data Conclusão"] = data_conclusao
+                df.to_csv(FILENAME, index=False)
+                fazer_backup()
+                st.success("OS atualizada com sucesso! Backup automático realizado.")
+                time.sleep(1)
+                st.rerun()
+
+def dashboard():
+    st.header("📊 Dashboard Analítico")
+    df = carregar_csv()
+
+    if df.empty:
+        st.warning("Nenhuma OS cadastrada para análise.")
+        return
+
+    tab1, tab2, tab3 = st.tabs(["📈 Status", "🔧 Tipos", "👥 Executantes"])
+
+    with tab1:
+        st.subheader("Distribuição por Status")
+        status_counts = df["Status"].value_counts()
+        
+        if not status_counts.empty:
+            fig, ax = plt.subplots(figsize=(4, 2))
+            bars = sns.barplot(
+                x=status_counts.values,
+                y=status_counts.index,
+                palette="viridis",
+                ax=ax
+            )
+            
+            ax.set_xlabel('')
+            ax.set_xticks([])
+            
+            for bar in bars.patches:
+                width = bar.get_width()
+                ax.text(width - 0.3 * width,
+                        bar.get_y() + bar.get_height()/2,
+                        f'{int(width)}',
+                        va='center',
+                        ha='right',
+                        color='black',
+                        fontsize=8)
+            
+            plt.ylabel("Status", fontsize=9)
+            ax.set_yticklabels(ax.get_yticklabels(), fontsize=8)
+            ax.set_title("Distribuição por Status", fontsize=10)
+            st.pyplot(fig)
+        else:
+            st.warning("Nenhum dado de status disponível")
+
+    with tab2:
+        st.subheader("Distribuição por Tipo de Manutenção")
+        tipo_counts = df["Tipo"].value_counts()
+        
+        if not tipo_counts.empty:
+            fig, ax = plt.subplots(figsize=(4, 2))
+            bars = sns.barplot(
+                x=tipo_counts.values,
+                y=tipo_counts.index,
+                palette="viridis",
+                ax=ax
+            )
+            
+            ax.set_xlabel('')
+            ax.set_xticks([])
+            
+            for bar in bars.patches:
+                width = bar.get_width()
+                ax.text(width - 0.3 * width,
+                        bar.get_y() + bar.get_height()/2,
+                        f'{int(width)}',
+                        va='center',
+                        ha='right',
+                        color='black',
+                        fontsize=8)
+            
+            plt.ylabel("Tipo", fontsize=9)
+            ax.set_yticklabels(ax.get_yticklabels(), fontsize=8)
+            ax.set_title("Distribuição por Tipo de Manutenção", fontsize=10)
+            st.pyplot(fig)
+        else:
+            st.warning("Nenhum dado de tipo disponível")
+
+    with tab3:
+        st.subheader("OS por Executante")
+        executante_counts = df[df["Executante"] != ""]["Executante"].value_counts()
+        
+        if not executante_counts.empty:
+            fig, ax = plt.subplots(figsize=(4, 2))
+            bars = sns.barplot(
+                x=executante_counts.values,
+                y=executante_counts.index,
+                palette="rocket",
+                ax=ax
+            )
+            
+            ax.set_xlabel('')
+            ax.set_xticks([])
+            
+            for bar in bars.patches:
+                width = bar.get_width()
+                ax.text(width - 0.3 * width,
+                        bar.get_y() + bar.get_height()/2,
+                        f'{int(width)}',
+                        va='center',
+                        ha='right',
+                        color='black',
+                        fontsize=8)
+            
+            plt.ylabel("Executante", fontsize=9)
+            ax.set_yticklabels(ax.get_yticklabels(), fontsize=8)
+            ax.set_title("OS por Executante", fontsize=10)
+            st.pyplot(fig)
+        else:
+            st.warning("Nenhuma OS atribuída a executantes")
+
+def gerenciar_executantes():
+    st.header("👷 Gerenciar Executantes")
+    executantes = carregar_executantes()
+
+    tab1, tab2 = st.tabs(["Adicionar", "Remover"])
+
+    with tab1:
+        with st.form("add_executante_form"):
+            novo = st.text_input("Nome do novo executante*")
+            submitted_add = st.form_submit_button("Adicionar")
+
+            if submitted_add:
+                if not novo:
+                    st.error("Digite um nome válido!")
+                elif novo in executantes:
+                    st.warning("Este executante já está cadastrado!")
+                else:
+                    executantes.append(novo)
+                    salvar_executantes(executantes)
+                    st.success(f"Executante '{novo}' adicionado com sucesso!")
+                    time.sleep(1)
+                    st.rerun()
+
+    with tab2:
+        if not executantes:
+            st.warning("Nenhum executante cadastrado")
+        else:
+            with st.form("rem_executante_form"):
+                selecionado = st.selectbox("Selecione o executante para remover", executantes)
+                submitted_rem = st.form_submit_button("Remover")
+
+                if submitted_rem:
+                    executantes.remove(selecionado)
+                    salvar_executantes(executantes)
+                    st.success(f"Executante '{selecionado}' removido com sucesso!")
+                    time.sleep(1)
+                    st.rerun()
+
+def gerenciar_backups():
+    st.header("💾 Gerenciamento de Backups")
+    backups = sorted(glob.glob(os.path.join(BACKUP_DIR, "ordens_servico_*.csv")), reverse=True)
+    
+    if not backups:
+        st.warning("Nenhum backup disponível")
+        return
+    
+    st.write(f"Total de backups: {len(backups)}")
+    st.write(f"Último backup: {os.path.basename(backups[0])}")
+    
+    col1, col2 = st.columns(2)
+    with col1:
+        if st.button("🔄 Criar Backup Agora"):
+            backup_path = fazer_backup()
+            if backup_path:
+                st.success(f"Backup criado: {os.path.basename(backup_path)}")
+                time.sleep(1)
+                st.rerun()
+            else:
+                st.error("Falha ao criar backup")
+    
+    with col2:
+        if st.button("🧹 Limpar Backups Antigos"):
+            limpar_backups_antigos(MAX_BACKUPS)
+            st.success(f"Mantidos apenas os {MAX_BACKUPS} backups mais recentes")
+            time.sleep(1)
+            st.rerun()
+    
+    st.markdown("---")
+    st.subheader("Restaurar Backup")
+    
+    backup_selecionado = st.selectbox(
+        "Selecione um backup para restaurar",
+        [os.path.basename(b) for b in backups]
+    )
+    
+    if st.button("🔙 Restaurar Backup Selecionado"):
+        backup_fullpath = os.path.join(BACKUP_DIR, backup_selecionado)
+        try:
+            shutil.copy(backup_fullpath, FILENAME)
+            st.success(f"Dados restaurados do backup: {backup_selecionado}")
+            time.sleep(2)
+            st.rerun()
+        except Exception as e:
+            st.error(f"Erro ao restaurar: {str(e)}")
 
 def main():
     # Inicializa estados da sessão
@@ -186,7 +500,7 @@ def main():
     if 'atualizacao_realizada' not in st.session_state:
         st.session_state.atualizacao_realizada = False
 
-    # Menu principal com opção de backup
+    # Menu principal
     st.sidebar.title("Menu")
     opcao = st.sidebar.selectbox(
         "Selecione",
@@ -225,49 +539,6 @@ def main():
     st.sidebar.markdown("**Sistema de Ordens de Serviço**")
     st.sidebar.markdown("Versão 2.1 com Backup")
     st.sidebar.markdown("Desenvolvido por Robson Vilela")
-
-def gerenciar_backups():
-    st.header("💾 Gerenciamento de Backups")
-    backups = sorted(glob.glob(os.path.join(BACKUP_DIR, "ordens_servico_*.csv")), reverse=True)
-    
-    if not backups:
-        st.warning("Nenhum backup disponível")
-        return
-    
-    st.write(f"Total de backups: {len(backups)}")
-    st.write(f"Último backup: {os.path.basename(backups[0])}")
-    
-    col1, col2 = st.columns(2)
-    with col1:
-        if st.button("🔄 Criar Backup Agora"):
-            backup_path = fazer_backup()
-            if backup_path:
-                st.success(f"Backup criado: {os.path.basename(backup_path)}")
-            else:
-                st.error("Falha ao criar backup")
-    
-    with col2:
-        if st.button("🧹 Limpar Backups Antigos"):
-            limpar_backups_antigos(MAX_BACKUPS)
-            st.success(f"Mantidos apenas os {MAX_BACKUPS} backups mais recentes")
-    
-    st.markdown("---")
-    st.subheader("Restaurar Backup")
-    
-    backup_selecionado = st.selectbox(
-        "Selecione um backup para restaurar",
-        [os.path.basename(b) for b in backups]
-    )
-    
-    if st.button("🔙 Restaurar Backup Selecionado"):
-        backup_fullpath = os.path.join(BACKUP_DIR, backup_selecionado)
-        try:
-            shutil.copy(backup_fullpath, FILENAME)
-            st.success(f"Dados restaurados do backup: {backup_selecionado}")
-            time.sleep(2)
-            st.rerun()
-        except Exception as e:
-            st.error(f"Erro ao restaurar: {str(e)}")
 
 if __name__ == "__main__":
     # Inicializa sistema de arquivos
