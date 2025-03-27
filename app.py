@@ -84,8 +84,13 @@ def formatar_data(data):
 
 # Funções principais
 def pagina_inicial():
-    st.markdown("<h1 style='text-align: center; font-size: 2.5em;'>SISTEMA DE GESTÃO DE ORDENS DE SERVIÇO</h1>",
-                unsafe_allow_html=True)
+    # Layout com colunas para o ícone e título
+    col1, col2 = st.columns([1, 15])
+    with col1:
+        st.markdown('<div style="font-size: 2.5em; margin-top: 10px;">🔧</div>', unsafe_allow_html=True)
+    with col2:
+        st.markdown("<h1 style='font-size: 2.5em;'>SISTEMA DE GESTÃO DE ORDENS DE SERVIÇO</h1>", unsafe_allow_html=True)
+
     st.markdown("<p style='text-align: center; font-size: 1.2em;'>By Robson Vilela</p>", unsafe_allow_html=True)
     st.markdown("---")
 
@@ -136,11 +141,7 @@ def cadastrar_os():
                 df.to_csv(FILENAME, index=False)
                 st.success("Ordem cadastrada com sucesso!")
                 time.sleep(1)
-                st.session_state.cadastro_realizado = True
-
-    if st.session_state.get('cadastro_realizado', False):
-        st.session_state.cadastro_realizado = False
-        st.rerun()
+                st.rerun()
 
 
 def listar_os():
@@ -235,11 +236,21 @@ def atualizar_os():
             )
 
         with col2:
-            data_conclusao = st.text_input(
-                "Data de conclusão (DD/MM/AAAA ou DDMMAAAA)",
-                value=str(os_data['Data Conclusão']) if pd.notna(os_data['Data Conclusão']) else "",
-                disabled=novo_status != "Concluído"
-            )
+            # Preenche automaticamente com a data atual quando o status não é Pendente
+            if novo_status != "Pendente":
+                data_atual = datetime.now().strftime("%d/%m/%Y")
+                data_conclusao = st.text_input(
+                    "Data de atualização",
+                    value=data_atual if pd.isna(os_data['Data Conclusão']) or os_data['Status'] == "Pendente" else str(
+                        os_data['Data Conclusão']),
+                    disabled=novo_status != "Concluído"
+                )
+            else:
+                data_conclusao = st.text_input(
+                    "Data de conclusão (DD/MM/AAAA ou DDMMAAAA)",
+                    value=str(os_data['Data Conclusão']) if pd.notna(os_data['Data Conclusão']) else "",
+                    disabled=True
+                )
 
         submitted = st.form_submit_button("Atualizar OS")
 
