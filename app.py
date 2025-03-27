@@ -301,10 +301,10 @@ def dashboard():
         fig, ax = plt.subplots(figsize=(2, 1))
         sns.barplot(x=tipo_counts.values, y=tipo_counts.index, palette="viridis", ax=ax)
         plt.xlabel("Quantidade", fontsize=9)
-        plt.ylabel("Tipo", fontsize=9)
-        ax.set_yticklabels(ax.get_yticklabels(), fontsize=8)
-        ax.set_xticklabels(ax.get_xticklabels(), fontsize=8)
-        ax.set_title("Distribuição por Tipo de Manutenção", fontsize=10)
+        plt.ylabel("Tipo", fontsize=3)
+        ax.set_yticklabels(ax.get_yticklabels(), fontsize=3)
+        ax.set_xticklabels(ax.get_xticklabels(), fontsize=3)
+        ax.set_title("Distribuição por Tipo de Manutenção", fontsize=3)
         st.pyplot(fig)
 
     with tab3:
@@ -315,9 +315,9 @@ def dashboard():
             sns.barplot(x=executante_counts.values, y=executante_counts.index, palette="rocket", ax=ax)
             plt.xlabel("Quantidade de OS", fontsize=9)
             plt.ylabel("Executante", fontsize=9)
-            ax.set_yticklabels(ax.get_yticklabels(), fontsize=8)
-            ax.set_xticklabels(ax.get_xticklabels(), fontsize=8)
-            ax.set_title("OS por Executante", fontsize=10)
+            ax.set_yticklabels(ax.get_yticklabels(), fontsize=3)
+            ax.set_xticklabels(ax.get_xticklabels(), fontsize=3)
+            ax.set_title("OS por Executante", fontsize=3)
             st.pyplot(fig)
         else:
             st.warning("Nenhuma OS atribuída a executantes")
