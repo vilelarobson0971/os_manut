@@ -285,21 +285,24 @@ def dashboard():
     tab1, tab2, tab3 = st.tabs(["📈 Status", "🔧 Tipos", "👥 Executantes"])
 
     with tab1:
-    st.subheader("Distribuição por Status")
-    status_counts = df["Status"].value_counts()
-    fig, ax = plt.subplots(figsize=(4, 2))  # Ajuste o tamanho conforme necessário
-    sns.barplot(
-        x=status_counts.values, 
-        y=status_counts.index,
-        palette="viridis",  # Mesmo estilo dos outros gráficos
-        ax=ax
-    )
-    plt.xlabel("Quantidade", fontsize=9)
-    plt.ylabel("Status", fontsize=9)
-    ax.set_yticklabels(ax.get_yticklabels(), fontsize=8)
-    ax.set_xticklabels(ax.get_xticklabels(), fontsize=8)
-    ax.set_title("Distribuição por Status", fontsize=10)
-    st.pyplot(fig)
+        st.subheader("Distribuição por Status")
+        status_counts = df["Status"].value_counts()
+        
+        if not status_counts.empty:
+            fig, ax = plt.subplots(figsize=(4, 2))
+            sns.barplot(
+                x=status_counts.values,
+                y=status_counts.index,
+                palette="viridis",
+                ax=ax
+            )
+            plt.xlabel("Quantidade", fontsize=9)
+            plt.ylabel("Status", fontsize=9)
+            ax.set_yticklabels(ax.get_yticklabels(), fontsize=8)
+            ax.set_title("Distribuição por Status", fontsize=10)
+            st.pyplot(fig)
+        else:
+            st.warning("Nenhum dado de status disponível")
 
     with tab2:
         st.subheader("Distribuição por Tipo de Manutenção")
