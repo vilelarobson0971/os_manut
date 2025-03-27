@@ -5,6 +5,7 @@ import seaborn as sns
 from datetime import datetime
 import os
 import shutil
+import time
 
 # Configurações da página
 st.set_page_config(
@@ -83,19 +84,21 @@ def formatar_data(data):
 
 # Funções principais
 def pagina_inicial():
-    st.markdown("<h1 style='text-align: center; font-size: 36px;'>SISTEMA DE GESTÃO DE ORDENS DE SERVIÇO</h1>",
+    st.markdown("<h1 style='text-align: center; font-size: 2.5em;'>SISTEMA DE GESTÃO DE ORDENS DE SERVIÇO</h1>",
                 unsafe_allow_html=True)
-    st.markdown("<p style='text-align: center;'>By Robson Vilela</p>", unsafe_allow_html=True)
-    st.write("---")
+    st.markdown("<p style='text-align: center; font-size: 1.2em;'>By Robson Vilela</p>", unsafe_allow_html=True)
+    st.markdown("---")
 
-    st.write("""
+    st.markdown("""
+    ### Bem-vindo ao Sistema de Gestão de Ordens de Serviço
+
     **Funcionalidades disponíveis:**
-    - Cadastro de novas ordens de serviço
-    - Listagem completa de OS
-    - Busca avançada
-    - Atualização de status
-    - Dashboard analítico
-    - Gerenciamento de executantes
+    - 📝 **Cadastro** de novas ordens de serviço
+    - 📋 **Listagem** completa de OS cadastradas
+    - 🔍 **Busca** avançada por diversos critérios
+    - 🔄 **Atualização** de status e informações
+    - 📊 **Dashboard** com análises gráficas
+    - 👷 **Gerenciamento** de executantes
     """)
 
 
@@ -132,54 +135,64 @@ def cadastrar_os():
                 df = pd.concat([df, nova_os], ignore_index=True)
                 df.to_csv(FILENAME, index=False)
                 st.success("Ordem cadastrada com sucesso!")
-                st.session_state.cadastro_realizado = True
-
-    if st.session_state.get('cadastro_realizado', False):
-        st.session_state.cadastro_realizado = False
-        st.experimental_rerun()
+                time.sleep(1.5)
+                st.experimental_rerun()
 
 
 def listar_os():
-    st.header("📋 Listagem de Ordens de Serviço")
+    st.header("📋 Listagem Completa de OS")
     df = carregar_csv()
 
     if df.empty:
-        st.warning("Nenhuma OS cadastrada")
+        st.warning("Nenhuma ordem de serviço cadastrada ainda.")
     else:
+        with st.expander("Filtrar OS"):
+            col1, col2 = st.columns(2)
+            with col1:
+                filtro_status = st.selectbox("Status", ["Todos"] + list(STATUS_OPCOES.values()))
+            with col2:
+                filtro_tipo = st.selectbox("Tipo de Manutenção", ["Todos"] + list(TIPOS_MANUTENCAO.values()))
+
+        if filtro_status != "Todos":
+            df = df[df["Status"] == filtro_status]
+        if filtro_tipo != "Todos":
+            df = df[df["Tipo"] == filtro_tipo]
+
         st.dataframe(df, use_container_width=True)
 
 
 def buscar_os():
-    st.header("🔍 Buscar Ordens de Serviço")
+    st.header("🔍 Busca Avançada")
     df = carregar_csv()
 
     if df.empty:
-        st.warning("Nenhuma OS cadastrada")
+        st.warning("Nenhuma OS cadastrada para busca.")
         return
 
-    col1, col2 = st.columns(2)
-
-    with col1:
-        criterio = st.radio("Critério:", ["ID", "Solicitante", "Local", "Status"])
-
-    with col2:
-        if criterio == "ID":
-            busca = st.number_input("ID", min_value=1)
-            resultado = df[df["ID"] == busca]
-        elif criterio == "Solicitante":
-            busca = st.text_input("Solicitante")
-            resultado = df[df["Solicitante"].str.contains(busca, case=False)]
-        elif criterio == "Local":
-            busca = st.text_input("Local")
-            resultado = df[df["Local"].str.contains(busca, case=False)]
-        elif criterio == "Status":
-            busca = st.selectbox("Status", list(STATUS_OPCOES.values()))
-            resultado = df[df["Status"] == busca]
+    with st.container():
+        col1, col2 = st.columns([1, 3])
+        with col1:
+            criterio = st.radio("Critério de busca:",
+                                ["ID", "Solicitante", "Local", "Status", "Tipo", "Executante"])
+        with col2:
+            if criterio == "ID":
+                busca = st.number_input("Digite o ID da OS", min_value=1)
+                resultado = df[df["ID"] == busca]
+            elif criterio == "Status":
+                busca = st.selectbox("Selecione o status", list(STATUS_OPCOES.values()))
+                resultado = df[df["Status"] == busca]
+            elif criterio == "Tipo":
+                busca = st.selectbox("Selecione o tipo", list(TIPOS_MANUTENCAO.values()))
+                resultado = df[df["Tipo"] == busca]
+            else:
+                busca = st.text_input(f"Digite o {criterio.lower()}")
+                resultado = df[df[criterio].astype(str).str.contains(busca, case=False)]
 
     if not resultado.empty:
+        st.success(f"Encontradas {len(resultado)} OS:")
         st.dataframe(resultado, use_container_width=True)
     else:
-        st.warning("Nenhuma OS encontrada")
+        st.warning("Nenhuma OS encontrada com os critérios informados.")
 
 
 def atualizar_os():
@@ -206,35 +219,40 @@ def atualizar_os():
                 index=list(STATUS_OPCOES.values()).index(os_data["Status"])
             )
 
-            # Campo de executante sempre visível
             executantes = carregar_executantes()
+            executante_atual = str(os_data["Executante"]) if pd.notna(os_data["Executante"]) else ""
+            index_executante = (executantes.index(executante_atual) + 1
+                                if executante_atual in executantes else 0)
+
             executante = st.selectbox(
-                "Executante",
+                "Executante*" if novo_status in ["Em execução", "Concluído"] else "Executante",
                 [""] + executantes,
-                index=executantes.index(os_data["Executante"]) + 1 if os_data["Executante"] in executantes else 0
+                index=index_executante,
+                disabled=novo_status not in ["Em execução", "Concluído"]
             )
 
         with col2:
-            if novo_status == "Concluído":
-                data_conclusao = st.text_input(
-                    "Data de conclusão (DD/MM/AAAA ou DDMMAAAA)",
-                    value=os_data['Data Conclusão'] if pd.notna(os_data['Data Conclusão']) else ""
-                )
+            data_conclusao = st.text_input(
+                "Data de conclusão*" if novo_status == "Concluído" else "Data de conclusão",
+                value=str(os_data['Data Conclusão']) if pd.notna(os_data['Data Conclusão']) else "",
+                disabled=novo_status != "Concluído"
+            )
+
+        submitted = st.form_submit_button("Atualizar OS")
+
+        if submitted:
+            if novo_status in ["Em execução", "Concluído"] and not executante:
+                st.error("Selecione um executante para este status!")
+            elif novo_status == "Concluído" and not data_conclusao:
+                st.error("Informe a data de conclusão!")
             else:
-                data_conclusao = ""
-
-        if st.form_submit_button("Atualizar"):
-            df.loc[df["ID"] == os_id, "Status"] = novo_status
-            df.loc[df["ID"] == os_id, "Executante"] = executante
-            if novo_status == "Concluído":
-                df.loc[df["ID"] == os_id, "Data Conclusão"] = data_conclusao
-            df.to_csv(FILENAME, index=False)
-            st.success("OS atualizada com sucesso!")
-            st.session_state.atualizacao_realizada = True
-
-    if st.session_state.get('atualizacao_realizada', False):
-        st.session_state.atualizacao_realizada = False
-        st.experimental_rerun()
+                df.loc[df["ID"] == os_id, ["Status", "Executante"]] = [novo_status, executante]
+                if novo_status == "Concluído":
+                    df.loc[df["ID"] == os_id, "Data Conclusão"] = data_conclusao
+                df.to_csv(FILENAME, index=False)
+                st.success("OS atualizada com sucesso!")
+                time.sleep(1.5)
+                st.experimental_rerun()
 
 
 def dashboard():
@@ -242,22 +260,36 @@ def dashboard():
     df = carregar_csv()
 
     if df.empty:
-        st.warning("Nenhuma OS cadastrada")
+        st.warning("Nenhuma OS cadastrada para análise.")
         return
 
-    tab1, tab2 = st.tabs(["Por Status", "Por Tipo"])
+    tab1, tab2, tab3 = st.tabs(["📈 Status", "🔧 Tipos", "👥 Executantes"])
 
     with tab1:
         st.subheader("Distribuição por Status")
-        fig, ax = plt.subplots()
-        df["Status"].value_counts().plot.pie(autopct="%1.1f%%", ax=ax)
+        status_counts = df["Status"].value_counts()
+        fig, ax = plt.subplots(figsize=(8, 6))
+        status_counts.plot.pie(autopct="%1.1f%%", startangle=90, ax=ax)
         st.pyplot(fig)
 
     with tab2:
-        st.subheader("Distribuição por Tipo")
-        fig, ax = plt.subplots()
-        df["Tipo"].value_counts().plot.bar(ax=ax)
+        st.subheader("Distribuição por Tipo de Manutenção")
+        tipo_counts = df["Tipo"].value_counts()
+        fig, ax = plt.subplots(figsize=(10, 6))
+        sns.barplot(x=tipo_counts.values, y=tipo_counts.index, palette="viridis", ax=ax)
+        plt.xlabel("Quantidade")
         st.pyplot(fig)
+
+    with tab3:
+        st.subheader("OS por Executante")
+        executante_counts = df[df["Executante"] != ""]["Executante"].value_counts()
+        if not executante_counts.empty:
+            fig, ax = plt.subplots(figsize=(10, 6))
+            sns.barplot(x=executante_counts.values, y=executante_counts.index, palette="rocket", ax=ax)
+            plt.xlabel("Quantidade de OS")
+            st.pyplot(fig)
+        else:
+            st.warning("Nenhuma OS atribuída a executantes")
 
 
 def gerenciar_executantes():
@@ -267,48 +299,55 @@ def gerenciar_executantes():
     tab1, tab2 = st.tabs(["Adicionar", "Remover"])
 
     with tab1:
-        with st.form("add_executante"):
-            novo = st.text_input("Nome do executante")
-            if st.form_submit_button("Adicionar"):
-                if novo and novo not in executantes:
+        with st.form("add_executante_form"):
+            novo = st.text_input("Nome do novo executante*")
+            submitted_add = st.form_submit_button("Adicionar")
+
+            if submitted_add:
+                if not novo:
+                    st.error("Digite um nome válido!")
+                elif novo in executantes:
+                    st.warning("Este executante já está cadastrado!")
+                else:
                     executantes.append(novo)
                     salvar_executantes(executantes)
-                    st.success("Executante adicionado")
+                    st.success(f"Executante '{novo}' adicionado com sucesso!")
+                    time.sleep(1.5)
                     st.experimental_rerun()
 
     with tab2:
-        if executantes:
-            with st.form("rem_executante"):
-                selecionado = st.selectbox("Executante", executantes)
-                if st.form_submit_button("Remover"):
+        if not executantes:
+            st.warning("Nenhum executante cadastrado")
+        else:
+            with st.form("rem_executante_form"):
+                selecionado = st.selectbox("Selecione o executante para remover", executantes)
+                submitted_rem = st.form_submit_button("Remover")
+
+                if submitted_rem:
                     executantes.remove(selecionado)
                     salvar_executantes(executantes)
-                    st.success("Executante removido")
+                    st.success(f"Executante '{selecionado}' removido com sucesso!")
+                    time.sleep(1.5)
                     st.experimental_rerun()
-        else:
-            st.warning("Nenhum executante cadastrado")
 
 
-# Menu principal
 def main():
     if 'cadastro_realizado' not in st.session_state:
         st.session_state.cadastro_realizado = False
     if 'atualizacao_realizada' not in st.session_state:
         st.session_state.atualizacao_realizada = False
 
-    st.sidebar.title("Menu")
-    opcao = st.sidebar.selectbox(
-        "Selecione",
-        [
-            "🏠 Página Inicial",
-            "📝 Cadastrar OS",
-            "📋 Listar OS",
-            "🔍 Buscar OS",
-            "🔄 Atualizar OS",
-            "📊 Dashboard",
-            "👷 Gerenciar Executantes"
-        ]
-    )
+    st.sidebar.title("Menu Principal")
+    menu_opcoes = [
+        "🏠 Página Inicial",
+        "📝 Cadastrar OS",
+        "📋 Listar OS",
+        "🔍 Buscar OS",
+        "🔄 Atualizar OS",
+        "📊 Dashboard",
+        "👷 Gerenciar Executantes"
+    ]
+    opcao = st.sidebar.selectbox("Selecione a opção:", menu_opcoes)
 
     if opcao == "🏠 Página Inicial":
         pagina_inicial()
@@ -324,6 +363,11 @@ def main():
         dashboard()
     elif opcao == "👷 Gerenciar Executantes":
         gerenciar_executantes()
+
+    st.sidebar.markdown("---")
+    st.sidebar.markdown("**Sistema de Ordens de Serviço**")
+    st.sidebar.markdown("Versão 1.0")
+    st.sidebar.markdown("Desenvolvido por Robson Vilela")
 
 
 if __name__ == "__main__":
