@@ -309,7 +309,7 @@ def dashboard():
                         f'{int(width)}',  # Valor formatado
                         va='center',  # Alinhamento vertical
                         ha='right',   # Alinhamento horizontal
-                        color='red',
+                        color='pink',
                         fontsize=8)
             
             plt.ylabel("Status", fontsize=9)
