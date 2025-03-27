@@ -291,7 +291,7 @@ def dashboard():
         status_counts.plot.pie(autopct="%1.1f%%", startangle=90, ax=ax,
                      textprops={'fontsize': 3},  # Diminui a fonte das porcentagens
                      ylabel=None)  # Remover a label "count"
-        ax.set_title("Distribuição por Status", fontsize=3)  # Diminui a fonte do título
+        ax.set_title("Distribuição por Status", fontsize=4)  # Diminui a fonte do título
         ax.set_ylabel("")  # Garante remoção do label vertical
         st.pyplot(fig)
 
@@ -300,11 +300,11 @@ def dashboard():
         tipo_counts = df["Tipo"].value_counts()
         fig, ax = plt.subplots(figsize=(2, 1))
         sns.barplot(x=tipo_counts.values, y=tipo_counts.index, palette="viridis", ax=ax)
-        plt.xlabel("Quantidade", fontsize=9)
-        plt.ylabel("Tipo", fontsize=3)
+        plt.xlabel("Quantidade", fontsize=6)
+        plt.ylabel("Tipo", fontsize=6)
         ax.set_yticklabels(ax.get_yticklabels(), fontsize=3)
         ax.set_xticklabels(ax.get_xticklabels(), fontsize=3)
-        ax.set_title("Distribuição por Tipo de Manutenção", fontsize=3)
+        ax.set_title("Distribuição por Tipo de Manutenção", fontsize=6)
         st.pyplot(fig)
 
     with tab3:
@@ -313,11 +313,11 @@ def dashboard():
         if not executante_counts.empty:
             fig, ax = plt.subplots(figsize=(2, 1))
             sns.barplot(x=executante_counts.values, y=executante_counts.index, palette="rocket", ax=ax)
-            plt.xlabel("Quantidade de OS", fontsize=9)
-            plt.ylabel("Executante", fontsize=9)
+            plt.xlabel("Quantidade de OS", fontsize=4)
+            plt.ylabel("Executante", fontsize=4)
             ax.set_yticklabels(ax.get_yticklabels(), fontsize=3)
             ax.set_xticklabels(ax.get_xticklabels(), fontsize=3)
-            ax.set_title("OS por Executante", fontsize=3)
+            ax.set_title("OS por Executante", fontsize=6)
             st.pyplot(fig)
         else:
             st.warning("Nenhuma OS atribuída a executantes")
