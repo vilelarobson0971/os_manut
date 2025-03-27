@@ -332,7 +332,7 @@ def dashboard():
                         f'{int(width)}',
                         va='center',
                         ha='right',
-                        color='black',
+                        color='red',
                         fontsize=8)
             
             plt.ylabel("Status", fontsize=9)
@@ -365,7 +365,7 @@ def dashboard():
                         f'{int(width)}',
                         va='center',
                         ha='right',
-                        color='black',
+                        color='yellow',
                         fontsize=8)
             
             plt.ylabel("Tipo", fontsize=9)
@@ -398,7 +398,7 @@ def dashboard():
                         f'{int(width)}',
                         va='center',
                         ha='right',
-                        color='black',
+                        color='yellow',
                         fontsize=8)
             
             plt.ylabel("Executante", fontsize=9)
