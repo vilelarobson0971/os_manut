@@ -83,10 +83,12 @@ def formatar_data(data):
 
 # Funções principais
 def pagina_inicial():
-    st.header("🏠 Página Inicial")
-    st.write("""
-    Bem-vindo ao Sistema de Gestão de Ordens de Serviço
+    st.markdown("<h1 style='text-align: center; font-size: 36px;'>SISTEMA DE GESTÃO DE ORDENS DE SERVIÇO</h1>",
+                unsafe_allow_html=True)
+    st.markdown("<p style='text-align: center;'>By Robson Vilela</p>", unsafe_allow_html=True)
+    st.write("---")
 
+    st.write("""
     **Funcionalidades disponíveis:**
     - Cadastro de novas ordens de serviço
     - Listagem completa de OS
@@ -105,7 +107,9 @@ def cadastrar_os():
         solicitante = st.text_input("Solicitante*")
         local = st.text_input("Local*")
 
-        if st.form_submit_button("Cadastrar"):
+        submitted = st.form_submit_button("Cadastrar OS")
+
+        if submitted:
             if not descricao or not solicitante or not local:
                 st.error("Preencha todos os campos obrigatórios (*)")
             else:
@@ -128,8 +132,11 @@ def cadastrar_os():
                 df = pd.concat([df, nova_os], ignore_index=True)
                 df.to_csv(FILENAME, index=False)
                 st.success("Ordem cadastrada com sucesso!")
-                if st.button("Cadastrar nova OS"):
-                    st.rerun()
+                st.session_state.cadastro_realizado = True
+
+    if st.session_state.get('cadastro_realizado', False):
+        st.session_state.cadastro_realizado = False
+        st.experimental_rerun()
 
 
 def listar_os():
@@ -194,27 +201,40 @@ def atualizar_os():
         col1, col2 = st.columns(2)
         with col1:
             novo_status = st.selectbox(
-                "Status",
+                "Status*",
                 list(STATUS_OPCOES.values()),
                 index=list(STATUS_OPCOES.values()).index(os_data["Status"])
             )
+
+            # Campo de executante sempre visível
+            executantes = carregar_executantes()
+            executante = st.selectbox(
+                "Executante",
+                [""] + executantes,
+                index=executantes.index(os_data["Executante"]) + 1 if os_data["Executante"] in executantes else 0
+            )
+
         with col2:
-            if novo_status in ["Em execução", "Concluído"]:
-                executante = st.selectbox(
-                    "Executante",
-                    [""] + carregar_executantes(),
-                    index=0
+            if novo_status == "Concluído":
+                data_conclusao = st.text_input(
+                    "Data de conclusão (DD/MM/AAAA ou DDMMAAAA)",
+                    value=os_data['Data Conclusão'] if pd.notna(os_data['Data Conclusão']) else ""
                 )
             else:
-                executante = ""
+                data_conclusao = ""
 
         if st.form_submit_button("Atualizar"):
             df.loc[df["ID"] == os_id, "Status"] = novo_status
-            if executante:
-                df.loc[df["ID"] == os_id, "Executante"] = executante
+            df.loc[df["ID"] == os_id, "Executante"] = executante
+            if novo_status == "Concluído":
+                df.loc[df["ID"] == os_id, "Data Conclusão"] = data_conclusao
             df.to_csv(FILENAME, index=False)
             st.success("OS atualizada com sucesso!")
-            st.rerun()
+            st.session_state.atualizacao_realizada = True
+
+    if st.session_state.get('atualizacao_realizada', False):
+        st.session_state.atualizacao_realizada = False
+        st.experimental_rerun()
 
 
 def dashboard():
@@ -254,7 +274,7 @@ def gerenciar_executantes():
                     executantes.append(novo)
                     salvar_executantes(executantes)
                     st.success("Executante adicionado")
-                    st.rerun()
+                    st.experimental_rerun()
 
     with tab2:
         if executantes:
@@ -264,13 +284,18 @@ def gerenciar_executantes():
                     executantes.remove(selecionado)
                     salvar_executantes(executantes)
                     st.success("Executante removido")
-                    st.rerun()
+                    st.experimental_rerun()
         else:
             st.warning("Nenhum executante cadastrado")
 
 
 # Menu principal
 def main():
+    if 'cadastro_realizado' not in st.session_state:
+        st.session_state.cadastro_realizado = False
+    if 'atualizacao_realizada' not in st.session_state:
+        st.session_state.atualizacao_realizada = False
+
     st.sidebar.title("Menu")
     opcao = st.sidebar.selectbox(
         "Selecione",
