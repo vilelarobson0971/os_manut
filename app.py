@@ -284,7 +284,7 @@ def dashboard():
 
     tab1, tab2, tab3 = st.tabs(["📈 Status", "🔧 Tipos", "👥 Executantes"])
 
-   with tab1:
+    with tab1:
     st.subheader("Distribuição por Status")
     status_counts = df["Status"].value_counts()
     fig, ax = plt.subplots(figsize=(4, 2))  # Ajuste o tamanho conforme necessário
