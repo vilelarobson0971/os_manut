@@ -27,7 +27,7 @@ MAX_BACKUPS = 10
 SENHA_SUPERVISAO = "king@2025"
 CONFIG_FILE = "config.json"
 
-# Configurações do GitHub (serão carregadas do arquivo config.json)
+# Variáveis globais para configuração do GitHub
 GITHUB_REPO = None
 GITHUB_FILEPATH = None
 GITHUB_TOKEN = None
@@ -88,6 +88,7 @@ def inicializar_arquivos():
 
 def baixar_do_github():
     """Baixa o arquivo do GitHub se estiver mais atualizado"""
+    global GITHUB_REPO, GITHUB_FILEPATH, GITHUB_TOKEN
     try:
         g = Github(GITHUB_TOKEN)
         repo = g.get_repo(GITHUB_REPO)
@@ -107,6 +108,7 @@ def baixar_do_github():
 
 def enviar_para_github():
     """Envia o arquivo local para o GitHub"""
+    global GITHUB_REPO, GITHUB_FILEPATH, GITHUB_TOKEN
     try:
         g = Github(GITHUB_TOKEN)
         repo = g.get_repo(GITHUB_REPO)
@@ -126,120 +128,7 @@ def enviar_para_github():
         st.error(f"Erro ao enviar para GitHub: {str(e)}")
         return False
 
-def carregar_executantes():
-    """Carrega a lista de executantes do arquivo"""
-    if os.path.exists(EXECUTANTES_FILE):
-        try:
-            with open(EXECUTANTES_FILE, 'r') as f:
-                return [linha.strip() for linha in f.readlines() if linha.strip()]
-        except:
-            return []
-    return []
-
-def salvar_executantes(executantes):
-    """Salva a lista de executantes no arquivo"""
-    with open(EXECUTANTES_FILE, 'w') as f:
-        for nome in executantes:
-            f.write(f"{nome}\n")
-
-def fazer_backup():
-    """Cria um backup dos dados atuais"""
-    if os.path.exists(LOCAL_FILENAME) and os.path.getsize(LOCAL_FILENAME) > 0:
-        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        backup_name = os.path.join(BACKUP_DIR, f"ordens_servico_{timestamp}.csv")
-        shutil.copy(LOCAL_FILENAME, backup_name)
-        limpar_backups_antigos(MAX_BACKUPS)
-        return backup_name
-    return None
-
-def limpar_backups_antigos(max_backups):
-    """Remove backups antigos mantendo apenas os mais recentes"""
-    backups = sorted(glob.glob(os.path.join(BACKUP_DIR, "ordens_servico_*.csv")))
-    while len(backups) > max_backups:
-        try:
-            os.remove(backups[0])
-            backups.pop(0)
-        except:
-            continue
-
-def carregar_ultimo_backup():
-    """Retorna o caminho do backup mais recente"""
-    backups = sorted(glob.glob(os.path.join(BACKUP_DIR, "ordens_servico_*.csv")))
-    if backups:
-        return backups[-1]
-    return None
-
-def carregar_csv():
-    """Carrega os dados do CSV local"""
-    try:
-        df = pd.read_csv(LOCAL_FILENAME)
-        # Garante que as colunas importantes são strings
-        df["Executante"] = df["Executante"].astype(str)
-        df["Data Conclusão"] = df["Data Conclusão"].astype(str)
-        return df
-    except Exception as e:
-        st.error(f"Erro ao ler arquivo local: {str(e)}")
-        # Tenta carregar do backup
-        backup = carregar_ultimo_backup()
-        if backup:
-            try:
-                df = pd.read_csv(backup)
-                df.to_csv(LOCAL_FILENAME, index=False)  # Restaura o arquivo principal
-                return df
-            except:
-                pass
-        
-        return pd.DataFrame(columns=["ID", "Descrição", "Data", "Solicitante", "Local", 
-                                   "Tipo", "Status", "Executante", "Data Conclusão"])
-
-def salvar_csv(df):
-    """Salva o DataFrame no arquivo CSV local e faz backup"""
-    try:
-        df.to_csv(LOCAL_FILENAME, index=False)
-        fazer_backup()
-        
-        # Se configurado, envia para o GitHub
-        if GITHUB_REPO and GITHUB_FILEPATH and GITHUB_TOKEN:
-            enviar_para_github()
-            
-        return True
-    except Exception as e:
-        st.error(f"Erro ao salvar dados: {str(e)}")
-        return False
-
-# Funções principais (páginas) - Mantidas as mesmas do código anterior
-def pagina_inicial():
-    col1, col2 = st.columns([1, 15])
-    with col1:
-        st.markdown('<div style="font-size: 2.5em; margin-top: 10px;">🔧</div>', unsafe_allow_html=True)
-    with col2:
-        st.markdown("<h1 style='font-size: 2.5em;'>SISTEMA DE GESTÃO DE ORDENS DE SERVIÇO</h1>", unsafe_allow_html=True)
-
-    st.markdown("<p style='text-align: center; font-size: 1.2em;'>By Robson Vilela</p>", unsafe_allow_html=True)
-    st.markdown("---")
-
-    st.markdown("""
-    ### Bem-vindo ao Sistema de Gestão de Ordens de Serviço
-    **Funcionalidades disponíveis:**
-    - 📝 **Cadastro** de novas ordens de serviço
-    - 📋 **Listagem** completa de OS cadastradas
-    - 🔍 **Busca** avançada por diversos critérios
-    - 📊 **Dashboard** com análises gráficas
-    - 🔐 **Supervisão** (área restrita)
-    """)
-
-    # Mostra informações de backup
-    backups = sorted(glob.glob(os.path.join(BACKUP_DIR, "ordens_servico_*.csv")), reverse=True)
-    if backups:
-        with st.expander("📁 Backups disponíveis"):
-            st.write(f"Último backup: {os.path.basename(backups[0])}")
-            st.write(f"Total de backups: {len(backups)}")
-
-    # Mostra status de sincronização com GitHub
-    if GITHUB_REPO:
-        st.info("✅ Sincronização com GitHub ativa")
-    else:
-        st.warning("⚠️ Sincronização com GitHub não configurada")
+# ... (mantenha as outras funções auxiliares como carregar_executantes, salvar_executantes, etc.)
 
 def pagina_supervisao():
     st.header("🔐 Área de Supervisão")
@@ -279,6 +168,7 @@ def pagina_supervisao():
 
 def configurar_github():
     st.header("⚙️ Configuração do GitHub")
+    global GITHUB_REPO, GITHUB_FILEPATH, GITHUB_TOKEN
     
     with st.form("github_config_form"):
         repo = st.text_input("Repositório GitHub (user/repo)", value=GITHUB_REPO or "")
@@ -300,7 +190,6 @@ def configurar_github():
                         json.dump(config, f)
                     
                     # Atualiza variáveis globais
-                    global GITHUB_REPO, GITHUB_FILEPATH, GITHUB_TOKEN
                     GITHUB_REPO = repo
                     GITHUB_FILEPATH = filepath
                     GITHUB_TOKEN = token
@@ -318,9 +207,7 @@ def configurar_github():
             else:
                 st.error("Preencha todos os campos para ativar a sincronização com GitHub")
 
-# As demais funções (cadastrar_os, listar_os, buscar_os, dashboard, etc.) 
-# permanecem exatamente como no código anterior, apenas usando LOCAL_FILENAME 
-# em vez de FILENAME para os arquivos locais
+# ... (mantenha as outras funções principais como cadastrar_os, listar_os, etc.)
 
 def main():
     # Inicializa arquivos e verifica consistência
