@@ -28,10 +28,12 @@ except ImportError:
 # Constantes
 LOCAL_FILENAME = "ordens_servico.csv"
 BACKUP_DIR = "backups"
-EXECUTANTES_FILE = "executantes.txt"
 MAX_BACKUPS = 10
 SENHA_SUPERVISAO = "king@2025"
 CONFIG_FILE = "config.json"
+
+# Executantes pré-definidos
+EXECUTANTES_PREDEFINIDOS = ["Robson", "Guilherme"]
 
 # Variáveis globais para configuração do GitHub
 GITHUB_REPO = None
@@ -86,11 +88,6 @@ def inicializar_arquivos():
         else:
             pd.DataFrame(columns=["ID", "Descrição", "Data", "Solicitante", "Local", 
                                 "Tipo", "Status", "Executante", "Data Conclusão"]).to_csv(LOCAL_FILENAME, index=False)
-    
-    # Inicializar arquivo de executantes
-    if not os.path.exists(EXECUTANTES_FILE):
-        with open(EXECUTANTES_FILE, 'w') as f:
-            f.write("")
 
 def baixar_do_github():
     """Baixa o arquivo do GitHub se estiver mais atualizado"""
@@ -140,27 +137,6 @@ def enviar_para_github():
         return True
     except Exception as e:
         st.error(f"Erro ao enviar para GitHub: {str(e)}")
-        return False
-
-def carregar_executantes():
-    """Carrega a lista de executantes do arquivo"""
-    if os.path.exists(EXECUTANTES_FILE):
-        try:
-            with open(EXECUTANTES_FILE, 'r') as f:
-                return [linha.strip() for linha in f.readlines() if linha.strip()]
-        except:
-            return []
-    return []
-
-def salvar_executantes(executantes):
-    """Salva a lista de executantes no arquivo"""
-    try:
-        with open(EXECUTANTES_FILE, 'w') as f:
-            for nome in executantes:
-                f.write(f"{nome}\n")
-        return True
-    except Exception as e:
-        st.error(f"Erro ao salvar executantes: {str(e)}")
         return False
 
 def fazer_backup():
@@ -487,7 +463,6 @@ def pagina_supervisao():
         "Selecione a função de supervisão:",
         [
             "🔄 Atualizar OS",
-            "👷 Gerenciar Executantes",
             "💾 Gerenciar Backups",
             "⚙️ Configurar GitHub"
         ]
@@ -495,8 +470,6 @@ def pagina_supervisao():
     
     if opcao_supervisao == "🔄 Atualizar OS":
         atualizar_os()
-    elif opcao_supervisao == "👷 Gerenciar Executantes":
-        gerenciar_executantes()
     elif opcao_supervisao == "💾 Gerenciar Backups":
         gerenciar_backups()
     elif opcao_supervisao == "⚙️ Configurar GitHub":
@@ -534,15 +507,11 @@ def atualizar_os():
                 index=list(STATUS_OPCOES.values()).index(os_data["Status"])
             )
 
-            executantes = carregar_executantes()
-            executante_atual = str(os_data["Executante"]) if pd.notna(os_data["Executante"]) else ""
-            index_executante = (executantes.index(executante_atual) + 1
-                              if executante_atual in executantes else 0)
-
             executante = st.selectbox(
-                "Executante",
-                [""] + executantes,
-                index=index_executante
+                "Executante*",
+                EXECUTANTES_PREDEFINIDOS,
+                index=0 if pd.isna(os_data["Executante"]) or os_data["Executante"] == "" 
+                else EXECUTANTES_PREDEFINIDOS.index(os_data["Executante"])
             )
 
         with col2:
@@ -579,56 +548,6 @@ def atualizar_os():
                 
                 if salvar_csv(df):
                     st.success("OS atualizada com sucesso! Backup automático realizado.")
-                    time.sleep(1)
-                    st.rerun()
-
-def gerenciar_executantes():
-    st.header("👷 Gerenciar Executantes")
-    
-    # Carrega executantes sempre que a página é acessada
-    executantes = carregar_executantes()
-    
-    # Armazena na sessão para manter consistência
-    if 'executantes' not in st.session_state:
-        st.session_state.executantes = executantes
-
-    tab1, tab2 = st.tabs(["Adicionar", "Remover"])
-
-    with tab1:
-        with st.form("add_executante_form"):
-            novo = st.text_input("Nome do novo executante*")
-            submitted_add = st.form_submit_button("Adicionar")
-
-            if submitted_add:
-                if not novo:
-                    st.error("Digite um nome válido!")
-                elif novo in st.session_state.executantes:
-                    st.warning("Este executante já está cadastrado!")
-                else:
-                    st.session_state.executantes.append(novo)
-                    salvar_executantes(st.session_state.executantes)
-                    st.success(f"Executante '{novo}' adicionado com sucesso!")
-                    time.sleep(1)
-                    st.rerun()
-
-    with tab2:
-        if not st.session_state.executantes:
-            st.warning("Nenhum executante cadastrado")
-        else:
-            with st.form("rem_executante_form"):
-                selecionado = st.selectbox("Selecione o executante para remover", st.session_state.executantes)
-                submitted_rem = st.form_submit_button("Remover")
-
-                if submitted_rem:
-                    st.session_state.executantes.remove(selecionado)
-                    salvar_executantes(st.session_state.executantes)
-                    
-                    # Atualiza as OS que tinham esse executante
-                    df = carregar_csv()
-                    df.loc[df["Executante"] == selecionado, "Executante"] = ""
-                    salvar_csv(df)
-                    
-                    st.success(f"Executante '{selecionado}' removido com sucesso!")
                     time.sleep(1)
                     st.rerun()
 
