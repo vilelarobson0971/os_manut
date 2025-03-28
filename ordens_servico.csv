@@ -97,14 +97,14 @@ ID,Descrição,Data,Solicitante,Local,Tipo,Status,Executante,Data Conclusão
 96,Fazer 2 cabines para fazer a retirada do talco,25/07/24,Fran. Duarte,Producao,Instalação,Concluído,Robson,
 97,montar estrutura para instencao ir aeria em cima mmesa estamparia para uso do asoprado,25/07/24,Fran. Duarte,Produção,Instalação,Concluído,Paulinho,
 98,Trocar lampada queimada no setor,25/07/24,Joelsom,Corte,Elétrica,Concluído,Paulinho,26/07/24
-99,Ar condcionado sala diretoria não funciona,26/07/24,Rafael,Diretoria,Elétrica,Concluído,Robson,29/07/24
+99,Ar condcionado sala diretoria não funciona,26/07/24,Rafael,Diretoria,Refrigeração,Concluído,Robson,29/07/24
 100,Mudar a máquina da tipografia para setor do CD,29/07/24,Fran Duarte,Filial,Instalação,Concluído,Paulinho,30/07/24
 101,Instalar tela nas portas da Filial,29/07/24,Renato Silva,Filial,Instalação,Concluído,Robson,
 102,Instalar mola no portão social da matriz,29/07/24,Jair,Matriz,Instalação,Concluído,Robson,01/08/24
 103,Trocar lâmpada piscando,30/07/24,Diego,Marketing,Elétrica,Concluído,Paulinho,05/08/24
 104,arrumar a fechadura da porta principal do almoxarifado,30/07/24,Fran. Duarte,Acabamento,Civil,Concluído,Paulinho,
 105,fazer a mudança da matiz p a filia no dia 05/08,31/07,Janaina,modelagem,Instalação,Concluído,Paulinho,06/08/24
-106,Ar condicionado com cheiro de mofo,31/07/24,Guilherme,Fiscal,Mecânica,Concluído,Robson,01/08/24
+106,Ar condicionado com cheiro de mofo,31/07/24,Guilherme,Fiscal,Refrigeração,Concluído,Robson,01/08/24
 107,Instalar quadros de indicadores de meta no setor,31/07/24,Renato Silva,Acabamento,Instalação,Concluído,Paulinho,
 108,Movimentar móveis das salas adm,31/07/24,Renato Silva,Acabamento,Instalação,Concluído,Paulinho,31/07/24
 109,Movimentar mesas das salas do Fabiano,31/07/24,Rafael,Desenv. do produto,Instalação,Concluído,Paulinho,02/08/24
@@ -144,7 +144,7 @@ ID,Descrição,Data,Solicitante,Local,Tipo,Status,Executante,Data Conclusão
 143,Pintar vigas U da mesa de estamparia,15/08/24,Mayko,Estamparia,Mecânica,Concluído,Paulinho,27/08/24
 144,Adequar grades da entrada da Expedição,16/08/24,Rafael,Expedição,Mecânica,Concluído,Robson,
 145,Trocar maçaneta da porta,16/08,Wesley,PPCP,Civil,Concluído,Paulinho,20/08/24
-146,Manutenção Ar Condicionado,16/08,Guilherme,Controladoria,Mecânica,Concluído,Robson,19/08/24
+146,Manutenção Ar Condicionado,16/08,Guilherme,Controladoria,Refrigeração,Concluído,Robson,19/08/24
 147,Colocar 1 defletor em cada ar condicionado aqui da sala do Marketing,16/08/24,Diego,Marketing,Mecânica,Concluído,Guilherme,
 148,Arrumar batente da porta (desalinhou impedindo fechamento),19/08,Ana,Comercial,Civil,Concluído,Paulinho,20/08/24
 149,Arrumar batente da porta (desalinhou impedindo fechamento),19/08,Rafael,Sala Diretoria,Civil,Concluído,Paulinho,20/08/24
@@ -169,13 +169,13 @@ ID,Descrição,Data,Solicitante,Local,Tipo,Status,Executante,Data Conclusão
 168,Maquina de arquear nao funciona,02/09/24,Joelson,Corte,Elétrica,Concluído,Robson,02/09/24
 169,Instalar quadro na janela externa da sala de T.I da filial,02/09/24,Isabela,PPCP,Instalação,Concluído,Robson,03/09/24
 170,Acompanhar prestador de serviço higienização dos reseratórios de água,03/09/24,Robson,Manutenção,Hidráulica,Concluído,Robson,03/09/24
-171,Manutenção Ar Condicionado,04/09/24,Guilherme,Controladoria,Mecânica,Concluído,Robson,04/09/24
+171,Manutenção Ar Condicionado,04/09/24,Guilherme,Controladoria,Refrigeração,Concluído,Robson,04/09/24
 172,Instalar os bercos da estamparia,04/09/24,Fran. Duarte,Estamparia,Elétrica,Concluído,Robson,05/09/24
 173,Esticar corrente da máquina de viés,04/09/24,Isis,Corte,Mecânica,Concluído,Robson,04/09/24
-174,Manutenção Ar Condicionado,04/09/24,Juliano,T.I.,Mecânica,Concluído,Robson,05/09/24
+174,Manutenção Ar Condicionado,04/09/24,Juliano,T.I.,Refrigeração,Concluído,Robson,05/09/24
 175,Lavadora de amostras não está aquecendo,04/09/24,Gabriel,Qualidade,Elétrica,Concluído,Robson,09/09/24
 176,fazer furo na maquina de cós,09/06/24,Lucia,pilotagem,Mecânica,Concluído,Robson,
-177,MANUTENÇÃO DO AR CONDICIONADO,09/09/24,JANAINA,ENGENHARIA,Mecânica,Concluído,Robson,
+177,MANUTENÇÃO DO AR CONDICIONADO,09/09/24,JANAINA,ENGENHARIA,Refrigeração,Concluído,Robson,
 178,Transferir móveis e frigobar do show room para sala ADM Matriz,09/09/24,Rafael,ADM Matriz,Instalação,Concluído,Guilherme,09/09/24
 179,Trocar óleo das máquinas de costura reta,09/09/24,Lucia,Pilotagem,Mecânica,Concluído,Guilherme,01/10/24
 180,reapertar vasos sanitários soltos,09/09/24,Edna,Filial,Hidráulica,Concluído,Guilherme,
@@ -183,11 +183,11 @@ ID,Descrição,Data,Solicitante,Local,Tipo,Status,Executante,Data Conclusão
 182,Dijuntor do refeitorio caindo a chave no quadro maior perto da caixa de agua azul ,09/09/24,Fran. Duarte,Producao,Elétrica,Concluído,Guilherme,18/09/24
 183,Esteira da fusionadeira descolando,10/09/24,Fran Duarte,Produção,Mecânica,Concluído,Robson,10/09/24
 184,Mudar dois ventiladores de local,10/09/24,Nelio,CD,Elétrica,Concluído,Guilherme,
-185,Ar condicionado não está funcionando,10/09/24,Cilene,Compras,Mecânica,Concluído,Robson,
+185,Ar condicionado não está funcionando,10/09/24,Cilene,Compras,Refrigeração,Concluído,Robson,
 186,passadoria Ferro Nana Calderinha nao esta esquentando,09/11/24,Fran.Duarte,Acabamento,Elétrica,Concluído,Robson,
 187,TROCAR RODINHA DA CADEIRA DA  AMANDA E TROCAR O PÉ DE OUTRA CADEIRA DA SALA ,09/12/24,JANAINA,ENGENHARIA,Mecânica,Concluído,Guilherme,
 188,Maquina de peitilho fazendo barulho igual video enviado para Robson hoje,12/09/24,Fran. Duarte,Cd,Mecânica,Concluído,Robson,
-189,Ar condicionado com alarme,12/09/24,Bete,Financeiro,Mecânica,Concluído,Robson,
+189,Ar condicionado com alarme,12/09/24,Bete,Financeiro,Refrigeração,Concluído,Robson,
 190,Fita da esteira da coladeira de intertela soltando,12/09/24,Fran,Acabamento,Mecânica,Concluído,Robson,
 191,Executar obra de adequação de guarda de resíduos da ETE,12/09/24,Jair,Filial,Civil,Concluído,Robson,29/10/24
 192,Ventilador de parede não funciona,13/09/24,Weder,Expedição,Elétrica,Concluído,Guilherme,13/09/24
@@ -336,8 +336,8 @@ ID,Descrição,Data,Solicitante,Local,Tipo,Status,Executante,Data Conclusão
 335,Bebedouro entupido,19/11/24,FranAguiar,Filial,Hidráulica,Concluído,Guilherme,19/11/24
 336,Trocar lâmpada do corredor da ADM,19/11/24,Rafael,ADM,Elétrica,Concluído,Guilherme,21/11/24
 337,Falta de fase na rede eletrica,19/11/24,FranAguiar,Acabamento,Elétrica,Concluído,Guilherme,19/11/24
-338,Ar condicionado não gela,19/11/24,Tatiane,RH,Mecânica,Concluído,Robson,21/11/24
-339,Ar condicionado não liga,19/11/24,Joelson,Risco,Mecânica,Concluído,Guilherme,19/11/24
+338,Ar condicionado não gela,19/11/24,Tatiane,RH,Refrigeração,Concluído,Robson,21/11/24
+339,Ar condicionado não liga,19/11/24,Joelson,Risco,Refrigeração,Concluído,Guilherme,19/11/24
 340,FECHADURA DA PORTA DO ALMOXARIFADO COMPROBLEMA,19/11/24,FABIANA,ALMOXARIFADO/AVIAMEN,Civil,Concluído,Guilherme,21/11/24
 341,Sensor da Enfestadeira 2 com defeito,19/11/24,Joelson,Corte,Elétrica,Concluído,Robson,21/11/24
 342,Construir rampa de acesso no portão social,21/11/24,Jair,Matriz,Civil,Concluído,Guilherme,22/11/24
@@ -383,7 +383,7 @@ ID,Descrição,Data,Solicitante,Local,Tipo,Status,Executante,Data Conclusão
 382,Instalar quadros na parede,06/12/24,Rafael,Showroom,Mecânica,Concluído,Robson,06/12/24
 383,Instalar tomada para mesa do David,06/12/24,Nélio,Estoque de tecidos,Elétrica,Concluído,Guilherme,06/12/24
 384,Trocar lâmpada queimada no corredor,06/12/24,Robson,ADM Matriz,Elétrica,Concluído,Guilherme,06/12/24
-385,Ar condicionado vazando água,06/12/24,Tatiane,Estilo,Mecânica,Concluído,Guilherme,09/12/24
+385,Ar condicionado vazando água,06/12/24,Tatiane,Estilo,Refrigeração,Concluído,Guilherme,09/12/24
 386,Instalar botão lado interno portão principal para saida de motos,06/12/24,Rafael,Matriz   ,Instalação,Concluído,Robson,20/01/25
 387,Transferir mesa da Fran para o chão de fábrica,09/12/24,Nélio,Qualidade,Instalação,Concluído,Guilherme,09/12/24
 388,Instalar display de acrilico no setor,09/12/24,Isabela,Revisão,Instalação,Concluído,Robson,19/12/24
@@ -400,29 +400,29 @@ ID,Descrição,Data,Solicitante,Local,Tipo,Status,Executante,Data Conclusão
 399,Enfestadeira 1 com correia quebrada,11/12/24,Vini,Corte,Mecânica,Concluído,Robson,16/12/24
 400,Colocar duas buchas na parede da ADM,11/12/24,Gabriel,T.I.,Civil,Concluído,Guilherme,11/12/24
 401,Aumentar a arara para que a roupa não encoste na parede.,11/12/24,Isabela/Nélio,Corte,Instalação,Concluído,Guilherme,19/12/24
-402,Limpar ar condicionado sala Sr. Jair,11/12/24,Robson,ADM,Mecânica,Concluído,Guilherme,11/12/24
-403,Limpar ar condicionado sala Vendas,11/12/24,Robson,ADM,Mecânica,Concluído,Guilherme,11/12/24
-404,Limpar ar condicionado sala de reunião principal (2 aparelhos),11/12/24,Robson,ADM,Mecânica,Concluído,Guilherme,16/12/24
-405,Limpar ar condicionado sala de reunião térreo,11/12/24,Robson,ADM,Mecânica,Concluído,Guilherme,19/12/25
-406,Limpar ar condicionado sala do Marketing (2 Aparelhos),11/12/24,Robson,ADM,Mecânica,Concluído,Guilherme,12/12/24
-407,Limpar ar condicionado sala do Rafael,11/12/24,Robson,ADM,Mecânica,Concluído,Guilherme,16/12/24
-408,Limpar ar condicionado sala antigo Showroom,11/12/24,Robson,ADM,Mecânica,Concluído,Guilherme,16/12/24
-409,Limpar ar condicionado sala Inteligência de mercado,11/12/24,Robson,ADM,Mecânica,Concluído,Robson,11/11/24
-410,Limpar ar condicionado sala Laboratório,11/12/24,Robson,Laboratório,Mecânica,Concluído,Guilherme,11/12/24
+402,Limpar ar condicionado sala Sr. Jair,11/12/24,Robson,ADM,Refrigeração,Concluído,Guilherme,11/12/24
+403,Limpar ar condicionado sala Vendas,11/12/24,Robson,ADM,Refrigeração,Concluído,Guilherme,11/12/24
+404,Limpar ar condicionado sala de reunião principal (2 aparelhos),11/12/24,Robson,ADM,Refrigeração,Concluído,Guilherme,16/12/24
+405,Limpar ar condicionado sala de reunião térreo,11/12/24,Robson,ADM,Refrigeração,Concluído,Guilherme,19/12/25
+406,Limpar ar condicionado sala do Marketing (2 Aparelhos),11/12/24,Robson,ADM,Refrigeração,Concluído,Guilherme,12/12/24
+407,Limpar ar condicionado sala do Rafael,11/12/24,Robson,ADM,Refrigeração,Concluído,Guilherme,16/12/24
+408,Limpar ar condicionado sala antigo Showroom,11/12/24,Robson,ADM,Refrigeração,Concluído,Guilherme,16/12/24
+409,Limpar ar condicionado sala Inteligência de mercado,11/12/24,Robson,ADM,Refrigeração,Concluído,Robson,11/11/24
+410,Limpar ar condicionado sala Laboratório,11/12/24,Robson,Laboratório,Refrigeração,Concluído,Guilherme,11/12/24
 411,Solicito orçamento para um aumento do pavilhão do corte ,12/12/24,Isabela/Nélio,Barracão Corte,Instalação,Concluído,Robson,08/01/25
 412,Prensa da Enfestadeira 4 não está travando,12/12/24,Rose,Corte,Mecânica,Concluído,Robson,12/12/24
 413,Desativar uma torneira da banheiro feminino que esta escorrendo sem parar,16/12/24,Fran.Duart,Filial,Hidráulica,Concluído,Guilherme,17/12/24
 414,Cortar os pés da mesa,16/12/24,David,Estoque,Mecânica,Concluído,Guilherme,17/12/24
-415,Limpar ar condicionado da recepção da Expedição,17/12/24,Robson,Expedição,Mecânica,Concluído,Guilherme,23/12/24
-416,Limpar ar condicionado da sala do Weder,17/12/24,Robson,Expedição,Mecânica,Concluído,Guilherme,23/12/24
+415,Limpar ar condicionado da recepção da Expedição,17/12/24,Robson,Expedição,Refrigeração,Concluído,Guilherme,23/12/24
+416,Limpar ar condicionado da sala do Weder,17/12/24,Robson,Expedição,Refrigeração,Concluído,Guilherme,23/12/24
 417,Instalar ponto de ar comprimido na oficina,17/12/24,Robson,Manutenção,Mecânica,Concluído,Guilherme,18/12/24
 418,Compra de balde para alocar os tubetes e organizar o setor,17/12/24,Isabela/Francielle,Laboratório,Instalação,Concluído,Robson,19/12/24
 419,maquina de desfiar gola esta travada,18/12/24,Fran.Duarte,CD,Mecânica,Concluído,Guilherme,18/12/24
 420,maquina de fusionagem pequena tem uma mangueira na parte interna vazando ar,18/12/24,Fran.Duarte,CD,Mecânica,Concluído,Guilherme,18/12/24
 421,maquina de fusionagem pequena arrumar o remendo que esta solto ,18/12/24,Fran.Duarte,CD,Mecânica,Concluído,Guilherme,18/12/24
 422,Orçar/Programar manutenção de 2000h do compressor parafuso,19/12/24,Robson,Filial,Mecânica,Concluído,Robson,09/01/25
-423,Limpar ar condicionado sala Umberto,19/12/24,Robson,Estoque,Mecânica,Concluído,Guilherme,19/12/24
-424,Limpar ar condicionado do Refeitório,19/12/24,Robson,Refeitório,Mecânica,Concluído,Guilherme,19/12/24
+423,Limpar ar condicionado sala Umberto,19/12/24,Robson,Estoque,Refrigeração,Concluído,Guilherme,19/12/24
+424,Limpar ar condicionado do Refeitório,19/12/24,Robson,Refeitório,Refrigeração,Concluído,Guilherme,19/12/24
 425,Pintar piso na entrada da Recepção,19/12/24,Robson,Matriz,Civil,Concluído,Guilherme,19/12/24
 426,Construir mesa de 1.10 x 1.10 para a enfestadeira,19/12/24,Vini,Corte,Instalação,Concluído,Robson,07/01/25
 427,Instalar placas de sinalização Resíduo Perigoso,19/12/24,Robson,Estamparia e ETE,Instalação,Concluído,Robson,19/12/24
@@ -431,17 +431,17 @@ ID,Descrição,Data,Solicitante,Local,Tipo,Status,Executante,Data Conclusão
 430,Luz da sala piscando,20/12/24,Jair,Diretoria,Elétrica,Concluído,Guilherme,20/12/24
 431,Passar resina no piso do corredor do estúdio,20/12/24,Robson,Matriz,Civil,Concluído,Guilherme,20/12/24
 432,Fixar mão francesa para guarda de lâmpadas queimadas,20/12/24,Robson,Oficina manutenção,Civil,Concluído,Robson,26/12/24
-433,Limpar ar condicionado da sala Gerência,26/12/24,Robson,Filial,Mecânica,Concluído,Guilherme,26/12/24
-434,Limpar ar condicionado da sala Modelagem,26/12/24,Robson,Filial,Mecânica,Concluído,Guilherme,26/12/24
-435,Limpar ar condicionado da sala Estilo,26/12/24,Robson,Filial,Mecânica,Concluído,Guilherme,27/12/24
-436,Limpar ar condicionado da sala Show Room,26/12/24,Robson,Filial,Mecânica,Concluído,Guilherme,03/01/25
-437,Limpar ar condicionado da sala T.I.,26/12/24,Robson,Filial,Mecânica,Concluído,Guilherme,02/01/25
-438,Limpar ar condicionado da sala PCP,26/12/24,Robson,Filial,Mecânica,Concluído,Guilherme,02/01/25
-439,Limpar ar condicionado da sala PCP,26/12/24,Robson,Filial,Mecânica,Concluído,Guilherme,02/01/25
-440,Limpar ar condicionado da sala Refeitório,26/12/24,Robson,Filial,Mecânica,Concluído,Guilherme,26/12/24
-441,Limpar ar condicionado da sala Refeitório,26/12/24,Robson,Filial,Mecânica,Concluído,Guilherme,27/12/24
-442,Limpar ar condicionado da salaRefeitório,26/12/24,Robson,Filial,Mecânica,Concluído,Guilherme,27/12/24
-443,Limpar ar condicionado da sala de Reunião,26/12/24,Robson,Filial,Mecânica,Concluído,Guilherme,27/12/24
+433,Limpar ar condicionado da sala Gerência,26/12/24,Robson,Filial,Refrigeração,Concluído,Guilherme,26/12/24
+434,Limpar ar condicionado da sala Modelagem,26/12/24,Robson,Filial,Refrigeração,Concluído,Guilherme,26/12/24
+435,Limpar ar condicionado da sala Estilo,26/12/24,Robson,Filial,Refrigeração,Concluído,Guilherme,27/12/24
+436,Limpar ar condicionado da sala Show Room,26/12/24,Robson,Filial,Refrigeração,Concluído,Guilherme,03/01/25
+437,Limpar ar condicionado da sala T.I.,26/12/24,Robson,Filial,Refrigeração,Concluído,Guilherme,02/01/25
+438,Limpar ar condicionado da sala PCP,26/12/24,Robson,Filial,Refrigeração,Concluído,Guilherme,02/01/25
+439,Limpar ar condicionado da sala PCP,26/12/24,Robson,Filial,Refrigeração,Concluído,Guilherme,02/01/25
+440,Limpar ar condicionado da sala Refeitório,26/12/24,Robson,Filial,Refrigeração,Concluído,Guilherme,26/12/24
+441,Limpar ar condicionado da sala Refeitório,26/12/24,Robson,Filial,Refrigeração,Concluído,Guilherme,27/12/24
+442,Limpar ar condicionado da salaRefeitório,26/12/24,Robson,Filial,Refrigeração,Concluído,Guilherme,27/12/24
+443,Limpar ar condicionado da sala de Reunião,26/12/24,Robson,Filial,Refrigeração,Concluído,Guilherme,27/12/24
 444,Afiar discos da maquina de viés,27/12/24,Vini,Corte,Mecânica,Concluído,Robson,27/12/24
 445,Mola da maquina de viés escapou,27/12/24,Vini,Corte,Mecânica,Concluído,Robson,27/12/24
 446,Trocar a luz da maquina galoneira queimou,27/12/24,Fran.Duarte,Acabamento,Elétrica,Concluído,Guilherme,30/12/24
@@ -465,7 +465,7 @@ ID,Descrição,Data,Solicitante,Local,Tipo,Status,Executante,Data Conclusão
 464,Arrumar cadeado da porta de entrada do estoque,06/01/25,Diego,Expedição KIDS,Civil,Concluído,Guilherme,06/01/25
 465,Arrumar o braço de uma cadeira do marketing,06/01/25,Diego,Marketing,Instalação,Concluído,Guilherme,06/01/25
 466,Suporte da cremalheira do portão do Corte quebrou,07/01/25,Robson,Matriz,Mecânica,Concluído,Robson,07/01/25
-467,Limpar ar condicionado,07/01/25,Diego,Sala Expedição Kid,Mecânica,Concluído,Guilherme,08/01/25
+467,Limpar ar condicionado,07/01/25,Diego,Sala Expedição Kid,Refrigeração,Concluído,Guilherme,08/01/25
 468,Fazer demarcação no piso dos extintores,07/01/25,Robson,Estoque de tecidos,Civil,Concluído,Guilherme,09/01/25
 469,Cortar tampo de MDF para mesa do setor,07/01/25,Robson,Corte,Instalação,Concluído,Guilherme,08/01/25
 470,batente da porta da T.I.. está solto,07/01/25,Nélio,T.I.,Civil,Concluído,Guilherme,08/01/25
@@ -562,10 +562,10 @@ ID,Descrição,Data,Solicitante,Local,Tipo,Status,Executante,Data Conclusão
 561,PORTA NÃO ESTA FECHANDO,24/01/25,FABIANA,FILIAL,Civil,Concluído,Robson,28/01/25
 562,Desconectar a amquina de desfiar gola uma vai ser enviada para a facção de Ebema,27/01/25,Fran. Duarte,FILIAL,Elétrica,Concluído,Guilherme,27/01/25
 563,Maquina grande de fusionagem não esta aquecendo a temperatura ,27/01/25,Fran. Duarte,FILIAL,Elétrica,Concluído,Robson,28/01/25
-564,Verificar ar condicionado de compras não está esfriando,27/01/25,Leilane,Compras,Mecânica,Concluído,Robson,28/01/25
+564,Verificar ar condicionado de compras não está esfriando,27/01/25,Leilane,Compras,Refrigeração,Concluído,Robson,28/01/25
 565,Aplicar demão de tinta branca no piso do estúdio,27/01/25,Maitê,Estúdio,Civil,Concluído,Guilherme,29/01/25
 566,Ar condicionado da sala de reunião da ADM está estralando,28/01/25,Diego,ADM,Mecânica,Concluído,,30/01/25
-567,Manutenção ar - cheirando mofo,28/01/25,Guilherme,Controladoria,Mecânica,Concluído,Guilherme,29/01/25
+567,Manutenção ar - cheirando mofo,28/01/25,Guilherme,Controladoria,Refrigeração,Concluído,Guilherme,29/01/25
 568,Pintar a escada de acesso ao refeitório,28/01/25,Guilherme,Manutenção,Civil,Pendente,,
 569,Pintar demarcação de extintores e hidrantes na ADM T.I e Recepção,28/01/25,Robson,ADM,Civil,Concluído,Guilherme,04/02/25
 570,Pintar demarcação de hidrante na Expedição,28/01/25,Robson,Expedição,Civil,Concluído,Guilherme,30/01/25
@@ -594,7 +594,7 @@ ID,Descrição,Data,Solicitante,Local,Tipo,Status,Executante,Data Conclusão
 593,No muro externo fixar o número do endereço (890),04/02/25,Weder,Expedição,Civil,Concluído,Guilherme,19/02/25
 594,Trocar rodizios do carrinho de trsnporte do setor,04/02/25,Joelson,Corte,Mecânica,Concluído,Robson,18/02/25
 595,Vazamento de agua do telhado do refeitório,04/02/25,Janaina,Filial,Civil,Concluído,Robson,19/02/25
-596,Ar condicionado não esfria,05/02/25,Tatiana,RH,Mecânica,Concluído,,10/02/25
+596,Ar condicionado não esfria,05/02/25,Tatiana,RH,Refrigeração,Concluído,,10/02/25
 597,Corrigir goteira no telhado da área de descanço,05/02/25,Robson,Matriz,Civil,Concluído,Guilherme,12/02/25
 598,Colocar na parede dois quadros brancos.,05/02/25,Nélio/Isabela,Corte,Civil,Concluído,Guilherme,17/02/25
 599,Instalar luminarias de emergência e placas de sinalização,05/02/25,Robson,Expedição Play,Civil,Concluído,Guilherme,03/03/25
@@ -633,7 +633,7 @@ ID,Descrição,Data,Solicitante,Local,Tipo,Status,Executante,Data Conclusão
 632,Pintar demarcação de extintor na sala de modelagem,12/02/25,Robson,Modelagem,Civil,Concluído,Guilherme,13/02/25
 633,Transferir mesa e acessórios para a filial e fazer infra de tomada eletrica,12/02/25,Nélio/Isabela,Filial,Instalação,Concluído,Robson,12/02/25
 634,Pintar demarcação de extintor na area de resíduos,13/02/25,Robson,Matriz,Civil,Concluído,Guilherme,13/02/25
-635,Ar condicionada da sala não funciona,13/02/25,Alan,Diretoria,Mecânica,Concluído,Robson,13/02/25
+635,Ar condicionada da sala não funciona,13/02/25,Alan,Diretoria,Refrigeração,Concluído,Robson,13/02/25
 636,Programar controle remoto dos portões,13/02/25,Rafael,Diretoria,Elétrica,Concluído,Robson,14/02/25
 637,Goteiras na Copa da ADM,14/02/25,Tatiane,ADM,Civil,Concluído,Guilherme,26/02/25
 638,Fazer limpeza semestral dos reservatórios de água matriz/filial,14/02/25,Robson,Matriz  ,Civil,Concluído,Robson,27/02/25
@@ -667,7 +667,7 @@ ID,Descrição,Data,Solicitante,Local,Tipo,Status,Executante,Data Conclusão
 666,Trocar lampada queimada na sala ,28/02/25,Weder,Expedição ,Elétrica,Concluído,Guilherme,18/03/25
 667,Trocar lampada queimada no banheiro feminino,28/02/25,Val,Filial,Elétrica,Concluído,Guilherme,18/03/25
 668,Torneiras com defeito no banheiro feminino,28/02/25,Aline,Filial,Hidráulica,Concluído,Guilherme,04/03/25
-669,Ar condicionado não está gelando,28/02/25,Thiago,Financeiro,Mecânica,Concluído,Robson,10/03/25
+669,Ar condicionado não está gelando,28/02/25,Thiago,Financeiro,Refrigeração,Concluído,Robson,10/03/25
 670,maquina de termo colante nao esta aquecendo as duas partes,03/03/25,Fran.Duarte,Acabamento,Elétrica,Concluído,Robson,03/03/25
 671,Limparbebedouros para troca de filtros,03/03/25,Cilene,filial e matriz,Hidráulica,Concluído,Guilherme,05/03/25
 672,Troca do cilindro que chegou da maqpol ,03/03/25,Fran.Duarte,CD,Mecânica,Concluído,Guilherme,06/03/25
@@ -697,7 +697,7 @@ ID,Descrição,Data,Solicitante,Local,Tipo,Status,Executante,Data Conclusão
 696,Torneira solta no banheiro feminino,10/03/25,Robson,Filial,Hidráulica,Concluído,Guilherme,10/03/25
 697,Reativar torneira do meio do banheiro feminino,10/03/25,Robson,Filial,Hidráulica,Concluído,Guilherme,10/03/25
 698,Remover os cartazes da parede no corredor lateral entre o Corte e a Expedição Play,10/03/25,Flavio,Marketing,Civil,Concluído,Guilherme,11/03/25
-699,Ar condicionado não está gelando,10/03/25,Allan,Diretoria,Mecânica,Concluído,Robson,10/03/25
+699,Ar condicionado não está gelando,10/03/25,Allan,Diretoria,Refrigeração,Concluído,Robson,10/03/25
 700,Lampada queimou perto da Celia,11/03/25,Fran.Duarte,Pilotagem,Elétrica,Concluído,Guilherme,12/03/25
 701,Portão principal com defeito não abre ou fecha,11/03/25,Rafael,Matriz,Elétrica,Concluído,Robson,11/03/25
 702,Instalar interfone na Revisão de Tecidos,11/03/25,Umberto,Revisão,Instalação,Pendente,,
