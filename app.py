@@ -20,6 +20,7 @@ FILENAME = "ordens_servico.csv"
 BACKUP_DIR = "backups"
 EXECUTANTES_FILE = "executantes.txt"
 MAX_BACKUPS = 10
+SENHA_SUPERVISAO = "king@2025"  # Senha para acessar a supervisão
 
 TIPOS_MANUTENCAO = {
     1: "Elétrica",
@@ -37,7 +38,7 @@ STATUS_OPCOES = {
     4: "Concluído"
 }
 
-# Funções auxiliares
+# Funções auxiliares (mantidas as mesmas do código anterior)
 def inicializar_arquivos():
     """Garante que todos os arquivos necessários existam e estejam válidos"""
     # Criar diretório de backups se não existir
@@ -157,7 +158,7 @@ def formatar_data(data):
         st.error("Data inválida! Use o formato DD/MM/AAAA.")
         return None
 
-# Funções principais
+# Funções principais (páginas)
 def pagina_inicial():
     col1, col2 = st.columns([1, 15])
     with col1:
@@ -174,10 +175,8 @@ def pagina_inicial():
     - 📝 **Cadastro** de novas ordens de serviço
     - 📋 **Listagem** completa de OS cadastradas
     - 🔍 **Busca** avançada por diversos critérios
-    - 🔄 **Atualização** de status e informações
     - 📊 **Dashboard** com análises gráficas
-    - 👷 **Gerenciamento** de executantes
-    - 💾 **Backup automático** dos dados
+    - 🔐 **Supervisão** (área restrita)
     """)
 
     # Mostra informações de backup
@@ -275,6 +274,39 @@ def buscar_os():
         st.dataframe(resultado, use_container_width=True)
     else:
         st.warning("Nenhuma OS encontrada com os critérios informados.")
+
+def pagina_supervisao():
+    st.header("🔐 Área de Supervisão")
+    
+    # Verifica se o usuário já está autenticado
+    if not st.session_state.get('autenticado', False):
+        senha = st.text_input("Digite a senha de supervisão:", type="password")
+        if senha == SENHA_SUPERVISAO:
+            st.session_state.autenticado = True
+            st.rerun()
+        elif senha:  # Só mostra erro se o usuário tentou digitar algo
+            st.error("Senha incorreta!")
+        return
+    
+    # Se chegou aqui, está autenticado
+    st.success("Acesso autorizado à área de supervisão")
+    
+    # Menu interno da supervisão
+    opcao_supervisao = st.selectbox(
+        "Selecione a função de supervisão:",
+        [
+            "🔄 Atualizar OS",
+            "👷 Gerenciar Executantes",
+            "💾 Gerenciar Backups"
+        ]
+    )
+    
+    if opcao_supervisao == "🔄 Atualizar OS":
+        atualizar_os()
+    elif opcao_supervisao == "👷 Gerenciar Executantes":
+        gerenciar_executantes()
+    elif opcao_supervisao == "💾 Gerenciar Backups":
+        gerenciar_backups()
 
 def atualizar_os():
     st.header("🔄 Atualizar Ordem de Serviço")
@@ -571,10 +603,8 @@ def main():
             "📝 Cadastrar OS",
             "📋 Listar OS",
             "🔍 Buscar OS",
-            "🔄 Atualizar OS",
             "📊 Dashboard",
-            "👷 Gerenciar Executantes",
-            "💾 Gerenciar Backups"
+            "🔐 Supervisão"
         ]
     )
 
@@ -587,14 +617,10 @@ def main():
         listar_os()
     elif opcao == "🔍 Buscar OS":
         buscar_os()
-    elif opcao == "🔄 Atualizar OS":
-        atualizar_os()
     elif opcao == "📊 Dashboard":
         dashboard()
-    elif opcao == "👷 Gerenciar Executantes":
-        gerenciar_executantes()
-    elif opcao == "💾 Gerenciar Backups":
-        gerenciar_backups()
+    elif opcao == "🔐 Supervisão":
+        pagina_supervisao()
 
     # Rodapé
     st.sidebar.markdown("---")
