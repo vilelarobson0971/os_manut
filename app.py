@@ -7,8 +7,6 @@ import os
 import shutil
 import time
 import glob
-import requests
-from github import Github
 import base64
 import json
 
@@ -18,6 +16,14 @@ st.set_page_config(
     page_icon="🔧",
     layout="wide"
 )
+
+# Tenta importar o PyGithub com fallback
+GITHUB_AVAILABLE = False
+try:
+    from github import Github
+    GITHUB_AVAILABLE = True
+except ImportError:
+    st.warning("Funcionalidade do GitHub não disponível (PyGithub não instalado)")
 
 # Constantes
 LOCAL_FILENAME = "ordens_servico.csv"
@@ -70,8 +76,8 @@ def inicializar_arquivos():
     # Carregar configurações do GitHub
     carregar_config()
     
-    # Verificar se temos configuração do GitHub
-    usar_github = GITHUB_REPO and GITHUB_FILEPATH and GITHUB_TOKEN
+    # Verificar se temos configuração do GitHub e se o módulo está disponível
+    usar_github = GITHUB_AVAILABLE and GITHUB_REPO and GITHUB_FILEPATH and GITHUB_TOKEN
     
     # Inicializar arquivo de ordens de serviço
     if not os.path.exists(LOCAL_FILENAME) or os.path.getsize(LOCAL_FILENAME) == 0:
@@ -88,6 +94,10 @@ def inicializar_arquivos():
 
 def baixar_do_github():
     """Baixa o arquivo do GitHub se estiver mais atualizado"""
+    if not GITHUB_AVAILABLE:
+        st.error("Funcionalidade do GitHub não está disponível")
+        return False
+    
     global GITHUB_REPO, GITHUB_FILEPATH, GITHUB_TOKEN
     try:
         g = Github(GITHUB_TOKEN)
@@ -108,6 +118,10 @@ def baixar_do_github():
 
 def enviar_para_github():
     """Envia o arquivo local para o GitHub"""
+    if not GITHUB_AVAILABLE:
+        st.error("Funcionalidade do GitHub não está disponível")
+        return False
+    
     global GITHUB_REPO, GITHUB_FILEPATH, GITHUB_TOKEN
     try:
         g = Github(GITHUB_TOKEN)
@@ -130,45 +144,15 @@ def enviar_para_github():
 
 # ... (mantenha as outras funções auxiliares como carregar_executantes, salvar_executantes, etc.)
 
-def pagina_supervisao():
-    st.header("🔐 Área de Supervisão")
-    
-    # Verifica se o usuário já está autenticado
-    if not st.session_state.get('autenticado', False):
-        senha = st.text_input("Digite a senha de supervisão:", type="password")
-        if senha == SENHA_SUPERVISAO:
-            st.session_state.autenticado = True
-            st.rerun()
-        elif senha:  # Só mostra erro se o usuário tentou digitar algo
-            st.error("Senha incorreta!")
-        return
-    
-    # Se chegou aqui, está autenticado
-    st.success("Acesso autorizado à área de supervisão")
-    
-    # Menu interno da supervisão
-    opcao_supervisao = st.selectbox(
-        "Selecione a função de supervisão:",
-        [
-            "🔄 Atualizar OS",
-            "👷 Gerenciar Executantes",
-            "💾 Gerenciar Backups",
-            "⚙️ Configurar GitHub"
-        ]
-    )
-    
-    if opcao_supervisao == "🔄 Atualizar OS":
-        atualizar_os()
-    elif opcao_supervisao == "👷 Gerenciar Executantes":
-        gerenciar_executantes()
-    elif opcao_supervisao == "💾 Gerenciar Backups":
-        gerenciar_backups()
-    elif opcao_supervisao == "⚙️ Configurar GitHub":
-        configurar_github()
-
 def configurar_github():
     st.header("⚙️ Configuração do GitHub")
     global GITHUB_REPO, GITHUB_FILEPATH, GITHUB_TOKEN
+    
+    if not GITHUB_AVAILABLE:
+        st.error("""Funcionalidade do GitHub não está disponível. 
+                Para ativar, instale o pacote PyGithub com: 
+                `pip install PyGithub`""")
+        return
     
     with st.form("github_config_form"):
         repo = st.text_input("Repositório GitHub (user/repo)", value=GITHUB_REPO or "")
@@ -207,7 +191,7 @@ def configurar_github():
             else:
                 st.error("Preencha todos os campos para ativar a sincronização com GitHub")
 
-# ... (mantenha as outras funções principais como cadastrar_os, listar_os, etc.)
+# ... (mantenha as outras funções principais)
 
 def main():
     # Inicializa arquivos e verifica consistência
