@@ -542,7 +542,7 @@ ID,Descrição,Data,Solicitante,Local,Tipo,Status,Executante,Data Conclusão
 541,Adequar iluminações de emergencia em todo barracão do estoque na rua Antonio Capello,24/01/25,Robson,SCI,Instalação,Concluído,Guilherme,04/03/25
 542,Adequar seinalização de emergencia na ADM do estoque na rua Antonio Capello,24/01/25,Robson,SCI,Instalação,Concluído,Robson,21/02/25
 543,Adequar iluminação de emergencia na ADM do Estoque na rua Antonio Capello,24/01/25,Robson,SCI,Instalação,Concluído,Guilherme,07/03/25
-544,Adequar altura do primeiro degrau (espelho) da escadaria metalica da recepção,24/01/25,Robson,SCI,Instalação,Pendente,nan,nan
+544,Adequar altura do primeiro degrau (espelho) da escadaria metalica da recepção,24/01/25,Robson,SCI,Instalação,Pausado,nan,nan
 545,Adequar toda sinalização de emergência do setor kids/Play,24/01/25,Robson,SCI,Instalação,Concluído,Robson,nan
 546,Retirar placa de sinalização tipo Saida da parte externa a entrada do mezanino do setor e Corte,24/01/25,Robson,SCI,Instalação,Concluído,nan,nan
 547,Adequar sentido das placas de sinalização do setor Corte,24/01/25,Robson,SCI,Instalação,Concluído,Robson,18/02/25
@@ -554,7 +554,7 @@ ID,Descrição,Data,Solicitante,Local,Tipo,Status,Executante,Data Conclusão
 553,Instalar extintores de incendio no setor Estoque de tecidos,24/01/25,Robson,SCI,Instalação,Concluído,Robson,nan
 554,Instalar iluminações de emergencia no setor Estoque de tecidos,24/01/25,Robson,SCI,Instalação,Concluído,Guilherme,25/02/25
 555,Instalar sinalizações de emergencia no setor Estoque de tecidos,24/01/25,Robson,SCI,Instalação,Concluído,Robson,19/02/25
-556,Adequar escada de acesso do setor Corte para deposito da rua Antonio Capello,24/01/25,Robson,SCI,Instalação,Pendente,nan,nan
+556,Adequar escada de acesso do setor Corte para deposito da rua Antonio Capello,24/01/25,Robson,SCI,Instalação,Pausado,nan,nan
 557,Adequar iluminações de emergencia no depósoito da rua Antonio capello,24/01/25,Robson,SCI,Instalação,Concluído,Guilherme,04/03/25
 558,Adequar sinalizações de emergencia de prevenção no depósito da Antonio Capello,24/01/25,Robson,SCI,Instalação,Concluído,Robson,21/02/25
 559,Adequar extintores de incendio no deposito da rua Antonio Capello,24/01/25,Robson,SCI,Instalação,Concluído,Robson,nan
@@ -566,7 +566,7 @@ ID,Descrição,Data,Solicitante,Local,Tipo,Status,Executante,Data Conclusão
 565,Aplicar demão de tinta branca no piso do estúdio,27/01/25,Maitê,Estúdio,Civil,Concluído,Guilherme,29/01/25
 566,Ar condicionado da sala de reunião da ADM está estralando,28/01/25,Diego,ADM,Mecânica,Concluído,nan,30/01/25
 567,Manutenção ar - cheirando mofo,28/01/25,Guilherme,Controladoria,Refrigeração,Concluído,Guilherme,29/01/25
-568,Pintar a escada de acesso ao refeitório,28/01/25,Guilherme,Manutenção,Civil,Pendente,nan,nan
+568,Pintar a escada de acesso ao refeitório,28/01/25,Guilherme,Manutenção,Civil,Concluído,Guilherme,28/03/25
 569,Pintar demarcação de extintores e hidrantes na ADM T.I e Recepção,28/01/25,Robson,ADM,Civil,Concluído,Guilherme,04/02/25
 570,Pintar demarcação de hidrante na Expedição,28/01/25,Robson,Expedição,Civil,Concluído,Guilherme,30/01/25
 571,Instalar placa de sinalização de alarme no local correto - Expedição,28/01/25,Robson,Expedição,Civil,Concluído,Robson,05/02/25
@@ -579,8 +579,8 @@ ID,Descrição,Data,Solicitante,Local,Tipo,Status,Executante,Data Conclusão
 578,Verificar enfesto de ribana maquina desregulada,31/01/25,Vini,Corte,Mecânica,Concluído,Robson,31/01/25
 579,Verificar tomada do computador com interferência,31/01/25,tatiana,RH,Elétrica,Concluído,Robson,31/01/25
 580,Maquina de peitiho travou ,31/01/25,Fran.Duarte,Produção,Mecânica,Concluído,Guilherme,04/02/25
-581,Adequar rampa no portão social da matriz conforme norma,03/02/25,Robson,SCI,Instalação,Pendente,nan,nan
-582,Fazer guarda corpo com corrimão no portão social da matriz conforme norma,03/02/25,Robson,SCI,Instalação,Pendente,nan,nan
+581,Adequar rampa no portão social da matriz conforme norma,03/02/25,Robson,SCI,Instalação,Pausado,nan,nan
+582,Fazer guarda corpo com corrimão no portão social da matriz conforme norma,03/02/25,Robson,SCI,Instalação,Pausado,nan,nan
 583,Defeito na máquina de viés,03/02/25,Vini,Corte,Mecânica,Concluído,nan,03/02/25
 584,Pintar demarcação de extintor na area de descanso,03/02/25,Robson,Matriz,Civil,Concluído,Guilherme,03/02/25
 585,Pintar demarcação de extintor na sala do laboratório,03/02/25,Robson,Matriz,Civil,Concluído,Guilherme,03/02/25
@@ -727,18 +727,18 @@ ID,Descrição,Data,Solicitante,Local,Tipo,Status,Executante,Data Conclusão
 726,Lampada piscando no banheiro feminino,19/03/25,Val,Filial,Elétrica,Concluído,Guilherme,21/03/25
 727,Instalar cabo de rede no Estúdio,20/03/25,Juliano,Estúdio,Instalação,Concluído,Guilherme,20/03/25
 728,Pintar parede do corredor da area de descanso,20/03/25,Renato,Matriz,Civil,Em execução,nan,nan
-729,Pintar parede da area de descanso,20/03/25,Renato,Matriz,Civil,Pendente,nan,nan
+729,Pintar parede da area de descanso,20/03/25,Renato,Matriz,Civil,Concluído,Guilherme,27/03/25
 730,Pintar piso do corredor da are de descanso,20/03/25,Renato,Matriz,Civil,Pendente,nan,nan
 731,Pintar piso da área de descanso,20/03/25,Renato,Matriz,Civil,Pendente,nan,nan
-732,Trocar torneira da pia da Copa da ADM,20/03/25,Renato,Matriz,Civil,Pendente,nan,nan
-733,Trocar torneiras do banheiro masculino da Matriz,20/03/25,Renato,Matriz,Civil,Pendente,nan,nan
+732,Trocar torneira da pia da Copa da ADM,20/03/25,Renato,Matriz,Civil,Concluído,Guilherme,28/03/25
+733,Trocar torneiras do banheiro masculino da Matriz,20/03/25,Renato,Matriz,Civil,Concluído,Guilherme,28/03/25
 734,Trocar torneiras do banheiro feminino da Matriz,20/03/25,Renato,Matriz,Civil,Pendente,nan,nan
 735,Instalar sensor de presença na iluminação da copa da ADM,20/03/25,Renato,Matriz,Elétrica,Pendente,nan,nan
 736,Instalar sensor de presença na iluminação da área de convivencia,20/03/25,Renato,Matriz,Elétrica,Pendente,nan,nan
 737,Instalar sensor de presença corredor da sala de T.I.,20/03/25,Renato,Matriz,Elétrica,Pendente,nan,nan
 738,Fazer acabamento na nova parede de gesso,21/03/25,Maitê,Estudio,Civil,Concluído,Guilherme,21/03/25
-739,Colacar uma manqueira  de ar ,24/03/25,Fran.Duarte,Pilotagem / corte / Filial,Mecânica,Pendente,nan,nan
+739,Colacar uma manqueira  de ar ,24/03/25,Fran.Duarte,Pilotagem / corte / Filial,Mecânica,Concluído,Guilherme,28/03/25
 740,Trocar a Luz queimou,24/03/25,Fran.Duarte,Sala produção,Elétrica,Concluído,Guilherme,24/03/25
-741,Trocar aluz ddo banheiro que foi substituida e fica piscando,24/03/25,Fran.Duarte,FILIAL / BANHEIRO,Elétrica,Concluído,Guilherme,24/03/25
-742,Instalar caldeira que voltou do conserto,25/03/25,Fran.Duarte,Filial  ,Instalação,Pendente,nan,nan
-743,fechadura da porta nao funciona,25/03/2025,Tati,RH,,Pendente,nan,nan
+741,Trocar aluz do banheiro que foi substituida e fica piscando,24/03/25,Fran.Duarte,FILIAL / BANHEIRO,Elétrica,Concluído,Guilherme,24/03/25
+742,Instalar caldeira que voltou do conserto,25/03/25,Fran.Duarte,Filial  ,Instalação,Concluído,Robson,24/03/25
+743,fechadura da porta nao funciona,25/03/2025,Tati,RH,Concluído,Robson,26/03/25
