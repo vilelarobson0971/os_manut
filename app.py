@@ -39,26 +39,52 @@ STATUS_OPCOES = {
 
 # Funções auxiliares
 def inicializar_arquivos():
+    """Garante que todos os arquivos necessários existam e estejam válidos"""
+    # Criar diretório de backups se não existir
+    os.makedirs(BACKUP_DIR, exist_ok=True)
+    
+    # Inicializar arquivo de ordens de serviço
     if not os.path.exists(FILENAME):
         pd.DataFrame(columns=["ID", "Descrição", "Data", "Solicitante", "Local", "Tipo", "Status", "Executante",
                             "Data Conclusão"]).to_csv(FILENAME, index=False)
+    elif os.path.getsize(FILENAME) == 0:  # Se arquivo existe mas está vazio
+        backup = carregar_ultimo_backup()
+        if backup:
+            shutil.copy(backup, FILENAME)
+        else:
+            pd.DataFrame(columns=["ID", "Descrição", "Data", "Solicitante", "Local", "Tipo", "Status", "Executante",
+                                "Data Conclusão"]).to_csv(FILENAME, index=False)
+    
+    # Inicializar arquivo de executantes
     if not os.path.exists(EXECUTANTES_FILE):
         with open(EXECUTANTES_FILE, 'w') as f:
             f.write("")
-    os.makedirs(BACKUP_DIR, exist_ok=True)
+    elif os.path.getsize(EXECUTANTES_FILE) == 0:  # Se arquivo existe mas está vazio
+        with open(EXECUTANTES_FILE, 'w') as f:
+            f.write("")
 
 def carregar_executantes():
+    """Carrega a lista de executantes do arquivo, garantindo que está atualizada"""
     if os.path.exists(EXECUTANTES_FILE):
-        with open(EXECUTANTES_FILE, 'r') as f:
-            return [linha.strip() for linha in f.readlines() if linha.strip()]
+        try:
+            with open(EXECUTANTES_FILE, 'r') as f:
+                executantes = [linha.strip() for linha in f.readlines() if linha.strip()]
+            return executantes
+        except:
+            return []
     return []
 
 def salvar_executantes(executantes):
+    """Salva a lista de executantes no arquivo imediatamente"""
     with open(EXECUTANTES_FILE, 'w') as f:
         for nome in executantes:
             f.write(f"{nome}\n")
+    # Atualiza a sessão para refletir as mudanças
+    if 'executantes' in st.session_state:
+        st.session_state.executantes = executantes
 
 def fazer_backup():
+    """Cria um backup dos dados atuais"""
     if os.path.exists(FILENAME) and os.path.getsize(FILENAME) > 0:
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         backup_name = os.path.join(BACKUP_DIR, f"ordens_servico_{timestamp}.csv")
@@ -68,27 +94,34 @@ def fazer_backup():
     return None
 
 def limpar_backups_antigos(max_backups):
+    """Remove backups antigos mantendo apenas os mais recentes"""
     backups = sorted(glob.glob(os.path.join(BACKUP_DIR, "ordens_servico_*.csv")))
     while len(backups) > max_backups:
-        os.remove(backups[0])
-        backups.pop(0)
+        try:
+            os.remove(backups[0])
+            backups.pop(0)
+        except:
+            continue
 
 def carregar_ultimo_backup():
+    """Retorna o caminho do backup mais recente"""
     backups = sorted(glob.glob(os.path.join(BACKUP_DIR, "ordens_servico_*.csv")))
     if backups:
         return backups[-1]
     return None
 
 def carregar_csv():
-    # Tenta carregar o arquivo principal
+    """Carrega os dados do CSV principal ou do backup se necessário"""
+    # Verifica se o arquivo principal existe e é válido
     if os.path.exists(FILENAME) and os.path.getsize(FILENAME) > 0:
         try:
             df = pd.read_csv(FILENAME)
+            # Garante que as colunas importantes são strings
             df["Executante"] = df["Executante"].astype(str)
             df["Data Conclusão"] = df["Data Conclusão"].astype(str)
             return df
-        except:
-            pass
+        except Exception as e:
+            st.error(f"Erro ao ler arquivo principal: {str(e)}")
     
     # Se falhar, tenta carregar do backup
     backup = carregar_ultimo_backup()
@@ -97,13 +130,25 @@ def carregar_csv():
             df = pd.read_csv(backup)
             df.to_csv(FILENAME, index=False)  # Restaura o arquivo principal
             return df
-        except:
-            pass
+        except Exception as e:
+            st.error(f"Erro ao ler backup: {str(e)}")
     
+    # Se tudo falhar, retorna um DataFrame vazio
     return pd.DataFrame(columns=["ID", "Descrição", "Data", "Solicitante", "Local", 
                                "Tipo", "Status", "Executante", "Data Conclusão"])
 
+def salvar_csv(df):
+    """Salva o DataFrame no arquivo CSV e faz backup"""
+    try:
+        df.to_csv(FILENAME, index=False)
+        fazer_backup()
+        return True
+    except Exception as e:
+        st.error(f"Erro ao salvar dados: {str(e)}")
+        return False
+
 def formatar_data(data):
+    """Formata a data para o padrão DD/MM/AAAA"""
     try:
         if len(data) == 8 and data.isdigit():
             return datetime.strptime(data, "%d%m%Y").strftime("%d/%m/%Y")
@@ -172,11 +217,10 @@ def cadastrar_os():
                 }])
 
                 df = pd.concat([df, nova_os], ignore_index=True)
-                df.to_csv(FILENAME, index=False)
-                fazer_backup()
-                st.success("Ordem cadastrada com sucesso! Backup automático realizado.")
-                time.sleep(1)
-                st.rerun()
+                if salvar_csv(df):
+                    st.success("Ordem cadastrada com sucesso! Backup automático realizado.")
+                    time.sleep(1)
+                    st.rerun()
 
 def listar_os():
     st.header("📋 Listagem Completa de OS")
@@ -302,11 +346,11 @@ def atualizar_os():
                 df.loc[df["ID"] == os_id, ["Status", "Executante", "Tipo"]] = [novo_status, executante, tipo]
                 if novo_status == "Concluído":
                     df.loc[df["ID"] == os_id, "Data Conclusão"] = data_conclusao
-                df.to_csv(FILENAME, index=False)
-                fazer_backup()
-                st.success("OS atualizada com sucesso! Backup automático realizado.")
-                time.sleep(1)
-                st.rerun()
+                
+                if salvar_csv(df):
+                    st.success("OS atualizada com sucesso! Backup automático realizado.")
+                    time.sleep(1)
+                    st.rerun()
 
 def dashboard():
     st.header("📊 Dashboard Analítico")
@@ -419,7 +463,13 @@ def dashboard():
 
 def gerenciar_executantes():
     st.header("👷 Gerenciar Executantes")
+    
+    # Carrega executantes sempre que a página é acessada
     executantes = carregar_executantes()
+    
+    # Armazena na sessão para manter consistência
+    if 'executantes' not in st.session_state:
+        st.session_state.executantes = executantes
 
     tab1, tab2 = st.tabs(["Adicionar", "Remover"])
 
@@ -431,26 +481,32 @@ def gerenciar_executantes():
             if submitted_add:
                 if not novo:
                     st.error("Digite um nome válido!")
-                elif novo in executantes:
+                elif novo in st.session_state.executantes:
                     st.warning("Este executante já está cadastrado!")
                 else:
-                    executantes.append(novo)
-                    salvar_executantes(executantes)
+                    st.session_state.executantes.append(novo)
+                    salvar_executantes(st.session_state.executantes)
                     st.success(f"Executante '{novo}' adicionado com sucesso!")
                     time.sleep(1)
                     st.rerun()
 
     with tab2:
-        if not executantes:
+        if not st.session_state.executantes:
             st.warning("Nenhum executante cadastrado")
         else:
             with st.form("rem_executante_form"):
-                selecionado = st.selectbox("Selecione o executante para remover", executantes)
+                selecionado = st.selectbox("Selecione o executante para remover", st.session_state.executantes)
                 submitted_rem = st.form_submit_button("Remover")
 
                 if submitted_rem:
-                    executantes.remove(selecionado)
-                    salvar_executantes(executantes)
+                    st.session_state.executantes.remove(selecionado)
+                    salvar_executantes(st.session_state.executantes)
+                    
+                    # Atualiza as OS que tinham esse executante
+                    df = carregar_csv()
+                    df.loc[df["Executante"] == selecionado, "Executante"] = ""
+                    salvar_csv(df)
+                    
                     st.success(f"Executante '{selecionado}' removido com sucesso!")
                     time.sleep(1)
                     st.rerun()
@@ -503,12 +559,9 @@ def gerenciar_backups():
             st.error(f"Erro ao restaurar: {str(e)}")
 
 def main():
-    # Inicializa estados da sessão
-    if 'cadastro_realizado' not in st.session_state:
-        st.session_state.cadastro_realizado = False
-    if 'atualizacao_realizada' not in st.session_state:
-        st.session_state.atualizacao_realizada = False
-
+    # Inicializa arquivos e verifica consistência
+    inicializar_arquivos()
+    
     # Menu principal
     st.sidebar.title("Menu")
     opcao = st.sidebar.selectbox(
@@ -550,17 +603,4 @@ def main():
     st.sidebar.markdown("Desenvolvido por Robson Vilela")
 
 if __name__ == "__main__":
-    # Inicializa sistema de arquivos
-    inicializar_arquivos()
-    
-    # Verifica se precisa restaurar backup
-    if not os.path.exists(FILENAME) or os.path.getsize(FILENAME) == 0:
-        backup = carregar_ultimo_backup()
-        if backup:
-            shutil.copy(backup, FILENAME)
-    
-    # Cria backup inicial
-    fazer_backup()
-    
-    # Inicia aplicação
     main()
