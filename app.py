@@ -154,9 +154,14 @@ def carregar_executantes():
 
 def salvar_executantes(executantes):
     """Salva a lista de executantes no arquivo"""
-    with open(EXECUTANTES_FILE, 'w') as f:
-        for nome in executantes:
-            f.write(f"{nome}\n")
+    try:
+        with open(EXECUTANTES_FILE, 'w') as f:
+            for nome in executantes:
+                f.write(f"{nome}\n")
+        return True
+    except Exception as e:
+        st.error(f"Erro ao salvar executantes: {str(e)}")
+        return False
 
 def fazer_backup():
     """Cria um backup dos dados atuais"""
@@ -211,6 +216,10 @@ def carregar_csv():
 def salvar_csv(df):
     """Salva o DataFrame no arquivo CSV local e faz backup"""
     try:
+        # Garante que os campos importantes são strings
+        df["Executante"] = df["Executante"].astype(str)
+        df["Data Conclusão"] = df["Data Conclusão"].astype(str)
+        
         df.to_csv(LOCAL_FILENAME, index=False)
         fazer_backup()
         
@@ -560,7 +569,11 @@ def atualizar_os():
             elif novo_status == "Concluído" and not data_conclusao:
                 st.error("Informe a data de conclusão!")
             else:
-                df.loc[df["ID"] == os_id, ["Status", "Executante", "Tipo"]] = [novo_status, executante, tipo]
+                # Atualiza todos os campos relevantes
+                df.loc[df["ID"] == os_id, "Status"] = novo_status
+                df.loc[df["ID"] == os_id, "Executante"] = executante
+                df.loc[df["ID"] == os_id, "Tipo"] = tipo
+                
                 if novo_status == "Concluído":
                     df.loc[df["ID"] == os_id, "Data Conclusão"] = data_conclusao
                 
