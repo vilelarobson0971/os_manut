@@ -32,13 +32,13 @@ MAX_BACKUPS = 10
 SENHA_SUPERVISAO = "king@2025"
 CONFIG_FILE = "config.json"
 
-# Executantes pré-definidos (Robson, Guilherme e Paulinho)
-EXECUTANTES_PREDEFINIDOS = ["Robson", "Guilherme", "Paulinho"]
+# Configuração automática do GitHub
+GITHUB_REPO = "vilelarobson0971/os_manut"
+GITHUB_FILEPATH = "ordens_servico.csv"
+GITHUB_TOKEN = "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"
 
-# Variáveis globais para configuração do GitHub
-GITHUB_REPO = None
-GITHUB_FILEPATH = None
-GITHUB_TOKEN = None
+# Executantes pré-definidos
+EXECUTANTES_PREDEFINIDOS = ["Robson", "Guilherme", "Paulinho"]
 
 TIPOS_MANUTENCAO = {
     1: "Elétrica",
@@ -57,29 +57,13 @@ STATUS_OPCOES = {
 }
 
 # Funções auxiliares
-def carregar_config():
-    """Carrega as configurações do GitHub do arquivo config.json"""
-    global GITHUB_REPO, GITHUB_FILEPATH, GITHUB_TOKEN
-    try:
-        if os.path.exists(CONFIG_FILE):
-            with open(CONFIG_FILE) as f:
-                config = json.load(f)
-                GITHUB_REPO = config.get('github_repo')
-                GITHUB_FILEPATH = config.get('github_filepath')
-                GITHUB_TOKEN = config.get('github_token')
-    except Exception as e:
-        st.error(f"Erro ao carregar configurações: {str(e)}")
-
 def inicializar_arquivos():
     """Garante que todos os arquivos necessários existam e estejam válidos"""
     # Criar diretório de backups se não existir
     os.makedirs(BACKUP_DIR, exist_ok=True)
     
-    # Carregar configurações do GitHub
-    carregar_config()
-    
     # Verificar se temos configuração do GitHub e se o módulo está disponível
-    usar_github = GITHUB_AVAILABLE and GITHUB_REPO and GITHUB_FILEPATH and GITHUB_TOKEN
+    usar_github = GITHUB_AVAILABLE
     
     # Inicializar arquivo de ordens de serviço
     if not os.path.exists(LOCAL_FILENAME) or os.path.getsize(LOCAL_FILENAME) == 0:
@@ -95,7 +79,6 @@ def baixar_do_github():
         st.error("Funcionalidade do GitHub não está disponível")
         return False
     
-    global GITHUB_REPO, GITHUB_FILEPATH, GITHUB_TOKEN
     try:
         g = Github(GITHUB_TOKEN)
         repo = g.get_repo(GITHUB_REPO)
@@ -119,7 +102,6 @@ def enviar_para_github():
         st.error("Funcionalidade do GitHub não está disponível")
         return False
     
-    global GITHUB_REPO, GITHUB_FILEPATH, GITHUB_TOKEN
     try:
         g = Github(GITHUB_TOKEN)
         repo = g.get_repo(GITHUB_REPO)
@@ -200,7 +182,7 @@ def salvar_csv(df):
         fazer_backup()
         
         # Se configurado, envia para o GitHub
-        if GITHUB_AVAILABLE and GITHUB_REPO and GITHUB_FILEPATH and GITHUB_TOKEN:
+        if GITHUB_AVAILABLE:
             enviar_para_github()
             
         return True
@@ -237,10 +219,8 @@ def pagina_inicial():
             st.write(f"Total de backups: {len(backups)}")
 
     # Mostra status de sincronização com GitHub
-    if GITHUB_AVAILABLE and GITHUB_REPO:
-        st.info("✅ Sincronização com GitHub ativa")
-    elif GITHUB_AVAILABLE:
-        st.warning("⚠️ Sincronização com GitHub não configurada")
+    if GITHUB_AVAILABLE:
+        st.info("✅ Sincronização com GitHub ativa e configurada automaticamente")
     else:
         st.warning("⚠️ Funcionalidade GitHub não disponível (PyGithub não instalado)")
 
@@ -473,7 +453,9 @@ def pagina_supervisao():
     elif opcao_supervisao == "💾 Gerenciar Backups":
         gerenciar_backups()
     elif opcao_supervisao == "⚙️ Configurar GitHub":
-        configurar_github()
+        st.warning("A sincronização com GitHub já está configurada automaticamente")
+        st.write(f"Repositório: {GITHUB_REPO}")
+        st.write(f"Arquivo: {GITHUB_FILEPATH}")
 
 def atualizar_os():
     st.header("🔄 Atualizar Ordem de Serviço")
@@ -604,53 +586,6 @@ def gerenciar_backups():
         except Exception as e:
             st.error(f"Erro ao restaurar: {str(e)}")
 
-def configurar_github():
-    st.header("⚙️ Configuração do GitHub")
-    global GITHUB_REPO, GITHUB_FILEPATH, GITHUB_TOKEN
-    
-    if not GITHUB_AVAILABLE:
-        st.error("""Funcionalidade do GitHub não está disponível. 
-                Para ativar, instale o pacote PyGithub com: 
-                `pip install PyGithub`""")
-        return
-    
-    with st.form("github_config_form"):
-        repo = st.text_input("Repositório GitHub (user/repo)", value=GITHUB_REPO or "")
-        filepath = st.text_input("Caminho do arquivo no repositório", value=GITHUB_FILEPATH or "")
-        token = st.text_input("Token de acesso GitHub", type="password", value=GITHUB_TOKEN or "")
-        
-        submitted = st.form_submit_button("Salvar Configurações")
-        
-        if submitted:
-            if repo and filepath and token:
-                try:
-                    config = {
-                        'github_repo': repo,
-                        'github_filepath': filepath,
-                        'github_token': token
-                    }
-                    
-                    with open(CONFIG_FILE, 'w') as f:
-                        json.dump(config, f)
-                    
-                    # Atualiza variáveis globais
-                    GITHUB_REPO = repo
-                    GITHUB_FILEPATH = filepath
-                    GITHUB_TOKEN = token
-                    
-                    st.success("Configurações salvas com sucesso!")
-                    
-                    # Tenta sincronizar imediatamente
-                    if baixar_do_github():
-                        st.success("Dados sincronizados do GitHub!")
-                    else:
-                        st.warning("Configurações salvas, mas não foi possível sincronizar com o GitHub")
-                        
-                except Exception as e:
-                    st.error(f"Erro ao salvar configurações: {str(e)}")
-            else:
-                st.error("Preencha todos os campos para ativar a sincronização com GitHub")
-
 def main():
     # Inicializa arquivos e verifica consistência
     inicializar_arquivos()
@@ -686,7 +621,7 @@ def main():
     # Rodapé
     st.sidebar.markdown("---")
     st.sidebar.markdown("**Sistema de Ordens de Serviço**")
-    st.sidebar.markdown("Versão 2.2 com Sincronização GitHub")
+    st.sidebar.markdown("Versão 2.3 com Sincronização Automática")
     st.sidebar.markdown("Desenvolvido por Robson Vilela")
 
 if __name__ == "__main__":
