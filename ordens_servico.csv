@@ -741,7 +741,7 @@ ID,Descrição,Data,Solicitante,Local,Tipo,Status,Executante,Data Conclusão
 740,Trocar a Luz queimou,24/03/25,Fran.Duarte,Sala produção,Elétrica,Concluído,Guilherme,24/03/25
 741,Trocar aluz do banheiro que foi substituida e fica piscando,24/03/25,Fran.Duarte,FILIAL / BANHEIRO,Elétrica,Concluído,Guilherme,24/03/25
 742,Instalar caldeira que voltou do conserto,25/03/25,Fran.Duarte,Filial  ,Instalação,Concluído,Robson,24/03/25
-743,fechadura da porta nao funciona,25/03/2025,Tati,RH,Civil, Concluído,Robson,26/03/25
+743,fechadura da porta nao funciona,25/03/2025,Tati,RH,Civil,Concluído,Robson,26/03/25
 744,Construir armadilha para gatos,28/03/2025,Robson,Matriz,Civil,Pendente,nan,nan
 745,trocar tampas quebradas de dois vasos sanitarios banheiro feminino,28/03/2025,Robson,Filial,Civil,Pendente,nan,nan
 746,levar máquina de arquear para conserto externo,28/03/2025,Robson,Corte,Instalação,Pendente,nan,nan
