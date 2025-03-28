@@ -32,8 +32,8 @@ MAX_BACKUPS = 10
 SENHA_SUPERVISAO = "king@2025"
 CONFIG_FILE = "config.json"
 
-# Executantes pré-definidos
-EXECUTANTES_PREDEFINIDOS = ["Robson", "Guilherme"]
+# Executantes pré-definidos (Robson, Guilherme e Paulinho)
+EXECUTANTES_PREDEFINIDOS = ["Robson", "Guilherme", "Paulinho"]
 
 # Variáveis globais para configuração do GitHub
 GITHUB_REPO = None
@@ -507,11 +507,17 @@ def atualizar_os():
                 index=list(STATUS_OPCOES.values()).index(os_data["Status"])
             )
 
+            # Verifica se o executante atual está na lista de pré-definidos
+            executante_atual = str(os_data["Executante"]) if pd.notna(os_data["Executante"]) else ""
+            try:
+                index_executante = EXECUTANTES_PREDEFINIDOS.index(executante_atual)
+            except ValueError:
+                index_executante = 0
+
             executante = st.selectbox(
                 "Executante*",
                 EXECUTANTES_PREDEFINIDOS,
-                index=0 if pd.isna(os_data["Executante"]) or os_data["Executante"] == "" 
-                else EXECUTANTES_PREDEFINIDOS.index(os_data["Executante"])
+                index=index_executante
             )
 
         with col2:
