@@ -216,7 +216,7 @@ def pagina_inicial():
     with col2:
         st.markdown("<h1 style='font-size: 2.5em;'>SISTEMA DE GESTÃO DE ORDENS DE SERVIÇO</h1>", unsafe_allow_html=True)
 
-    st.markdown("<p style='text-align: center; font-size: 1.2em;'>By Robson Vilela</p>", unsafe_allow_html=True)
+    st.markdown("<p style='text-align: center; font-size: 1.2em;'>King & Joe</p>", unsafe_allow_html=True)
     st.markdown("---")
 
     # Verifica se há novas OS pendentes para notificação
