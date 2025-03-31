@@ -219,6 +219,19 @@ def pagina_inicial():
     st.markdown("<p style='text-align: center; font-size: 1.2em;'>By Robson Vilela</p>", unsafe_allow_html=True)
     st.markdown("---")
 
+    # Verifica se há novas OS pendentes para notificação
+    df = carregar_csv()
+    if not df.empty:
+        novas_os = df[df["Status"] == "Pendente"]
+        if not novas_os.empty and not st.session_state.get('notificacao_vista', False):
+            ultima_os = novas_os.iloc[-1]
+            with st.container():
+                st.warning(f"⚠️ NOVA ORDEM DE SERVIÇO ABERTA: ID {ultima_os['ID']} - {ultima_os['Descrição']}")
+                if st.button("✅ Confirmar recebimento da notificação"):
+                    st.session_state.notificacao_vista = True
+                    st.rerun()
+            st.markdown("---")
+
     st.markdown("""
     ### Bem-vindo ao Sistema de Gestão de Ordens de Serviço
     **Funcionalidades disponíveis:**
@@ -658,6 +671,10 @@ def configurar_github():
 def main():
     # Inicializa arquivos e verifica consistência
     inicializar_arquivos()
+    
+    # Inicializa a variável de sessão para notificação se não existir
+    if 'notificacao_vista' not in st.session_state:
+        st.session_state.notificacao_vista = False
     
     # Menu principal
     st.sidebar.title("Menu")
