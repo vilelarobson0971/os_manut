@@ -507,6 +507,7 @@ def atualizar_os():
     with st.form("atualizar_form"):
         st.write(f"**Descrição:** {os_data['Descrição']}")
         st.write(f"**Solicitante:** {os_data['Solicitante']}")
+        st.write(f"**Local:** {os_data['Local']}")
 
         col1, col2 = st.columns(2)
         with col1:
