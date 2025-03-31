@@ -223,14 +223,18 @@ def pagina_inicial():
     df = carregar_csv()
     if not df.empty:
         novas_os = df[df["Status"] == "Pendente"]
-        if not novas_os.empty and not st.session_state.get('notificacao_vista', False):
+        if not novas_os.empty:
             ultima_os = novas_os.iloc[-1]
-            with st.container():
-                st.warning(f"⚠️ NOVA ORDEM DE SERVIÇO ABERTA: ID {ultima_os['ID']} - {ultima_os['Descrição']}")
-                if st.button("✅ Confirmar recebimento da notificação"):
-                    st.session_state.notificacao_vista = True
-                    st.experimental_rerun()  # Corrigido: usando experimental_rerun em vez de rerun
-            st.markdown("---")
+            # Usamos o ID da última OS como chave para a notificação
+            notificacao_key = f"notificacao_vista_{ultima_os['ID']}"
+            
+            if not st.session_state.get(notificacao_key, False):
+                with st.container():
+                    st.warning(f"⚠️ NOVA ORDEM DE SERVIÇO ABERTA: ID {ultima_os['ID']} - {ultima_os['Descrição']}")
+                    if st.button("✅ Confirmar recebimento da notificação"):
+                        st.session_state[notificacao_key] = True
+                        st.experimental_rerun()
+                st.markdown("---")
 
     st.markdown("""
     ### Bem-vindo ao Sistema de Gestão de Ordens de Serviço
@@ -671,10 +675,6 @@ def configurar_github():
 def main():
     # Inicializa arquivos e verifica consistência
     inicializar_arquivos()
-    
-    # Inicializa a variável de sessão para notificação se não existir
-    if 'notificacao_vista' not in st.session_state:
-        st.session_state.notificacao_vista = False
     
     # Menu principal
     st.sidebar.title("Menu")
