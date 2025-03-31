@@ -754,7 +754,7 @@ ID,Descrição,Data,Solicitante,Local,Tipo,Status,Executante,Data Conclusão
 753,Levar outra máquina de arquear para conserto e trazer primeira maquina revisada,28/03/2025,Robson,Corte,Mecânica,Concluído,Guilherme,31/03/2025
 754,Vazamento de água no banheiro feminino do refeitório,28/03/2025,Tati,Matriz,Hidráulica,Em execução,Guilherme,nan
 755,Trocar mangueiras das pias do banheiro feminino do refeitório devido vazamentos,31/03/2025,Robson,Matriz,Hidráulica,Concluído,Guilherme,31/03/2025
-756,Verificar luz que está falhando e com barulho de curto,31/03/2025,Weder,Expedição,Elétrica,Pendente,nan,nan
+756,Verificar luz que está falhando e com barulho de curto,31/03/2025,Weslley,PPCP,Elétrica,Pendente,nan,nan
 757,Fechadura da porta da sala da Controladoria não abre ,31/03/2025,Guilherme ,Controladoria,Civil,Concluído,Robson,31/03/2025
 758,Teste,31/03/2025,Robson,Manutenção,Instalação,Concluído,Robson,31/03/2025
 759,Teste 2,31/03/2025,Robson,Manutenção,Instalação,Concluído,Robson,31/03/2025
