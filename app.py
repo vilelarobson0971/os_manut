@@ -267,7 +267,6 @@ def cadastrar_os():
         descricao = st.text_area("Descrição da atividade*")
         solicitante = st.text_input("Solicitante*")
         local = st.text_input("Local*")
-        tipo = st.selectbox("Tipo de Serviço", list(TIPOS_MANUTENCAO.values()))
 
         submitted = st.form_submit_button("Cadastrar OS")
         if submitted:
@@ -284,7 +283,7 @@ def cadastrar_os():
                     "Data": data_formatada,
                     "Solicitante": solicitante,
                     "Local": local,
-                    "Tipo": tipo,
+                    "Tipo": "",
                     "Status": "Pendente",
                     "Executante": "",
                     "Data Conclusão": ""
