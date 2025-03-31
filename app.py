@@ -229,7 +229,7 @@ def pagina_inicial():
                 st.warning(f"⚠️ NOVA ORDEM DE SERVIÇO ABERTA: ID {ultima_os['ID']} - {ultima_os['Descrição']}")
                 if st.button("✅ Confirmar recebimento da notificação"):
                     st.session_state.notificacao_vista = True
-                    st.rerun()
+                    st.experimental_rerun()  # Corrigido: usando experimental_rerun em vez de rerun
             st.markdown("---")
 
     st.markdown("""
