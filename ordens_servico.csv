@@ -759,7 +759,7 @@ ID,Descrição,Data,Solicitante,Local,Tipo,Status,Executante,Data Conclusão
 758,Teste,31/03/2025,Robson,Manutenção,Instalação,Concluído,Robson,31/03/2025
 759,Teste 2,31/03/2025,Robson,Manutenção,Instalação,Concluído,Robson,31/03/2025
 760,"Bom dia
-Ferro de passar  desencaixou da base solocito o encaixe aparelho funcionando",01/04/2025,Fran ,Qualidade,,Pendente,nan,nan
+Ferro de passar  desencaixou da base solocito o encaixe aparelho funcionando",01/04/2025,Fran ,Qualidade,Elétrica,Concluído,Robson,01/04/2025
 761,Arrumar lâmpada da sala do marketing que fica piscando o tempo todo ,01/04/2025,Diego,Sala do Marketing - Matriz,Elétrica,Concluído,Guilherme,01/04/2025
 762,"substituição do tampo da mesa de corte da pilotagem.
 tamanho: 6m x2,40 x 0,02m",01/04/2025,Janaina,corte de piloto,,Pendente,nan,nan
