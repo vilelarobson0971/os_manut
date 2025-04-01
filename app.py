@@ -328,7 +328,7 @@ def buscar_os():
         col1, col2 = st.columns([1, 3])
         with col1:
             criterio = st.radio("Critério de busca:",
-                              ["ID", "Solicitante", "Local", "Status", "Tipo", "Executante"])
+                              ["Status", "ID", "Solicitante", "Local", "Tipo", "Executante"])
         with col2:
             if criterio == "ID":
                 busca = st.number_input("Digite o ID da OS", min_value=1)
