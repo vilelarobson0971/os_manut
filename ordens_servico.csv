@@ -759,4 +759,5 @@ ID,Descrição,Data,Solicitante,Local,Tipo,Status,Executante,Data Conclusão
 758,Teste,31/03/2025,Robson,Manutenção,Instalação,Concluído,Robson,31/03/2025
 759,Teste 2,31/03/2025,Robson,Manutenção,Instalação,Concluído,Robson,31/03/2025
 760,"Bom dia
-Ferro de passar  desencaixou da base solocito o encaixe aparelho funcionando",01/04/2025,Fran ,Qualidade,,Pendente,,
+Ferro de passar  desencaixou da base solocito o encaixe aparelho funcionando",01/04/2025,Fran ,Qualidade,,Pendente,nan,nan
+761,Arrumar lâmpada da sala do marketing que fica piscando o tempo todo ,01/04/2025,Diego,Sala do Marketing - Matriz,,Pendente,,
