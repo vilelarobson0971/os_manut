@@ -116,7 +116,7 @@ def baixar_do_github():
 def enviar_para_github():
     """Envia o arquivo local para o GitHub"""
     if not GITHUB_AVAILABLE:
-        st.error("Funcionalidade do GitHub não está disponível")
+        st.error("Funcionalidade do GitHub não disponível")
         return False
     
     global GITHUB_REPO, GITHUB_FILEPATH, GITHUB_TOKEN
@@ -357,42 +357,9 @@ def dashboard():
         st.warning("Nenhuma OS cadastrada para análise.")
         return
 
-    tab1, tab2, tab3 = st.tabs(["📈 Status", "🔧 Tipos", "👥 Executantes"])
+    tab1, tab2, tab3 = st.tabs(["🔧 Tipos", "👥 Executantes", "📈 Status"])
 
     with tab1:
-        st.subheader("Distribuição por Status")
-        status_counts = df["Status"].value_counts()
-        
-        if not status_counts.empty:
-            fig, ax = plt.subplots(figsize=(4, 2))
-            bars = sns.barplot(
-                x=status_counts.values,
-                y=status_counts.index,
-                palette="viridis",
-                ax=ax
-            )
-            
-            ax.set_xlabel('')
-            ax.set_xticks([])
-            
-            for bar in bars.patches:
-                width = bar.get_width()
-                ax.text(width - 0.3 * width,
-                        bar.get_y() + bar.get_height()/2,
-                        f'{int(width)}',
-                        va='center',
-                        ha='right',
-                        color='red',
-                        fontsize=8)
-            
-            plt.ylabel("Status", fontsize=9)
-            ax.set_yticklabels(ax.get_yticklabels(), fontsize=8)
-            ax.set_title("Distribuição por Status", fontsize=10)
-            st.pyplot(fig)
-        else:
-            st.warning("Nenhum dado de status disponível")
-
-    with tab2:
         st.subheader("Distribuição por Tipo de Manutenção")
         tipo_counts = df["Tipo"].value_counts()
         
@@ -425,7 +392,7 @@ def dashboard():
         else:
             st.warning("Nenhum dado de tipo disponível")
 
-    with tab3:
+    with tab2:
         st.subheader("OS por Executante")
         executante_counts = df[df["Executante"] != ""]["Executante"].value_counts()
         
@@ -457,6 +424,39 @@ def dashboard():
             st.pyplot(fig)
         else:
             st.warning("Nenhuma OS atribuída a executantes")
+
+    with tab3:
+        st.subheader("Distribuição por Status")
+        status_counts = df["Status"].value_counts()
+        
+        if not status_counts.empty:
+            fig, ax = plt.subplots(figsize=(4, 2))
+            bars = sns.barplot(
+                x=status_counts.values,
+                y=status_counts.index,
+                palette="viridis",
+                ax=ax
+            )
+            
+            ax.set_xlabel('')
+            ax.set_xticks([])
+            
+            for bar in bars.patches:
+                width = bar.get_width()
+                ax.text(width - 0.3 * width,
+                        bar.get_y() + bar.get_height()/2,
+                        f'{int(width)}',
+                        va='center',
+                        ha='right',
+                        color='red',
+                        fontsize=8)
+            
+            plt.ylabel("Status", fontsize=9)
+            ax.set_yticklabels(ax.get_yticklabels(), fontsize=8)
+            ax.set_title("Distribuição por Status", fontsize=10)
+            st.pyplot(fig)
+        else:
+            st.warning("Nenhum dado de status disponível")
 
 def pagina_supervisao():
     st.header("🔐 Área de Supervisão")
