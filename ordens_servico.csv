@@ -733,7 +733,7 @@ ID,Descrição,Data,Solicitante,Local,Tipo,Status,Executante,Data Conclusão
 732,Trocar torneira da pia da Copa da ADM,20/03/25,Renato,Matriz,Civil,Concluído,Guilherme,28/03/25
 733,Trocar torneiras do banheiro masculino da Matriz,20/03/25,Renato,Matriz,Civil,Concluído,Guilherme,28/03/25
 734,Trocar torneiras do banheiro feminino da Matriz,20/03/25,Renato,Matriz,Hidráulica,Concluído,Guilherme,28/03/2025
-735,Instalar sensor de presença na iluminação da copa da ADM,20/03/25,Renato,Matriz,Elétrica,Pendente,nan,nan
+735,Instalar sensor de presença na iluminação da copa da ADM,20/03/25,Renato,Matriz,Elétrica,Concluído,Robson,02/04/2025
 736,Instalar sensor de presença na iluminação da área de convivencia,20/03/25,Renato,Matriz,Elétrica,Pendente,nan,nan
 737,Instalar sensor de presença corredor da sala de T.I.,20/03/25,Renato,Matriz,Elétrica,Pendente,nan,nan
 738,Fazer acabamento na nova parede de gesso,21/03/25,Maitê,Estudio,Civil,Concluído,Guilherme,21/03/25
@@ -770,4 +770,4 @@ tamanho: 6m x2,40 x 0,02m",01/04/2025,Janaina,corte de piloto,,Pendente,nan,nan
 767,Trocar assentos dos vazos do banheiro Masculino do Corte,02/04/2025,Juliana,Corte,,Pendente,nan,nan
 768,Vazamento de água no banheiro feminino do Corte molhando o chão,02/04/2025,Juliana,Corte,,Pendente,nan,nan
 769,Trocar assento do vaso sanitário do banheiro feminino da ADM (superior),02/04/2025,Gleice,ADM,,Pendente,nan,nan
-770,Instalar três tomadas na sala do Marketing,02/04/2025,Flávio,Marketing,,Pendente,,
+770,Instalar três tomadas na sala do Marketing,02/04/2025,Flávio,Marketing,,Pendente,nan,nan
