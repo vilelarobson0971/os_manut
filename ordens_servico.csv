@@ -750,7 +750,7 @@ ID,Descrição,Data,Solicitante,Local,Tipo,Status,Executante,Data Conclusão
 749,Máquinas de costura dando choque,28/03/2025,Fran Duarte,Acabamento,Elétrica,Concluído,Guilherme,28/03/2025
 750,Lâmpada queimada em uma máquina de costura,28/03/2025,Fran Duarte,Acabamento,Elétrica,Concluído,Guilherme,28/03/2025
 751,Trocar lampadas queimadas no setor,28/03/2025,Robson,Corte,Elétrica,Concluído,Guilherme,01/04/2025
-752,Trocar lâmpada queimada atras da Delta,28/03/2025,Robson,Revisão de tecidos,Elétrica,Pendente,nan,nan
+752,Trocar lâmpada queimada atras da Delta,28/03/2025,Robson,Revisão de tecidos,Elétrica,Concluído,Guilherme,02/04/2025
 753,Levar outra máquina de arquear para conserto e trazer primeira maquina revisada,28/03/2025,Robson,Corte,Mecânica,Concluído,Guilherme,31/03/2025
 754,Vazamento de água no banheiro feminino do refeitório,28/03/2025,Tati,Matriz,Hidráulica,Concluído,Guilherme,nan
 755,Trocar mangueiras das pias do banheiro feminino do refeitório devido vazamentos,31/03/2025,Robson,Matriz,Hidráulica,Concluído,Guilherme,31/03/2025
