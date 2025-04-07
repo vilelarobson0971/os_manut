@@ -1,3 +1,4 @@
 ID,Descrição,Data,Hora Abertura,Solicitante,Local,Tipo,Status,Executante,Data Conclusão,Hora Conclusão
 1,teste data,07/04/2025,17:04:38,robson,londrina,Elétrica,Concluído,Robson,07/04/2025,17:05:14
-2,teste data 2,07/04/2025,17:06:15,robson,londrina,,Pendente,,,
+2,teste data 2,07/04/2025,17:06:15,robson,londrina,,Pendente,nan,nan,nan
+3,teste dada 3,07/04/2025,17:06:29,robson,londrina,,Pendente,,,
