@@ -769,7 +769,7 @@ ID,Descrição,Data,Solicitante,Local,Tipo,Status,Executante,Data Conclusão
 768,Ferro da passadoria com mangueira quebrada,08/04/2025,Fran Duarte,Acabamento,,Pendente,nan,nan
 769,Instalar tomadas e rede para 8 computadores ,08/04/2025,Renato Silva,PPCP,,Pendente,nan,nan
 770,Cortar tubos de PVC para uso na ginástica,08/04/2025,Tatiane,Matriz,,Pendente,nan,nan
-771,Quebrou a mola cardan da maquina de viés,08/04/2025,Isis,Corte,,Pendente,nan,nan
+771,Quebrou a mola cardan da maquina de viés,08/04/2025,Isis,Corte,Mecânica,Concluído,Robson,08/04/2025
 772,Correia da enfestadeira 1 soltando,08/04/2025,Adilson,Corte,Mecânica,Concluído,Robson,08/04/2025
 773,Trocar tampo da mesa de corte da Filial,08/04/2025,Janaína,Engenharia ,Civil,Pendente,Guilherme,nan
 774,Colar lampada da maquina da Lucia,08/04/2025,Fran,Acabamento,Elétrica,Concluído,Guilherme,08/04/2025
