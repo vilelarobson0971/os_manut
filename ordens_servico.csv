@@ -674,7 +674,7 @@ ID,Descrição,Data,Solicitante,Local,Tipo,Status,Executante,Data Conclusão
 673,Lampada piscando,03/03/25,Estanlei,RH,Elétrica,Concluído,Guilherme,03/03/25
 674,Instalar Luminárias de emergência,04/03/25,Robson,Estoque de Tecidos,Elétrica,Concluído,Guilherme,04/03/25
 675,Instalar Luminárias de emergência,04/03/25,Robson,Laboratório de Qualidade,Elétrica,Concluído,Guilherme,10/03/25
-676,Trocar peças da máquina de viés,05/03/25,Joelson,Corte,Mecânica,Pendente,nan,nan
+676,Trocar peças da máquina de viés,05/03/25,Joelson,Corte,Mecânica,Concluído,Robson,08/04/2025
 677,Instalar um ventilador de parede no estoque de tecidos,05/03/25,Joelson,Estoque de Tec idos,Instalação,Concluído,Guilherme,06/03/25
 678,Instalar um ventilador de parede no Acabamento,05/03/25,Nélio  ,Acabamento,Instalação,Concluído,Guilherme,05/03/25
 679,Instalar dois ventiladores de parede na Estamparia,05/03/25,Renato Silva,Estamparia,Instalação,Concluído,Guilherme,12/03/25
