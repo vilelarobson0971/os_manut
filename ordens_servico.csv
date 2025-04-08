@@ -758,7 +758,7 @@ ID,Descrição,Data,Solicitante,Local,Tipo,Status,Executante,Data Conclusão
 757,Trocar assento do vaso do anheiro feminino ADM,08/04/2025,Gleice,Matriz,,Pendente,nan,nan
 758,Instalar tres tomadas na sala do Marketing,08/04/2025,Flávio,Marketing,,Pendente,nan,nan
 759,Instalar quadro na parede da sala,08/04/2025,Flávio,Marketing,,Pendente,nan,nan
-760,Trocar lampada queimada no banheiro feminino do refeitório,08/04/2025,Josiane,Matriz,,Pendente,nan,nan
+760,Trocar lampada queimada no banheiro feminino do refeitório,08/04/2025,Josiane,Matriz,Elétrica,Concluído,Guilherme,08/04/2025
 761,Assento quebrado no vaso do banheiro fewminino do refeitório,08/04/2025,Josiane,Matriz,Civil,Concluído,Guilherme,08/04/2025
 762,Duas folhas de telhas se soltaram da parede proximo ao compressor de ar,08/04/2025,Mayco,Filial,,Pendente,nan,nan
 763,Adaptar mesa para suportar balança,08/04/2025,Joelson,Estoque de Tecidos,Instalação,Concluído,Guilherme,08/04/2025
