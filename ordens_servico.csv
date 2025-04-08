@@ -751,4 +751,5 @@ ID,Descrição,Data,Solicitante,Local,Tipo,Status,Executante,Data Conclusão
 750,Lâmpada queimada em uma máquina de costura,28/03/2025,Fran Duarte,Acabamento,Elétrica,Concluído,Guilherme,28/03/2025
 751,Trocar lampadas queimadas no setor,28/03/2025,Robson,Corte,Elétrica,Pendente,nan,nan
 752,Trocar lâmpada queimada atras da Delta,28/03/2025,Robson,Revisão de tecidos,Elétrica,Pendente,nan,nan
-753,Levar outra máquina de arquear para conserto e trazer primeira maquina revisada,28/03/2025,Robson,Corte,Mecânica,Pendente,,
+753,Levar outra máquina de arquear para conserto e trazer primeira maquina revisada,28/03/2025,Robson,Corte,Mecânica,Pendente,nan,nan
+754,Orçar instalação de cortina retratil na Expedição,08/04/2025,Weder,Expedição,,Pendente,,
