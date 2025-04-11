@@ -783,5 +783,5 @@ ID,Descrição,Data,Solicitante,Local,Tipo,Status,Executante,Data Conclusão
 782,Instalar a máquina de termo colante para fazermos teste nos termso,10/04/2025,Fran .Duarte ,Filial,,Pendente,nan,nan
 783,Ajustar fechamento do portão principal da Expedição,11/04/2025,Weder,Expedição,,Pendente,nan,nan
 784,"MAquina de viés travada
-Urgente ",11/04/2025,Isis,Sala de vies,,Pendente,nan,nan
-785,TROCAR PEÇA DA MAQUINA,11/04/2025,SISLEY,ENGENHARIA DE PRODUTO ,,Pendente,,
+Urgente ",11/04/2025,Isis,Sala de vies,Mecânica,Concluído,Robson,11/04/2025
+785,TROCAR PEÇA DA MAQUINA,11/04/2025,SISLEY,ENGENHARIA DE PRODUTO ,,Pendente,nan,nan
