@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-from datetime import datetime
+from datetime import datetime, timedelta
 import os
 import shutil
 import time
@@ -10,6 +10,12 @@ import glob
 import base64
 import json
 
+def carregar_imagem(caminho_arquivo):
+    with open(caminho_arquivo, "rb") as f:
+        dados = f.read()
+        encoded = base64.b64encode(dados).decode()
+    return f"data:image/png;base64,{encoded}"
+    
 # Configurações da página
 st.set_page_config(
     page_title="Sistema de Ordens de Serviço",
@@ -26,7 +32,7 @@ except ImportError:
     st.warning("Funcionalidade do GitHub não disponível (PyGithub não instalado)")
 
 # Constantes
-LOCAL_FILENAME = "ordens_servico.csv"
+LOCAL_FILENAME = "ordens_servico4.0.csv"
 BACKUP_DIR = "backups"
 MAX_BACKUPS = 10
 SENHA_SUPERVISAO = "king@2025"
@@ -56,7 +62,6 @@ STATUS_OPCOES = {
     4: "Concluído"
 }
 
-# Funções auxiliares
 def carregar_config():
     """Carrega as configurações do GitHub do arquivo config.json"""
     global GITHUB_REPO, GITHUB_FILEPATH, GITHUB_TOKEN
@@ -70,24 +75,31 @@ def carregar_config():
     except Exception as e:
         st.error(f"Erro ao carregar configurações: {str(e)}")
 
+def converter_arquivo_antigo(df):
+    """Converte o formato antigo (com 'Executante') para o novo (com 'Executante1' e 'Executante2')"""
+    if 'Executante' in df.columns and 'Executante1' not in df.columns:
+        df['Executante1'] = df['Executante']
+        df['Executante2'] = ""
+        df['Observações'] = ""  # Adiciona coluna de observações se não existir
+        df.drop('Executante', axis=1, inplace=True)
+    if 'Observações' not in df.columns:  # Garante que a coluna existe
+        df['Observações'] = ""
+    return df
+
 def inicializar_arquivos():
     """Garante que todos os arquivos necessários existam e estejam válidos"""
-    # Criar diretório de backups se não existir
     os.makedirs(BACKUP_DIR, exist_ok=True)
-    
-    # Carregar configurações do GitHub
     carregar_config()
     
-    # Verificar se temos configuração do GitHub e se o módulo está disponível
     usar_github = GITHUB_AVAILABLE and GITHUB_REPO and GITHUB_FILEPATH and GITHUB_TOKEN
     
-    # Inicializar arquivo de ordens de serviço
     if not os.path.exists(LOCAL_FILENAME) or os.path.getsize(LOCAL_FILENAME) == 0:
         if usar_github:
             baixar_do_github()
         else:
-            pd.DataFrame(columns=["ID", "Descrição", "Data", "Solicitante", "Local", 
-                                "Tipo", "Status", "Executante", "Data Conclusão"]).to_csv(LOCAL_FILENAME, index=False)
+            df = pd.DataFrame(columns=["ID", "Descrição", "Data", "Hora Abertura", "Solicitante", "Local", 
+                                     "Tipo", "Status", "Data Conclusão", "Hora Conclusão", "Executante1", "Executante2", "Urgente", "Observações"])
+            df.to_csv(LOCAL_FILENAME, index=False)
 
 def baixar_do_github():
     """Baixa o arquivo do GitHub se estiver mais atualizado"""
@@ -100,14 +112,10 @@ def baixar_do_github():
         g = Github(GITHUB_TOKEN)
         repo = g.get_repo(GITHUB_REPO)
         contents = repo.get_contents(GITHUB_FILEPATH)
-        
-        # Decodificar conteúdo
         file_content = contents.decoded_content.decode('utf-8')
         
-        # Salvar localmente
-        with open(LOCAL_FILENAME, 'w') as f:
+        with open(LOCAL_FILENAME, 'w', encoding='utf-8') as f:
             f.write(file_content)
-            
         return True
     except Exception as e:
         st.error(f"Erro ao baixar do GitHub: {str(e)}")
@@ -124,16 +132,14 @@ def enviar_para_github():
         g = Github(GITHUB_TOKEN)
         repo = g.get_repo(GITHUB_REPO)
         
-        with open(LOCAL_FILENAME, 'r') as f:
+        with open(LOCAL_FILENAME, 'r', encoding='utf-8') as f:
             content = f.read()
         
-        # Verifica se o arquivo já existe no GitHub
         try:
             contents = repo.get_contents(GITHUB_FILEPATH)
             repo.update_file(contents.path, "Atualização automática do sistema de OS", content, contents.sha)
         except:
             repo.create_file(GITHUB_FILEPATH, "Criação inicial do arquivo de OS", content)
-            
         return True
     except Exception as e:
         st.error(f"Erro ao enviar para GitHub: {str(e)}")
@@ -169,71 +175,100 @@ def carregar_ultimo_backup():
 def carregar_csv():
     """Carrega os dados do CSV local"""
     try:
+        if not os.path.exists(LOCAL_FILENAME):
+            inicializar_arquivos()
+            
         df = pd.read_csv(LOCAL_FILENAME)
-        # Garante que as colunas importantes são strings
-        df["Executante"] = df["Executante"].astype(str)
+        df = converter_arquivo_antigo(df)
+        
+        colunas_necessarias = ["ID", "Descrição", "Data", "Hora Abertura", "Solicitante", "Local", 
+                             "Tipo", "Status", "Data Conclusão", "Hora Conclusão", "Executante1", "Executante2", "Urgente", "Observações"]
+        
+        for coluna in colunas_necessarias:
+            if coluna not in df.columns:
+                df[coluna] = ""
+        
+        df["Executante1"] = df["Executante1"].astype(str)
+        df["Executante2"] = df["Executante2"].astype(str)
         df["Data Conclusão"] = df["Data Conclusão"].astype(str)
+        df["Hora Conclusão"] = df["Hora Conclusão"].astype(str)
+        df["Urgente"] = df["Urgente"].astype(str)
+        df["Observações"] = df["Observações"].astype(str)
+        
         return df
     except Exception as e:
         st.error(f"Erro ao ler arquivo local: {str(e)}")
-        # Tenta carregar do backup
         backup = carregar_ultimo_backup()
         if backup:
             try:
                 df = pd.read_csv(backup)
-                df.to_csv(LOCAL_FILENAME, index=False)  # Restaura o arquivo principal
+                df = converter_arquivo_antigo(df)
+                df.to_csv(LOCAL_FILENAME, index=False)
                 return df
-            except:
-                pass
+            except Exception as e:
+                st.error(f"Erro ao carregar backup: {str(e)}")
         
-        return pd.DataFrame(columns=["ID", "Descrição", "Data", "Solicitante", "Local", 
-                                   "Tipo", "Status", "Executante", "Data Conclusão"])
+        return pd.DataFrame(columns=["ID", "Descrição", "Data", "Hora Abertura", "Solicitante", "Local", 
+                                   "Tipo", "Status", "Data Conclusão", "Hora Conclusão", "Executante1", "Executante2", "Urgente", "Observações"])
 
 def salvar_csv(df):
     """Salva o DataFrame no arquivo CSV local e faz backup"""
     try:
-        # Garante que os campos importantes são strings
-        df["Executante"] = df["Executante"].astype(str)
-        df["Data Conclusão"] = df["Data Conclusão"].astype(str)
+        colunas_necessarias = ["ID", "Descrição", "Data", "Hora Abertura", "Solicitante", "Local", 
+                             "Tipo", "Status", "Data Conclusão", "Hora Conclusão", "Executante1", "Executante2", "Urgente", "Observações"]
         
-        df.to_csv(LOCAL_FILENAME, index=False)
+        for coluna in colunas_necessarias:
+            if coluna not in df.columns:
+                df[coluna] = ""
+        
+        df["Executante1"] = df["Executante1"].astype(str)
+        df["Executante2"] = df["Executante2"].astype(str)
+        df["Data Conclusão"] = df["Data Conclusão"].astype(str)
+        df["Hora Conclusão"] = df["Hora Conclusão"].astype(str)
+        df["Urgente"] = df["Urgente"].astype(str)
+        df["Observações"] = df["Observações"].astype(str)
+        
+        df.to_csv(LOCAL_FILENAME, index=False, encoding='utf-8')
         fazer_backup()
         
-        # Se configurado, envia para o GitHub
         if GITHUB_AVAILABLE and GITHUB_REPO and GITHUB_FILEPATH and GITHUB_TOKEN:
             enviar_para_github()
-            
         return True
     except Exception as e:
         st.error(f"Erro ao salvar dados: {str(e)}")
         return False
 
-# Funções de página
 def pagina_inicial():
+    # Carrega a imagem
+    logo = carregar_imagem("logo.png")
+    
     col1, col2 = st.columns([1, 15])
     with col1:
-        st.markdown('<div style="font-size: 2.5em; margin-top: 10px;">🔧</div>', unsafe_allow_html=True)
+        # Substitui o emoji pela imagem
+        st.markdown(f'<div style="margin-top: 10px;"><img src="{logo}" width="60"></div>', 
+                   unsafe_allow_html=True)
     with col2:
-        st.markdown("<h1 style='font-size: 2.5em;'>SISTEMA DE GESTÃO DE ORDENS DE SERVIÇO</h1>", unsafe_allow_html=True)
+        st.markdown("<h1 style='font-size: 2.5em;'>SISTEMA DE GESTÃO DE ORDENS DE SERVIÇO</h1>", 
+                   unsafe_allow_html=True)
 
-    st.markdown("<p style='text-align: center; font-size: 1.2em;'>King & Joe</p>", unsafe_allow_html=True)
+    st.markdown("<p style='text-align: center; font-size: 1.2em;'>King & Joe</p>", 
+               unsafe_allow_html=True)
     st.markdown("---")
 
-    # Verifica se há novas OS pendentes para notificação
     df = carregar_csv()
     if not df.empty:
+        # Mostrar apenas OS com status "Pendente"
         novas_os = df[df["Status"] == "Pendente"]
         if not novas_os.empty:
-            ultima_os = novas_os.iloc[-1]
-            # Usamos o ID da última OS como chave para a notificação
-            notificacao_key = f"notificacao_vista_{ultima_os['ID']}"
+            # Pegar as últimas 3 OS (ou menos se não houver 3)
+            ultimas_os = novas_os.tail(3).iloc[::-1]  # Inverte para mostrar a mais recente primeiro
             
-            if not st.session_state.get(notificacao_key, False):
+            for _, os_data in ultimas_os.iterrows():
                 with st.container():
-                    st.warning(f"⚠️ NOVA ORDEM DE SERVIÇO ABERTA: ID {ultima_os['ID']} - {ultima_os['Descrição']}")
-                    if st.button("✅ Confirmar recebimento da notificação"):
-                        st.session_state[notificacao_key] = True
-                        st.experimental_rerun()
+                    if os_data.get("Urgente", "") == "Sim":
+                        st.error(f"🚨 ORDEM DE SERVIÇO URGENTE: ID {os_data['ID']} - {os_data['Descrição']}")
+                    else:
+                        st.warning(f"⚠️ NOVA ORDEM DE SERVIÇO ABERTA: ID {os_data['ID']} - {os_data['Descrição']}")
                 st.markdown("---")
 
     st.markdown("""
@@ -246,14 +281,12 @@ def pagina_inicial():
     - 🔐 **Supervisão** (área restrita)
     """)
 
-    # Mostra informações de backup
     backups = sorted(glob.glob(os.path.join(BACKUP_DIR, "ordens_servico_*.csv")), reverse=True)
     if backups:
         with st.expander("📁 Backups disponíveis"):
             st.write(f"Último backup: {os.path.basename(backups[0])}")
             st.write(f"Total de backups: {len(backups)}")
 
-    # Mostra status de sincronização com GitHub
     if GITHUB_AVAILABLE and GITHUB_REPO:
         st.info("✅ Sincronização com GitHub ativa")
     elif GITHUB_AVAILABLE:
@@ -267,6 +300,7 @@ def cadastrar_os():
         descricao = st.text_area("Descrição da atividade*")
         solicitante = st.text_input("Solicitante*")
         local = st.text_input("Local*")
+        urgente = st.checkbox("Urgente")
 
         submitted = st.form_submit_button("Cadastrar OS")
         if submitted:
@@ -275,18 +309,26 @@ def cadastrar_os():
             else:
                 df = carregar_csv()
                 novo_id = int(df["ID"].max()) + 1 if not df.empty and not pd.isna(df["ID"].max()) else 1
-                data_formatada = datetime.now().strftime("%d/%m/%Y")
-
+                data_hora_utc = datetime.utcnow()
+                data_hora_local = data_hora_utc - timedelta(hours=3)
+                data_abertura = data_hora_local.strftime("%d/%m/%Y")
+                hora_abertura = data_hora_local.strftime("%H:%M")
+                
                 nova_os = pd.DataFrame([{
                     "ID": novo_id,
                     "Descrição": descricao,
-                    "Data": data_formatada,
+                    "Data": data_abertura,
+                    "Hora Abertura": hora_abertura,
                     "Solicitante": solicitante,
                     "Local": local,
                     "Tipo": "",
                     "Status": "Pendente",
-                    "Executante": "",
-                    "Data Conclusão": ""
+                    "Data Conclusão": "",
+                    "Hora Conclusão": "",
+                    "Executante1": "",
+                    "Executante2": "",
+                    "Urgente": "Sim" if urgente else "Não",
+                    "Observações": ""
                 }])
 
                 df = pd.concat([df, nova_os], ignore_index=True)
@@ -328,7 +370,7 @@ def buscar_os():
         col1, col2 = st.columns([1, 3])
         with col1:
             criterio = st.radio("Critério de busca:",
-                              ["Status", "ID", "Solicitante", "Local", "Tipo", "Executante"])
+                              ["Status", "ID", "Solicitante", "Local", "Tipo", "Executante1", "Executante2", "Observações"])
         with col2:
             if criterio == "ID":
                 busca = st.number_input("Digite o ID da OS", min_value=1)
@@ -364,64 +406,69 @@ def dashboard():
         tipo_counts = df["Tipo"].value_counts()
         
         if not tipo_counts.empty:
-            fig, ax = plt.subplots(figsize=(4, 2))
-            bars = sns.barplot(
-                x=tipo_counts.values,
-                y=tipo_counts.index,
-                palette="viridis",
-                ax=ax
+            fig, ax = plt.subplots(figsize=(3, 2))
+            
+            wedges, texts, autotexts = ax.pie(
+                tipo_counts.values,
+                labels=None,
+                autopct='%1.1f%%',
+                startangle=90,
+                wedgeprops=dict(width=0.4),
+                textprops={'fontsize': 4, 'color': 'black'}
             )
             
-            ax.set_xlabel('')
-            ax.set_xticks([])
+            centre_circle = plt.Circle((0,0), 0.70, fc='white')
+            ax.add_artist(centre_circle)
             
-            for bar in bars.patches:
-                width = bar.get_width()
-                ax.text(width - 0.3 * width,
-                        bar.get_y() + bar.get_height()/2,
-                        f'{int(width)}',
-                        va='center',
-                        ha='right',
-                        color='yellow',
-                        fontsize=8)
+            ax.legend(
+                wedges,
+                tipo_counts.index,
+                title="Tipos",
+                loc="lower right",
+                bbox_to_anchor=(1.5, 0),
+                prop={'size': 4},  # Reduzido em 200%
+                title_fontsize='6'  # Reduzido em 200%
+            )
             
-            plt.ylabel("Tipo", fontsize=9)
-            ax.set_yticklabels(ax.get_yticklabels(), fontsize=8)
-            ax.set_title("Distribuição por Tipo de Manutenção", fontsize=10)
-            st.pyplot(fig)
+            ax.set_title("Distribuição por Tipo", fontsize=10)
+            st.pyplot(fig, bbox_inches='tight')
         else:
             st.warning("Nenhum dado de tipo disponível")
 
     with tab2:
-        st.subheader("OS por Executante")
-        executante_counts = df[df["Executante"] != ""]["Executante"].value_counts()
+        st.subheader("OS por Executantes")
+        executantes = pd.concat([df["Executante1"], df["Executante2"]])
+        # Filtrar valores vazios e 'nan'
+        executantes = executantes[~executantes.isin(['', 'nan'])]
+        executante_counts = executantes.value_counts()
         
         if not executante_counts.empty:
-            fig, ax = plt.subplots(figsize=(4, 2))
-            bars = sns.barplot(
-                x=executante_counts.values,
-                y=executante_counts.index,
-                palette="rocket",
-                ax=ax
+            fig, ax = plt.subplots(figsize=(3, 2))
+            
+            wedges, texts, autotexts = ax.pie(
+                executante_counts.values,
+                labels=None,
+                autopct='%1.1f%%',
+                startangle=90,
+                wedgeprops=dict(width=0.4),
+                textprops={'fontsize': 4, 'color': 'black'}
             )
             
-            ax.set_xlabel('')
-            ax.set_xticks([])
+            centre_circle = plt.Circle((0,0), 0.70, fc='white')
+            ax.add_artist(centre_circle)
             
-            for bar in bars.patches:
-                width = bar.get_width()
-                ax.text(width - 0.3 * width,
-                        bar.get_y() + bar.get_height()/2,
-                        f'{int(width)}',
-                        va='center',
-                        ha='right',
-                        color='yellow',
-                        fontsize=8)
+            ax.legend(
+                wedges,
+                executante_counts.index,
+                title="Executantes",
+                loc="lower right",
+                bbox_to_anchor=(1.5, 0),
+                prop={'size': 4},  # Reduzido em 200%
+                title_fontsize='6'  # Reduzido em 200%
+            )
             
-            plt.ylabel("Executante", fontsize=9)
-            ax.set_yticklabels(ax.get_yticklabels(), fontsize=8)
-            ax.set_title("OS por Executante", fontsize=10)
-            st.pyplot(fig)
+            ax.set_title("OS por Executantes", fontsize=10)
+            st.pyplot(fig, bbox_inches='tight')
         else:
             st.warning("Nenhuma OS atribuída a executantes")
 
@@ -430,51 +477,43 @@ def dashboard():
         status_counts = df["Status"].value_counts()
         
         if not status_counts.empty:
-            fig, ax = plt.subplots(figsize=(4, 2))
-            bars = sns.barplot(
-                x=status_counts.values,
-                y=status_counts.index,
-                palette="viridis",
-                ax=ax
+            fig, ax = plt.subplots(figsize=(3, 2))
+            
+            # Alterado para gráfico de barras verticais
+            bars = ax.bar(
+                status_counts.index,
+                status_counts.values,
+                color=sns.color_palette("pastel")
             )
             
-            ax.set_xlabel('')
-            ax.set_xticks([])
+            # Adicionando os valores nas barras com fonte menor
+            for bar in bars:
+                height = bar.get_height()
+                ax.text(bar.get_x() + bar.get_width()/2., height,
+                        f'{height}',
+                        ha='center', va='bottom',
+                        fontsize=4)  # Reduzindo o tamanho da fonte em 200%
             
-            for bar in bars.patches:
-                width = bar.get_width()
-                ax.text(width - 0.3 * width,
-                        bar.get_y() + bar.get_height()/2,
-                        f'{int(width)}',
-                        va='center',
-                        ha='right',
-                        color='red',
-                        fontsize=8)
-            
-            plt.ylabel("Status", fontsize=9)
-            ax.set_yticklabels(ax.get_yticklabels(), fontsize=8)
             ax.set_title("Distribuição por Status", fontsize=10)
-            st.pyplot(fig)
+            plt.xticks(rotation=45, fontsize=6)
+            st.pyplot(fig, bbox_inches='tight')
         else:
             st.warning("Nenhum dado de status disponível")
 
 def pagina_supervisao():
     st.header("🔐 Área de Supervisão")
     
-    # Verifica se o usuário já está autenticado
     if not st.session_state.get('autenticado', False):
         senha = st.text_input("Digite a senha de supervisão:", type="password")
         if senha == SENHA_SUPERVISAO:
             st.session_state.autenticado = True
             st.rerun()
-        elif senha:  # Só mostra erro se o usuário tentou digitar algo
+        elif senha:
             st.error("Senha incorreta!")
         return
     
-    # Se chegou aqui, está autenticado
     st.success("Acesso autorizado à área de supervisão")
     
-    # Menu interno da supervisão
     opcao_supervisao = st.selectbox(
         "Selecione a função de supervisão:",
         [
@@ -510,7 +549,6 @@ def atualizar_os():
 
         col1, col2 = st.columns(2)
         with col1:
-            # Campo para selecionar o tipo de serviço
             tipo_atual = str(os_data["Tipo"]) if pd.notna(os_data["Tipo"]) else ""
             tipo = st.selectbox(
                 "Tipo de Serviço",
@@ -524,50 +562,75 @@ def atualizar_os():
                 index=list(STATUS_OPCOES.values()).index(os_data["Status"])
             )
 
-            # Verifica se o executante atual está na lista de pré-definidos
-            executante_atual = str(os_data["Executante"]) if pd.notna(os_data["Executante"]) else ""
+            executante1_atual = str(os_data["Executante1"]) if pd.notna(os_data["Executante1"]) else ""
             try:
-                index_executante = EXECUTANTES_PREDEFINIDOS.index(executante_atual)
+                index_executante1 = EXECUTANTES_PREDEFINIDOS.index(executante1_atual)
             except ValueError:
-                index_executante = 0
+                index_executante1 = 0
 
-            executante = st.selectbox(
-                "Executante*",
+            executante1 = st.selectbox(
+                "Executante Principal*",
                 EXECUTANTES_PREDEFINIDOS,
-                index=index_executante
+                index=index_executante1
             )
 
         with col2:
-            if novo_status != "Pendente":
-                data_atual = datetime.now().strftime("%d/%m/%Y")
-                data_conclusao = st.text_input(
-                    "Data de atualização",
-                    value=data_atual if pd.isna(os_data['Data Conclusão']) or os_data['Status'] == "Pendente" else str(
-                        os_data['Data Conclusão']),
-                    disabled=novo_status != "Concluído"
-                )
-            else:
-                data_conclusao = st.text_input(
-                    "Data de conclusão (DD/MM/AAAA ou DDMMAAAA)",
-                    value=str(os_data['Data Conclusão']) if pd.notna(os_data['Data Conclusão']) else "",
+            executante2_atual = str(os_data["Executante2"]) if pd.notna(os_data["Executante2"]) else ""
+            try:
+                index_executante2 = EXECUTANTES_PREDEFINIDOS.index(executante2_atual) + 1
+            except ValueError:
+                index_executante2 = 0
+
+            executante2 = st.selectbox(
+                "Executante Secundário (opcional)",
+                [""] + EXECUTANTES_PREDEFINIDOS,
+                index=index_executante2
+            )
+
+            if novo_status == "Concluído":
+                data_hora_utc = datetime.utcnow()
+                data_hora_local = data_hora_utc - timedelta(hours=3)
+                data_atual = data_hora_local.strftime("%d/%m/%Y")
+                hora_atual = data_hora_local.strftime("%H:%M")
+                
+                data_conclusao = data_atual
+                hora_conclusao = hora_atual
+                
+                st.text_input(
+                    "Data de conclusão",
+                    value=data_atual,
                     disabled=True
                 )
+                st.text_input(
+                    "Hora de conclusão",
+                    value=hora_atual,
+                    disabled=True
+                )
+            else:
+                data_conclusao = ""
+                hora_conclusao = ""
+
+        # Nova caixa de texto para observações
+        observacoes = st.text_area("Observações", value=os_data.get("Observações", ""))
 
         submitted = st.form_submit_button("Atualizar OS")
 
         if submitted:
-            if novo_status in ["Em execução", "Concluído"] and not executante:
-                st.error("Selecione um executante para este status!")
-            elif novo_status == "Concluído" and not data_conclusao:
-                st.error("Informe a data de conclusão!")
+            if novo_status in ["Em execução", "Concluído"] and not executante1:
+                st.error("Selecione pelo menos um executante principal para este status!")
             else:
-                # Atualiza todos os campos relevantes
                 df.loc[df["ID"] == os_id, "Status"] = novo_status
-                df.loc[df["ID"] == os_id, "Executante"] = executante
+                df.loc[df["ID"] == os_id, "Executante1"] = executante1
+                df.loc[df["ID"] == os_id, "Executante2"] = executante2 if executante2 != "" else ""
                 df.loc[df["ID"] == os_id, "Tipo"] = tipo
+                df.loc[df["ID"] == os_id, "Observações"] = observacoes
                 
                 if novo_status == "Concluído":
                     df.loc[df["ID"] == os_id, "Data Conclusão"] = data_conclusao
+                    df.loc[df["ID"] == os_id, "Hora Conclusão"] = hora_conclusao
+                else:
+                    df.loc[df["ID"] == os_id, "Data Conclusão"] = ""
+                    df.loc[df["ID"] == os_id, "Hora Conclusão"] = ""
                 
                 if salvar_csv(df):
                     st.success("OS atualizada com sucesso! Backup automático realizado.")
@@ -632,8 +695,8 @@ def configurar_github():
         return
     
     with st.form("github_config_form"):
-        repo = st.text_input("Repositório GitHub (user/repo)", value=GITHUB_REPO or "vilelarobson0971/os_manut")
-        filepath = st.text_input("Caminho do arquivo no repositório", value=GITHUB_FILEPATH or "ordens_servico.csv")
+        repo = st.text_input("Repositório GitHub (user/repo)", value=GITHUB_REPO or "vilelarobson0971/OS_4.0")
+        filepath = st.text_input("Caminho do arquivo no repositório", value=GITHUB_FILEPATH or "ordens_servico4.0.csv")
         token = st.text_input("Token de acesso GitHub", type="password", value=GITHUB_TOKEN or "")
         
         submitted = st.form_submit_button("Salvar Configurações")
@@ -641,7 +704,6 @@ def configurar_github():
         if submitted:
             if repo and filepath and token:
                 try:
-                    # Testa as credenciais antes de salvar
                     g = Github(token)
                     g.get_repo(repo).get_contents(filepath)
                     
@@ -654,14 +716,12 @@ def configurar_github():
                     with open(CONFIG_FILE, 'w') as f:
                         json.dump(config, f)
                     
-                    # Atualiza variáveis globais
                     GITHUB_REPO = repo
                     GITHUB_FILEPATH = filepath
                     GITHUB_TOKEN = token
                     
                     st.success("Configurações salvas e validadas com sucesso!")
                     
-                    # Tenta sincronizar imediatamente
                     if baixar_do_github():
                         st.success("Dados sincronizados do GitHub!")
                     else:
@@ -673,10 +733,8 @@ def configurar_github():
                 st.error("Preencha todos os campos para ativar a sincronização com GitHub")
 
 def main():
-    # Inicializa arquivos e verifica consistência
     inicializar_arquivos()
     
-    # Menu principal
     st.sidebar.title("Menu")
     opcao = st.sidebar.selectbox(
         "Selecione",
@@ -690,7 +748,6 @@ def main():
         ]
     )
 
-    # Navegação
     if opcao == "🏠 Página Inicial":
         pagina_inicial()
     elif opcao == "📝 Cadastrar OS":
@@ -704,10 +761,9 @@ def main():
     elif opcao == "🔐 Supervisão":
         pagina_supervisao()
 
-    # Rodapé
     st.sidebar.markdown("---")
     st.sidebar.markdown("**Sistema de Ordens de Serviço**")
-    st.sidebar.markdown("Versão 2.4 com Validação de Credenciais")
+    st.sidebar.markdown("Versão 4.0 com Múltiplos Executantes")
     st.sidebar.markdown("Desenvolvido por Robson Vilela")
 
 if __name__ == "__main__":
