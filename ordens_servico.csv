@@ -785,9 +785,4 @@ ID,Descrição,Data,Hora Abertura,Solicitante,Local,Tipo,Status,Data Conclusão,
 784,"MAquina de viés travada
 Urgente ",11/04/2025,,Isis,Sala de vies,Mecânica,Concluído,11/04/2025,nan,Robson,nan,nan,nan
 785,TROCAR PEÇA DA MAQUINA,11/04/2025,7:30,SISLEY,ENGENHARIA DE PRODUTO ,Mecânica,Pendente,nan,nan,nan,nan,nan,nan
-786,teste BB,11/04/2025,15:23,robson,manut,Elétrica,Concluído,11/04/2025,15:23,Robson,Guilherme,Sim,nan
-787,testeeeeeeeeeeeeeee,11/04/2025,16:56,robsonm,manut,Mecânica,Concluído,11/04/2025,16:57,Robson,Guilherme,Sim,nan
-788,teste aa,11/04/2025,22:08,robson,casa,Elétrica,Concluído,11/04/2025,22:10,Robson,Guilherme,Sim,nan
-789,teste bb,11/04/2025,22:08,robson,casa,Hidráulica,Concluído,11/04/2025,22:11,Robson,,Não,nan
-790,teste cc,11/04/2025,22:08,robson,casa,,Pendente,nan,nan,nan,nan,Não,nan
-791,teste dd,11/04/2025,22:08,robson,casa,,Pendente,nan,nan,nan,nan,Sim,nan
+
