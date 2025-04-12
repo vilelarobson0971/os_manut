@@ -32,7 +32,7 @@ except ImportError:
     st.warning("Funcionalidade do GitHub não disponível (PyGithub não instalado)")
 
 # Constantes
-LOCAL_FILENAME = "ordens_servico4.0.csv"
+LOCAL_FILENAME = "ordens_servico.csv"
 BACKUP_DIR = "backups"
 MAX_BACKUPS = 10
 SENHA_SUPERVISAO = "king@2025"
