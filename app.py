@@ -1,3 +1,4 @@
+
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -440,8 +441,8 @@ def dashboard():
                 title="Tipos",
                 loc="lower right",
                 bbox_to_anchor=(1.5, 0),
-                prop={'size': 4},  # Reduzido em 200%
-                title_fontsize='6'  # Reduzido em 200%
+                prop={'size': 4},
+                title_fontsize='6'
             )
             
             ax.set_title("Distribuição por Tipo", fontsize=10)
@@ -451,12 +452,45 @@ def dashboard():
 
     with tab2:
         st.subheader("OS por Executantes")
-        executantes = pd.concat([df["Executante1"], df["Executante2"]])
-        # Filtrar valores vazios e 'nan'
-        executantes = executantes[~executantes.isin(['', 'nan'])]
-        executante_counts = executantes.value_counts()
         
-        if not executante_counts.empty:
+        # Adicionando filtro por período
+        col1, col2 = st.columns(2)
+        with col1:
+            periodo = st.selectbox("Período", ["Todos", "Por Mês/Ano"])
+        
+        df_filtrado = df.copy()
+        
+        if periodo == "Por Mês/Ano":
+            with col2:
+                # Converter a coluna Data Conclusão para datetime
+                df_filtrado['Data Conclusão'] = pd.to_datetime(df_filtrado['Data Conclusão'], dayfirst=True, errors='coerce')
+                
+                # Filtrar apenas OS concluídas
+                df_filtrado = df_filtrado[df_filtrado['Status'] == 'Concluído']
+                
+                # Criar listas de meses e anos disponíveis
+                meses = list(range(1, 13))
+                anos = list(range(2024, 2031))  # De 2024 até 2030
+                
+                mes_selecionado = st.selectbox("Mês", meses, format_func=lambda x: f"{x:02d}")
+                ano_selecionado = st.selectbox("Ano", anos)
+                
+                # Filtrar os dados pela data de conclusão
+                df_filtrado = df_filtrado[
+                    (df_filtrado['Data Conclusão'].dt.month == mes_selecionado) & 
+                    (df_filtrado['Data Conclusão'].dt.year == ano_selecionado)
+                ]
+        else:
+            # Filtrar apenas OS concluídas quando selecionado "Todos"
+            df_filtrado = df_filtrado[df_filtrado['Status'] == 'Concluído']
+        
+        # Concatenar executantes e filtrar valores inválidos
+        executantes = pd.concat([df_filtrado["Executante1"], df_filtrado["Executante2"]])
+        executantes = executantes[~executantes.isin(['', 'nan'])]
+        
+        if not executantes.empty:
+            executante_counts = executantes.value_counts()
+            
             fig, ax = plt.subplots(figsize=(3, 2))
             
             wedges, texts, autotexts = ax.pie(
@@ -477,14 +511,14 @@ def dashboard():
                 title="Executantes",
                 loc="lower right",
                 bbox_to_anchor=(1.5, 0),
-                prop={'size': 4},  # Reduzido em 200%
-                title_fontsize='6'  # Reduzido em 200%
+                prop={'size': 4},
+                title_fontsize='6'
             )
             
             ax.set_title("OS por Executantes", fontsize=10)
             st.pyplot(fig, bbox_inches='tight')
         else:
-            st.warning("Nenhuma OS atribuída a executantes")
+            st.warning("Nenhuma OS concluída encontrada para o período selecionado")
 
     with tab3:
         st.subheader("Distribuição por Status")
@@ -493,20 +527,18 @@ def dashboard():
         if not status_counts.empty:
             fig, ax = plt.subplots(figsize=(3, 2))
             
-            # Alterado para gráfico de barras verticais
             bars = ax.bar(
                 status_counts.index,
                 status_counts.values,
                 color=sns.color_palette("pastel")
             )
             
-            # Adicionando os valores nas barras com fonte menor
             for bar in bars:
                 height = bar.get_height()
                 ax.text(bar.get_x() + bar.get_width()/2., height,
                         f'{height}',
                         ha='center', va='bottom',
-                        fontsize=4)  # Reduzindo o tamanho da fonte em 200%
+                        fontsize=4)
             
             ax.set_title("Distribuição por Status", fontsize=10)
             plt.xticks(rotation=45, fontsize=6)
@@ -624,7 +656,6 @@ def atualizar_os():
                 data_conclusao = ""
                 hora_conclusao = ""
 
-        # Nova caixa de texto para observações
         observacoes = st.text_area("Observações", value=os_data.get("Observações", ""))
 
         submitted = st.form_submit_button("Atualizar OS")
@@ -747,7 +778,6 @@ def configurar_github():
                 st.error("Preencha todos os campos para ativar a sincronização com GitHub")
 
 def main():
-    # Inicializa o estado da sessão para notificações se não existir
     if 'notificacoes_limpas' not in st.session_state:
         st.session_state.notificacoes_limpas = False
         
