@@ -263,13 +263,27 @@ def pagina_inicial():
             # Pegar as últimas 3 OS (ou menos se não houver 3)
             ultimas_os = novas_os.tail(3).iloc[::-1]  # Inverte para mostrar a mais recente primeiro
             
-            for _, os_data in ultimas_os.iterrows():
-                with st.container():
-                    if os_data.get("Urgente", "") == "Sim":
-                        st.error(f"🚨 ORDEM DE SERVIÇO URGENTE: ID {os_data['ID']} - {os_data['Descrição']}")
-                    else:
-                        st.warning(f"⚠️ NOVA ORDEM DE SERVIÇO ABERTA: ID {os_data['ID']} - {os_data['Descrição']}")
-                st.markdown("---")
+            # Container para as notificações
+            with st.container():
+                # Botão para limpar notificações
+                if st.button("🗑️ Limpar Notificações", key="limpar_notificacoes"):
+                    st.session_state.notificacoes_limpas = True
+                    st.rerun()
+                
+                st.markdown("<style>div[data-testid='stVerticalBlock'] > div:has(>.stAlert) {margin-bottom: -1rem;}</style>", unsafe_allow_html=True)
+                
+                if not st.session_state.get('notificacoes_limpas', False):
+                    for _, os_data in ultimas_os.iterrows():
+                        if os_data.get("Urgente", "") == "Sim":
+                            st.error(f"🚨 ORDEM DE SERVIÇO URGENTE: ID {os_data['ID']} - {os_data['Descrição']}")
+                        else:
+                            st.warning(f"⚠️ NOVA ORDEM DE SERVIÇO ABERTA: ID {os_data['ID']} - {os_data['Descrição']}")
+                else:
+                    st.info("Notificações limpas")
+                    if st.button("Mostrar Notificações"):
+                        st.session_state.notificacoes_limpas = False
+                        st.rerun()
+            st.markdown("---")
 
     st.markdown("""
     ### Bem-vindo ao Sistema de Gestão de Ordens de Serviço
@@ -733,6 +747,10 @@ def configurar_github():
                 st.error("Preencha todos os campos para ativar a sincronização com GitHub")
 
 def main():
+    # Inicializa o estado da sessão para notificações se não existir
+    if 'notificacoes_limpas' not in st.session_state:
+        st.session_state.notificacoes_limpas = False
+        
     inicializar_arquivos()
     
     st.sidebar.title("Menu")
