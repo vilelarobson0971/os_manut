@@ -709,8 +709,8 @@ def configurar_github():
         return
     
     with st.form("github_config_form"):
-        repo = st.text_input("Repositório GitHub (user/repo)", value=GITHUB_REPO or "vilelarobson0971/OS_4.0")
-        filepath = st.text_input("Caminho do arquivo no repositório", value=GITHUB_FILEPATH or "ordens_servico4.0.csv")
+        repo = st.text_input("Repositório GitHub (user/repo)", value=GITHUB_REPO or "vilelarobson0971/os_manut")
+        filepath = st.text_input("Caminho do arquivo no repositório", value=GITHUB_FILEPATH or "ordens_servico.csv")
         token = st.text_input("Token de acesso GitHub", type="password", value=GITHUB_TOKEN or "")
         
         submitted = st.form_submit_button("Salvar Configurações")
@@ -781,7 +781,7 @@ def main():
 
     st.sidebar.markdown("---")
     st.sidebar.markdown("**Sistema de Ordens de Serviço**")
-    st.sidebar.markdown("Versão 4.0 com Múltiplos Executantes")
+    st.sidebar.markdown("Versão 2.5 com Múltiplos Executantes")
     st.sidebar.markdown("Desenvolvido por Robson Vilela")
 
 if __name__ == "__main__":
