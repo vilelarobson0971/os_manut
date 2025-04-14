@@ -784,5 +784,5 @@ ID,Descrição,Data,Hora Abertura,Solicitante,Local,Tipo,Status,Data Conclusão,
 783,Ajustar fechamento do portão principal da Expedição,11/04/2025,7:30,Weder,Expedição,Elétrica,Pendente,nan,nan,nan,nan,nan,nan
 784,"MAquina de viés travada
 Urgente ",11/04/2025,,Isis,Sala de vies,Mecânica,Concluído,11/04/2025,nan,Robson,nan,nan,nan
-785,TROCAR PEÇA DA MAQUINA,11/04/2025,7:30,SISLEY,ENGENHARIA DE PRODUTO ,Mecânica,Pendente,nan,nan,nan,nan,nan,nan
-786,Fazer conserto de braços de cadeira de escritório,14/04/2025,09:33,Robson,Matriz,,Pendente,,,,,Não,
+785,TROCAR PEÇA DA MAQUINA,11/04/2025,7:30,SISLEY,ENGENHARIA DE PRODUTO ,Elétrica,Em execução,,,Robson,,nan,nan
+786,Fazer conserto de braços de cadeira de escritório,14/04/2025,09:33,Robson,Matriz,,Pendente,nan,nan,nan,nan,Não,nan
