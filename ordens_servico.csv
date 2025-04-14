@@ -700,7 +700,7 @@ ID,Descrição,Data,Hora Abertura,Solicitante,Local,Tipo,Status,Data Conclusão,
 699,Ar condicionado não está gelando,10/03/25,,Allan,Diretoria,Refrigeração,Concluído,10/03/25,nan,Robson,nan,nan,nan
 700,Lampada queimou perto da Celia,11/03/25,,Fran.Duarte,Pilotagem,Elétrica,Concluído,12/03/25,nan,Guilherme,nan,nan,nan
 701,Portão principal com defeito não abre ou fecha,11/03/25,,Rafael,Matriz,Elétrica,Concluído,11/03/25,nan,Robson,nan,nan,nan
-702,Instalar interfone na Revisão de Tecidos,11/03/25,7:30,Umberto,Revisão,Civil,Concluído,14/04/2025,10:26,Robson,,nan,Atividade cancelada
+702,Instalar interfone na Revisão de Tecidos,11/03/25,7:30,Umberto,Revisão,Civil,Concluído,14/04/2025,10:26,Robson,nan,nan,Atividade cancelada
 703,instalar tampo de madeira em carrinho,11/03/25,,Nélio/Isabela,Corte,Mecânica,Concluído,12/03/25,nan,Guilherme,nan,nan,nan
 704,instalar ventilador no e-commerce,12/03/25,,Diogo,E-commerce,Instalação,Concluído,12/03/25,nan,Guilherme,nan,nan,nan
 705,Instalar Flip Chart,12/03/25,,Flavio,Marketing,Instalação,Concluído,13/03/25,nan,Robson,nan,nan,nan
@@ -780,7 +780,7 @@ ID,Descrição,Data,Hora Abertura,Solicitante,Local,Tipo,Status,Data Conclusão,
 779,Cadastrar controle remoto para portões da matriz e Filial ,10/04/2025,,Erick,Gerência ,Elétrica,Concluído,11/04/2025,nan,Robson,nan,nan,nan
 780,Desentupir o bebedouro do lado da porta do acabamento ,10/04/2025,,Fran. Duarte ,Filial,Hidráulica,Concluído,11/04/2025,nan,Guilherme,nan,nan,nan
 781,Verificar portão automatico do barracão do Corte.. Batida de veículo danificou o mesmo,10/04/2025,,Joelson,Matriz,Mecânica,Concluído,11/04/2025,nan,Robson,nan,nan,nan
-782,Instalar a máquina de termo colante para fazermos teste nos termso,10/04/2025,7:30,Fran .Duarte ,Filial,Instalação,Pendente,nan,nan,nan,nan,nan,nan
+782,Instalar a máquina de termo colante para fazermos teste nos termso,10/04/2025,7:30,Fran .Duarte ,Filial,Instalação,Concluído,14/04/2025,10:27,Robson,,nan,"Atividade cancelada, máquina manual sem necessidade de instalação"
 783,Ajustar fechamento do portão principal da Expedição,11/04/2025,7:30,Weder,Expedição,Elétrica,Concluído,14/04/2025,10:25,Robson,nan,nan,nan
 784,"MAquina de viés travada
 Urgente ",11/04/2025,,Isis,Sala de vies,Mecânica,Concluído,11/04/2025,nan,Robson,nan,nan,nan
