@@ -781,8 +781,8 @@ ID,Descrição,Data,Hora Abertura,Solicitante,Local,Tipo,Status,Data Conclusão,
 780,Desentupir o bebedouro do lado da porta do acabamento ,10/04/2025,,Fran. Duarte ,Filial,Hidráulica,Concluído,11/04/2025,nan,Guilherme,nan,nan,nan
 781,Verificar portão automatico do barracão do Corte.. Batida de veículo danificou o mesmo,10/04/2025,,Joelson,Matriz,Mecânica,Concluído,11/04/2025,nan,Robson,nan,nan,nan
 782,Instalar a máquina de termo colante para fazermos teste nos termso,10/04/2025,7:30,Fran .Duarte ,Filial,Instalação,Pendente,nan,nan,nan,nan,nan,nan
-783,Ajustar fechamento do portão principal da Expedição,11/04/2025,7:30,Weder,Expedição,Elétrica,Pendente,nan,nan,nan,nan,nan,nan
+783,Ajustar fechamento do portão principal da Expedição,11/04/2025,7:30,Weder,Expedição,Elétrica,Concluído,14/04/2025,10:25,Robson,,nan,
 784,"MAquina de viés travada
 Urgente ",11/04/2025,,Isis,Sala de vies,Mecânica,Concluído,11/04/2025,nan,Robson,nan,nan,nan
-785,TROCAR PEÇA DA MAQUINA,11/04/2025,7:30,SISLEY,ENGENHARIA DE PRODUTO ,Elétrica,Em execução,,,Robson,,nan,nan
+785,TROCAR PEÇA DA MAQUINA,11/04/2025,7:30,SISLEY,ENGENHARIA DE PRODUTO ,Elétrica,Em execução,nan,nan,Robson,nan,nan,nan
 786,Fazer conserto de braços de cadeira de escritório,14/04/2025,09:33,Robson,Matriz,,Pendente,nan,nan,nan,nan,Não,nan
