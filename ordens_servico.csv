@@ -746,7 +746,7 @@ ID,Descrição,Data,Hora Abertura,Solicitante,Local,Tipo,Status,Data Conclusão,
 745,trocar tampas quebradas de dois vasos sanitarios banheiro feminino,28/03/2025,,Robson,Filial,Civil,Concluído,28/03/2025,nan,Guilherme,nan,nan,nan
 746,levar máquina de arquear para conserto externo,28/03/2025,,Robson,Corte,Instalação,Concluído,28/03/2025,nan,Guilherme,nan,nan,nan
 747,Buscar no depósito cinco tabuas para o estoque de tecidos,28/03/2025,,Robson,Depósoito de Tecidos,Civil,Concluído,28/03/2025,nan,Guilherme,nan,nan,nan
-748,Desenvolver suporte de tablet para carrinhos,28/03/2025,7:30,Weder,Expedição,Instalação,Pendente,nan,nan,nan,nan,nan,nan
+748,Desenvolver suporte de tablet para carrinhos,28/03/2025,7:30,Weder,Expedição,Instalação,Concluído,14/04/2025,10:28,Robson,,nan,"Cancelado, Weder vai verificar modelo utilizado no Corte"
 749,Máquinas de costura dando choque,28/03/2025,,Fran Duarte,Acabamento,Elétrica,Concluído,28/03/2025,nan,Guilherme,nan,nan,nan
 750,Lâmpada queimada em uma máquina de costura,28/03/2025,,Fran Duarte,Acabamento,Elétrica,Concluído,28/03/2025,nan,Guilherme,nan,nan,nan
 751,Trocar lampadas queimadas no setor,28/03/2025,,Robson,Corte,Elétrica,Concluído,08/04/2025,nan,Guilherme,nan,nan,nan
@@ -780,7 +780,7 @@ ID,Descrição,Data,Hora Abertura,Solicitante,Local,Tipo,Status,Data Conclusão,
 779,Cadastrar controle remoto para portões da matriz e Filial ,10/04/2025,,Erick,Gerência ,Elétrica,Concluído,11/04/2025,nan,Robson,nan,nan,nan
 780,Desentupir o bebedouro do lado da porta do acabamento ,10/04/2025,,Fran. Duarte ,Filial,Hidráulica,Concluído,11/04/2025,nan,Guilherme,nan,nan,nan
 781,Verificar portão automatico do barracão do Corte.. Batida de veículo danificou o mesmo,10/04/2025,,Joelson,Matriz,Mecânica,Concluído,11/04/2025,nan,Robson,nan,nan,nan
-782,Instalar a máquina de termo colante para fazermos teste nos termso,10/04/2025,7:30,Fran .Duarte ,Filial,Instalação,Concluído,14/04/2025,10:27,Robson,,nan,"Atividade cancelada, máquina manual sem necessidade de instalação"
+782,Instalar a máquina de termo colante para fazermos teste nos termso,10/04/2025,7:30,Fran .Duarte ,Filial,Instalação,Concluído,14/04/2025,10:27,Robson,nan,nan,"Atividade cancelada, máquina manual sem necessidade de instalação"
 783,Ajustar fechamento do portão principal da Expedição,11/04/2025,7:30,Weder,Expedição,Elétrica,Concluído,14/04/2025,10:25,Robson,nan,nan,nan
 784,"MAquina de viés travada
 Urgente ",11/04/2025,,Isis,Sala de vies,Mecânica,Concluído,11/04/2025,nan,Robson,nan,nan,nan
