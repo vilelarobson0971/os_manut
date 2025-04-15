@@ -784,7 +784,7 @@ ID,Descrição,Data,Hora Abertura,Solicitante,Local,Tipo,Status,Data Conclusão,
 783,Ajustar fechamento do portão principal da Expedição,11/04/2025,7:30,Weder,Expedição,Elétrica,Concluído,14/04/2025,10:25,Robson,nan,nan,nan
 784,"MAquina de viés travada
 Urgente ",11/04/2025,,Isis,Sala de vies,Mecânica,Concluído,11/04/2025,nan,Robson,nan,nan,nan
-785,TROCAR PEÇA DA MAQUINA,11/04/2025,7:30,SISLEY,ENGENHARIA DE PRODUTO ,,Pendente,nan,nan,Robson,nan,nan,nan
+785,TROCAR PEÇA DA MAQUINA,11/04/2025,7:30,SISLEY,ENGENHARIA DE PRODUTO ,Mecânica,Concluído,15/04/2025,16:49,Guilherme,,nan,nan
 786,Fazer conserto de braços de cadeira de escritório,14/04/2025,09:33,Robson,Matriz,,Pendente,nan,nan,nan,nan,Não,nan
 787,Válvula de descarga vazando no primeiro vaso do banheiro feminino do Corte,14/04/2025,14:13,Rose,Corte,,Pendente,nan,nan,nan,nan,Sim,nan
 788,Segundo vaso do banheiro feminino do Corte está entupido,14/04/2025,14:14,Rose,Corte,Hidráulica,Concluído,14/04/2025,15:58,Guilherme,Guilherme,Sim,nan
@@ -795,4 +795,4 @@ Urgente ",11/04/2025,,Isis,Sala de vies,Mecânica,Concluído,11/04/2025,nan,Robs
 793,Trocar lâmpada e arrumar fechadura da porta da sala que não está fechando,15/04/2025,11:20,Isis,Sala de viés,,Pendente,nan,nan,nan,nan,Não,nan
 794,Trocar correia redonda da máquina de vies,15/04/2025,13:32,Isis,Vies,,Pendente,nan,nan,nan,nan,Sim,nan
 795,Quadro de comando do motor de vácuo desprendeu da mesa,15/04/2025,14:21,Joelson,Corte,,Pendente,nan,nan,nan,nan,Não,nan
-796,Organizar instalação elétrica e de rede na sala de reuinões da Filial,15/04/2025,14:22,Erik,Filial,,Pendente,,,,,Não,
+796,Organizar instalação elétrica e de rede na sala de reuinões da Filial,15/04/2025,14:22,Erik,Filial,,Pendente,nan,nan,nan,nan,Não,nan
