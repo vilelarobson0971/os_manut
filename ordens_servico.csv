@@ -784,8 +784,8 @@ ID,Descrição,Data,Hora Abertura,Solicitante,Local,Tipo,Status,Data Conclusão,
 783,Ajustar fechamento do portão principal da Expedição,11/04/2025,7:30,Weder,Expedição,Elétrica,Concluído,14/04/2025,10:25,Robson,nan,nan,nan
 784,"MAquina de viés travada
 Urgente ",11/04/2025,,Isis,Sala de vies,Mecânica,Concluído,11/04/2025,nan,Robson,nan,nan,nan
-785,TROCAR PEÇA DA MAQUINA,11/04/2025,7:30,SISLEY,ENGENHARIA DE PRODUTO ,Mecânica,Concluído,15/04/2025,16:49,Guilherme,,nan,nan
-786,Fazer conserto de braços de cadeira de escritório,14/04/2025,09:33,Robson,Matriz,,Pendente,nan,nan,nan,nan,Não,nan
+785,TROCAR PEÇA DA MAQUINA,11/04/2025,7:30,SISLEY,ENGENHARIA DE PRODUTO ,Mecânica,Concluído,15/04/2025,16:49,Guilherme,nan,nan,nan
+786,Fazer conserto de braços de cadeira de escritório,14/04/2025,09:33,Robson,Matriz,Instalação,Concluído,15/04/2025,16:49,Guilherme,,Não,nan
 787,Válvula de descarga vazando no primeiro vaso do banheiro feminino do Corte,14/04/2025,14:13,Rose,Corte,,Pendente,nan,nan,nan,nan,Sim,nan
 788,Segundo vaso do banheiro feminino do Corte está entupido,14/04/2025,14:14,Rose,Corte,Hidráulica,Concluído,14/04/2025,15:58,Guilherme,Guilherme,Sim,nan
 789,"Verificar maquina de enfestar 5, está travada",14/04/2025,14:34,Joelson,Corte,Mecânica,Concluído,14/04/2025,15:57,Robson,Guilherme,Sim,nan
