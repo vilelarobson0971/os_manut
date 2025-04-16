@@ -1,4 +1,3 @@
-
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -16,10 +15,10 @@ def carregar_imagem(caminho_arquivo):
         dados = f.read()
         encoded = base64.b64encode(dados).decode()
     return f"data:image/png;base64,{encoded}"
-    
+
 # Configurações da página
 st.set_page_config(
-    page_title="Sistema de Ordens de Serviço",
+    page_title="Gestão de Ordens de Serviço",
     page_icon="🔧",
     layout="wide"
 )
@@ -249,10 +248,10 @@ def pagina_inicial():
         st.markdown(f'<div style="margin-top: 10px;"><img src="{logo}" width="60"></div>', 
                    unsafe_allow_html=True)
     with col2:
-        st.markdown("<h1 style='font-size: 2.5em;'>SISTEMA DE GESTÃO DE ORDENS DE SERVIÇO</h1>", 
+        st.markdown("<h1 style='font-size: 2.5em;'>GESTÃO DE ORDENS DE SERVIÇO</h1>", 
                    unsafe_allow_html=True)
 
-    st.markdown("<p style='text-align: center; font-size: 1.2em;'>King & Joe</p>", 
+    st.markdown("<p style='text-align: center; font-size: 1.2em;'>KING & JOE</p>", 
                unsafe_allow_html=True)
     st.markdown("---")
 
@@ -783,6 +782,21 @@ def main():
         
     inicializar_arquivos()
     
+    # Adiciona o JavaScript para recarregar a página a cada 10 minutos (600000 milissegundos)
+    st.markdown("""
+    <script>
+    function checkReload() {
+        // Verifica se estamos na página principal (não na área de supervisão)
+        if (!window.location.href.includes('Supervis%C3%A3o')) {
+            setTimeout(function() {
+                window.location.reload();
+            }, 600000); // 10 minutos = 600000 ms
+        }
+    }
+    window.onload = checkReload;
+    </script>
+    """, unsafe_allow_html=True)
+    
     st.sidebar.title("Menu")
     opcao = st.sidebar.selectbox(
         "Selecione",
@@ -810,7 +824,7 @@ def main():
         pagina_supervisao()
 
     st.sidebar.markdown("---")
-    st.sidebar.markdown("**Sistema de Ordens de Serviço**")
+    st.sidebar.markdown("**Sistema de Gestão Ordens de Serviço**")
     st.sidebar.markdown("Versão 2.5 com Múltiplos Executantes")
     st.sidebar.markdown("Desenvolvido por Robson Vilela")
 
