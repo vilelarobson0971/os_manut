@@ -728,7 +728,7 @@ ID,Descrição,Data,Hora Abertura,Solicitante,Local,Tipo,Status,Data Conclusão,
 727,Instalar cabo de rede no Estúdio,20/03/25,,Juliano,Estúdio,Instalação,Concluído,20/03/25,nan,Guilherme,nan,nan,nan
 728,Pintar parede do corredor da area de descanso,20/03/25,,Renato,Matriz,Civil,Concluído,nan,nan,Guilherme,nan,nan,nan
 729,Pintar parede da area de descanso,20/03/25,,Renato,Matriz,Civil,Concluído,27/03/25,nan,Guilherme,nan,nan,nan
-730,Pintar piso do corredor da are de descanso,20/03/25,7:30,Renato,Matriz,Civil,Concluído,24/04/2025,10:42,Guilherme,,nan,
+730,Pintar piso do corredor da are de descanso,20/03/25,7:30,Renato,Matriz,Civil,Concluído,24/04/2025,10:42,Guilherme,nan,nan,nan
 731,Pintar piso da área de descanso,20/03/25,,Renato,Matriz,Civil,Concluído,08/04/2025,nan,Guilherme,nan,nan,nan
 732,Trocar torneira da pia da Copa da ADM,20/03/25,,Renato,Matriz,Civil,Concluído,28/03/25,nan,Guilherme,nan,nan,nan
 733,Trocar torneiras do banheiro masculino da Matriz,20/03/25,,Renato,Matriz,Civil,Concluído,28/03/25,nan,Guilherme,nan,nan,nan
@@ -815,4 +815,4 @@ Urgente ",11/04/2025,,Isis,Sala de vies,Mecânica,Concluído,11/04/2025,nan,Robs
 813,Portão social não está abrindo pelo interfone e tb pelo botão externo,23/04/2025,16:09,Juliana,Matriz,Elétrica,Concluído,24/04/2025,07:36,Guilherme,nan,Não,nan
 814,Máquina de vies fazendo barulhos diferentes e muito auto ,24/04/2025,09:12,Isis ,Sala de viés ,Mecânica,Concluído,24/04/2025,10:41,Guilherme,nan,Sim,Disco de corte muito apertado
 815,Pintar chão da sala do e-commerce.,24/04/2025,09:22,Diego,Matriz,,Pendente,nan,nan,nan,nan,Não,nan
-816,Vaso sanitario do primeiro banheiro feminino do Corte não enche a caixa acoplada,24/04/2025,10:40,Isis,Corte,,Pendente,nan,nan,nan,nan,Não,nan
+816,Vaso sanitario do primeiro banheiro feminino do Corte não enche a caixa acoplada,24/04/2025,10:40,Isis,Corte,Hidráulica,Concluído,24/04/2025,10:44,Guilherme,,Não,nan
