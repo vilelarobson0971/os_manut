@@ -795,7 +795,7 @@ Urgente ",11/04/2025,,Isis,Sala de vies,Mecânica,Concluído,11/04/2025,nan,Robs
 793,Trocar lâmpada e arrumar fechadura da porta da sala que não está fechando,15/04/2025,11:20,Isis,Sala de viés,Civil,Concluído,15/04/2025,16:50,Guilherme,nan,Não,nan
 794,Trocar correia redonda da máquina de vies,15/04/2025,13:32,Isis,Vies,Mecânica,Concluído,15/04/2025,16:50,Robson,nan,Sim,nan
 795,Quadro de comando do motor de vácuo desprendeu da mesa,15/04/2025,14:21,Joelson,Corte,Elétrica,Concluído,15/04/2025,16:51,Robson,nan,Não,nan
-796,Organizar instalação elétrica e de rede na sala de reuinões da Filial,15/04/2025,14:22,Erik,Filial,Elétrica,Concluído,06/05/2025,10:08,Guilherme,,Não,nan
+796,Organizar instalação elétrica e de rede na sala de reuinões da Filial,15/04/2025,14:22,Erik,Filial,Elétrica,Concluído,06/05/2025,10:08,Guilherme,nan,Não,nan
 797,"Peneu carrinho de mão, está deslocado.",16/04/2025,07:57,Carlos ,Logística ,Mecânica,Concluído,17/04/2025,15:42,Guilherme,nan,Sim,nan
 798,Lâmpada piscando na sala do laboratório de Qualidade,16/04/2025,11:26,Robson,Laboratório de Qualidade,Elétrica,Concluído,17/04/2025,08:58,Robson,nan,Não,nan
 799,Trocar lâmpada queimada no Showroom,16/04/2025,13:16,Rafael,Filial,Elétrica,Concluído,22/04/2025,15:09,Guilherme,Robson,Não,nan
@@ -855,3 +855,4 @@ Quando chove, acumula água em cima do forro e acaba pinganda pelo buraco que pa
 852,Etiquetadora com defeito na mola,05/05/2025,14:08,Lucas,Corte,Mecânica,Concluído,06/05/2025,07:31,Robson,nan,Não,nan
 853,Pintar o piso do corredor lateral da Expedição Play e fundo Recepção,05/05/2025,15:47,Robson,Matriz,,Pendente,nan,nan,nan,nan,Não,nan
 854,Trocar lâmpada sobre o Computador do Corte,06/05/2025,07:58,Joelson,Corte,Elétrica,Concluído,06/05/2025,10:07,Guilherme,nan,Não,nan
+855,Verificar parafuso espanado na máquina de vies ,06/05/2025,11:22,Isis,Sala de viés ,,Pendente,,,,,Não,
