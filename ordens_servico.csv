@@ -795,7 +795,7 @@ Urgente ",11/04/2025,,Isis,Sala de vies,Mecânica,Concluído,11/04/2025,nan,Robs
 793,Trocar lâmpada e arrumar fechadura da porta da sala que não está fechando,15/04/2025,11:20,Isis,Sala de viés,Civil,Concluído,15/04/2025,16:50,Guilherme,nan,Não,nan
 794,Trocar correia redonda da máquina de vies,15/04/2025,13:32,Isis,Vies,Mecânica,Concluído,15/04/2025,16:50,Robson,nan,Sim,nan
 795,Quadro de comando do motor de vácuo desprendeu da mesa,15/04/2025,14:21,Joelson,Corte,Elétrica,Concluído,15/04/2025,16:51,Robson,nan,Não,nan
-796,Organizar instalação elétrica e de rede na sala de reuinões da Filial,15/04/2025,14:22,Erik,Filial,,Pendente,nan,nan,nan,nan,Não,nan
+796,Organizar instalação elétrica e de rede na sala de reuinões da Filial,15/04/2025,14:22,Erik,Filial,Elétrica,Concluído,06/05/2025,10:08,Guilherme,,Não,nan
 797,"Peneu carrinho de mão, está deslocado.",16/04/2025,07:57,Carlos ,Logística ,Mecânica,Concluído,17/04/2025,15:42,Guilherme,nan,Sim,nan
 798,Lâmpada piscando na sala do laboratório de Qualidade,16/04/2025,11:26,Robson,Laboratório de Qualidade,Elétrica,Concluído,17/04/2025,08:58,Robson,nan,Não,nan
 799,Trocar lâmpada queimada no Showroom,16/04/2025,13:16,Rafael,Filial,Elétrica,Concluído,22/04/2025,15:09,Guilherme,Robson,Não,nan
@@ -834,7 +834,7 @@ Quando chove, acumula água em cima do forro e acaba pinganda pelo buraco que pa
 831,Arrumar trinco da porta do PPCP.,28/04/2025,13:30,Wesley,PPCP - Filial,Civil,Concluído,29/04/2025,11:36,Robson,Guilherme,Não,nan
 832,Vazamento no forro do banheiro parte de cima do refeitório e infiltração no refeitório do lado ,28/04/2025,13:45,Fran.Duarte,Filial,Civil,Concluído,02/05/2025,13:14,Robson,Guilherme,Sim,nan
 833,Maquina de arquear não está puxando,28/04/2025,14:22,Lucas,Corte,Mecânica,Concluído,29/04/2025,15:55,Robson,Guilherme,Não,nan
-834,"Por favor precisa arrumar tomada do climatizador, que fica na entrada do barracão.",28/04/2025,15:00,Camila,Corte ,Elétrica,Concluído,06/05/2025,10:07,Guilherme,,Não,nan
+834,"Por favor precisa arrumar tomada do climatizador, que fica na entrada do barracão.",28/04/2025,15:00,Camila,Corte ,Elétrica,Concluído,06/05/2025,10:07,Guilherme,nan,Não,nan
 835,Orçar construção de sala para Marketing,29/04/2025,08:55,Flávio,Matriz,Instalação,Concluído,02/05/2025,15:57,Robson,nan,Não,nan
 836,Trocar mangueiras do tanque de lavar telas,29/04/2025,08:56,Mayco,Estamparia,Mecânica,Concluído,30/04/2025,11:09,Guilherme,nan,Não,nan
 837,Trocar lampada queimada no corredor da sala de reuniões 1,29/04/2025,08:57,Gleice,ADM Matriz,Elétrica,Concluído,06/05/2025,07:32,Guilherme,nan,Não,nan
