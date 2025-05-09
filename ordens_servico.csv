@@ -542,7 +542,7 @@ ID,Descrição,Data,Hora Abertura,Solicitante,Local,Tipo,Status,Data Conclusão,
 541,Adequar iluminações de emergencia em todo barracão do estoque na rua Antonio Capello,24/01/25,,Robson,SCI,Instalação,Concluído,04/03/25,nan,Guilherme,nan,nan,nan
 542,Adequar seinalização de emergencia na ADM do estoque na rua Antonio Capello,24/01/25,,Robson,SCI,Instalação,Concluído,21/02/25,nan,Robson,nan,nan,nan
 543,Adequar iluminação de emergencia na ADM do Estoque na rua Antonio Capello,24/01/25,,Robson,SCI,Instalação,Concluído,07/03/25,nan,Guilherme,nan,nan,nan
-544,Adequar altura do primeiro degrau (espelho) da escadaria metalica da recepção,24/01/25,7:30,Robson,SCI,Civil,Concluído,09/05/2025,10:57,Robson,,nan,"não executado, aguardando novo projeto"
+544,Adequar altura do primeiro degrau (espelho) da escadaria metalica da recepção,24/01/25,7:30,Robson,SCI,Civil,Concluído,09/05/2025,10:57,Robson,nan,nan,"não executado, aguardando novo projeto"
 545,Adequar toda sinalização de emergência do setor kids/Play,24/01/25,,Robson,SCI,Instalação,Concluído,nan,nan,Robson,nan,nan,nan
 546,Retirar placa de sinalização tipo Saida da parte externa a entrada do mezanino do setor e Corte,24/01/25,,Robson,SCI,Instalação,Concluído,24/02/25,nan,Robson,nan,nan,nan
 547,Adequar sentido das placas de sinalização do setor Corte,24/01/25,,Robson,SCI,Instalação,Concluído,18/02/25,nan,Robson,nan,nan,nan
@@ -554,7 +554,7 @@ ID,Descrição,Data,Hora Abertura,Solicitante,Local,Tipo,Status,Data Conclusão,
 553,Instalar extintores de incendio no setor Estoque de tecidos,24/01/25,,Robson,SCI,Instalação,Concluído,24/01/25,nan,Robson,nan,nan,nan
 554,Instalar iluminações de emergencia no setor Estoque de tecidos,24/01/25,,Robson,SCI,Instalação,Concluído,25/02/25,nan,Guilherme,nan,nan,nan
 555,Instalar sinalizações de emergencia no setor Estoque de tecidos,24/01/25,,Robson,SCI,Instalação,Concluído,19/02/25,nan,Robson,nan,nan,nan
-556,Adequar escada de acesso do setor Corte para deposito da rua Antonio Capello,24/01/25,7:30,Robson,SCI,Instalação,Pausado,nan,nan,nan,nan,nan,nan
+556,Adequar escada de acesso do setor Corte para deposito da rua Antonio Capello,24/01/25,7:30,Robson,SCI,Civil,Concluído,09/05/2025,10:58,Robson,,nan,"não executado, aguardando novo projeto"
 557,Adequar iluminações de emergencia no depósoito da rua Antonio capello,24/01/25,,Robson,SCI,Instalação,Concluído,04/03/25,nan,Guilherme,nan,nan,nan
 558,Adequar sinalizações de emergencia de prevenção no depósito da Antonio Capello,24/01/25,,Robson,SCI,Instalação,Concluído,21/02/25,nan,Robson,nan,nan,nan
 559,Adequar extintores de incendio no deposito da rua Antonio Capello,24/01/25,,Robson,SCI,Instalação,Concluído,24/01/25,nan,Robson,nan,nan,nan
