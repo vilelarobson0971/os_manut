@@ -533,7 +533,7 @@ ID,Descrição,Data,Hora Abertura,Solicitante,Local,Tipo,Status,Data Conclusão,
 532,Adequar instalação dos extintores na Expedição  (alguns extintores estão alocado diretamente no chão),24/01/25,,Robson,SCI,Instalação,Concluído,24/01/25,nan,Robson,nan,nan,nan
 533,Adequar instalação de toda sinalização de emergência na Expedição Play,24/01/25,,Robson,SCI,Instalação,Concluído,24/02/25,nan,Robson,nan,nan,nan
 534,Adequar abertura das saídas de emergência interna na Expedição Play,24/01/25,,Robson,SCI,Instalação,Concluído,24/01/25,nan,Robson,nan,nan,nan
-535,Adequar largura da escada lateral de ferro do barracão Expedição Play,24/01/25,7:30,Robson,SCI,Instalação,Concluído,09/05/2025,10:57,Robson,,nan,"não executado, aguardando novo projeto"
+535,Adequar largura da escada lateral de ferro do barracão Expedição Play,24/01/25,7:30,Robson,SCI,Instalação,Concluído,09/05/2025,10:57,Robson,nan,nan,"não executado, aguardando novo projeto"
 536,Adequar rebaixamento de teto e rota de fuga na Expedição,24/01/25,,Robson,SCI,Instalação,Concluído,24/01/25,nan,Robson,nan,nan,nan
 537,Adequar sinalização em solo das medidas de prevenção Expedição Play,24/01/25,,Robson,SCI,Instalação,Concluído,24/01/25,nan,Robson,nan,nan,nan
 538,Adequar sinalizações de emergencia na Expedição Play não previsto entre prateleiras e o carga/descarga,24/01/25,,Robson,SCI,Instalação,Concluído,24/01/25,nan,Robson,nan,nan,nan
@@ -542,7 +542,7 @@ ID,Descrição,Data,Hora Abertura,Solicitante,Local,Tipo,Status,Data Conclusão,
 541,Adequar iluminações de emergencia em todo barracão do estoque na rua Antonio Capello,24/01/25,,Robson,SCI,Instalação,Concluído,04/03/25,nan,Guilherme,nan,nan,nan
 542,Adequar seinalização de emergencia na ADM do estoque na rua Antonio Capello,24/01/25,,Robson,SCI,Instalação,Concluído,21/02/25,nan,Robson,nan,nan,nan
 543,Adequar iluminação de emergencia na ADM do Estoque na rua Antonio Capello,24/01/25,,Robson,SCI,Instalação,Concluído,07/03/25,nan,Guilherme,nan,nan,nan
-544,Adequar altura do primeiro degrau (espelho) da escadaria metalica da recepção,24/01/25,7:30,Robson,SCI,Instalação,Pausado,nan,nan,nan,nan,nan,nan
+544,Adequar altura do primeiro degrau (espelho) da escadaria metalica da recepção,24/01/25,7:30,Robson,SCI,Civil,Concluído,09/05/2025,10:57,Robson,,nan,"não executado, aguardando novo projeto"
 545,Adequar toda sinalização de emergência do setor kids/Play,24/01/25,,Robson,SCI,Instalação,Concluído,nan,nan,Robson,nan,nan,nan
 546,Retirar placa de sinalização tipo Saida da parte externa a entrada do mezanino do setor e Corte,24/01/25,,Robson,SCI,Instalação,Concluído,24/02/25,nan,Robson,nan,nan,nan
 547,Adequar sentido das placas de sinalização do setor Corte,24/01/25,,Robson,SCI,Instalação,Concluído,18/02/25,nan,Robson,nan,nan,nan
