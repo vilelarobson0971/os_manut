@@ -580,7 +580,7 @@ ID,Descrição,Data,Hora Abertura,Solicitante,Local,Tipo,Status,Data Conclusão,
 579,Verificar tomada do computador com interferência,31/01/25,,tatiana,RH,Elétrica,Concluído,31/01/25,nan,Robson,nan,nan,nan
 580,Maquina de peitiho travou ,31/01/25,,Fran.Duarte,Produção,Mecânica,Concluído,04/02/25,nan,Guilherme,nan,nan,nan
 581,Adequar rampa no portão social da matriz conforme norma,03/02/25,7:30,Robson,SCI,Civil,Concluído,09/05/2025,10:58,Robson,nan,nan,"não executado, aguardando novo projeto"
-582,Fazer guarda corpo com corrimão no portão social da matriz conforme norma,03/02/25,7:30,Robson,SCI,Civil,Concluído,09/05/2025,10:58,Robson,,nan,"não executado, aguardando novo projeto"
+582,Fazer guarda corpo com corrimão no portão social da matriz conforme norma,03/02/25,7:30,Robson,SCI,Civil,Concluído,09/05/2025,10:58,Robson,nan,nan,"não executado, aguardando novo projeto"
 583,Defeito na máquina de viés,03/02/25,,Vini,Corte,Mecânica,Concluído,03/02/25,nan,Robson,nan,nan,nan
 584,Pintar demarcação de extintor na area de descanso,03/02/25,,Robson,Matriz,Civil,Concluído,03/02/25,nan,Guilherme,nan,nan,nan
 585,Pintar demarcação de extintor na sala do laboratório,03/02/25,,Robson,Matriz,Civil,Concluído,03/02/25,nan,Guilherme,nan,nan,nan
@@ -862,7 +862,7 @@ Quando chove, acumula água em cima do forro e acaba pinganda pelo buraco que pa
 859,Marmiteiro rescindência o marmiteiro com duas bandeijas,07/05/2025,12:25,Fran.Duarte,Filial,Elétrica,Concluído,08/05/2025,10:59,Robson,Guilherme,Sim,nan
 860,Quebrou a lateral de plástico de uma etiquetadora,07/05/2025,14:24,Joelson,Corte,Mecânica,Concluído,08/05/2025,10:58,Robson,nan,Não,nan
 861,"TRANFERENCIA DE PRATELEIRA DO ESTOQUE PARA SALA DO MKT EM FRENTE AO ECOMMERCE
-WEDER DA EXPEDIÇÃO JÁ ESTÁ AVISADO ",07/05/2025,14:56,JUNIOR,MKT,,Pendente,nan,nan,nan,nan,Não,nan
+WEDER DA EXPEDIÇÃO JÁ ESTÁ AVISADO ",07/05/2025,14:56,JUNIOR,MKT,Instalação,Concluído,09/05/2025,10:58,Robson,Guilherme,Não,nan
 862,"Consertar rotuladora da Cris, quebrou partes plásticas",07/05/2025,15:54,Joelson,Corte,Mecânica,Concluído,08/05/2025,10:58,Robson,nan,Não,nan
 863,Instalar novo ponto de ar comprimido no Acabamento,08/05/2025,08:25,Renato,Acabamento,Instalação,Concluído,09/05/2025,07:40,Guilherme,nan,Não,nan
 864,Caldeira da passadoria vazando na parte de traz,08/05/2025,08:47,Fran.Duarte ,Filial ,,Pendente,nan,nan,nan,nan,Sim,nan
