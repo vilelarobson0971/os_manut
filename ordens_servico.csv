@@ -579,8 +579,8 @@ ID,Descrição,Data,Hora Abertura,Solicitante,Local,Tipo,Status,Data Conclusão,
 578,Verificar enfesto de ribana maquina desregulada,31/01/25,,Vini,Corte,Mecânica,Concluído,31/01/25,nan,Robson,nan,nan,nan
 579,Verificar tomada do computador com interferência,31/01/25,,tatiana,RH,Elétrica,Concluído,31/01/25,nan,Robson,nan,nan,nan
 580,Maquina de peitiho travou ,31/01/25,,Fran.Duarte,Produção,Mecânica,Concluído,04/02/25,nan,Guilherme,nan,nan,nan
-581,Adequar rampa no portão social da matriz conforme norma,03/02/25,7:30,Robson,SCI,Civil,Concluído,09/05/2025,10:58,Robson,,nan,"não executado, aguardando novo projeto"
-582,Fazer guarda corpo com corrimão no portão social da matriz conforme norma,03/02/25,7:30,Robson,SCI,Instalação,Pausado,nan,nan,nan,nan,nan,nan
+581,Adequar rampa no portão social da matriz conforme norma,03/02/25,7:30,Robson,SCI,Civil,Concluído,09/05/2025,10:58,Robson,nan,nan,"não executado, aguardando novo projeto"
+582,Fazer guarda corpo com corrimão no portão social da matriz conforme norma,03/02/25,7:30,Robson,SCI,Civil,Concluído,09/05/2025,10:58,Robson,,nan,"não executado, aguardando novo projeto"
 583,Defeito na máquina de viés,03/02/25,,Vini,Corte,Mecânica,Concluído,03/02/25,nan,Robson,nan,nan,nan
 584,Pintar demarcação de extintor na area de descanso,03/02/25,,Robson,Matriz,Civil,Concluído,03/02/25,nan,Guilherme,nan,nan,nan
 585,Pintar demarcação de extintor na sala do laboratório,03/02/25,,Robson,Matriz,Civil,Concluído,03/02/25,nan,Guilherme,nan,nan,nan
