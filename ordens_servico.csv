@@ -838,7 +838,7 @@ Quando chove, acumula água em cima do forro e acaba pinganda pelo buraco que pa
 835,Orçar construção de sala para Marketing,29/04/2025,08:55,Flávio,Matriz,Instalação,Concluído,02/05/2025,15:57,Robson,nan,Não,nan
 836,Trocar mangueiras do tanque de lavar telas,29/04/2025,08:56,Mayco,Estamparia,Mecânica,Concluído,30/04/2025,11:09,Guilherme,nan,Não,nan
 837,Trocar lampada queimada no corredor da sala de reuniões 1,29/04/2025,08:57,Gleice,ADM Matriz,Elétrica,Concluído,06/05/2025,07:32,Guilherme,nan,Não,nan
-838,Trocar lampada na sala da Expedição,29/04/2025,09:05,Gleice,Expedição,,Pendente,nan,nan,nan,nan,Não,nan
+838,Trocar lampada na sala da Expedição,29/04/2025,09:05,Gleice,Expedição,Elétrica,Concluído,12/05/2025,11:27,Guilherme,,Não,nan
 839,Instalar pêndulo na maquina pequena de viés,29/04/2025,13:49,Joelson,Corte,Mecânica,Concluído,02/05/2025,15:56,Robson,nan,Não,nan
 840,Transportar máquina antiga de viés para a Filial,29/04/2025,13:50,Joelson,Corte,Instalação,Concluído,29/04/2025,15:54,Robson,Guilherme,Não,nan
 841,"Fazer movimentação de mesas entre sala de reunião 2, Marketing e Estilo",29/04/2025,13:50,Rafael,Matriz,Instalação,Concluído,30/04/2025,08:35,Robson,Guilherme,Não,nan
@@ -872,5 +872,5 @@ WEDER DA EXPEDIÇÃO JÁ ESTÁ AVISADO ",07/05/2025,14:56,JUNIOR,MKT,Instalaçã
 868,"Verificar fechadura da sala de reuniões da filial, está enroscando",09/05/2025,10:56,Erik,Filial,Civil,Concluído,12/05/2025,08:55,Guilherme,nan,Não,nan
 869,Fazer manutenção nos paralelepídedos do pátio em frente a Recepção,09/05/2025,17:07,Renato,Matriz,,Pendente,nan,nan,nan,nan,Não,nan
 870,Cortar pés da maca para uso na área de descanso,12/05/2025,08:56,Renato,Matriz,Civil,Concluído,12/05/2025,10:17,Guilherme,nan,Não,nan
-871,Vazamento no Vaso sanitário,12/05/2025,11:21,Guilherme ,Banheiro debaixo do refeitório ,Hidráulica,Concluído,12/05/2025,11:24,Guilherme,,Não,nan
+871,Vazamento no Vaso sanitário,12/05/2025,11:21,Guilherme ,Banheiro debaixo do refeitório ,Hidráulica,Concluído,12/05/2025,11:24,Guilherme,nan,Não,nan
 872,Vazamento de água na cuba do banheiro da Expedição,12/05/2025,11:23,Josi,Expedição,,Pendente,nan,nan,nan,nan,Não,nan
