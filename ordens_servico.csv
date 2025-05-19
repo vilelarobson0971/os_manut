@@ -626,7 +626,7 @@ ID,Descrição,Data,Hora Abertura,Solicitante,Local,Tipo,Status,Data Conclusão,
 625,Fixar c/ parafusos todas as capas sobre as prateleiras,11/02/25,,Weder,Expedição,Instalação,Concluído,18/03/25,nan,Guilherme,nan,nan,nan
 626,Ligar ventilador da porta de entrada lado esquerdo em tomada 220V,11/02/25,,Weder,Expedição,Elétrica,Concluído,12/02/25,nan,Robson,nan,nan,nan
 627,Instalar placa de saída e luminaria de emergencia na sala de reuniões terreo,11/02/25,,Robson,Matriz,Instalação,Concluído,05/03/25,nan,Guilherme,nan,nan,nan
-628,Melhorar instalação de tomada em mesa da Expedição,11/02/25,7:30,Weder,Expedição,Instalação,Pendente,nan,nan,nan,nan,nan,nan
+628,Melhorar instalação de tomada em mesa da Expedição,11/02/25,7:30,Weder,Expedição,Civil,Concluído,19/05/2025,10:06,Robson,,nan,Não executado
 629,Instalar tomada para cabo de rede,11/02/25,,Thiago,Financeiro,Instalação,Concluído,11/02/25,nan,Robson,nan,nan,nan
 630,Limpar e organizar casa de bombas de incêndio do Corte,12/02/25,,Robson,Matriz,Civil,Concluído,19/02/25,nan,Guilherme,nan,nan,nan
 631,Limpar e organizar casa de bombas de incêndio da Expedição Play,12/02/25,,Robson,Matriz,Civil,Concluído,20/02/25,nan,Guilherme,nan,nan,nan
@@ -889,7 +889,7 @@ WEDER DA EXPEDIÇÃO JÁ ESTÁ AVISADO ",07/05/2025,14:56,JUNIOR,MKT,Instalaçã
 885,Mau cheiro no banheiro masculino da ADM ao lado da Recepção,15/05/2025,14:45,Rafael,Matriz,Civil,Concluído,15/05/2025,14:51,Guilherme,nan,Não,nan
 886,Trocar fechadura da sala do PCP,15/05/2025,14:47,Renato Silva,PCP,Civil,Concluído,15/05/2025,14:52,Guilherme,nan,Não,nan
 887,Ajustar fechadura da sala de reunioes da filial,15/05/2025,14:48,Erik,Filial,Civil,Concluído,15/05/2025,14:52,Guilherme,nan,Não,nan
-888,Interruptor da máquina da pilotagem interlock,15/05/2025,16:30,Lucia,Filial ,Elétrica,Concluído,19/05/2025,10:03,Guilherme,,Sim,nan
+888,Interruptor da máquina da pilotagem interlock,15/05/2025,16:30,Lucia,Filial ,Elétrica,Concluído,19/05/2025,10:03,Guilherme,nan,Sim,nan
 889,Trocar lâmpadas queimadas do estoque do e-commerce,16/05/2025,09:36,Diego,Estoque E-commerce - Matriz,,Pendente,nan,nan,nan,nan,Não,nan
 890,Limpeza do ar condicionado da sala do e-commerce,16/05/2025,09:37,Diego,E-commerce - Matriz,,Pendente,nan,nan,nan,nan,Não,nan
 891,Mudar prateleiras do e-comerce,16/05/2025,13:24,Junior,Marketing,Instalação,Concluído,19/05/2025,10:03,Robson,Guilherme,Não,nan
