@@ -791,7 +791,7 @@ Urgente ",11/04/2025,,Isis,Sala de vies,Mecânica,Concluído,11/04/2025,nan,Robs
 789,"Verificar maquina de enfestar 5, está travada",14/04/2025,14:34,Joelson,Corte,Mecânica,Concluído,14/04/2025,15:57,Robson,Guilherme,Sim,nan
 790,Calibrar contador de metragem da enfestadeira 4,14/04/2025,15:56,Joelson,Corte,Elétrica,Concluído,15/04/2025,11:13,Robson,nan,Não,nan
 791,Soltou eixo da enfestadeira 1,14/04/2025,15:57,Joelson,Corte,Mecânica,Concluído,14/04/2025,16:50,Robson,nan,Sim,nan
-792,Remover gatos da expedição,15/04/2025,11:17,Erick,Expedição,,Pendente,nan,nan,nan,nan,Não,nan
+792,Remover gatos da expedição,15/04/2025,11:17,Erick,Expedição,Instalação,Concluído,21/05/2025,15:52,Robson,,Não,"não executado, não havia animais na empresa"
 793,Trocar lâmpada e arrumar fechadura da porta da sala que não está fechando,15/04/2025,11:20,Isis,Sala de viés,Civil,Concluído,15/04/2025,16:50,Guilherme,nan,Não,nan
 794,Trocar correia redonda da máquina de vies,15/04/2025,13:32,Isis,Vies,Mecânica,Concluído,15/04/2025,16:50,Robson,nan,Sim,nan
 795,Quadro de comando do motor de vácuo desprendeu da mesa,15/04/2025,14:21,Joelson,Corte,Elétrica,Concluído,15/04/2025,16:51,Robson,nan,Não,nan
@@ -911,7 +911,7 @@ WEDER DA EXPEDIÇÃO JÁ ESTÁ AVISADO ",07/05/2025,14:56,JUNIOR,MKT,Instalaçã
 907,Preventiva semestral - Limpar e higienizar o ar condicionado da sala Comercial Leandro (TAG 14),20/05/2025,08:11,Robson,Matriz,,Pendente,nan,nan,nan,nan,Não,nan
 908,Preventiva semestral - Limpar e higienizar o ar condicionado da sala de reuniões principal (TAG 15),20/05/2025,08:12,Robson,Matriz,,Pendente,nan,nan,nan,nan,Não,nan
 909,Preventiva semestral - Limpar e higienizar o ar condicionado da sala de reuniões principal (TAG 16),20/05/2025,08:12,Robson,Matriz,,Pendente,nan,nan,nan,nan,Não,nan
-910,Desenvolver suporte de mesa para acondicionar 8 Tabletes,20/05/2025,09:16,Weder,Expedição,Instalação,Concluído,21/05/2025,15:49,Guilherme,,Não,nan
+910,Desenvolver suporte de mesa para acondicionar 8 Tabletes,20/05/2025,09:16,Weder,Expedição,Instalação,Concluído,21/05/2025,15:49,Guilherme,nan,Não,nan
 911,Fazer suporte para 8 leitores de código de barras,20/05/2025,09:37,Weder,Expedição,,Pendente,nan,nan,nan,nan,Não,nan
 912,Desapertar parafuso máquina de vies,20/05/2025,10:57,Isis,Viés ,Mecânica,Concluído,21/05/2025,09:04,Guilherme,nan,Não,nan
 913,Puxar uma tomada para ligar o ventilador no setor de conferências de aviamentos Cd,20/05/2025,13:39,Fran.Duarte ,Filial ,Elétrica,Concluído,21/05/2025,09:06,Guilherme,nan,Não,nan
