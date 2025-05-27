@@ -680,7 +680,7 @@ ID,Descrição,Data,Hora Abertura,Solicitante,Local,Tipo,Status,Data Conclusão,
 679,Instalar dois ventiladores de parede na Estamparia,05/03/25,,Renato Silva,Estamparia,Instalação,Concluído,12/03/25,nan,Guilherme,nan,nan,nan
 680,Trocar fechadura quebrada na porta do setor,05/03/25,,Weder,Expedição Play,Civil,Concluído,11/03/25,nan,Robson,nan,nan,nan
 681,Trocar fechadura quebrada na porta do setor,05/03/25,,Diego,e-Commerce,Civil,Concluído,10/03/25,nan,Robson,nan,nan,nan
-682,Adequar tubulação elétrica da porta de saída está solta e caindo,05/03/25,7:30,Welder,Expedição,Elétrica,Concluído,27/05/2025,07:31,Robson,,nan,"Não executado, aguardando atualização do projeto"
+682,Adequar tubulação elétrica da porta de saída está solta e caindo,05/03/25,7:30,Welder,Expedição,Elétrica,Concluído,27/05/2025,07:31,Robson,nan,nan,"Não executado, aguardando atualização do projeto"
 683,Trocar lâmpada queimada em cima da mesa de enfesto,05/03/25,,Joelson,Corte,Elétrica,Concluído,12/03/25,nan,Guilherme,nan,nan,nan
 684,Identificar as tubulações e quadro eletrico das bombas de incêndio,05/03/25,,Robson,Matriz,Instalação,Concluído,06/03/25,nan,Robson,nan,nan,nan
 685,Remover tubulação eletrica da parede do estúdio para aumento do funco infinito,06/03/25,,Maitê,Estúdio,Instalação,Concluído,06/03/25,nan,Guilherme,nan,nan,nan
@@ -940,3 +940,7 @@ WEDER DA EXPEDIÇÃO JÁ ESTÁ AVISADO ",07/05/2025,14:56,JUNIOR,MKT,Instalaçã
 936,Trocar tampos da mesa da sala do Financeiro,26/05/2025,09:49,Thiago,Matriz,,Pendente,nan,nan,nan,nan,Não,nan
 937,Máquina de selar pacotes ,26/05/2025,11:27,Camila,Corte,,Pendente,nan,nan,nan,nan,Sim,nan
 938,Trocar lâmpadas expedição locais conforme fotos nnviadas no WhatsApp ,26/05/2025,12:30,Weder santos,Expedição ,,Pendente,nan,nan,nan,nan,Não,nan
+939,"Fazer cópia da chave do Marketing
+O setor do marketing está trancando a porta da sala deles sem querer e não estão conseguindo entrar, por isso eles vem na sala do RH pegar a chave extra. 
+Por favor, fazer algumas cópias da chave para entregar para os integrantes do setor. 
+A chave está na sala do RH",27/05/2025,07:34,Adriana - RH,Sala do RH,,Pendente,,,,,Não,
