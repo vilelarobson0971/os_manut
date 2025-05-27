@@ -680,7 +680,7 @@ ID,Descrição,Data,Hora Abertura,Solicitante,Local,Tipo,Status,Data Conclusão,
 679,Instalar dois ventiladores de parede na Estamparia,05/03/25,,Renato Silva,Estamparia,Instalação,Concluído,12/03/25,nan,Guilherme,nan,nan,nan
 680,Trocar fechadura quebrada na porta do setor,05/03/25,,Weder,Expedição Play,Civil,Concluído,11/03/25,nan,Robson,nan,nan,nan
 681,Trocar fechadura quebrada na porta do setor,05/03/25,,Diego,e-Commerce,Civil,Concluído,10/03/25,nan,Robson,nan,nan,nan
-682,Adequar tubulação elétrica da porta de saída está solta e caindo,05/03/25,7:30,Welder,Expedição,Elétrica,Pendente,nan,nan,nan,nan,nan,nan
+682,Adequar tubulação elétrica da porta de saída está solta e caindo,05/03/25,7:30,Welder,Expedição,Elétrica,Concluído,27/05/2025,07:31,Robson,,nan,"Não executado, aguardando atualização do projeto"
 683,Trocar lâmpada queimada em cima da mesa de enfesto,05/03/25,,Joelson,Corte,Elétrica,Concluído,12/03/25,nan,Guilherme,nan,nan,nan
 684,Identificar as tubulações e quadro eletrico das bombas de incêndio,05/03/25,,Robson,Matriz,Instalação,Concluído,06/03/25,nan,Robson,nan,nan,nan
 685,Remover tubulação eletrica da parede do estúdio para aumento do funco infinito,06/03/25,,Maitê,Estúdio,Instalação,Concluído,06/03/25,nan,Guilherme,nan,nan,nan
@@ -906,7 +906,7 @@ WEDER DA EXPEDIÇÃO JÁ ESTÁ AVISADO ",07/05/2025,14:56,JUNIOR,MKT,Instalaçã
 902,Preventiva semestral - Limpar e higienizar o ar condicionado da sala diretoria Rafael (TAG 9),20/05/2025,08:08,Robson,Matriz,Refrigeração,Concluído,23/05/2025,08:36,Guilherme,nan,Não,"Feito limpeza e higienização, aplicado pastilha bactericida"
 903,Preventiva semestral - Limpar e higienizar o ar condicionado da sala Controladoria (TAG 10),20/05/2025,08:09,Robson,Matriz,Refrigeração,Concluído,23/05/2025,08:37,Guilherme,nan,Não,"Feito limpeza e higienização, aplicado pastilha bactericida"
 904,Preventiva semestral - Limpar e higienizar o ar condicionado da sala diretoria Jair (TAG 11),20/05/2025,08:09,Robson,Matriz,Refrigeração,Concluído,26/05/2025,16:04,Guilherme,nan,Não,"Feito limpeza e higienização, aplicado pastilha bactericida."
-905,Preventiva semestral - Limpar e higienizar o ar condicionado da sala de reuniões térreo (TAG 12),20/05/2025,08:10,Robson,Matriz,Refrigeração,Concluído,26/05/2025,16:42,Guilherme,,Não,"Feito limpeza e higienização, aplicado pastilha bactericida"
+905,Preventiva semestral - Limpar e higienizar o ar condicionado da sala de reuniões térreo (TAG 12),20/05/2025,08:10,Robson,Matriz,Refrigeração,Concluído,26/05/2025,16:42,Guilherme,nan,Não,"Feito limpeza e higienização, aplicado pastilha bactericida"
 906,Preventiva semestral - Limpar e higienizar o ar condicionado da sala Financeiro (TAG 13),20/05/2025,08:10,Robson,Matriz,Refrigeração,Concluído,23/05/2025,08:37,Guilherme,nan,Não,"Feito limpeza e higienização, aplicado pastilha bactericida"
 907,Preventiva semestral - Limpar e higienizar o ar condicionado da sala Comercial Leandro (TAG 14),20/05/2025,08:11,Robson,Matriz,Refrigeração,Concluído,26/05/2025,16:04,Guilherme,nan,Não,"Feito limpeza e higienização, aplicado pastilha bactericida."
 908,Preventiva semestral - Limpar e higienizar o ar condicionado da sala de reuniões principal (TAG 15),20/05/2025,08:12,Robson,Matriz,Refrigeração,Concluído,26/05/2025,16:05,Guilherme,nan,Não,"Feito limpeza e higienização, aplicado pastilha bactericida."
