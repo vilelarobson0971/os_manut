@@ -38,8 +38,13 @@ MAX_BACKUPS = 10
 SENHA_SUPERVISAO = "king@2025"
 CONFIG_FILE = "config.json"
 
-# Executantes pré-definidos (modificado: mantido apenas Guilherme)
-EXECUTANTES_PREDEFINIDOS = ["Guilherme"]
+# Executantes pré-definidos
+EXECUTANTES_PREDEFINIDOS = ["Robson", "Guilherme", "Paulinho"]
+
+# Variáveis globais para configuração do GitHub
+GITHUB_REPO = None
+GITHUB_FILEPATH = None
+GITHUB_TOKEN = None
 
 TIPOS_MANUTENCAO = {
     1: "Elétrica",
@@ -606,7 +611,7 @@ def atualizar_os():
             try:
                 index_executante1 = EXECUTANTES_PREDEFINIDOS.index(executante1_atual)
             except ValueError:
-                index_executante1 = 0  # Guilherme será o padrão
+                index_executante1 = 0
 
             executante1 = st.selectbox(
                 "Executante Principal*",
