@@ -39,7 +39,7 @@ SENHA_SUPERVISAO = "king@2025"
 CONFIG_FILE = "config.json"
 
 # Executantes pré-definidos
-EXECUTANTES_PREDEFINIDOS = ["Robson", "Guilherme", "Paulinho"]
+EXECUTANTES_PREDEFINIDOS = ["Guilherme", "Executante 2", "Executante 3"]
 
 # Variáveis globais para configuração do GitHub
 GITHUB_REPO = None
@@ -826,7 +826,7 @@ def main():
     st.sidebar.markdown("---")
     st.sidebar.markdown("**Sistema de Gestão de Ordens de Serviço**")
     st.sidebar.markdown("Versão 2.5 com Múltiplos Executantes")
-    st.sidebar.markdown("Desenvolvido por Robson Vilela")
+    st.sidebar.markdown("Copyright © Robson Vilela - 2025 - Todos os direitos reservados.")
 
 if __name__ == "__main__":
     main()
