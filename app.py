@@ -826,7 +826,7 @@ def main():
     st.sidebar.markdown("---")
     st.sidebar.markdown("**Sistema de Gestão de Ordens de Serviço**")
     st.sidebar.markdown("Versão 2.5 com Múltiplos Executantes")
-    st.sidebar.markdown("Deselvolvido por Robson Vilela - 2025")
+    st.sidebar.markdown("Desenvolvido por Robson Vilela - 2025")
     st.sidebar.markdown("Todos os direitos reservados.")
 
 if __name__ == "__main__":
