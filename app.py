@@ -39,7 +39,7 @@ SENHA_SUPERVISAO = "king@2025"
 CONFIG_FILE = "config.json"
 
 # Executantes pré-definidos
-EXECUTANTES_PREDEFINIDOS = ["Guilherme", "Executante 2", "Executante 3"]
+EXECUTANTES_PREDEFINIDOS = ["Guilherme", "Ismael"]
 
 # Variáveis globais para configuração do GitHub
 GITHUB_REPO = None
