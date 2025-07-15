@@ -1004,7 +1004,7 @@ Mudança das prateleiras de sala
 990,Verificar quantidade de extintores que vão vencer em Julho na matriz ,11/06/2025,11:05,Cilene,Matriz,Civil,Concluído,16/06/2025,08:19,Guilherme,nan,Não,nan
 991,Portão do Corte não fecha no automático,11/06/2025,13:11,Carlos Henrique,Matriz,Elétrica,Concluído,11/06/2025,15:19,Guilherme,Robson,Não,nan
 992,Arrumar cabo do ferro da caldeira solto ( Rose ),11/06/2025,15:53,Fran.Duarte,Filial ,Elétrica,Concluído,12/06/2025,13:59,Guilherme,nan,Sim,arrumado mangueira
-993,Readequar instalação elétrica e rede de computador na sala de engenharia de produto devido instalação de nova parede dentro da sala,12/06/2025,09:21,Rafael,Filial,,Pendente,nan,nan,nan,nan,Não,nan
+993,Readequar instalação elétrica e rede de computador na sala de engenharia de produto devido instalação de nova parede dentro da sala,12/06/2025,09:21,Rafael,Filial,Elétrica,Concluído,15/07/2025,09:42,Guilherme,,Não,nan
 994,Trocar lâmpadas queimadas na Expedição Infantil,12/06/2025,11:18,Weder,Matriz,Elétrica,Concluído,16/06/2025,14:50,Guilherme,nan,Não,nan
 995,Desativar alarme sonoro do sensor de presença da doca da Expedição,12/06/2025,17:10,Erik,Expedição,Elétrica,Concluído,13/06/2025,09:49,Robson,Guilherme,Não,Removido o Buzzer
 996,Trocar o ferro da caldeira da Roseli está sujando as pecas,13/06/2025,08:52,Fran.Duarte ,Filial ,Mecânica,Concluído,13/06/2025,11:24,Guilherme,nan,Sim,nan
@@ -1110,7 +1110,7 @@ Esta disponível ao lado do e-commerce",23/06/2025,09:59,Mara,Comercial,,Conclu�
 1084,pintar fundo infinito de cinza,09/07/2025,15:50,arion,matriz,Civil,Concluído,09/07/2025,15:53,Guilherme,nan,Não,nan
 1085,montar estrutura para festividade na filial,09/07/2025,15:51,junior,filial,Civil,Concluído,14/07/2025,08:21,Guilherme,nan,Não,nan
 1086,Ajustar time de fechamento automatico do portao da expedição,10/07/2025,11:37,Weder,Expedição,Elétrica,Concluído,10/07/2025,13:27,Guilherme,nan,Não,nan
-1087,Trocar Lampada sala do Erick,14/07/2025,08:15,renato,Filial,Elétrica,Concluído,15/07/2025,09:41,Guilherme,,Não,nan
+1087,Trocar Lampada sala do Erick,14/07/2025,08:15,renato,Filial,Elétrica,Concluído,15/07/2025,09:41,Guilherme,nan,Não,nan
 1088,Mudar Instalações electrifica sala PCP,14/07/2025,08:16,Renato,Filial,Elétrica,Concluído,14/07/2025,16:59,Guilherme,Ismael,Não,nan
 1089,Mudar instalações E instalar novas tomadas sala da Fran,14/07/2025,08:17,Renato,Filial,,Pendente,nan,nan,nan,nan,Não,nan
 1090,Instalar Interruptor Independente Nova sala de Desenvolvimento de produto,14/07/2025,08:19,Renato,Filial,,Pendente,nan,nan,nan,nan,Não,nan
