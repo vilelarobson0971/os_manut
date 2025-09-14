@@ -383,8 +383,8 @@ def buscar_os():
     else:
         st.warning("Nenhuma OS encontrada com os critérios informados.")
 def dashboard():
-st.header("📊 Dashboard Analítico")
-df = carregar_csv()
+    st.header("📊 Dashboard Analítico")
+    df = carregar_csv()
 
 text
 if df.empty:
@@ -808,5 +808,6 @@ if name == "main":
 main()
 
 text
+
 
 
