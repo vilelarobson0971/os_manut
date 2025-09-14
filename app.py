@@ -251,7 +251,7 @@ def pagina_inicial():
         st.markdown("<h1 style='font-size: 2.5em;'>GESTÃO DE ORDENS DE SERVIÇO DE MANUTENÇÃO</h1>", 
                    unsafe_allow_html=True)
 
-    st.markdown("<p style='text-align: center; font-size: 1.2em;'>AKR BRANDS</p>", 
+    st.markdown("<p style='text-align: center; font-size: 2.0em;'>AKR BRANDS</p>", 
                unsafe_allow_html=True)
     st.markdown("---")
 
@@ -832,4 +832,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
