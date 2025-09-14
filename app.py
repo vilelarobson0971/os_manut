@@ -381,7 +381,7 @@ def buscar_os():
         st.success(f"Encontradas {len(resultado)} OS:")
         st.dataframe(resultado, use_container_width=True)
     else:
-    st.warning("Nenhuma OS encontrada com os critérios informados.")
+        st.warning("Nenhuma OS encontrada com os critérios informados.")
 def dashboard():
 st.header("📊 Dashboard Analítico")
 df = carregar_csv()
@@ -808,4 +808,5 @@ if name == "main":
 main()
 
 text
+
 
