@@ -248,10 +248,10 @@ def pagina_inicial():
         st.markdown(f'<div style="margin-top: 10px;"><img src="{logo}" width="60"></div>', 
                    unsafe_allow_html=True)
     with col2:
-        st.markdown("<h1 style='font-size: 2.5em;'>GESTÃO DE ORDENS DE SERVIÇO</h1>", 
+        st.markdown("<h1 style='font-size: 2.5em;'>GESTÃO DE ORDENS DE SERVIÇO DE MANUTENÇÃO</h1>", 
                    unsafe_allow_html=True)
 
-    st.markdown("<p style='text-align: center; font-size: 1.2em;'>KING & JOE</p>", 
+    st.markdown("<p style='text-align: center; font-size: 1.2em;'>AKR BRANDS</p>", 
                unsafe_allow_html=True)
     st.markdown("---")
 
@@ -827,7 +827,9 @@ def main():
     st.sidebar.markdown("**Sistema de Gestão de Ordens de Serviço**")
     st.sidebar.markdown("Versão 2.5 com Múltiplos Executantes")
     st.sidebar.markdown("Desenvolvedor Robson Vilela")
+    st.sidebar.markdown("Todos os Direitos Reservados")
     st.sidebar.markdown("2025")
 
 if __name__ == "__main__":
     main()
+
