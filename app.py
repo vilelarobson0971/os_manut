@@ -316,7 +316,7 @@ def cadastrar_os():
         local = st.text_input("Local*")
         urgente = st.checkbox("Urgente")
 
-        submitted = st.form_submit_button("Cadastrar OS", disabled=True)
+        submitted = st.form_submit_button("Cadastrar OS")
         if submitted:
             if not descricao or not solicitante or not local:
                 st.error("Preencha todos os campos obrigatórios (*)")
@@ -832,6 +832,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
