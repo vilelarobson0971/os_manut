@@ -382,14 +382,16 @@ class UIComponents:
     
     @staticmethod
     def criar_grafico_pizza(dados, titulo: str, labels_func=None):
-        """Cria gráfico de pizza padronizado"""
+        """Cria gráfico de pizza padronizado e responsivo"""
         if dados.empty:
             st.warning("Nenhum dado disponível")
             return
         
         # Configurar estilo
         plt.style.use('seaborn-v0_8-darkgrid')
-        fig, ax = plt.subplots(figsize=(10, 7))
+        
+        # Usar figsize relativo (será escalado pelo Streamlit)
+        fig, ax = plt.subplots(figsize=(8, 6), dpi=100)
         
         # Cores modernas e profissionais
         colors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#98D8C8', '#F7DC6F']
@@ -435,19 +437,22 @@ class UIComponents:
         ax.set_title(titulo, fontsize=14, weight='bold', pad=20)
         
         plt.tight_layout()
-        st.pyplot(fig)
+        # use_container_width=True faz o gráfico se ajustar ao contêiner
+        st.pyplot(fig, use_container_width=True)
         plt.close()
     
     @staticmethod
     def criar_grafico_barras(dados, titulo: str):
-        """Cria gráfico de barras padronizado"""
+        """Cria gráfico de barras padronizado e responsivo"""
         if dados.empty:
             st.warning("Nenhum dado disponível")
             return
         
         # Configurar estilo
         plt.style.use('seaborn-v0_8-whitegrid')
-        fig, ax = plt.subplots(figsize=(12, 7))
+        
+        # Usar figsize relativo (será escalado pelo Streamlit)
+        fig, ax = plt.subplots(figsize=(10, 6), dpi=100)
         
         # Cores gradientes modernas
         colors = ['#667eea', '#764ba2', '#f093fb', '#4facfe']
@@ -496,7 +501,8 @@ class UIComponents:
         ax.set_axisbelow(True)
         
         plt.tight_layout()
-        st.pyplot(fig)
+        # use_container_width=True faz o gráfico se ajustar ao contêiner
+        st.pyplot(fig, use_container_width=True)
         plt.close()
 
 # ==================== PÁGINAS ====================
