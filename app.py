@@ -624,7 +624,7 @@ class Paginas:
         with col1:
             criterio = st.radio(
                 "Buscar por:",
-                ["ID", "Status", "Tipo", "Solicitante", "Local", 
+                ["Status", "ID", "Tipo", "Solicitante", "Local", 
                  "Executante1", "Executante2", "Observações"]
             )
         
