@@ -390,8 +390,8 @@ class UIComponents:
         # Configurar estilo
         plt.style.use('seaborn-v0_8-darkgrid')
         
-        # Usar figsize relativo (será escalado pelo Streamlit)
-        fig, ax = plt.subplots(figsize=(8, 6), dpi=100)
+        # Tamanho compacto e responsivo
+        fig, ax = plt.subplots(figsize=(6, 4.5), dpi=100)
         
         # Cores modernas e profissionais
         colors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#98D8C8', '#F7DC6F']
@@ -403,13 +403,13 @@ class UIComponents:
             startangle=90,
             colors=colors[:len(dados)],
             wedgeprops=dict(width=0.5, edgecolor='white', linewidth=2),
-            textprops={'fontsize': 11, 'weight': 'bold', 'color': 'white'}
+            textprops={'fontsize': 9, 'weight': 'bold', 'color': 'white'}
         )
         
         # Melhorar aparência dos textos de porcentagem
         for autotext in autotexts:
             autotext.set_color('white')
-            autotext.set_fontsize(10)
+            autotext.set_fontsize(8)
             autotext.set_weight('bold')
         
         # Círculo central para efeito donut
@@ -424,8 +424,8 @@ class UIComponents:
             title=titulo,
             loc="center left",
             bbox_to_anchor=(1, 0, 0.5, 1),
-            fontsize=10,
-            title_fontsize=12,
+            fontsize=8,
+            title_fontsize=10,
             frameon=True,
             shadow=True,
             fancybox=True
@@ -433,11 +433,10 @@ class UIComponents:
         legend.get_frame().set_facecolor('white')
         legend.get_frame().set_alpha(0.9)
         
-        # Título centralizado
-        ax.set_title(titulo, fontsize=14, weight='bold', pad=20)
+        # Título compacto
+        ax.set_title(titulo, fontsize=11, weight='bold', pad=10)
         
         plt.tight_layout()
-        # use_container_width=True faz o gráfico se ajustar ao contêiner
         st.pyplot(fig, use_container_width=True)
         plt.close()
     
@@ -451,8 +450,8 @@ class UIComponents:
         # Configurar estilo
         plt.style.use('seaborn-v0_8-whitegrid')
         
-        # Usar figsize relativo (será escalado pelo Streamlit)
-        fig, ax = plt.subplots(figsize=(10, 6), dpi=100)
+        # Tamanho compacto e responsivo
+        fig, ax = plt.subplots(figsize=(6, 4.5), dpi=100)
         
         # Cores gradientes modernas
         colors = ['#667eea', '#764ba2', '#f093fb', '#4facfe']
@@ -475,7 +474,7 @@ class UIComponents:
                 f'{int(valor)}',
                 ha='center',
                 va='bottom',
-                fontsize=11,
+                fontsize=9,
                 weight='bold',
                 color='#333'
             )
@@ -486,11 +485,11 @@ class UIComponents:
         
         # Configurar eixos
         ax.set_xticks(range(len(dados)))
-        ax.set_xticklabels(dados.index, rotation=45, ha='right', fontsize=10)
-        ax.set_ylabel('Quantidade', fontsize=11, weight='bold')
+        ax.set_xticklabels(dados.index, rotation=45, ha='right', fontsize=8)
+        ax.set_ylabel('Quantidade', fontsize=9, weight='bold')
         
-        # Título
-        ax.set_title(titulo, fontsize=14, weight='bold', pad=20)
+        # Título compacto
+        ax.set_title(titulo, fontsize=11, weight='bold', pad=10)
         
         # Remover bordas superiores e direitas
         ax.spines['top'].set_visible(False)
@@ -501,7 +500,6 @@ class UIComponents:
         ax.set_axisbelow(True)
         
         plt.tight_layout()
-        # use_container_width=True faz o gráfico se ajustar ao contêiner
         st.pyplot(fig, use_container_width=True)
         plt.close()
 
@@ -733,17 +731,22 @@ class Paginas:
         
         st.markdown("---")
         
-        # Gráficos
-        tab1, tab2, tab3 = st.tabs(["📊 Status", "🔧 Tipos", "👥 Executantes"])
+        # Layout em 2 colunas para os gráficos
+        col1, col2 = st.columns(2)
         
-        with tab1:
+        with col1:
+            st.subheader("📊 Distribuição por Status")
             self._grafico_status(df)
         
-        with tab2:
+        with col2:
+            st.subheader("🔧 Tipos de Manutenção")
             self._grafico_tipos(df)
         
-        with tab3:
-            self._grafico_executantes(df)
+        st.markdown("---")
+        
+        # Gráfico de executantes em largura total mas menor
+        st.subheader("👥 Produtividade dos Executantes")
+        self._grafico_executantes(df)
     
     def _mostrar_metricas_gerais(self, df: pd.DataFrame):
         """Mostra métricas gerais do sistema"""
@@ -764,24 +767,21 @@ class Paginas:
     
     def _grafico_status(self, df: pd.DataFrame):
         """Gráfico de distribuição por status"""
-        st.subheader("Distribuição por Status")
         status_counts = df["Status"].value_counts()
         UIComponents.criar_grafico_barras(status_counts, "OS por Status")
     
     def _grafico_tipos(self, df: pd.DataFrame):
         """Gráfico de distribuição por tipo"""
-        st.subheader("Distribuição por Tipo de Manutenção")
         tipo_counts = df[df["Tipo"] != ""]["Tipo"].value_counts()
         UIComponents.criar_grafico_pizza(tipo_counts, "Tipos de Manutenção")
     
     def _grafico_executantes(self, df: pd.DataFrame):
         """Gráfico de distribuição por executantes"""
-        st.subheader("OS por Executantes")
         
-        # Filtro de período
-        col1, col2 = st.columns(2)
+        # Filtro de período em linha compacta
+        col1, col2, col3 = st.columns([2, 1, 1])
         with col1:
-            periodo = st.selectbox("Período", ["Todos", "Por Mês/Ano"])
+            periodo = st.selectbox("📅 Período:", ["Todos", "Por Mês/Ano"], key="periodo_exec")
         
         df_filtrado = df[df["Status"] == "Concluído"].copy()
         
@@ -793,8 +793,9 @@ class Paginas:
             )
             
             with col2:
-                mes = st.selectbox("Mês", list(range(1, 13)), format_func=lambda x: f"{x:02d}")
-                ano = st.selectbox("Ano", list(range(2024, 2031)))
+                mes = st.selectbox("Mês:", list(range(1, 13)), format_func=lambda x: f"{x:02d}", key="mes_exec")
+            with col3:
+                ano = st.selectbox("Ano:", list(range(2024, 2031)), key="ano_exec")
             
             df_filtrado = df_filtrado[
                 (df_filtrado['Data Conclusão'].dt.month == mes) & 
@@ -812,7 +813,7 @@ class Paginas:
             exec_counts = executantes.value_counts()
             UIComponents.criar_grafico_pizza(exec_counts, "Executantes")
         else:
-            st.warning("Nenhuma OS concluída no período selecionado")
+            st.warning("⚠️ Nenhuma OS concluída no período selecionado")
     
     def supervisao(self):
         """Página de supervisão"""
