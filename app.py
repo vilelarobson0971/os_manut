@@ -387,32 +387,56 @@ class UIComponents:
             st.warning("Nenhum dado disponível")
             return
         
-        fig, ax = plt.subplots(figsize=(8, 6))
+        # Configurar estilo
+        plt.style.use('seaborn-v0_8-darkgrid')
+        fig, ax = plt.subplots(figsize=(10, 7))
+        
+        # Cores modernas e profissionais
+        colors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#98D8C8', '#F7DC6F']
         
         wedges, texts, autotexts = ax.pie(
             dados.values,
             labels=None,
             autopct='%1.1f%%',
             startangle=90,
-            wedgeprops=dict(width=0.4)
+            colors=colors[:len(dados)],
+            wedgeprops=dict(width=0.5, edgecolor='white', linewidth=2),
+            textprops={'fontsize': 11, 'weight': 'bold', 'color': 'white'}
         )
+        
+        # Melhorar aparência dos textos de porcentagem
+        for autotext in autotexts:
+            autotext.set_color('white')
+            autotext.set_fontsize(10)
+            autotext.set_weight('bold')
         
         # Círculo central para efeito donut
         centre_circle = plt.Circle((0, 0), 0.70, fc='white')
         ax.add_artist(centre_circle)
         
-        # Legenda
+        # Legenda melhorada
         labels = dados.index if labels_func is None else labels_func(dados.index)
-        ax.legend(
+        legend = ax.legend(
             wedges,
-            labels,
+            [f'{label}: {valor}' for label, valor in zip(labels, dados.values)],
             title=titulo,
             loc="center left",
-            bbox_to_anchor=(1, 0, 0.5, 1)
+            bbox_to_anchor=(1, 0, 0.5, 1),
+            fontsize=10,
+            title_fontsize=12,
+            frameon=True,
+            shadow=True,
+            fancybox=True
         )
+        legend.get_frame().set_facecolor('white')
+        legend.get_frame().set_alpha(0.9)
         
-        ax.set_title(titulo)
+        # Título centralizado
+        ax.set_title(titulo, fontsize=14, weight='bold', pad=20)
+        
+        plt.tight_layout()
         st.pyplot(fig)
+        plt.close()
     
     @staticmethod
     def criar_grafico_barras(dados, titulo: str):
@@ -421,29 +445,59 @@ class UIComponents:
             st.warning("Nenhum dado disponível")
             return
         
-        fig, ax = plt.subplots(figsize=(10, 6))
+        # Configurar estilo
+        plt.style.use('seaborn-v0_8-whitegrid')
+        fig, ax = plt.subplots(figsize=(12, 7))
+        
+        # Cores gradientes modernas
+        colors = ['#667eea', '#764ba2', '#f093fb', '#4facfe']
         
         bars = ax.bar(
-            dados.index,
+            range(len(dados)),
             dados.values,
-            color=sns.color_palette("pastel")
+            color=colors[:len(dados)],
+            edgecolor='white',
+            linewidth=2,
+            alpha=0.85
         )
         
-        # Adiciona valores nas barras
-        for bar in bars:
+        # Adicionar valores nas barras com melhor formatação
+        for i, (bar, valor) in enumerate(zip(bars, dados.values)):
             height = bar.get_height()
             ax.text(
                 bar.get_x() + bar.get_width()/2.,
                 height,
-                f'{int(height)}',
+                f'{int(valor)}',
                 ha='center',
-                va='bottom'
+                va='bottom',
+                fontsize=11,
+                weight='bold',
+                color='#333'
             )
+            
+            # Adicionar gradiente visual (simulado com borda)
+            bar.set_edgecolor('#555')
+            bar.set_linewidth(1.5)
         
-        ax.set_title(titulo)
-        plt.xticks(rotation=45, ha='right')
+        # Configurar eixos
+        ax.set_xticks(range(len(dados)))
+        ax.set_xticklabels(dados.index, rotation=45, ha='right', fontsize=10)
+        ax.set_ylabel('Quantidade', fontsize=11, weight='bold')
+        
+        # Título
+        ax.set_title(titulo, fontsize=14, weight='bold', pad=20)
+        
+        # Remover bordas superiores e direitas
+        ax.spines['top'].set_visible(False)
+        ax.spines['right'].set_visible(False)
+        
+        # Grid sutil
+        ax.grid(axis='y', alpha=0.3, linestyle='--', linewidth=0.7)
+        ax.set_axisbelow(True)
+        
         plt.tight_layout()
         st.pyplot(fig)
+        plt.close()
 
 # ==================== PÁGINAS ====================
 class Paginas:
@@ -689,10 +743,18 @@ class Paginas:
         """Mostra métricas gerais do sistema"""
         col1, col2, col3, col4 = st.columns(4)
         
-        col1.metric("Total de OS", len(df))
-        col2.metric("Pendentes", len(df[df["Status"] == "Pendente"]))
-        col3.metric("Em Execução", len(df[df["Status"] == "Em execução"]))
-        col4.metric("Concluídas", len(df[df["Status"] == "Concluído"]))
+        total = len(df)
+        pendentes = len(df[df["Status"] == "Pendente"])
+        em_exec = len(df[df["Status"] == "Em execução"])
+        concluidas = len(df[df["Status"] == "Concluído"])
+        
+        # Calcular porcentagem de conclusão
+        perc_conclusao = (concluidas / total * 100) if total > 0 else 0
+        
+        col1.metric("📊 Total de OS", total)
+        col2.metric("⏳ Pendentes", pendentes, delta=f"-{pendentes}" if pendentes > 0 else "0")
+        col3.metric("🔧 Em Execução", em_exec, delta=f"{em_exec}" if em_exec > 0 else "0")
+        col4.metric("✅ Concluídas", concluidas, delta=f"{perc_conclusao:.1f}%")
     
     def _grafico_status(self, df: pd.DataFrame):
         """Gráfico de distribuição por status"""
