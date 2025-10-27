@@ -813,11 +813,15 @@ class Paginas:
             col1, col2 = st.columns(2)
             
             with col1:
+                # Determinar índice do tipo atual
+                tipo_idx = 0
+                if os_data["Tipo"] and os_data["Tipo"] in Config.TIPOS_MANUTENCAO.values():
+                    tipo_idx = list(Config.TIPOS_MANUTENCAO.values()).index(os_data["Tipo"]) + 1
+                
                 tipo = st.selectbox(
                     "Tipo de Serviço",
                     [""] + list(Config.TIPOS_MANUTENCAO.values()),
-                    index=0 if not os_data["Tipo"] else 
-                          list(Config.TIPOS_MANUTENCAO.values()).index(os_data["Tipo"]) + 1
+                    index=tipo_idx
                 )
                 
                 status = st.selectbox(
@@ -826,8 +830,9 @@ class Paginas:
                     index=list(Config.STATUS_OPCOES.values()).index(os_data["Status"])
                 )
                 
+                # Determinar índice do executante 1
                 exec1_idx = 0
-                if os_data["Executante1"] in Config.EXECUTANTES_PREDEFINIDOS:
+                if os_data["Executante1"] and os_data["Executante1"] in Config.EXECUTANTES_PREDEFINIDOS:
                     exec1_idx = Config.EXECUTANTES_PREDEFINIDOS.index(os_data["Executante1"])
                 
                 executante1 = st.selectbox(
@@ -837,8 +842,9 @@ class Paginas:
                 )
             
             with col2:
+                # Determinar índice do executante 2
                 exec2_idx = 0
-                if os_data["Executante2"] in Config.EXECUTANTES_PREDEFINIDOS:
+                if os_data["Executante2"] and os_data["Executante2"] in Config.EXECUTANTES_PREDEFINIDOS:
                     exec2_idx = Config.EXECUTANTES_PREDEFINIDOS.index(os_data["Executante2"]) + 1
                 
                 executante2 = st.selectbox(
