@@ -52,6 +52,9 @@ class Config:
         "Local", "Tipo", "Status", "Data Conclusão", "Hora Conclusão", 
         "Executante1", "Executante2", "Urgente", "Observações"
     ]
+    
+    # Cores padronizadas para gráficos
+    CORES_GRAFICOS = ['#667eea', '#764ba2', '#f093fb', '#4facfe', '#00f2fe', '#fa709a']
 
 # ==================== UTILIDADES ====================
 class Utils:
@@ -104,7 +107,6 @@ class GitHubManager:
             self._carregar_config()
         except ImportError:
             self.available = False
-            st.warning("PyGithub não instalado. Sincronização GitHub desabilitada.")
     
     def _carregar_config(self):
         """Carrega configurações do arquivo JSON"""
@@ -329,7 +331,7 @@ class UIComponents:
     
     @staticmethod
     def mostrar_header_com_logo(titulo: str):
-        """Mostra header com logo"""
+        """Mostra header com logo e estilo aprimorado"""
         logo = Utils.carregar_imagem(Config.LOGO_FILE)
         
         col1, col2 = st.columns([1, 15])
@@ -341,13 +343,14 @@ class UIComponents:
                 )
         with col2:
             st.markdown(
-                f"<h1 style='font-size: 2.5em;'>{titulo}</h1>", 
+                f"""<h1 style='font-size: 2.5em; color: #667eea; 
+                text-shadow: 2px 2px 4px rgba(0,0,0,0.1);'>{titulo}</h1>""", 
                 unsafe_allow_html=True
             )
     
     @staticmethod
     def mostrar_notificacoes(df: pd.DataFrame):
-        """Mostra notificações de novas OS"""
+        """Mostra notificações de novas OS com estilo melhorado"""
         novas_os = df[df["Status"] == "Pendente"]
         
         if novas_os.empty:
@@ -357,7 +360,7 @@ class UIComponents:
         
         col1, col2 = st.columns([3, 1])
         with col2:
-            if st.button("🗑️ Limpar", key="limpar_notif"):
+            if st.button("🗑️ Limpar", key="limpar_notif", use_container_width=True):
                 st.session_state.notificacoes_limpas = True
                 st.rerun()
         
@@ -365,139 +368,103 @@ class UIComponents:
             for _, os_data in ultimas_os.iterrows():
                 if os_data.get("Urgente", "") == "Sim":
                     st.error(
-                        f"🚨 URGENTE: OS #{os_data['ID']} - {os_data['Descrição']}"
+                        f"🚨 **URGENTE:** OS #{os_data['ID']} - {os_data['Descrição'][:50]}..."
                     )
                 else:
                     st.warning(
-                        f"⚠️ NOVA OS: #{os_data['ID']} - {os_data['Descrição']}"
+                        f"⚠️ **NOVA OS:** #{os_data['ID']} - {os_data['Descrição'][:50]}..."
                     )
         else:
             col1, col2 = st.columns([3, 1])
             with col1:
-                st.info("✓ Notificações limpas")
+                st.info("✓ Notificações ocultas")
             with col2:
-                if st.button("🔄 Mostrar", key="mostrar_notif"):
+                if st.button("🔄 Mostrar", key="mostrar_notif", use_container_width=True):
                     st.session_state.notificacoes_limpas = False
                     st.rerun()
     
     @staticmethod
-    def criar_grafico_pizza(dados, titulo: str, labels_func=None):
-        """Cria gráfico de pizza padronizado e responsivo"""
+    def criar_grafico_padrao(dados, titulo: str, tipo: str = "pizza"):
+        """Cria gráfico padronizado (pizza ou barras) com dimensões UNIFORMES"""
         if dados.empty:
-            st.warning("Nenhum dado disponível")
+            st.warning("Nenhum dado disponível para o gráfico")
             return
         
-        # Configurar estilo
-        plt.style.use('seaborn-v0_8-darkgrid')
-        
-        # Tamanho compacto e responsivo
-        fig, ax = plt.subplots(figsize=(6, 4.5), dpi=100)
-        
-        # Cores modernas e profissionais
-        colors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#98D8C8', '#F7DC6F']
-        
-        wedges, texts, autotexts = ax.pie(
-            dados.values,
-            labels=None,
-            autopct='%1.1f%%',
-            startangle=90,
-            colors=colors[:len(dados)],
-            wedgeprops=dict(width=0.5, edgecolor='white', linewidth=2),
-            textprops={'fontsize': 9, 'weight': 'bold', 'color': 'white'}
-        )
-        
-        # Melhorar aparência dos textos de porcentagem
-        for autotext in autotexts:
-            autotext.set_color('white')
-            autotext.set_fontsize(8)
-            autotext.set_weight('bold')
-        
-        # Círculo central para efeito donut
-        centre_circle = plt.Circle((0, 0), 0.70, fc='white')
-        ax.add_artist(centre_circle)
-        
-        # Legenda melhorada
-        labels = dados.index if labels_func is None else labels_func(dados.index)
-        legend = ax.legend(
-            wedges,
-            [f'{label}: {valor}' for label, valor in zip(labels, dados.values)],
-            title=titulo,
-            loc="center left",
-            bbox_to_anchor=(1, 0, 0.5, 1),
-            fontsize=8,
-            title_fontsize=10,
-            frameon=True,
-            shadow=True,
-            fancybox=True
-        )
-        legend.get_frame().set_facecolor('white')
-        legend.get_frame().set_alpha(0.9)
-        
-        # Título compacto
-        ax.set_title(titulo, fontsize=11, weight='bold', pad=10)
-        
-        plt.tight_layout()
-        st.pyplot(fig, use_container_width=True)
-        plt.close()
-    
-    @staticmethod
-    def criar_grafico_barras(dados, titulo: str):
-        """Cria gráfico de barras padronizado e responsivo"""
-        if dados.empty:
-            st.warning("Nenhum dado disponível")
-            return
-        
-        # Configurar estilo
+        # CONFIGURAÇÃO PADRÃO ÚNICA PARA TODOS OS GRÁFICOS
         plt.style.use('seaborn-v0_8-whitegrid')
+        fig, ax = plt.subplots(figsize=(8, 6), dpi=100)
         
-        # Tamanho compacto e responsivo
-        fig, ax = plt.subplots(figsize=(6, 4.5), dpi=100)
-        
-        # Cores gradientes modernas
-        colors = ['#667eea', '#764ba2', '#f093fb', '#4facfe']
-        
-        bars = ax.bar(
-            range(len(dados)),
-            dados.values,
-            color=colors[:len(dados)],
-            edgecolor='white',
-            linewidth=2,
-            alpha=0.85
-        )
-        
-        # Adicionar valores nas barras com melhor formatação
-        for i, (bar, valor) in enumerate(zip(bars, dados.values)):
-            height = bar.get_height()
-            ax.text(
-                bar.get_x() + bar.get_width()/2.,
-                height,
-                f'{int(valor)}',
-                ha='center',
-                va='bottom',
-                fontsize=9,
-                weight='bold',
-                color='#333'
+        if tipo == "pizza":
+            # Gráfico de pizza (donut)
+            wedges, texts, autotexts = ax.pie(
+                dados.values,
+                labels=None,
+                autopct='%1.1f%%',
+                startangle=90,
+                colors=Config.CORES_GRAFICOS[:len(dados)],
+                wedgeprops=dict(width=0.5, edgecolor='white', linewidth=2),
+                textprops={'fontsize': 10, 'weight': 'bold', 'color': 'white'}
             )
             
-            # Adicionar gradiente visual (simulado com borda)
-            bar.set_edgecolor('#555')
-            bar.set_linewidth(1.5)
+            # Círculo central (efeito donut)
+            centre_circle = plt.Circle((0, 0), 0.70, fc='white')
+            ax.add_artist(centre_circle)
+            
+            # Legenda padronizada
+            legend = ax.legend(
+                wedges,
+                [f'{label}: {valor}' for label, valor in zip(dados.index, dados.values)],
+                title=titulo,
+                loc="center left",
+                bbox_to_anchor=(1, 0, 0.5, 1),
+                fontsize=9,
+                title_fontsize=11,
+                frameon=True,
+                shadow=True,
+                fancybox=True
+            )
+            legend.get_frame().set_facecolor('white')
+            legend.get_frame().set_alpha(0.95)
+            
+        else:  # barras
+            bars = ax.bar(
+                range(len(dados)),
+                dados.values,
+                color=Config.CORES_GRAFICOS[:len(dados)],
+                edgecolor='#555',
+                linewidth=1.5,
+                alpha=0.85
+            )
+            
+            # Adicionar valores nas barras
+            for bar, valor in zip(bars, dados.values):
+                height = bar.get_height()
+                ax.text(
+                    bar.get_x() + bar.get_width()/2.,
+                    height,
+                    f'{int(valor)}',
+                    ha='center',
+                    va='bottom',
+                    fontsize=10,
+                    weight='bold',
+                    color='#333'
+                )
+            
+            # Configurar eixos
+            ax.set_xticks(range(len(dados)))
+            ax.set_xticklabels(dados.index, rotation=45, ha='right', fontsize=9)
+            ax.set_ylabel('Quantidade', fontsize=10, weight='bold')
+            
+            # Remover bordas superiores e direitas
+            ax.spines['top'].set_visible(False)
+            ax.spines['right'].set_visible(False)
+            
+            # Grid sutil
+            ax.grid(axis='y', alpha=0.3, linestyle='--', linewidth=0.7)
+            ax.set_axisbelow(True)
         
-        # Configurar eixos
-        ax.set_xticks(range(len(dados)))
-        ax.set_xticklabels(dados.index, rotation=45, ha='right', fontsize=8)
-        ax.set_ylabel('Quantidade', fontsize=9, weight='bold')
-        
-        # Título compacto
-        ax.set_title(titulo, fontsize=11, weight='bold', pad=10)
-        
-        # Remover bordas superiores e direitas
-        ax.spines['top'].set_visible(False)
-        ax.spines['right'].set_visible(False)
-        
-        # Grid sutil
-        ax.grid(axis='y', alpha=0.3, linestyle='--', linewidth=0.7)
-        ax.set_axisbelow(True)
+        # Título padronizado para TODOS
+        ax.set_title(titulo, fontsize=13, weight='bold', pad=15, color='#333')
         
         plt.tight_layout()
         st.pyplot(fig, use_container_width=True)
@@ -511,245 +478,24 @@ class Paginas:
         self.dm = data_manager
     
     def pagina_inicial(self):
-        """Página inicial com notificações"""
+        """Página inicial com notificações e visual aprimorado"""
         UIComponents.mostrar_header_com_logo(
             "GESTÃO DE ORDENS DE SERVIÇO DE MANUTENÇÃO"
         )
         
         st.markdown(
-            "<p style='text-align: center; font-size: 2.0em;'>AKR BRANDS</p>", 
+            """<p style='text-align: center; font-size: 2.2em; color: #764ba2; 
+            font-weight: bold;'>AKR BRANDS</p>""", 
             unsafe_allow_html=True
         )
         st.markdown("---")
         
-        df = self.dm.carregar()
-        if not df.empty:
-            UIComponents.mostrar_notificacoes(df)
-            st.markdown("---")
-        
-        st.markdown("""
-        ### Bem-vindo ao Sistema de Gestão de Ordens de Serviço
-        
-        **Funcionalidades disponíveis:**
-        - 📝 **Cadastro** de novas ordens de serviço
-        - 📋 **Listagem** completa de OS cadastradas
-        - 🔍 **Busca** avançada por diversos critérios
-        - 📊 **Dashboard** com análises gráficas
-        - 🔐 **Supervisão** (área restrita)
-        """)
-        
-        # Informações do sistema
-        self._mostrar_info_sistema()
-    
-    def _mostrar_info_sistema(self):
-        """Mostra informações sobre o sistema"""
-        with st.expander("ℹ️ Informações do Sistema"):
-            backups = self.dm.listar_backups()
-            if backups:
-                st.write(f"📁 Último backup: {os.path.basename(backups[0])}")
-                st.write(f"📊 Total de backups: {len(backups)}")
-            
-            if self.dm.github.available and self.dm.github.repo:
-                st.success("✅ Sincronização GitHub ativa")
-            elif self.dm.github.available:
-                st.warning("⚠️ Sincronização GitHub não configurada")
-            else:
-                st.info("ℹ️ GitHub não disponível")
-    
-    def cadastrar_os(self):
-        """Página de cadastro de OS"""
-        st.header("📝 Cadastrar Nova Ordem de Serviço")
-        
-        with st.form("cadastro_os_form", clear_on_submit=True):
-            descricao = st.text_area("Descrição da atividade*", height=100)
-            
-            col1, col2 = st.columns(2)
-            with col1:
-                solicitante = st.text_input("Solicitante*")
-            with col2:
-                local = st.text_input("Local*")
-            
-            urgente = st.checkbox("⚠️ Marcar como urgente")
-            
-            submitted = st.form_submit_button("✅ Cadastrar OS", use_container_width=True)
-            
-            if submitted:
-                if not all([descricao, solicitante, local]):
-                    st.error("❌ Preencha todos os campos obrigatórios (*)")
-                else:
-                    if self._criar_nova_os(descricao, solicitante, local, urgente):
-                        st.success("✅ OS cadastrada com sucesso!")
-                        time.sleep(1)
-                        st.rerun()
-    
-    def _criar_nova_os(self, descricao: str, solicitante: str, 
-                       local: str, urgente: bool) -> bool:
-        """Cria uma nova OS"""
-        df = self.dm.carregar()
-        novo_id = int(df["ID"].max()) + 1 if not df.empty else 1
-        data, hora = Utils.obter_data_hora_local()
-        
-        nova_os = pd.DataFrame([{
-            "ID": novo_id,
-            "Descrição": descricao,
-            "Data": data,
-            "Hora Abertura": hora,
-            "Solicitante": solicitante,
-            "Local": local,
-            "Tipo": "",
-            "Status": "Pendente",
-            "Data Conclusão": "",
-            "Hora Conclusão": "",
-            "Executante1": "",
-            "Executante2": "",
-            "Urgente": "Sim" if urgente else "Não",
-            "Observações": ""
-        }])
-        
-        df = pd.concat([df, nova_os], ignore_index=True)
-        return self.dm.salvar(df)
-    
-    def listar_os(self):
-        """Página de listagem de OS"""
-        st.header("📋 Listagem Completa de OS")
-        
-        df = self.dm.carregar()
-        
-        if df.empty:
-            st.warning("Nenhuma ordem de serviço cadastrada.")
-            return
-        
-        # Filtros
-        with st.expander("🔍 Filtros"):
-            col1, col2, col3 = st.columns(3)
-            
-            with col1:
-                filtro_status = st.selectbox(
-                    "Status",
-                    ["Todos"] + list(Config.STATUS_OPCOES.values())
-                )
-            
-            with col2:
-                filtro_tipo = st.selectbox(
-                    "Tipo",
-                    ["Todos"] + list(Config.TIPOS_MANUTENCAO.values())
-                )
-            
-            with col3:
-                filtro_urgente = st.selectbox(
-                    "Urgência",
-                    ["Todos", "Sim", "Não"]
-                )
-        
-        # Aplicar filtros
-        df_filtrado = df.copy()
-        
-        if filtro_status != "Todos":
-            df_filtrado = df_filtrado[df_filtrado["Status"] == filtro_status]
-        
-        if filtro_tipo != "Todos":
-            df_filtrado = df_filtrado[df_filtrado["Tipo"] == filtro_tipo]
-        
-        if filtro_urgente != "Todos":
-            df_filtrado = df_filtrado[df_filtrado["Urgente"] == filtro_urgente]
-        
-        # Estatísticas
-        col1, col2, col3, col4 = st.columns(4)
-        col1.metric("Total", len(df_filtrado))
-        col2.metric("Pendentes", len(df_filtrado[df_filtrado["Status"] == "Pendente"]))
-        col3.metric("Em Execução", len(df_filtrado[df_filtrado["Status"] == "Em execução"]))
-        col4.metric("Concluídas", len(df_filtrado[df_filtrado["Status"] == "Concluído"]))
-        
-        # Tabela
-        st.dataframe(
-            df_filtrado,
-            use_container_width=True,
-            hide_index=True
-        )
-    
-    def buscar_os(self):
-        """Página de busca avançada"""
-        st.header("🔍 Busca Avançada")
-        
-        df = self.dm.carregar()
-        
-        if df.empty:
-            st.warning("Nenhuma OS cadastrada.")
-            return
-        
-        col1, col2 = st.columns([1, 3])
-        
-        with col1:
-            criterio = st.radio(
-                "Buscar por:",
-                ["Status", "ID", "Tipo", "Solicitante", "Local", 
-                 "Executante1", "Executante2", "Observações"]
-            )
-        
-        with col2:
-            resultado = self._realizar_busca(df, criterio)
-        
-        if not resultado.empty:
-            st.success(f"✅ {len(resultado)} OS encontrada(s)")
-            st.dataframe(resultado, use_container_width=True, hide_index=True)
-        else:
-            st.warning("❌ Nenhuma OS encontrada")
-    
-    def _realizar_busca(self, df: pd.DataFrame, criterio: str) -> pd.DataFrame:
-        """Realiza busca baseada no critério"""
-        if criterio == "ID":
-            busca = st.number_input("Digite o ID", min_value=1)
-            return df[df["ID"] == busca]
-        
-        elif criterio == "Status":
-            busca = st.selectbox("Selecione", list(Config.STATUS_OPCOES.values()))
-            return df[df["Status"] == busca]
-        
-        elif criterio == "Tipo":
-            busca = st.selectbox("Selecione", list(Config.TIPOS_MANUTENCAO.values()))
-            return df[df["Tipo"] == busca]
-        
-        else:
-            busca = st.text_input(f"Digite {criterio}")
-            if busca:
-                return df[df[criterio].astype(str).str.contains(busca, case=False, na=False)]
-        
-        return pd.DataFrame()
-    
-    def dashboard(self):
-        """Página de dashboard"""
-        st.header("📊 Dashboard Analítico")
-        
-        df = self.dm.carregar()
-        
-        if df.empty:
-            st.warning("Nenhuma OS cadastrada.")
-            return
-        
-        # Métricas gerais
-        self._mostrar_metricas_gerais(df)
-        
-        st.markdown("---")
-        
-        # Layout em 2 colunas para os gráficos
-        col1, col2 = st.columns(2)
-        
-        with col1:
-            st.subheader("📊 Distribuição por Status")
-            self._grafico_status(df)
-        
-        with col2:
-            st.subheader("🔧 Tipos de Manutenção")
-            self._grafico_tipos(df)
-        
-        st.markdown("---")
-        
-        # Gráfico de executantes em largura total mas menor
-        st.subheader("👥 Produtividade dos Executantes")
+        # Gráfico de executantes - MESMA ALTURA DOS OUTROS
+        st.markdown("#### 👥 Produtividade dos Executantes")
         self._grafico_executantes(df)
     
     def _mostrar_metricas_gerais(self, df: pd.DataFrame):
-        """Mostra métricas gerais do sistema"""
+        """Mostra métricas gerais do sistema com visual aprimorado"""
         col1, col2, col3, col4 = st.columns(4)
         
         total = len(df)
@@ -766,17 +512,17 @@ class Paginas:
         col4.metric("✅ Concluídas", concluidas, delta=f"{perc_conclusao:.1f}%")
     
     def _grafico_status(self, df: pd.DataFrame):
-        """Gráfico de distribuição por status"""
+        """Gráfico de distribuição por status - PADRONIZADO"""
         status_counts = df["Status"].value_counts()
-        UIComponents.criar_grafico_barras(status_counts, "OS por Status")
+        UIComponents.criar_grafico_padrao(status_counts, "Status das OS", tipo="barras")
     
     def _grafico_tipos(self, df: pd.DataFrame):
-        """Gráfico de distribuição por tipo"""
+        """Gráfico de distribuição por tipo - PADRONIZADO"""
         tipo_counts = df[df["Tipo"] != ""]["Tipo"].value_counts()
-        UIComponents.criar_grafico_pizza(tipo_counts, "Tipos de Manutenção")
+        UIComponents.criar_grafico_padrao(tipo_counts, "Tipos de Manutenção", tipo="pizza")
     
     def _grafico_executantes(self, df: pd.DataFrame):
-        """Gráfico de distribuição por executantes"""
+        """Gráfico de distribuição por executantes - PADRONIZADO NO MESMO TAMANHO"""
         
         # Filtro de período em linha compacta
         col1, col2, col3 = st.columns([2, 1, 1])
@@ -811,23 +557,29 @@ class Paginas:
         
         if not executantes.empty:
             exec_counts = executantes.value_counts()
-            UIComponents.criar_grafico_pizza(exec_counts, "Executantes")
+            # USANDO O MESMO MÉTODO PADRONIZADO
+            UIComponents.criar_grafico_padrao(exec_counts, "Produtividade por Executante", tipo="pizza")
         else:
             st.warning("⚠️ Nenhuma OS concluída no período selecionado")
     
     def supervisao(self):
-        """Página de supervisão"""
-        st.header("🔐 Área de Supervisão")
+        """Página de supervisão com visual melhorado"""
+        st.markdown("""
+        <h2 style='color: #667eea;'>🔐 Área de Supervisão</h2>
+        """, unsafe_allow_html=True)
         
         if not self._autenticar():
             return
         
         st.success("✅ Acesso autorizado")
+        st.markdown("---")
         
         opcao = st.selectbox(
             "Selecione a operação:",
             ["🔄 Atualizar OS", "💾 Gerenciar Backups", "⚙️ Configurar GitHub"]
         )
+        
+        st.markdown("---")
         
         if opcao == "🔄 Atualizar OS":
             self._atualizar_os()
@@ -841,43 +593,50 @@ class Paginas:
         if st.session_state.get('autenticado', False):
             return True
         
-        senha = st.text_input("Digite a senha:", type="password")
+        # Formulário de autenticação estilizado
+        st.markdown("### 🔒 Autenticação Necessária")
+        senha = st.text_input("Digite a senha:", type="password", key="senha_supervisao")
         
-        if senha:
-            if Utils.validar_senha(senha):
-                st.session_state.autenticado = True
-                st.rerun()
-            else:
-                st.error("❌ Senha incorreta!")
+        col1, col2, col3 = st.columns([1, 1, 2])
+        with col1:
+            if st.button("🔓 Entrar", use_container_width=True, type="primary"):
+                if Utils.validar_senha(senha):
+                    st.session_state.autenticado = True
+                    st.rerun()
+                else:
+                    st.error("❌ Senha incorreta!")
         
         return False
     
     def _atualizar_os(self):
-        """Atualiza uma OS existente"""
-        st.subheader("🔄 Atualizar Ordem de Serviço")
+        """Atualiza uma OS existente com visual melhorado"""
+        st.markdown("### 🔄 Atualizar Ordem de Serviço")
         
         df = self.dm.carregar()
         nao_concluidas = df[df["Status"] != "Concluído"]
         
         if nao_concluidas.empty:
-            st.warning("Nenhuma OS pendente de atualização")
+            st.warning("⚠️ Nenhuma OS pendente de atualização")
             return
         
         os_id = st.selectbox(
-            "Selecione a OS",
+            "Selecione a OS:",
             nao_concluidas["ID"],
-            format_func=lambda x: f"OS #{x} - {df[df['ID']==x]['Descrição'].iloc[0][:50]}"
+            format_func=lambda x: f"OS #{x} - {df[df['ID']==x]['Descrição'].iloc[0][:50]}..."
         )
         
         os_data = df[df["ID"] == os_id].iloc[0]
         
         with st.form("form_atualizar"):
-            # Informações da OS
+            # Informações da OS em destaque
             st.info(f"""
-            **Descrição:** {os_data['Descrição']}  
-            **Solicitante:** {os_data['Solicitante']}  
-            **Local:** {os_data['Local']}
+            **📄 Descrição:** {os_data['Descrição']}  
+            **👤 Solicitante:** {os_data['Solicitante']}  
+            **📍 Local:** {os_data['Local']}  
+            **📅 Data Abertura:** {os_data['Data']} às {os_data['Hora Abertura']}
             """)
+            
+            st.markdown("---")
             
             col1, col2 = st.columns(2)
             
@@ -888,13 +647,13 @@ class Paginas:
                     tipo_idx = list(Config.TIPOS_MANUTENCAO.values()).index(os_data["Tipo"]) + 1
                 
                 tipo = st.selectbox(
-                    "Tipo de Serviço",
+                    "🔧 Tipo de Serviço",
                     [""] + list(Config.TIPOS_MANUTENCAO.values()),
                     index=tipo_idx
                 )
                 
                 status = st.selectbox(
-                    "Status*",
+                    "📊 Status*",
                     list(Config.STATUS_OPCOES.values()),
                     index=list(Config.STATUS_OPCOES.values()).index(os_data["Status"])
                 )
@@ -905,7 +664,7 @@ class Paginas:
                     exec1_idx = Config.EXECUTANTES_PREDEFINIDOS.index(os_data["Executante1"])
                 
                 executante1 = st.selectbox(
-                    "Executante Principal*",
+                    "👤 Executante Principal*",
                     Config.EXECUTANTES_PREDEFINIDOS,
                     index=exec1_idx
                 )
@@ -917,23 +676,30 @@ class Paginas:
                     exec2_idx = Config.EXECUTANTES_PREDEFINIDOS.index(os_data["Executante2"]) + 1
                 
                 executante2 = st.selectbox(
-                    "Executante Secundário",
+                    "👥 Executante Secundário",
                     [""] + Config.EXECUTANTES_PREDEFINIDOS,
                     index=exec2_idx
                 )
                 
                 if status == "Concluído":
                     data, hora = Utils.obter_data_hora_local()
-                    st.text_input("Data Conclusão", value=data, disabled=True)
-                    st.text_input("Hora Conclusão", value=hora, disabled=True)
+                    st.text_input("📅 Data Conclusão", value=data, disabled=True)
+                    st.text_input("🕐 Hora Conclusão", value=hora, disabled=True)
             
             observacoes = st.text_area(
-                "Observações",
+                "📝 Observações",
                 value=os_data.get("Observações", ""),
-                height=100
+                height=120,
+                placeholder="Adicione observações sobre a execução..."
             )
             
-            submitted = st.form_submit_button("💾 Salvar Alterações", use_container_width=True)
+            st.markdown("---")
+            
+            submitted = st.form_submit_button(
+                "💾 Salvar Alterações", 
+                use_container_width=True,
+                type="primary"
+            )
             
             if submitted:
                 if status in ["Em execução", "Concluído"] and not executante1:
@@ -942,6 +708,7 @@ class Paginas:
                     if self._salvar_atualizacao(df, os_id, tipo, status, 
                                                executante1, executante2, observacoes):
                         st.success("✅ OS atualizada com sucesso!")
+                        st.balloons()
                         time.sleep(1)
                         st.rerun()
     
@@ -965,45 +732,51 @@ class Paginas:
         return self.dm.salvar(df)
     
     def _gerenciar_backups(self):
-        """Gerencia backups do sistema"""
-        st.subheader("💾 Gerenciamento de Backups")
+        """Gerencia backups do sistema com visual melhorado"""
+        st.markdown("### 💾 Gerenciamento de Backups")
         
         backups = self.dm.listar_backups()
         
         if not backups:
-            st.warning("Nenhum backup disponível")
+            st.warning("⚠️ Nenhum backup disponível")
             return
         
+        # Card de informações
         st.info(f"""
-        **Total de backups:** {len(backups)}  
-        **Último backup:** {os.path.basename(backups[0])}
+        **📊 Total de backups:** {len(backups)}  
+        **📅 Último backup:** {os.path.basename(backups[0])}  
+        **💾 Limite de backups:** {Config.MAX_BACKUPS}
         """)
+        
+        st.markdown("---")
         
         col1, col2 = st.columns(2)
         
         with col1:
-            if st.button("🔄 Criar Backup Agora", use_container_width=True):
+            if st.button("🔄 Criar Backup Agora", use_container_width=True, type="primary"):
                 self.dm._fazer_backup()
-                st.success("✅ Backup criado!")
+                st.success("✅ Backup criado com sucesso!")
                 time.sleep(1)
                 st.rerun()
         
         with col2:
-            if st.button("🧹 Limpar Antigos", use_container_width=True):
+            if st.button("🧹 Limpar Backups Antigos", use_container_width=True):
                 self.dm._limpar_backups_antigos()
-                st.success(f"✅ Mantidos {Config.MAX_BACKUPS} backups")
+                st.success(f"✅ Mantidos {Config.MAX_BACKUPS} backups mais recentes")
                 time.sleep(1)
                 st.rerun()
         
         st.markdown("---")
-        st.subheader("Restaurar Backup")
+        st.markdown("### 🔙 Restaurar Backup")
         
         backup_selecionado = st.selectbox(
-            "Selecione um backup:",
+            "Selecione um backup para restaurar:",
             [os.path.basename(b) for b in backups]
         )
         
-        if st.button("🔙 Restaurar", use_container_width=True):
+        st.warning("⚠️ **Atenção:** Restaurar um backup substituirá todos os dados atuais!")
+        
+        if st.button("🔙 Restaurar Backup Selecionado", use_container_width=True, type="primary"):
             backup_path = os.path.join(Config.BACKUP_DIR, backup_selecionado)
             if self.dm.restaurar_backup(backup_path):
                 st.success(f"✅ Dados restaurados: {backup_selecionado}")
@@ -1011,56 +784,83 @@ class Paginas:
                 st.rerun()
     
     def _configurar_github(self):
-        """Configura integração com GitHub"""
-        st.subheader("⚙️ Configuração do GitHub")
+        """Configura integração com GitHub com visual melhorado"""
+        st.markdown("### ⚙️ Configuração do GitHub")
         
         if not self.dm.github.available:
             st.error("""
-            ❌ PyGithub não está instalado.
+            ❌ **PyGithub não está instalado.**
             
-            Para ativar a sincronização com GitHub:
-            ```
+            Para ativar a sincronização com GitHub, execute:
+            ```bash
             pip install PyGithub
             ```
             """)
             return
         
+        st.info("""
+        ℹ️ **Sincronização com GitHub**  
+        Configure aqui a sincronização automática dos dados com um repositório GitHub.
+        Você precisará de um token de acesso pessoal (PAT) com permissões de repositório.
+        """)
+        
+        st.markdown("---")
+        
         with st.form("form_github"):
             repo = st.text_input(
-                "Repositório (user/repo)",
-                value=self.dm.github.repo or ""
+                "📁 Repositório (formato: usuario/repositorio)",
+                value=self.dm.github.repo or "",
+                placeholder="exemplo: usuario/meu-repositorio"
             )
             
             filepath = st.text_input(
-                "Caminho do arquivo",
-                value=self.dm.github.filepath or "ordens_servico.csv"
+                "📄 Caminho do arquivo no repositório",
+                value=self.dm.github.filepath or "ordens_servico.csv",
+                placeholder="ordens_servico.csv"
             )
             
             token = st.text_input(
-                "Token de acesso",
+                "🔑 Token de acesso pessoal (PAT)",
                 type="password",
-                value=self.dm.github.token or ""
+                value=self.dm.github.token or "",
+                placeholder="ghp_xxxxxxxxxxxx"
             )
             
-            submitted = st.form_submit_button("💾 Salvar Configurações", use_container_width=True)
+            st.markdown("---")
+            
+            submitted = st.form_submit_button(
+                "💾 Salvar Configurações", 
+                use_container_width=True,
+                type="primary"
+            )
             
             if submitted:
                 if not all([repo, filepath, token]):
                     st.error("❌ Preencha todos os campos!")
                 else:
-                    if self._validar_e_salvar_github(repo, filepath, token):
-                        st.success("✅ Configurações salvas!")
-                        time.sleep(1)
-                        st.rerun()
+                    with st.spinner("🔄 Validando configurações..."):
+                        if self._validar_e_salvar_github(repo, filepath, token):
+                            st.success("✅ Configurações salvas e validadas com sucesso!")
+                            time.sleep(1)
+                            st.rerun()
     
     def _validar_e_salvar_github(self, repo: str, filepath: str, token: str) -> bool:
         """Valida e salva configurações do GitHub"""
         try:
             from github import Github
             g = Github(token)
-            g.get_repo(repo).get_contents(filepath)
+            
+            # Tenta acessar o repositório para validar
+            repo_obj = g.get_repo(repo)
+            
+            # Tenta acessar o arquivo (se existir)
+            try:
+                repo_obj.get_contents(filepath)
+            except:
+                st.info("ℹ️ Arquivo não existe no repositório. Será criado na próxima sincronização.")
             
             if self.dm.github.salvar_config(repo, filepath, token):
+                # Tenta fazer download se o arquivo existir
                 self.dm.github.baixar()
                 return True
         except Exception as e:
@@ -1074,11 +874,30 @@ def main():
     
     # Configurar página
     st.set_page_config(
-        page_title="Gestão de OS",
+        page_title="Gestão de OS - AKR Brands",
         page_icon="🔧",
         layout="wide",
         initial_sidebar_state="expanded"
     )
+    
+    # CSS customizado para melhorar a aparência
+    st.markdown("""
+    <style>
+        .stMetric {
+            background-color: #f0f2f6;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .stButton>button {
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .stSelectbox {
+            border-radius: 5px;
+        }
+    </style>
+    """, unsafe_allow_html=True)
     
     # Inicializar gerenciadores
     if 'github_manager' not in st.session_state:
@@ -1094,8 +913,12 @@ def main():
     # Criar instância de páginas
     paginas = Paginas(st.session_state.data_manager)
     
-    # Sidebar
-    st.sidebar.title("📋 Menu Principal")
+    # Sidebar com estilo melhorado
+    st.sidebar.markdown("""
+    <h2 style='text-align: center; color: #667eea;'>📋 Menu Principal</h2>
+    """, unsafe_allow_html=True)
+    
+    st.sidebar.markdown("---")
     
     opcao = st.sidebar.radio(
         "Navegação:",
@@ -1124,14 +947,18 @@ def main():
     elif opcao == "🔐 Supervisão":
         paginas.supervisao()
     
-    # Rodapé
+    # Rodapé estilizado
     st.sidebar.markdown("---")
     st.sidebar.markdown("""
-    **Sistema de Gestão de OS**  
-    Versão 3.0 - Refatorada  
-    Desenvolvedor: Robson Vilela  
-    © 2025 - Todos os direitos reservados
-    """)
+    <div style='text-align: center;'>
+        <p style='font-size: 0.9em; color: #666;'>
+            <strong>Sistema de Gestão de OS</strong><br>
+            Versão 4.0 - Refatorada<br>
+            Desenvolvedor: Robson Vilela<br>
+            © 2025 - Todos os direitos reservados
+        </p>
+    </div>
+    """, unsafe_allow_html=True)
     
     # Auto-refresh apenas na página inicial (10 minutos)
     if opcao == "🏠 Página Inicial":
@@ -1145,3 +972,274 @@ def main():
 
 if __name__ == "__main__":
     main()
+        df = self.dm.carregar()
+        if not df.empty:
+            UIComponents.mostrar_notificacoes(df)
+            st.markdown("---")
+        
+        st.markdown("### 🎯 Funcionalidades Disponíveis")
+        
+        col1, col2 = st.columns(2)
+        with col1:
+            st.info("📝 **Cadastro** de novas ordens de serviço")
+            st.info("🔍 **Busca** avançada por diversos critérios")
+            st.info("🔐 **Supervisão** (área restrita)")
+        
+        with col2:
+            st.info("📋 **Listagem** completa de OS cadastradas")
+            st.info("📊 **Dashboard** com análises gráficas")
+            st.info("💾 **Backup** automático dos dados")
+        
+        st.markdown("---")
+        
+        # Informações do sistema com visual melhorado
+        self._mostrar_info_sistema()
+    
+    def _mostrar_info_sistema(self):
+        """Mostra informações sobre o sistema com visual aprimorado"""
+        with st.expander("ℹ️ Informações do Sistema", expanded=False):
+            col1, col2 = st.columns(2)
+            
+            with col1:
+                backups = self.dm.listar_backups()
+                if backups:
+                    st.metric("📁 Total de Backups", len(backups))
+                    st.caption(f"Último: {os.path.basename(backups[0])}")
+            
+            with col2:
+                if self.dm.github.available and self.dm.github.repo:
+                    st.success("✅ GitHub Sincronizado")
+                elif self.dm.github.available:
+                    st.warning("⚠️ GitHub Não Configurado")
+                else:
+                    st.info("ℹ️ GitHub Indisponível")
+    
+    def cadastrar_os(self):
+        """Página de cadastro com visual melhorado"""
+        st.markdown("""
+        <h2 style='color: #667eea;'>📝 Cadastrar Nova Ordem de Serviço</h2>
+        """, unsafe_allow_html=True)
+        
+        st.markdown("---")
+        
+        with st.form("cadastro_os_form", clear_on_submit=True):
+            descricao = st.text_area(
+                "📄 Descrição da atividade*", 
+                height=120,
+                placeholder="Descreva detalhadamente o serviço a ser realizado..."
+            )
+            
+            col1, col2 = st.columns(2)
+            with col1:
+                solicitante = st.text_input(
+                    "👤 Solicitante*",
+                    placeholder="Nome do solicitante"
+                )
+            with col2:
+                local = st.text_input(
+                    "📍 Local*",
+                    placeholder="Local do serviço"
+                )
+            
+            urgente = st.checkbox("🚨 Marcar como urgente", help="Ativa notificação de prioridade")
+            
+            st.markdown("---")
+            
+            submitted = st.form_submit_button(
+                "✅ Cadastrar OS", 
+                use_container_width=True,
+                type="primary"
+            )
+            
+            if submitted:
+                if not all([descricao, solicitante, local]):
+                    st.error("❌ Preencha todos os campos obrigatórios (*)")
+                else:
+                    if self._criar_nova_os(descricao, solicitante, local, urgente):
+                        st.success("✅ OS cadastrada com sucesso!")
+                        st.balloons()
+                        time.sleep(1)
+                        st.rerun()
+    
+    def _criar_nova_os(self, descricao: str, solicitante: str, 
+                       local: str, urgente: bool) -> bool:
+        """Cria uma nova OS"""
+        df = self.dm.carregar()
+        novo_id = int(df["ID"].max()) + 1 if not df.empty else 1
+        data, hora = Utils.obter_data_hora_local()
+        
+        nova_os = pd.DataFrame([{
+            "ID": novo_id,
+            "Descrição": descricao,
+            "Data": data,
+            "Hora Abertura": hora,
+            "Solicitante": solicitante,
+            "Local": local,
+            "Tipo": "",
+            "Status": "Pendente",
+            "Data Conclusão": "",
+            "Hora Conclusão": "",
+            "Executante1": "",
+            "Executante2": "",
+            "Urgente": "Sim" if urgente else "Não",
+            "Observações": ""
+        }])
+        
+        df = pd.concat([df, nova_os], ignore_index=True)
+        return self.dm.salvar(df)
+    
+    def listar_os(self):
+        """Página de listagem com visual melhorado"""
+        st.markdown("""
+        <h2 style='color: #667eea;'>📋 Listagem Completa de OS</h2>
+        """, unsafe_allow_html=True)
+        
+        df = self.dm.carregar()
+        
+        if df.empty:
+            st.warning("📭 Nenhuma ordem de serviço cadastrada.")
+            return
+        
+        # Filtros com visual melhorado
+        with st.expander("🔍 Filtros Avançados", expanded=True):
+            col1, col2, col3 = st.columns(3)
+            
+            with col1:
+                filtro_status = st.selectbox(
+                    "📊 Status",
+                    ["Todos"] + list(Config.STATUS_OPCOES.values()),
+                    key="filtro_status_list"
+                )
+            
+            with col2:
+                filtro_tipo = st.selectbox(
+                    "🔧 Tipo",
+                    ["Todos"] + list(Config.TIPOS_MANUTENCAO.values()),
+                    key="filtro_tipo_list"
+                )
+            
+            with col3:
+                filtro_urgente = st.selectbox(
+                    "⚡ Urgência",
+                    ["Todos", "Sim", "Não"],
+                    key="filtro_urgente_list"
+                )
+        
+        # Aplicar filtros
+        df_filtrado = df.copy()
+        
+        if filtro_status != "Todos":
+            df_filtrado = df_filtrado[df_filtrado["Status"] == filtro_status]
+        
+        if filtro_tipo != "Todos":
+            df_filtrado = df_filtrado[df_filtrado["Tipo"] == filtro_tipo]
+        
+        if filtro_urgente != "Todos":
+            df_filtrado = df_filtrado[df_filtrado["Urgente"] == filtro_urgente]
+        
+        st.markdown("---")
+        
+        # Estatísticas com cards coloridos
+        col1, col2, col3, col4 = st.columns(4)
+        col1.metric("📊 Total", len(df_filtrado))
+        col2.metric("⏳ Pendentes", len(df_filtrado[df_filtrado["Status"] == "Pendente"]))
+        col3.metric("🔧 Em Execução", len(df_filtrado[df_filtrado["Status"] == "Em execução"]))
+        col4.metric("✅ Concluídas", len(df_filtrado[df_filtrado["Status"] == "Concluído"]))
+        
+        st.markdown("---")
+        
+        # Tabela estilizada
+        st.dataframe(
+            df_filtrado,
+            use_container_width=True,
+            hide_index=True,
+            height=400
+        )
+    
+    def buscar_os(self):
+        """Página de busca com visual melhorado"""
+        st.markdown("""
+        <h2 style='color: #667eea;'>🔍 Busca Avançada</h2>
+        """, unsafe_allow_html=True)
+        
+        df = self.dm.carregar()
+        
+        if df.empty:
+            st.warning("📭 Nenhuma OS cadastrada.")
+            return
+        
+        st.markdown("---")
+        
+        col1, col2 = st.columns([1, 3])
+        
+        with col1:
+            st.markdown("**Critério de Busca:**")
+            criterio = st.radio(
+                "Selecione:",
+                ["Status", "ID", "Tipo", "Solicitante", "Local", 
+                 "Executante1", "Executante2", "Observações"],
+                label_visibility="collapsed"
+            )
+        
+        with col2:
+            st.markdown("**Parâmetros:**")
+            resultado = self._realizar_busca(df, criterio)
+        
+        st.markdown("---")
+        
+        if not resultado.empty:
+            st.success(f"✅ {len(resultado)} OS encontrada(s)")
+            st.dataframe(resultado, use_container_width=True, hide_index=True, height=400)
+        else:
+            st.info("ℹ️ Nenhuma OS encontrada com os critérios informados")
+    
+    def _realizar_busca(self, df: pd.DataFrame, criterio: str) -> pd.DataFrame:
+        """Realiza busca baseada no critério"""
+        if criterio == "ID":
+            busca = st.number_input("Digite o ID:", min_value=1, step=1)
+            return df[df["ID"] == busca]
+        
+        elif criterio == "Status":
+            busca = st.selectbox("Selecione o status:", list(Config.STATUS_OPCOES.values()))
+            return df[df["Status"] == busca]
+        
+        elif criterio == "Tipo":
+            busca = st.selectbox("Selecione o tipo:", list(Config.TIPOS_MANUTENCAO.values()))
+            return df[df["Tipo"] == busca]
+        
+        else:
+            busca = st.text_input(f"Digite o texto para buscar em {criterio}:")
+            if busca:
+                return df[df[criterio].astype(str).str.contains(busca, case=False, na=False)]
+        
+        return pd.DataFrame()
+    
+    def dashboard(self):
+        """Dashboard com gráficos TOTALMENTE PADRONIZADOS"""
+        st.markdown("""
+        <h2 style='color: #667eea;'>📊 Dashboard Analítico</h2>
+        """, unsafe_allow_html=True)
+        
+        df = self.dm.carregar()
+        
+        if df.empty:
+            st.warning("📭 Nenhuma OS cadastrada para análise.")
+            return
+        
+        # Métricas gerais
+        self._mostrar_metricas_gerais(df)
+        
+        st.markdown("---")
+        
+        # Layout em 2 colunas - MESMA ALTURA
+        col1, col2 = st.columns(2)
+        
+        with col1:
+            st.markdown("#### 📊 Distribuição por Status")
+            self._grafico_status(df)
+        
+        with col2:
+            st.markdown("#### 🔧 Tipos de Manutenção")
+            self._grafico_tipos(df)
+        
+        st.markdown("---")
