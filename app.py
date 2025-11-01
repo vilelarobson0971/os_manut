@@ -707,8 +707,16 @@ class Paginas:
         
         st.markdown("---")
         
-        st.markdown("#### 👥 Produtividade dos Executantes")
-        self._grafico_executantes(df)
+        # Gráfico de executantes na MESMA PROPORÇÃO (usando colunas)
+        col1, col2 = st.columns([1, 1])
+        
+        with col1:
+            st.markdown("#### 👥 Produtividade dos Executantes")
+            self._grafico_executantes(df)
+        
+        with col2:
+            # Coluna vazia para manter proporção
+            pass
     
     def _mostrar_metricas_gerais(self, df: pd.DataFrame):
         col1, col2, col3, col4 = st.columns(4)
