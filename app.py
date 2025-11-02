@@ -735,7 +735,7 @@ class Paginas:
     
     def _grafico_status(self, df: pd.DataFrame):
         status_counts = df["Status"].value_counts()
-        UIComponents.criar_grafico_padrao(status_counts, "Status das OS", tipo="barras")
+        UIComponents.criar_grafico_padrao(status_counts, "Status das OS", tipo="pizza")
     
     def _grafico_tipos(self, df: pd.DataFrame):
         tipo_counts = df[df["Tipo"] != ""]["Tipo"].value_counts()
