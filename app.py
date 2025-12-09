@@ -1239,4 +1239,4 @@ def main():
 if __name__ == "__main__":
     main()
         
-        self._mostrar_metricas_gerais(
+
