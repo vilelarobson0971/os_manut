@@ -39,7 +39,7 @@ SENHA_SUPERVISAO = "king@2025"
 CONFIG_FILE = "config.json"
 
 # Executantes pré-definidos
-EXECUTANTES_PREDEFINIDOS = ["Robson", "Guilherme", "Paulinho"]
+EXECUTANTES_PREDEFINIDOS = ["Guilherme", "Ismael"]
 
 # Variáveis globais para configuração do GitHub
 GITHUB_REPO = None
@@ -830,3 +830,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
