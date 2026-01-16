@@ -1592,7 +1592,7 @@ E mudar a iluminaria de lugar.",06/01/2026,13:59,Lucia,Pilotagem,Elétrica,Concl
 1545,Reparo motor eletrico compressor auxiliar,12/01/2026,17:03,Joelson,Filial 2 - corte,Elétrica,Concluído,14/01/2026,07:25,Ismael,nan,Não,serviço realizado por terceiros
 1546,Reparo em maquinas selador de fita embalagem,12/01/2026,17:04,Lucas,Filial 02 - corte,Elétrica,Concluído,14/01/2026,07:25,Ismael,Guilherme,Não,serviço realizado por terceiros
 1547,Reparo enfestadeira - serviço de torno em alavanca de travamento,12/01/2026,17:07,Lucas,Filial 02 - corte,Mecânica,Concluído,14/01/2026,07:25,Ismael,Guilherme,Não,serviço realizado por terceiros
-1548,Verificar bomba E.T.E,13/01/2026,12:27,Maycon,Filial 01 - estamparia,Elétrica,Pausado,,,Ismael,Guilherme,Não,Aguardando peças de reposição
+1548,Verificar bomba E.T.E,13/01/2026,12:27,Maycon,Filial 01 - estamparia,Elétrica,Pausado,nan,nan,Ismael,Guilherme,Não,Aguardando peças de reposição
 1549,Verificar enfestadeira 05 - ,13/01/2026,12:28,Joelson,Filial 02 - corte,Elétrica,Concluído,14/01/2026,07:26,Guilherme,Ismael,Não,nan
 1550,Substituir mangeira ar,13/01/2026,12:29,Fran Duarte,filial 01 - acabamento,Hidráulica,Concluído,14/01/2026,07:26,Guilherme,Ismael,Não,nan
 1551,Fazer complemento madeira mesa de corte ,13/01/2026,12:29,Joelson,Filial 02 - corte,Civil,Concluído,14/01/2026,07:27,Guilherme,Ismael,Não,nan
@@ -1606,7 +1606,7 @@ E mudar a iluminaria de lugar.",06/01/2026,13:59,Lucia,Pilotagem,Elétrica,Concl
 1559,Substituição de contactoras E.T.E,14/01/2026,13:28,Manutenção,Filial 1 - estamparia ,Elétrica,Concluído,15/01/2026,07:21,Ismael,nan,Não,Serviço realizado por terceiros
 1560,Arrumar rodinha cadeira ,14/01/2026,13:29,Camila,Matriz - marketing ,,Pendente,nan,nan,nan,nan,Não,nan
 1561,Lançamento de cabo PP para atender motores portão Filial 02,14/01/2026,14:00,Manutenção,Filial 02,,Pendente,nan,nan,nan,nan,Não,nan
-1562,Verificar Ar condicionado do PCP que não está gelando.,14/01/2026,15:01,Wesley,PPCP - FILIAL 01,,Pendente,nan,nan,nan,nan,Não,nan
+1562,Verificar Ar condicionado do PCP que não está gelando.,14/01/2026,15:01,Wesley,PPCP - FILIAL 01,Refrigeração,Concluído,16/01/2026,07:50,Guilherme,,Não,nan
 1563,Instalação de 2 máquinas de pregar botões ,15/01/2026,11:09,Fran DuRte,Filial 1,,Pendente,nan,nan,nan,nan,Não,nan
 1564,Instalação de 2 máquinas de arrebite ,15/01/2026,11:10,Fran Duarte ,Filial 1 ,,Pendente,nan,nan,nan,nan,Não,nan
 1565,Maeuina de fusiongem,15/01/2026,17:02,Fran Duarte,Filial 01 - Acabamento,,Pendente,nan,nan,nan,nan,Não,nan
