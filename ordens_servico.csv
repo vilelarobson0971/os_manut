@@ -1605,7 +1605,7 @@ E mudar a iluminaria de lugar.",06/01/2026,13:59,Lucia,Pilotagem,Elétrica,Concl
 1558,Reparo helice ventilador,14/01/2026,07:19,Edimilson,Filial 02 - corte,Refrigeração,Concluído,14/01/2026,07:29,Guilherme,nan,Não,nan
 1559,Substituição de contactoras E.T.E,14/01/2026,13:28,Manutenção,Filial 1 - estamparia ,Elétrica,Concluído,15/01/2026,07:21,Ismael,nan,Não,Serviço realizado por terceiros
 1560,Arrumar rodinha cadeira ,14/01/2026,13:29,Camila,Matriz - marketing ,,Pendente,nan,nan,nan,nan,Não,nan
-1561,Lançamento de cabo PP para atender motores portão Filial 02,14/01/2026,14:00,Manutenção,Filial 02,Elétrica,Em execução,,,Guilherme,Ismael,Não,nan
+1561,Lançamento de cabo PP para atender motores portão Filial 02,14/01/2026,14:00,Manutenção,Filial 02,Elétrica,Em execução,nan,nan,Guilherme,Ismael,Não,nan
 1562,Verificar Ar condicionado do PCP que não está gelando.,14/01/2026,15:01,Wesley,PPCP - FILIAL 01,Refrigeração,Concluído,16/01/2026,07:50,Guilherme,nan,Não,nan
 1563,Instalação de 2 máquinas de pregar botões ,15/01/2026,11:09,Fran DuRte,Filial 1,Instalação,Concluído,16/01/2026,07:50,Guilherme,Ismael,Não,nan
 1564,Instalação de 2 máquinas de arrebite ,15/01/2026,11:10,Fran Duarte ,Filial 1 ,Instalação,Concluído,16/01/2026,07:50,Guilherme,Ismael,Não,nan
@@ -1618,3 +1618,4 @@ E mudar a iluminaria de lugar.",06/01/2026,13:59,Lucia,Pilotagem,Elétrica,Concl
 1571,Arrumar maquina de vies ,15/01/2026,17:06,Isis,Filial 02 - corte,Mecânica,Concluído,16/01/2026,07:52,Guilherme,nan,Não,nan
 1572,Fixar transformador parede,15/01/2026,17:06,Isis,Filial 02 ,Elétrica,Concluído,16/01/2026,07:52,Guilherme,nan,Não,nan
 1573,Substituir os tampões da mesa refeitorio ,16/01/2026,17:00,Renato Silva,Filial 01,,Pendente,nan,nan,nan,nan,Não,nan
+1574,Solenoide ferro da Suzana travando,19/01/2026,08:03,Fran. Duarte ,Filial ,,Pendente,,,,,Sim,
