@@ -1592,7 +1592,7 @@ E mudar a iluminaria de lugar.",06/01/2026,13:59,Lucia,Pilotagem,Elétrica,Concl
 1545,Reparo motor eletrico compressor auxiliar,12/01/2026,17:03,Joelson,Filial 2 - corte,Elétrica,Concluído,14/01/2026,07:25,Ismael,nan,Não,serviço realizado por terceiros
 1546,Reparo em maquinas selador de fita embalagem,12/01/2026,17:04,Lucas,Filial 02 - corte,Elétrica,Concluído,14/01/2026,07:25,Ismael,Guilherme,Não,serviço realizado por terceiros
 1547,Reparo enfestadeira - serviço de torno em alavanca de travamento,12/01/2026,17:07,Lucas,Filial 02 - corte,Mecânica,Concluído,14/01/2026,07:25,Ismael,Guilherme,Não,serviço realizado por terceiros
-1548,Verificar bomba E.T.E,13/01/2026,12:27,Maycon,Filial 01 - estamparia,Elétrica,Pausado,nan,nan,Ismael,Guilherme,Não,Aguardando peças de reposição
+1548,Verificar bomba E.T.E,13/01/2026,12:27,Maycon,Filial 01 - estamparia,Mecânica,Concluído,19/01/2026,11:33,Ismael,Guilherme,Não,"Aguardando peças de reposição, peças substituida"
 1549,Verificar enfestadeira 05 - ,13/01/2026,12:28,Joelson,Filial 02 - corte,Elétrica,Concluído,14/01/2026,07:26,Guilherme,Ismael,Não,nan
 1550,Substituir mangeira ar,13/01/2026,12:29,Fran Duarte,filial 01 - acabamento,Hidráulica,Concluído,14/01/2026,07:26,Guilherme,Ismael,Não,nan
 1551,Fazer complemento madeira mesa de corte ,13/01/2026,12:29,Joelson,Filial 02 - corte,Civil,Concluído,14/01/2026,07:27,Guilherme,Ismael,Não,nan
@@ -1621,4 +1621,4 @@ E mudar a iluminaria de lugar.",06/01/2026,13:59,Lucia,Pilotagem,Elétrica,Concl
 1574,Solenoide ferro da Suzana travando,19/01/2026,08:03,Fran. Duarte ,Filial ,,Pendente,nan,nan,nan,nan,Sim,nan
 1575,Maquina pneumática caiu a conexão do ar acabamento ,19/01/2026,08:39,Fran. Duarte ,Filial ,,Pendente,nan,nan,nan,nan,Sim,nan
 1576,Aumentar a mangueira de ar ,19/01/2026,09:43,Rose,Corte ,,Pendente,nan,nan,nan,nan,Não,nan
-1577,Fixar esmeril ,19/01/2026,09:44,Joelson ,Corte ,,Pendente,,,,,Não,
+1577,Fixar esmeril ,19/01/2026,09:44,Joelson ,Corte ,,Pendente,nan,nan,nan,nan,Não,nan
