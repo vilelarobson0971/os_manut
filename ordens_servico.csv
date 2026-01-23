@@ -1630,7 +1630,7 @@ E mudar a iluminaria de lugar.",06/01/2026,13:59,Lucia,Pilotagem,Elétrica,Concl
 1583,"
 Instalação de quadro de comando Refeitorio (Marmiteira)",21/01/2026,07:37,Manutenção,Filial 02 ,Elétrica,Concluído,22/01/2026,07:21,Guilherme,nan,Não,nan
 1584,Substituição de sistema de transmição maquina de vies,21/01/2026,07:38,Joelson,Filial 02 - Vies,Mecânica,Concluído,22/01/2026,07:21,Guilherme,nan,Não,nan
-1585,Verificar Ar condicionado PCP,21/01/2026,07:47,Welley,Filial 01 ,Elétrica,Pausado,,,Ismael,,Não,Aguardando visita tecnica terceiro
+1585,Verificar Ar condicionado PCP,21/01/2026,07:47,Welley,Filial 01 ,Elétrica,Pausado,nan,nan,Ismael,nan,Não,Aguardando visita tecnica terceiro
 1586,"*Lâmpada de máquina, queimou
 
 *máquina overlok vazando ar
@@ -1644,3 +1644,4 @@ Instalação de quadro de comando Refeitorio (Marmiteira)",21/01/2026,07:37,Manu
 1593,Regulagem sensor máquina de enfesto 4,21/01/2026,20:35,Joelson ,Filial 2 ,Elétrica,Concluído,22/01/2026,07:19,Ismael,nan,Não,nan
 1594,Substituir roldana (roda) portão ,21/01/2026,20:36,Manutenção ,Matriz - setor tecidos ,Instalação,Concluído,22/01/2026,12:32,Ismael,nan,Não,Serviço realizado por terceiros - Wager serralheira
 1595,Substituir cremalheira portão ,21/01/2026,20:40,Manutenção ,Matriz - expedição ,Instalação,Concluído,22/01/2026,07:25,Guilherme,Ismael,Não,nan
+1596,Substituir 2 lâmpadas corredor ADM ,23/01/2026,09:55,Renato ,Matriz ,,Pendente,,,,,Não,
