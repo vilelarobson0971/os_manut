@@ -1650,7 +1650,7 @@ Instalação de quadro de comando Refeitorio (Marmiteira)",21/01/2026,07:37,Manu
 1599,Fixar tampões mesa setor de tecidos,23/01/2026,12:19,Jair,Matriz - setor de tecidos,Instalação,Concluído,26/01/2026,16:52,Guilherme,Ismael,Não,nan
 1600,instalação de tomada para esmeril,23/01/2026,14:44,Manutenção,Filial 2 - corte,Elétrica,Concluído,23/01/2026,16:58,Guilherme,nan,Não,nan
 1601,Arrumar tomada micro ondas,23/01/2026,14:46,Fran Duarte,Filial 01 - acabamento (refeitorio),Elétrica,Concluído,23/01/2026,16:57,Guilherme,nan,Não,nan
-1602,Cadastrar controle remoto PCP,23/01/2026,14:47,Vagner,Filial 1 - PCP,,Pendente,nan,nan,nan,nan,Não,nan
+1602,Cadastrar controle remoto PCP,23/01/2026,14:47,Vagner,Filial 1 - PCP,Elétrica,Concluído,09/02/2026,16:02,Guilherme,,Não,nan
 1603,Trocar ventilador de lugar,26/01/2026,08:54,Isis,Vies,Refrigeração,Concluído,03/02/2026,07:33,Guilherme,nan,Não,nan
 1604,Troca de 3 lamapadas expedição ,26/01/2026,11:53,Manutenção,Matriz - expedição,Elétrica,Concluído,26/01/2026,16:53,Guilherme,Ismael,Não,Lampadas bulbo
 1605,Trocar lampadas tubular expedição ,26/01/2026,11:54,Manutenção,Matriz - expedição,Elétrica,Concluído,26/01/2026,16:53,Guilherme,Ismael,Não,Lampadas tubular
@@ -1701,7 +1701,7 @@ Preciso de um cabo novo mais longo, mudamos a mesa de lugar e esta esticado. Acr
 1646,Substituir Fechadura automatica portão pedestre (930),05/02/2026,11:44,weder,Matriz,Instalação,Concluído,05/02/2026,17:03,Guilherme,nan,Não,nan
 1647,Retirada e destinação de palets danificados,05/02/2026,11:45,Renato,Matriz ,Instalação,Concluído,05/02/2026,17:04,Guilherme,Ismael,Não,nan
 1648,"Por gentileza, precisamos de reparos na luz florescente da sala do Marketing - está piscando já há um dia. ",05/02/2026,11:48,Bruno Leonel (Marketing),Sala do Marketing,Elétrica,Concluído,09/02/2026,16:01,Guilherme,nan,Sim,nan
-1649,Arrumar o ferro da Nana,05/02/2026,13:57,Fran. Duarte ,Filial ,Elétrica,Concluído,09/02/2026,16:02,Guilherme,,Sim,nan
+1649,Arrumar o ferro da Nana,05/02/2026,13:57,Fran. Duarte ,Filial ,Elétrica,Concluído,09/02/2026,16:02,Guilherme,nan,Sim,nan
 1650,Fita na mesa ,05/02/2026,14:22,Fran. Duarte ,Filial ,Instalação,Concluído,05/02/2026,17:04,Guilherme,nan,Sim,nan
 1651,Verificar madeiramento piso expedição ,05/02/2026,16:08,Weder,Matriz - expedição ,,Pendente,nan,nan,nan,nan,Não,nan
 1652,Vazando ar da maquina,05/02/2026,17:02,Lucia,Filial 2 - Acabamento,,Pendente,nan,nan,nan,nan,Não,nan
