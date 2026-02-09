@@ -1584,7 +1584,7 @@ E mudar a iluminaria de lugar.",06/01/2026,13:59,Lucia,Pilotagem,Elétrica,Concl
 1537,Acompanhamento serviço terceiro - instalação climatizadores,12/01/2026,16:55,Renato Silva,Filial 01 e 02,Instalação,Concluído,14/01/2026,07:22,Ismael,Guilherme,Não,nan
 1538,Acompanhamento serviço terceiro - pintura piso,12/01/2026,16:55,Joelson,Filial 02 ,Civil,Concluído,14/01/2026,07:23,Ismael,nan,Não,nan
 1539,"Acompanhamento instalação dos ar condicionados, Refeitorio, risco e pcp  ",12/01/2026,16:57,Renato Silva,Filial 02 ,Refrigeração,Concluído,14/01/2026,07:23,Ismael,nan,Não,nan
-1540,"Acompanhamento serviço terceiro mezanino, dray hall, infra eletrica, logica, ar condicionado. ",12/01/2026,16:59,Renato Silva,Filial 02,,Pendente,nan,nan,nan,nan,Não,nan
+1540,"Acompanhamento serviço terceiro mezanino, dray hall, infra eletrica, logica, ar condicionado. ",12/01/2026,16:59,Renato Silva,Filial 02,Elétrica,Concluído,09/02/2026,16:01,Guilherme,nan,Não,nan
 1541,Substitução de helice ventilador,12/01/2026,16:59,Edilson,Setor corte - filial 2,Mecânica,Concluído,14/01/2026,07:23,Guilherme,nan,Não,nan
 1542,Reparo em sargento mesa corte,12/01/2026,17:00,Edilson,Filial 02 - corte,Mecânica,Concluído,14/01/2026,07:24,Guilherme,nan,Não,nan
 1543,Substituição de eixo maquina vies ,12/01/2026,17:01,Isis,Filial 02 - corte,Mecânica,Concluído,14/01/2026,07:24,Guilherme,nan,Não,nan
@@ -1666,7 +1666,7 @@ Instalação de quadro de comando Refeitorio (Marmiteira)",21/01/2026,07:37,Manu
 1615,Instalar novamente os ventiladores que foram tirados da parede para a instalação do climatizador ,29/01/2026,09:10,Fran,Filial,Elétrica,Concluído,02/02/2026,07:27,Guilherme,Ismael,Sim,nan
 1616,Retirada de cabos de aço antigo corte,29/01/2026,16:42,Juliano,Matriz,Instalação,Concluído,04/02/2026,11:50,Guilherme,Ismael,Não,Executado parcialmente
 1617,Instalação de ventiladores ,29/01/2026,16:43,Joelson,Filial 2 - Corte,Refrigeração,Concluído,09/02/2026,16:01,Guilherme,Ismael,Não,Aguardando chegada de ventiladores comprados.
-1618,Pintura barrado branco,29/01/2026,16:44,Renato Silva,Filial 01 ,,Pendente,,,Guilherme,Ismael,Não,Serviço a ser executado por terceiros
+1618,Pintura barrado branco,29/01/2026,16:44,Renato Silva,Filial 01 ,,Pendente,nan,nan,Guilherme,Ismael,Não,Serviço a ser executado por terceiros
 1619,Redirecionamento vento dos climatizadores,30/01/2026,11:58,Cleo,Filial 01 - Acabamento,Refrigeração,Concluído,02/02/2026,07:30,Guilherme,nan,Não,nan
 1620,Instalação de dijuntores motores portões,30/01/2026,12:00,Manutenção,Filial 02 - corte,Elétrica,Concluído,02/02/2026,07:30,Guilherme,nan,Não,nan
 1621,Retirada cabeçote compressor para concerto,02/02/2026,07:31,Renato Silva,Matriz - qualidade,Hidráulica,Concluído,04/02/2026,11:51,Guilherme,Ismael,Não,nan
@@ -1700,8 +1700,8 @@ Preciso de um cabo novo mais longo, mudamos a mesa de lugar e esta esticado. Acr
 1645,Desentupir esgoto cozinha ADM,05/02/2026,11:43,Weder,Matriz,Instalação,Concluído,05/02/2026,17:03,Guilherme,nan,Não,nan
 1646,Substituir Fechadura automatica portão pedestre (930),05/02/2026,11:44,weder,Matriz,Instalação,Concluído,05/02/2026,17:03,Guilherme,nan,Não,nan
 1647,Retirada e destinação de palets danificados,05/02/2026,11:45,Renato,Matriz ,Instalação,Concluído,05/02/2026,17:04,Guilherme,Ismael,Não,nan
-1648,"Por gentileza, precisamos de reparos na luz florescente da sala do Marketing - está piscando já há um dia. ",05/02/2026,11:48,Bruno Leonel (Marketing),Sala do Marketing,,Pendente,nan,nan,nan,nan,Sim,nan
-1649,Arrumar o ferro da Nana,05/02/2026,13:57,Fran. Duarte ,Filial ,,Pendente,nan,nan,nan,nan,Sim,nan
+1648,"Por gentileza, precisamos de reparos na luz florescente da sala do Marketing - está piscando já há um dia. ",05/02/2026,11:48,Bruno Leonel (Marketing),Sala do Marketing,Elétrica,Concluído,09/02/2026,16:01,Guilherme,nan,Sim,nan
+1649,Arrumar o ferro da Nana,05/02/2026,13:57,Fran. Duarte ,Filial ,Elétrica,Concluído,09/02/2026,16:02,Guilherme,,Sim,nan
 1650,Fita na mesa ,05/02/2026,14:22,Fran. Duarte ,Filial ,Instalação,Concluído,05/02/2026,17:04,Guilherme,nan,Sim,nan
 1651,Verificar madeiramento piso expedição ,05/02/2026,16:08,Weder,Matriz - expedição ,,Pendente,nan,nan,nan,nan,Não,nan
 1652,Vazando ar da maquina,05/02/2026,17:02,Lucia,Filial 2 - Acabamento,,Pendente,nan,nan,nan,nan,Não,nan
