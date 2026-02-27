@@ -1728,7 +1728,7 @@ Obrigada ",06/02/2026,09:44,Camila - Marketing ,Matriz - Marketing ,Elétrica,Co
 1669,Instalação de ventilador,10/02/2026,16:47,Marcia,Filial 01 - acabamento,Refrigeração,Concluído,10/02/2026,16:52,Guilherme,Ismael,Não,nan
 1670,Substituição de amortecedores estufa,10/02/2026,16:48,Maycon,Filial 01 - estamparia,Mecânica,Concluído,10/02/2026,16:52,Guilherme,Ismael,Não,nan
 1671,Retirada e destinação de palets,10/02/2026,16:49,Manutenção,Matriz - expedição,Instalação,Concluído,10/02/2026,16:52,Guilherme,Ismael,Não,nan
-1672,Instalar boia,11/02/2026,07:28,Maycon,E.T.E.  - estamparia ,Elétrica,Concluído,27/02/2026,11:48,Ismael,,Não,nan
+1672,Instalar boia,11/02/2026,07:28,Maycon,E.T.E.  - estamparia ,Elétrica,Concluído,27/02/2026,11:48,Ismael,nan,Não,nan
 1673,"
 lavar parede preparo para pintura - Filial 01",11/02/2026,11:33,Renato Silva,Filial 01,Instalação,Concluído,12/02/2026,13:22,Guilherme,Ismael,Não,nan
 1674,Reparo porta estilo,11/02/2026,11:34,Manutenção,Filial 01 ,Instalação,Concluído,12/02/2026,13:23,Guilherme,nan,Não,nan
@@ -1753,7 +1753,7 @@ lavar parede preparo para pintura - Filial 01",11/02/2026,11:33,Renato Silva,Fil
 1693,Arrumar pino macho máquina overloque ,17/02/2026,15:00,Isis,Filial 1,Elétrica,Concluído,17/02/2026,16:56,Ismael,nan,Não,nan
 1694,Substituir parafuso alavanca máquina de enfesto 1,17/02/2026,15:01,Lucas ,Filial 2,Mecânica,Concluído,17/02/2026,16:56,Ismael,nan,Não,nan
 1695,Verificar soquete mesa estamparia,17/02/2026,16:59,Maycon,Filial 01 - estamparia,Elétrica,Concluído,18/02/2026,17:04,Guilherme,nan,Não,nan
-1696,"Virar o refletor, ou mudar de posicao",19/02/2026,10:22,Lucia,Pilotagem,,Pendente,nan,nan,nan,nan,Não,nan
+1696,"Virar o refletor, ou mudar de posicao",19/02/2026,10:22,Lucia,Pilotagem,Elétrica,Concluído,27/02/2026,11:48,Guilherme,,Não,nan
 1697,Instalar uma caneleta de tomadas junto à tv do administrativo - corredor de cima (matriz). ,19/02/2026,11:21,Bruno (Marketing),Matriz,Elétrica,Concluído,24/02/2026,07:22,Guilherme,nan,Sim,nan
 1698,Colocar a caixa para o Jair colocar os tecidos solicitados para  ser envidas para filial ,20/02/2026,10:59,Fran.Duarte ,Estoque tecido Jair ,Instalação,Concluído,24/02/2026,07:23,Guilherme,nan,Sim,nan
 1699,Construir ramal de agua para atender climatizadores que seram relocados,20/02/2026,12:18,Weder ,Expedição,,Pendente,nan,nan,nan,nan,Não,nan
