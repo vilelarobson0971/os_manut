@@ -1734,7 +1734,7 @@ lavar parede preparo para pintura - Filial 01",11/02/2026,11:33,Renato Silva,Fil
 1674,Reparo porta estilo,11/02/2026,11:34,Manutenção,Filial 01 ,Instalação,Concluído,12/02/2026,13:23,Guilherme,nan,Não,nan
 1675,Alinhamento mesa enfestadeira 05 ,12/02/2026,09:26,Lucas ,Filial 2 - corte,Instalação,Concluído,12/02/2026,13:23,Guilherme,Ismael,Não,nan
 1676,Fechadura banheiro ,12/02/2026,09:28,Fran Duarte ,Filial 01 ,Instalação,Concluído,12/02/2026,13:23,Ismael,nan,Não,nan
-1677,Ajustar ventiladores,12/02/2026,09:29,Fran Duarte,Filail 01,Elétrica,Concluído,05/03/2026,13:37,Ismael,,Não,relocado chaves seletoras de 2 ventiladores
+1677,Ajustar ventiladores,12/02/2026,09:29,Fran Duarte,Filail 01,Elétrica,Concluído,05/03/2026,13:37,Ismael,nan,Não,relocado chaves seletoras de 2 ventiladores
 1678,Parafuso alavanca enfestadeira 01,12/02/2026,16:23,Joelson,Filial 2,Mecânica,Concluído,16/02/2026,16:48,Ismael,nan,Não,nan
 1679,Instalar ismeril para amolar as facas das máquinas de viés ,13/02/2026,14:37,Isis,Vies,Elétrica,Concluído,24/02/2026,07:22,Guilherme,nan,Sim,nan
 1680,Descer a mesa para o refeitório na parte de baixo,13/02/2026,14:57,Fran. Duarte ,Filial ,Instalação,Concluído,23/02/2026,07:24,Guilherme,Ismael,Sim,nan
@@ -1793,3 +1793,4 @@ Corredor R1",03/03/2026,09:36,ESTOQUE,ESTOQUE,Civil,Concluído,04/03/2026,16:43,
 1729,"Corrigir rotação dos motores ventilação mesas de enfesto (15 motores)
 ",04/03/2026,16:50,Manutenção,Filial 02 - corte,Elétrica,Concluído,05/03/2026,13:35,Ismael,Guilherme,Não,"Situação causada pelo empreiteiros, pois com a relocação dos medidores foi feito inversão de fases.  "
 1730,Organizar cabos de rede embaixo das mesas.,05/03/2026,11:14,Beatris Sgarioni,Sala do estilo,,Pendente,nan,nan,nan,nan,Não,nan
+1731,Fazer demarcação area de corredor ,05/03/2026,13:46,Joelson,Filial 02 - corte,,Pendente,,,,,Não,
