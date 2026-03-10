@@ -1783,7 +1783,7 @@ lavar parede preparo para pintura - Filial 01",11/02/2026,11:33,Renato Silva,Fil
 1722,Instalar placa de aviso mesa de corte ,02/03/2026,11:37,CIPA,Filial 02 -corte,Instalação,Concluído,04/03/2026,16:44,Ismael,Ismael,Não,nan
 1723,"Retirar tampão mesa refeitorio 
 Levar para corte e  acabamento",02/03/2026,11:39,Renato Silva,Filial 01 - Acabamento,Instalação,Concluído,04/03/2026,16:43,Guilherme,Ismael,Não,nan
-1724,Fazer circuto para tomadas e lampadas para mesa de corte ,02/03/2026,11:40,Joelson,Filial 02 - corte,Elétrica,Concluído,10/03/2026,11:39,Guilherme,,Não,nan
+1724,Fazer circuto para tomadas e lampadas para mesa de corte ,02/03/2026,11:40,Joelson,Filial 02 - corte,Elétrica,Concluído,10/03/2026,11:39,Guilherme,nan,Não,nan
 1725,Bebedouro entupido,02/03/2026,17:03,Weder,matriz - expedição,Refrigeração,Concluído,03/03/2026,10:17,Guilherme,Ismael,Não,nan
 1726,"Substituir MDF da prateleira de armazenamento de tecido.
 
@@ -1803,7 +1803,7 @@ Transporte das mesas para nova filial
 Montagem da nova estrutura"
 1737,Cadastrar controles (nova filial ),06/03/2026,16:02,Weslei / Wagner,Filial 02,Instalação,Concluído,09/03/2026,11:42,Ismael,nan,Não,nan
 1738,Cadastrar controles dos veiculos nova filial ,09/03/2026,11:43,Weslei,Filial nova,,Pendente,nan,nan,nan,nan,Não,nan
-1739,Colocar novamente o parafuso da porta do acabamento que foi feito a retirada ontem ,10/03/2026,07:10,Fran. Duarte ,Filial ,,Pendente,nan,nan,nan,nan,Sim,nan
+1739,Colocar novamente o parafuso da porta do acabamento que foi feito a retirada ontem ,10/03/2026,07:10,Fran. Duarte ,Filial ,Instalação,Concluído,10/03/2026,11:39,Guilherme,,Sim,nan
 1740,Arrumar a corrente porta do acabamento ,10/03/2026,07:11,Fran.Duarte ,Filial,,Pendente,nan,nan,nan,nan,Sim,nan
 1741,Trocar lampada banheiro ,10/03/2026,07:26,Weder,Expedição,,Pendente,nan,nan,nan,nan,Não,nan
 1742,Levar ventilador para reparo ,10/03/2026,07:26,Weder,Expedição,,Pendente,nan,nan,nan,nan,Não,nan
