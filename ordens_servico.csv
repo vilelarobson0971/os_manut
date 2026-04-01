@@ -1758,7 +1758,7 @@ lavar parede preparo para pintura - Filial 01",11/02/2026,11:33,Renato Silva,Fil
 1698,Colocar a caixa para o Jair colocar os tecidos solicitados para  ser envidas para filial ,20/02/2026,10:59,Fran.Duarte ,Estoque tecido Jair ,Instalação,Concluído,24/02/2026,07:23,Guilherme,nan,Sim,nan
 1699,Construir ramal de agua para atender climatizadores que seram relocados,20/02/2026,12:18,Weder ,Expedição,Hidráulica,Concluído,27/02/2026,11:49,Guilherme,Ismael,Não,nan
 1700,Construir circuito eletrico para atender climatizadores que seram relocados,20/02/2026,12:19,Weder,Expedição,Elétrica,Concluído,02/03/2026,11:44,Guilherme,nan,Não,nan
-1701,Orçar redimencionamento elevador de cargas expedição ,20/02/2026,12:20,Weder,Expedição,,Pendente,nan,nan,nan,nan,Não,nan
+1701,Orçar redimencionamento elevador de cargas expedição ,20/02/2026,12:20,Weder,Expedição,Mecânica,Concluído,01/04/2026,07:15,Ismael,,Não,"Orçamento ficou em R$ 4.000,00 (Wagner)"
 1702,Verificara ventilador ,20/02/2026,12:22,Weder,expedição,Elétrica,Concluído,10/03/2026,11:38,Guilherme,Ismael,Não,Retirado para orçar concerto
 1703,Mangueira de ar maquina de Fusionagem,20/02/2026,13:20,Fran. Duarte ,Filial ,Hidráulica,Concluído,23/02/2026,07:23,Guilherme,nan,Sim,nan
 1704,instalar uma caixa de correio para envios as  filias ,20/02/2026,16:40,Jair Romão ,estoque de tecido,Instalação,Concluído,23/02/2026,16:45,Guilherme,nan,Sim,nan
@@ -1864,7 +1864,7 @@ Montagem da nova estrutura"
 1797,Instalar tubulação de ar para máquina carrocel ,24/03/2026,11:22,Renato Silva ,Filial 01,Hidráulica,Concluído,24/03/2026,16:28,Guilherme,nan,Não,30 metros de mangueira 12
 1798,instalar calha de piso  ,24/03/2026,16:27,Manutenção ,Filial 01 ,Instalação,Concluído,27/03/2026,07:25,Guilherme,nan,Não,nan
 1799,Colocar corrente em uma maquina,24/03/2026,16:58,Lucia,Pilotagem,Mecânica,Concluído,27/03/2026,07:24,Guilherme,nan,Não,nan
-1800,Verificar iluminação maquina costura,26/03/2026,11:27,Marcia,Filial 01 ,Elétrica,Concluído,31/03/2026,13:26,Guilherme,,Não,
+1800,Verificar iluminação maquina costura,26/03/2026,11:27,Marcia,Filial 01 ,Elétrica,Concluído,31/03/2026,13:26,Guilherme,nan,Não,nan
 1801,Chave quebrada banheiro feminino,26/03/2026,11:27,Lucas,Filial 02,Civil,Concluído,27/03/2026,16:58,Guilherme,nan,Sim,nan
 1802,Acompanhamento limpeza e higienização de caixas de agua,26/03/2026,11:37,Manutenção,Matriz e filiais,Hidráulica,Concluído,27/03/2026,07:24,Guilherme,nan,Sim,nan
 1803,Limpeza e organização da oficina,26/03/2026,11:37,Manutenção,Matriz ,,Pendente,nan,nan,nan,nan,Não,nan
