@@ -1758,7 +1758,7 @@ lavar parede preparo para pintura - Filial 01",11/02/2026,11:33,Renato Silva,Fil
 1698,Colocar a caixa para o Jair colocar os tecidos solicitados para  ser envidas para filial ,20/02/2026,10:59,Fran.Duarte ,Estoque tecido Jair ,Instalação,Concluído,24/02/2026,07:23,Guilherme,nan,Sim,nan
 1699,Construir ramal de agua para atender climatizadores que seram relocados,20/02/2026,12:18,Weder ,Expedição,Hidráulica,Concluído,27/02/2026,11:49,Guilherme,Ismael,Não,nan
 1700,Construir circuito eletrico para atender climatizadores que seram relocados,20/02/2026,12:19,Weder,Expedição,Elétrica,Concluído,02/03/2026,11:44,Guilherme,nan,Não,nan
-1701,Orçar redimencionamento elevador de cargas expedição ,20/02/2026,12:20,Weder,Expedição,Mecânica,Concluído,01/04/2026,07:15,Ismael,,Não,"Orçamento ficou em R$ 4.000,00 (Wagner)"
+1701,Orçar redimencionamento elevador de cargas expedição ,20/02/2026,12:20,Weder,Expedição,Mecânica,Concluído,01/04/2026,07:15,Ismael,nan,Não,"Orçamento ficou em R$ 4.000,00 (Wagner)"
 1702,Verificara ventilador ,20/02/2026,12:22,Weder,expedição,Elétrica,Concluído,10/03/2026,11:38,Guilherme,Ismael,Não,Retirado para orçar concerto
 1703,Mangueira de ar maquina de Fusionagem,20/02/2026,13:20,Fran. Duarte ,Filial ,Hidráulica,Concluído,23/02/2026,07:23,Guilherme,nan,Sim,nan
 1704,instalar uma caixa de correio para envios as  filias ,20/02/2026,16:40,Jair Romão ,estoque de tecido,Instalação,Concluído,23/02/2026,16:45,Guilherme,nan,Sim,nan
@@ -1883,3 +1883,4 @@ Montagem da nova estrutura"
 1814,Maçaneta do banheiro cadeirante está caindo,30/03/2026,09:20,Fran.Duarte,Filial ,Instalação,Concluído,31/03/2026,13:23,Ismael,nan,Sim,"Foi instalado refletor provisoriamente, conforme Renato Silva serviço sera realizado por terceiro (Rodrigo) "
 1815,Fazer instalação de perfilados na máquina Carrossel está muito escuro para os colaboradores ,30/03/2026,15:41,Fran.duarte,Filial ,Elétrica,Concluído,31/03/2026,13:22,Guilherme,nan,Sim,"Foi instalado refletor provisoriamente, conforme Renato Silva serviço sera realizado por terceiro (Rodrigo) "
 1816,"Instalação da TV. Por favor. o televisor que está no estúdio, deve ser levado novamente para o espaço de descanso. Podem me ajudar, por favor? At.te.",31/03/2026,08:39,Bruno (Marketing),Estúdio (Fotografia),,Pendente,nan,nan,nan,nan,Não,nan
+1817,Parafusar as tampas das lixeiras do reciclável pois todos dia estão no chão ,01/04/2026,07:15,Fran.duate ,Filial ,,Pendente,,,,,Sim,
