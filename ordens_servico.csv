@@ -1766,7 +1766,7 @@ lavar parede preparo para pintura - Filial 01",11/02/2026,11:33,Renato Silva,Fil
 1706,Instalação do cabeçote do compressor ,24/02/2026,11:40,Fran - Qaulidade,Matriz - qualidade,Mecânica,Concluído,24/02/2026,16:00,Ismael,nan,Não,nan
 1707,Instalar refletor,24/02/2026,15:59,Lucia,Filial - acabamento,Elétrica,Concluído,25/02/2026,07:34,Guilherme,nan,Não,nan
 1708,Verificar percianas sala de reunião 01,25/02/2026,11:59,Rafael,Matriz,Instalação,Concluído,04/03/2026,16:46,Ismael,Ismael,Não,"Equipamento com defeito, sem condições de reparo "
-1709,Pintura murro  (930),25/02/2026,12:00,Manutenção,Matriz,,Pausado,,,Guilherme,,Não,nan
+1709,Pintura murro  (930),25/02/2026,12:00,Manutenção,Matriz,,Pausado,nan,nan,Guilherme,nan,Não,nan
 1710,Orçar e acompanhar construção padrão eletrico (Copel),25/02/2026,12:06,Renato Silva,Filial 02 ,Civil,Concluído,09/03/2026,11:34,Ismael,nan,Não,nan
 1711,preciso q instale mangueira de ar em uma máquina ,26/02/2026,08:27,Adélia ,Malharia,Instalação,Concluído,27/02/2026,11:50,Guilherme,nan,Sim,nan
 1712,Instalar a maquina de ar setor Adelia ,26/02/2026,10:29,Fran .Duarte ,Filial ,Instalação,Concluído,27/02/2026,11:50,Guilherme,nan,Sim,nan
@@ -1889,3 +1889,4 @@ Montagem da nova estrutura"
 1820,Movimentação de maquina - acabamento,02/04/2026,11:26,Renato Silva,Filial 01 ,,Pendente,nan,nan,nan,nan,Sim,nan
 1821,Instalação de ponto de ar para pistola na maquina carrocel  ,02/04/2026,11:30,Estamparia,Filial 01,Hidráulica,Concluído,02/04/2026,13:44,Guilherme,nan,Não,nan
 1822,Verificar fechadura portão pedestre - 930,02/04/2026,12:04,Denise,Matriz,Mecânica,Concluído,02/04/2026,13:44,Guilherme,nan,Sim,nan
+1823,Montagem de 11 cadeiras para os G1,06/04/2026,12:10,Renato Silva,Matriz e filiais,,Pendente,,,,,Não,
