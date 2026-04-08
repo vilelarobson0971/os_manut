@@ -1867,7 +1867,7 @@ Montagem da nova estrutura"
 1800,Verificar iluminação maquina costura,26/03/2026,11:27,Marcia,Filial 01 ,Elétrica,Concluído,31/03/2026,13:26,Guilherme,nan,Não,nan
 1801,Chave quebrada banheiro feminino,26/03/2026,11:27,Lucas,Filial 02,Civil,Concluído,27/03/2026,16:58,Guilherme,nan,Sim,nan
 1802,Acompanhamento limpeza e higienização de caixas de agua,26/03/2026,11:37,Manutenção,Matriz e filiais,Hidráulica,Concluído,27/03/2026,07:24,Guilherme,nan,Sim,nan
-1803,Limpeza e organização da oficina,26/03/2026,11:37,Manutenção,Matriz ,Instalação,Em execução,nan,nan,Guilherme,Ismael,Não,nan
+1803,Limpeza e organização da oficina,26/03/2026,11:37,Manutenção,Matriz ,Instalação,Concluído,08/04/2026,13:21,Guilherme,Ismael,Não,nan
 1804,"Instalar TV no corte, verificar com renato ",26/03/2026,13:58,Estanlei,Filial 02,Instalação,Concluído,27/03/2026,16:57,Guilherme,Ismael,Sim,nan
 1805,Desmontagem das mesas antiga do refeitorio,27/03/2026,09:25,Manutenção,Matriz,Instalação,Concluído,27/03/2026,16:57,Guilherme,Ismael,Não,nan
 1806,Montagem das novas mesas refeitorio,27/03/2026,09:25,Manutenção,Matriz ,Instalação,Concluído,27/03/2026,16:57,Guilherme,Ismael,Não,nan
@@ -1890,7 +1890,7 @@ Montagem da nova estrutura"
 1821,Instalação de ponto de ar para pistola na maquina carrocel  ,02/04/2026,11:30,Estamparia,Filial 01,Hidráulica,Concluído,02/04/2026,13:44,Guilherme,nan,Não,nan
 1822,Verificar fechadura portão pedestre - 930,02/04/2026,12:04,Denise,Matriz,Mecânica,Concluído,02/04/2026,13:44,Guilherme,nan,Sim,nan
 1823,Montagem de 11 cadeiras para os G1,06/04/2026,12:10,Renato Silva,Matriz e filiais,Instalação,Concluído,07/04/2026,07:27,Guilherme,nan,Não,nan
-1824,"Verificar cerca eletrica (walter Perreira, 900) ",06/04/2026,12:11,Manutenção,Matriz ,Hidráulica,Pausado,,,Ismael,,Não,nan
+1824,"Verificar cerca eletrica (walter Perreira, 900) ",06/04/2026,12:11,Manutenção,Matriz ,Hidráulica,Pausado,nan,nan,Ismael,nan,Não,nan
 1825,Cadastrar controle ,06/04/2026,12:11,Estanlei,Filial ,Elétrica,Concluído,07/04/2026,07:26,Guilherme,nan,Não,nan
 1826,Cadastrar controle,06/04/2026,12:12,Rafael,Matriz e filial,Elétrica,Concluído,07/04/2026,07:26,Guilherme,Ismael,Não,nan
 1827,Regularizar eletrica e hidraulica (mudança de layout),06/04/2026,12:14,Renato Silva,Filial 01,Instalação,Concluído,07/04/2026,07:26,Guilherme,Ismael,Não,nan
