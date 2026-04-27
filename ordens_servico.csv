@@ -1890,7 +1890,7 @@ Montagem da nova estrutura"
 1821,Instalação de ponto de ar para pistola na maquina carrocel  ,02/04/2026,11:30,Estamparia,Filial 01,Hidráulica,Concluído,02/04/2026,13:44,Guilherme,nan,Não,nan
 1822,Verificar fechadura portão pedestre - 930,02/04/2026,12:04,Denise,Matriz,Mecânica,Concluído,02/04/2026,13:44,Guilherme,nan,Sim,nan
 1823,Montagem de 11 cadeiras para os G1,06/04/2026,12:10,Renato Silva,Matriz e filiais,Instalação,Concluído,07/04/2026,07:27,Guilherme,nan,Não,nan
-1824,"Verificar cerca eletrica (walter Perreira, 900) ",06/04/2026,12:11,Manutenção,Matriz ,Refrigeração,Pausado,,,Ismael,,Não,Serviço terceiros
+1824,"Verificar cerca eletrica (walter Perreira, 900) ",06/04/2026,12:11,Manutenção,Matriz ,Refrigeração,Pausado,nan,nan,Ismael,nan,Não,Serviço terceiros
 1825,Cadastrar controle ,06/04/2026,12:11,Estanlei,Filial ,Elétrica,Concluído,07/04/2026,07:26,Guilherme,nan,Não,nan
 1826,Cadastrar controle,06/04/2026,12:12,Rafael,Matriz e filial,Elétrica,Concluído,07/04/2026,07:26,Guilherme,Ismael,Não,nan
 1827,Regularizar eletrica e hidraulica (mudança de layout),06/04/2026,12:14,Renato Silva,Filial 01,Instalação,Concluído,07/04/2026,07:26,Guilherme,Ismael,Não,nan
@@ -1906,3 +1906,4 @@ Montagem da nova estrutura"
 1837,Colocar tampa de ralo na porta de entrada do acabamento ,13/04/2026,08:01,Fran.Duarte,Filial ,Hidráulica,Concluído,27/04/2026,07:26,Guilherme,nan,Sim,nan
 1838,Porta de entrada do PCP para manutenção lubrificação e está sem força para subir.( A porta abriu com os meninos forçando no tranco ,13/04/2026,08:03,Fran.Duarte,Filial ,Elétrica,Pausado,nan,nan,Ismael,nan,Sim,Aguardando envio do motor
 1839,Regular ventilador,13/04/2026,15:55,Lucia,Pilotagem,Elétrica,Concluído,27/04/2026,07:24,Guilherme,nan,Sim,nan
+1840,Reparo enfestadeira 03 ,27/04/2026,07:29,Lucas,Filial 02 -corte,,Pendente,,,,,Não,
