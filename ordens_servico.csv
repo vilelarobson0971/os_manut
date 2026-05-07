@@ -1906,7 +1906,8 @@ Montagem da nova estrutura"
 1837,Colocar tampa de ralo na porta de entrada do acabamento ,13/04/2026,08:01,Fran.Duarte,Filial ,Hidráulica,Concluído,27/04/2026,07:26,Guilherme,nan,Sim,nan
 1838,Porta de entrada do PCP para manutenção lubrificação e está sem força para subir.( A porta abriu com os meninos forçando no tranco ,13/04/2026,08:03,Fran.Duarte,Filial ,Elétrica,Pausado,nan,nan,Ismael,nan,Sim,Aguardando envio do motor
 1839,Regular ventilador,13/04/2026,15:55,Lucia,Pilotagem,Elétrica,Concluído,27/04/2026,07:24,Guilherme,nan,Sim,nan
-1840,Reparo enfestadeira 03 ,27/04/2026,07:29,Lucas,Filial 02 -corte,Elétrica,Pausado,nan,nan,Ismael,Guilherme,Não,Aguardando assitencia tecnica para atualizar programação 
+1840,Reparo enfestadeira 03 ,27/04/2026,07:29,Lucas,Filial 02 -corte,Elétrica,Pausado,,,Ismael,Guilherme,Não,"Aguardando assistência técnica para atualizar programação
+06/05/26 - serviço concluído pela assistência técnica  "
 1841,Enfestadeira 04  ,27/04/2026,07:30,Lucas ,Filiaol 02 - corte,Elétrica,Concluído,28/04/2026,07:19,Ismael,Guilherme,Não,motor carrinho faca de corte - substituido 
 1842,Vaso enturpido  WC masculino,27/04/2026,07:31,Renato Silva,Filial 02 ,Hidráulica,Concluído,28/04/2026,07:18,Guilherme,Guilherme,Não,nan
 1843,"Oficina manutenção, limpeza e organização (concluir) ",27/04/2026,07:31,Manutenção ,Matriz ,Instalação,Concluído,28/04/2026,07:18,Ismael,Guilherme,Não,nan
@@ -1918,7 +1919,7 @@ Montagem da nova estrutura"
 1849,Limpeza lixeira externa  ,29/04/2026,11:54,Fran,Filial 01,Instalação,Concluído,29/04/2026,16:35,Ismael,Guilherme,Sim,Serviço realiazado com a colaboração da equipe de limpeza Beta 
 1850,Mudar de local ventiladores,29/04/2026,12:15,Cleo,Filial 01,,Pendente,nan,nan,nan,nan,Não,nan
 1851,Arrumar maçaneta porta modelagem,29/04/2026,16:33,Fran,Filial 01,Instalação,Concluído,29/04/2026,16:33,Ismael,nan,Não,nan
-1852,Mangueira de ar da máquina pneumática do setor da pilotagem ,30/04/2026,10:53,Fran.Duarte,Filial ,Hidráulica,Concluído,07/05/2026,07:27,Guilherme,,Sim,nan
+1852,Mangueira de ar da máquina pneumática do setor da pilotagem ,30/04/2026,10:53,Fran.Duarte,Filial ,Hidráulica,Concluído,07/05/2026,07:27,Guilherme,nan,Sim,nan
 1853,"As meninas do departamento reportaram que o banheiro feminino está com vazamento no vaso sanitário.
 
 Também aproveito para reportar que o banheiro masculino na entrada direita de quem entra tem goteira pode prejudicar o gesso, bem como piso ""oco"" quando pisa sai água.",30/04/2026,11:48,Wagner Almeida - PPCP ,Filial 02,Mecânica,Concluído,07/05/2026,07:26,Ismael,nan,Sim,Solicitado manutenção para empreiteiro da obra (Adalto)
