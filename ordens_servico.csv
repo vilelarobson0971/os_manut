@@ -1904,7 +1904,7 @@ Montagem da nova estrutura"
 1835,Acompanhamento na reetruturação do elevador de cargas,13/04/2026,07:22,Weder,Expedição,Mecânica,Concluído,27/04/2026,07:26,Ismael,nan,Não,nan
 1836,Substituição do cabo de aço motor talha,13/04/2026,07:22,Weder,Expedição,Mecânica,Concluído,27/04/2026,07:25,Ismael,Guilherme,Não,nan
 1837,Colocar tampa de ralo na porta de entrada do acabamento ,13/04/2026,08:01,Fran.Duarte,Filial ,Hidráulica,Concluído,27/04/2026,07:26,Guilherme,nan,Sim,nan
-1838,Porta de entrada do PCP para manutenção lubrificação e está sem força para subir.( A porta abriu com os meninos forçando no tranco ,13/04/2026,08:03,Fran.Duarte,Filial ,Elétrica,Pausado,,,Ismael,,Sim,"Aguardando envio do motor, já entregue. 
+1838,Porta de entrada do PCP para manutenção lubrificação e está sem força para subir.( A porta abriu com os meninos forçando no tranco ,13/04/2026,08:03,Fran.Duarte,Filial ,Elétrica,Pausado,nan,nan,Ismael,nan,Sim,"Aguardando envio do motor, já entregue. 
 Aguardando terceiro para instalação "
 1839,Regular ventilador,13/04/2026,15:55,Lucia,Pilotagem,Elétrica,Concluído,27/04/2026,07:24,Guilherme,nan,Sim,nan
 1840,Reparo enfestadeira 03 ,27/04/2026,07:29,Lucas,Filial 02 -corte,Elétrica,Concluído,07/05/2026,07:28,Ismael,Guilherme,Não,"Aguardando assistência técnica para atualizar programação
@@ -1933,4 +1933,4 @@ Também aproveito para reportar que o banheiro masculino na entrada direita de q
 1859,Pintura piso estúdio ,07/05/2026,07:18,Camila,Matriz - estúdio fotográfico ,,Pendente,nan,nan,nan,nan,Não,nan
 1860,"Acompanhamento de técnico da enfesmack , revisão e reparo nas enfestadeiras ",07/05/2026,07:21,Manutenção,Filial 02 - corte,Instalação,Concluído,07/05/2026,15:50,Ismael,Guilherme,Não,"Realizado revisão, reparo nas enfestadeiras e também orientações sobre algumas configurações "
 1861,Lâmpada queimada na pilotagem,07/05/2026,14:22,Lucia,Pilotagem,,Pendente,nan,nan,nan,nan,Sim,nan
-1862,Soldar estrutura de mesa ,07/05/2026,15:48,Manutenção,Matriz - setor de tecidos,,Pendente,nan,nan,nan,nan,Não,nan
+1862,Soldar estrutura de mesa ,07/05/2026,15:48,Manutenção,Matriz - setor de tecidos,Mecânica,Concluído,08/05/2026,10:03,Guilherme,,Não,nan
