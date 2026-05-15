@@ -1939,7 +1939,7 @@ Também aproveito para reportar que o banheiro masculino na entrada direita de q
 1865,Estufa de esteira não esta ligando,11/05/2026,11:36,Maycon,Filial 01 - ,Elétrica,Concluído,11/05/2026,13:26,Ismael,Guilherme,Não,nan
 1866,Estufa de esteira não esta ligando ,11/05/2026,11:37,Maycon,Estamparia,Elétrica,Concluído,11/05/2026,13:25,Ismael,Guilherme,Não,nan
 1867,Fucionadeira desalinhou correia ,11/05/2026,11:38,Cleo,Filial 01  ,Mecânica,Concluído,11/05/2026,13:25,Guilherme,Ismael,Não,nan
-1868,Lavadora de pressão são liga,11/05/2026,11:39,Maycon ,Estamparia,Mecânica,Em execução,,,Ismael,,Não,Levado para assistência técnica
+1868,Lavadora de pressão são liga,11/05/2026,11:39,Maycon ,Estamparia,Mecânica,Em execução,nan,nan,Ismael,nan,Não,Levado para assistência técnica
 1869,Verificar  mesa estamparia,11/05/2026,13:24,Alan,Estamparia,Mecânica,Pendente,nan,nan,Guilherme,Ismael,Não,Verificar compressor
 1870,Verificar óleo compressor,11/05/2026,17:01,Cleber,Matriz - Qualidade,Mecânica,Concluído,15/05/2026,07:29,Ismael,Ismael,Não,nan
 1871,Colocar os parafusos na portinhola ,11/05/2026,17:47,Fran - acabamento ,Filial 1,Instalação,Concluído,15/05/2026,07:28,Guilherme,Ismael,Sim,nan
@@ -1952,3 +1952,4 @@ Quebrou o lado de fora.",13/05/2026,13:28,Mara - Comercial,Matriz,Instalação,C
 1877,Instalar Tomada setor de tintas,13/05/2026,15:51,Alan,Estamparia ,,Pendente,nan,nan,nan,nan,Não,nan
 1878,"Instalação elétrica para atender mesas, orçar ",13/05/2026,15:52,Alan,Estamparia ,,Pendente,nan,nan,nan,nan,Não,nan
 1879,Emendar o fio da máquina de corte Sisley ,14/05/2026,11:21,Fran. Duarte ,FILIAL ,,Pendente,nan,nan,nan,nan,Sim,nan
+1880,"Goteira na calha da lâmpada, verificar ",15/05/2026,08:25,Lucia,Pilotagem,,Pendente,,,,,Sim,
