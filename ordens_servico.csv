@@ -1990,7 +1990,7 @@ Serviço executado"
 1911,Configurar controles portão veicular (930),28/05/2026,12:03,Manutenção,Matriz,Elétrica,Concluído,29/05/2026,07:16,Guilherme,nan,Não,nan
 1912,Verificar portão veicular alguns controles não estão acionando o mesmo,28/05/2026,12:06,Fran - acabamento,Filial 01 ,Elétrica,Concluído,29/05/2026,07:17,Guilherme,nan,Não,nan
 1913,Máquina de peitilho fazendo barulho ,28/05/2026,14:26,Fran.Duarte,Filial 01,Mecânica,Concluído,29/05/2026,07:16,Guilherme,nan,Sim,nan
-1914,"Trocar lâmpada, para iluminação do tanque de lavar quadros.",28/05/2026,18:05,Alan Cruz ,Estamparia ,Elétrica,Concluído,02/06/2026,17:08,Guilherme,Ismael,Não,
+1914,"Trocar lâmpada, para iluminação do tanque de lavar quadros.",28/05/2026,18:05,Alan Cruz ,Estamparia ,Elétrica,Concluído,02/06/2026,17:08,Guilherme,Ismael,Não,nan
 1915,Instalação de caixa de passagem embutidas 4X4 salas nova sede ADM,29/05/2026,07:15,Juliano ,Filial 02 ,Elétrica,Concluído,29/05/2026,13:07,Ismael,Guilherme,Sim,Instalação de 4 caixas 4X4 
 1916,Mudança infra de elétrica e logica sala PCP da filial 02 para 01,29/05/2026,13:06,Renato Silva,Filial 02 p/ 01,Elétrica,Concluído,01/06/2026,12:37,Guilherme,Ismael,Sim,Instalação de 3 pontos de rede e eletrica
 1917,Ventilador do pilar do acabamento está fazendo barulho ,29/05/2026,14:30,Fran.Duarte,Filial 01,Mecânica,Concluído,02/06/2026,17:08,Guilherme,Ismael,Sim,nan
@@ -2004,3 +2004,4 @@ Serviço executado"
 1925,Substituição de refletores ,02/06/2026,17:02,Weder,Expedição ,,Pendente,nan,nan,nan,nan,Não,nan
 1926,Colocar tecido em placa de madeira para usar como tela para projetor ,02/06/2026,17:02,Estalei,Matriz,,Pendente,nan,nan,nan,nan,Não,nan
 1927,Orçar readequação de sistema de hidrante (barracão 03),02/06/2026,17:04,Rafael ,Matriz,,Pendente,nan,nan,nan,nan,Não,nan
+1928,"Colocar prateleiras na parede, para guardas quadros ",03/06/2026,09:38,Alan Cruz ,Estamparia,,Pendente,,,,,Não,
