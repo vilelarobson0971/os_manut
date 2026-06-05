@@ -1996,11 +1996,11 @@ Serviço executado"
 1917,Ventilador do pilar do acabamento está fazendo barulho ,29/05/2026,14:30,Fran.Duarte,Filial 01,Mecânica,Concluído,02/06/2026,17:08,Guilherme,Ismael,Sim,nan
 1918,Manutenção preventiva Carrossel estamparia  ,01/06/2026,12:30,Manutenção,Estamparia,Mecânica,Concluído,02/06/2026,17:08,Guilherme,Ismael,Sim,nan
 1919,Substituição de assentos vasos sanitários  ,01/06/2026,12:30,Fran. Acabamento,Filial 01 ,Instalação,Concluído,02/06/2026,17:07,Guilherme,Ismael,Não,Substituição de 2 acentos sanitário 
-1920,Porta do almoxarifado caindo,01/06/2026,14:08,Almoxarifado de aviamento,Filial 1,,Pendente,nan,nan,nan,nan,Sim,nan
+1920,Porta do almoxarifado caindo,01/06/2026,14:08,Almoxarifado de aviamento,Filial 1,Civil,Concluído,05/06/2026,11:44,Guilherme,Ismael,Sim,nan
 1921,Trocar interruptor da máquina Galoneira do acabamento ,02/06/2026,11:56,Fran.Duarte,Filial 01,Elétrica,Concluído,02/06/2026,17:07,Guilherme,Ismael,Sim,nan
 1922,Retirada e instalação de ar condicionado,02/06/2026,16:59,Renato Silva,Matriz p/ Filial 01,Refrigeração,Concluído,02/06/2026,17:06,Ismael,Ismael,Sim,Serviço realizado por terceiros
 1923,Instalação de refletores no tanque de lavar telas,02/06/2026,17:00,Alan,Estamparia,Elétrica,Concluído,02/06/2026,17:06,Guilherme,Ismael,Não,2 refletores instalados
-1924,Substituir capacitor maquina de cintar fardo,02/06/2026,17:01,Joelson,Filial 02,Elétrica,Concluído,05/06/2026,11:44,Guilherme,,Sim,nan
+1924,Substituir capacitor maquina de cintar fardo,02/06/2026,17:01,Joelson,Filial 02,Elétrica,Concluído,05/06/2026,11:44,Guilherme,nan,Sim,nan
 1925,Substituição de refletores ,02/06/2026,17:02,Weder,Expedição ,,Pendente,nan,nan,nan,nan,Não,nan
 1926,Colocar tecido em placa de madeira para usar como tela para projetor ,02/06/2026,17:02,Estalei,Matriz,Instalação,Concluído,05/06/2026,11:44,Guilherme,Ismael,Não,nan
 1927,Orçar readequação de sistema de hidrante (barracão 03),02/06/2026,17:04,Rafael ,Matriz,,Pendente,nan,nan,nan,nan,Não,nan
