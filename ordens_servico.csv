@@ -2001,7 +2001,7 @@ Serviço executado"
 1922,Retirada e instalação de ar condicionado,02/06/2026,16:59,Renato Silva,Matriz p/ Filial 01,Refrigeração,Concluído,02/06/2026,17:06,Ismael,Ismael,Sim,Serviço realizado por terceiros
 1923,Instalação de refletores no tanque de lavar telas,02/06/2026,17:00,Alan,Estamparia,Elétrica,Concluído,02/06/2026,17:06,Guilherme,Ismael,Não,2 refletores instalados
 1924,Substituir capacitor maquina de cintar fardo,02/06/2026,17:01,Joelson,Filial 02,Elétrica,Concluído,05/06/2026,11:44,Guilherme,nan,Sim,nan
-1925,Substituição de refletores ,02/06/2026,17:02,Weder,Expedição ,,Pendente,,,Ismael,,Não,nan
+1925,Substituição de refletores ,02/06/2026,17:02,Weder,Expedição ,,Pendente,nan,nan,Ismael,nan,Não,nan
 1926,Colocar tecido em placa de madeira para usar como tela para projetor ,02/06/2026,17:02,Estalei,Matriz,Instalação,Concluído,05/06/2026,11:44,Guilherme,Ismael,Não,nan
 1927,Orçar readequação de sistema de hidrante (barracão 03),02/06/2026,17:04,Rafael ,Matriz,,Pausado,nan,nan,Ismael,nan,Não,Aguardando projeto para orçar
 1928,"Colocar prateleiras na parede, para guardas quadros ",03/06/2026,09:38,Alan Cruz ,Estamparia,Instalação,Pendente,nan,nan,Ismael,nan,Não,nan
@@ -2009,3 +2009,4 @@ Serviço executado"
 1930,Substituir fechadura porta almoxarifado ,05/06/2026,08:26,Fabi,Almoxarifado ,Civil,Concluído,05/06/2026,11:43,Guilherme,Ismael,Sim,nan
 1931,Fixar painel para projeção ,05/06/2026,08:27,Estanlei ,Matriz / filial 01,Instalação,Concluído,05/06/2026,11:42,Guilherme,Ismael,Não,nan
 1932,Levar arqueadora para manutenção,05/06/2026,11:41,Joelson,Filial 02,,Em execução,nan,nan,Guilherme,nan,Sim,Serviço de manutenção de terceiro
+1933,Regular extrusora ,08/06/2026,09:41,Fran - Acabamento,Filial 01,,Pendente,,,,,Não,
