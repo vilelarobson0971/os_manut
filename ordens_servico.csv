@@ -2009,7 +2009,7 @@ Serviço executado"
 1930,Substituir fechadura porta almoxarifado ,05/06/2026,08:26,Fabi,Almoxarifado ,Civil,Concluído,05/06/2026,11:43,Guilherme,Ismael,Sim,nan
 1931,Fixar painel para projeção ,05/06/2026,08:27,Estanlei ,Matriz / filial 01,Instalação,Concluído,05/06/2026,11:42,Guilherme,Ismael,Não,nan
 1932,Levar arqueadora para manutenção,05/06/2026,11:41,Joelson,Filial 02,Mecânica,Concluído,09/06/2026,17:04,Ismael,nan,Sim,Serviço de manutenção de terceiro
-1933,Regular extrusora ,08/06/2026,09:41,Fran - Acabamento,Filial 01,Mecânica,Pausado,nan,nan,Guilherme,nan,Não, Desmontar cilindro para verificação dos rolamentos 
+1933,Regular extrusora ,08/06/2026,09:41,Fran - Acabamento,Filial 01,Elétrica,Concluído,16/06/2026,11:33,Ismael,,Não, Desmontar cilindro para verificação dos rolamentos 
 1934,Maquina Jacaré ,08/06/2026,09:42,Fran - Acabamento,Filial 01 ,Mecânica,Concluído,09/06/2026,17:03,Guilherme,nan,Não, 
 1935,Fechadura banheiro feminino esta quebrada não abre ,09/06/2026,07:26,Fran  - Acabamento,Filial 01 ,Civil,Concluído,09/06/2026,17:03,Guilherme,nan,Sim, 
 1936,Serviço de solda carrinho,09/06/2026,13:51,Joelson,Filial 02,Instalação,Concluído,09/06/2026,17:02,Guilherme,nan,Não, 
@@ -2023,7 +2023,7 @@ Serviço executado"
 1944,Retirar tela e e organizar sala de descanso ,11/06/2026,12:14,Estanlei,Matriz,Instalação,Concluído,11/06/2026,15:45,Ismael,Guilherme,Não,nan
 1945,Verificar mesa da Engenharia que está desencaixada da estrutura de ferro.,11/06/2026,14:09,Jéssica Oliveira,Engenharia Filial 1,Instalação,Concluído,11/06/2026,16:39,Guilherme,nan,Não,nan
 1946,Arrumar fechadura tetra porta de acesso tecidos,11/06/2026,15:48,Cleber,Matriz - Tecidos,Civil,Concluído,11/06/2026,16:39,Ismael,nan,Não,nan
-1947,Máquina de termo colante vazando ar,15/06/2026,13:33,Fran.Duarte,Filial ,Hidráulica,Concluído,16/06/2026,11:32,Ismael,,Sim,nan
+1947,Máquina de termo colante vazando ar,15/06/2026,13:33,Fran.Duarte,Filial ,Hidráulica,Concluído,16/06/2026,11:32,Ismael,nan,Sim,nan
 1948,Escapou parafuso da cadeira ,15/06/2026,15:19,LUCIA,Pilotagem,Mecânica,Concluído,16/06/2026,07:22,Guilherme,nan,Sim,nan
 1949,Rede elétrica para mesa gerencia (Ismael),15/06/2026,16:40,Renato,Filial 01 ,Elétrica,Concluído,16/06/2026,07:23,Guilherme,nan,Sim,nan
 1950,Troca de rolamentos maquina jacaré ,15/06/2026,16:41,Fran - Acabamento,Filial 01,Mecânica,Concluído,16/06/2026,07:22,Guilherme,nan,Não,substituição de 2 rolamentos do cilindro
