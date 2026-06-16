@@ -2009,7 +2009,7 @@ Serviço executado"
 1930,Substituir fechadura porta almoxarifado ,05/06/2026,08:26,Fabi,Almoxarifado ,Civil,Concluído,05/06/2026,11:43,Guilherme,Ismael,Sim,nan
 1931,Fixar painel para projeção ,05/06/2026,08:27,Estanlei ,Matriz / filial 01,Instalação,Concluído,05/06/2026,11:42,Guilherme,Ismael,Não,nan
 1932,Levar arqueadora para manutenção,05/06/2026,11:41,Joelson,Filial 02,Mecânica,Concluído,09/06/2026,17:04,Ismael,nan,Sim,Serviço de manutenção de terceiro
-1933,Regular extrusora ,08/06/2026,09:41,Fran - Acabamento,Filial 01,Elétrica,Concluído,16/06/2026,11:33,Ismael,,Não, Desmontar cilindro para verificação dos rolamentos 
+1933,Regular extrusora ,08/06/2026,09:41,Fran - Acabamento,Filial 01,Elétrica,Concluído,16/06/2026,11:33,Ismael,nan,Não, Desmontar cilindro para verificação dos rolamentos 
 1934,Maquina Jacaré ,08/06/2026,09:42,Fran - Acabamento,Filial 01 ,Mecânica,Concluído,09/06/2026,17:03,Guilherme,nan,Não, 
 1935,Fechadura banheiro feminino esta quebrada não abre ,09/06/2026,07:26,Fran  - Acabamento,Filial 01 ,Civil,Concluído,09/06/2026,17:03,Guilherme,nan,Sim, 
 1936,Serviço de solda carrinho,09/06/2026,13:51,Joelson,Filial 02,Instalação,Concluído,09/06/2026,17:02,Guilherme,nan,Não, 
@@ -2029,3 +2029,4 @@ Serviço executado"
 1950,Troca de rolamentos maquina jacaré ,15/06/2026,16:41,Fran - Acabamento,Filial 01,Mecânica,Concluído,16/06/2026,07:22,Guilherme,nan,Não,substituição de 2 rolamentos do cilindro
 1951,substituição de lâmpadas ,15/06/2026,16:42,Fran - Acabamento ,Filial 01 ,Elétrica,Concluído,16/06/2026,11:32,Guilherme,nan,Não,nan
 1952,Lâmpada em cima da máquina da Lilian setor da Adélia ,16/06/2026,11:20,Fran.Duarte,Filial ,Elétrica,Concluído,16/06/2026,11:31,Guilherme,nan,Sim,nan
+1953,Sistema de combate a incêndio disparou,16/06/2026,11:34,Estalei,Matriz,,Pendente,,,,,Não,
