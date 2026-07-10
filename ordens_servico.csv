@@ -2077,9 +2077,9 @@ Serviço executado"
 1998,Trocar lampada tubular,06/07/2026,16:59,Lucas,Sala de risco,Elétrica,Concluído,08/07/2026,11:40,Guilherme,nan,Sim,"Substituído 03 lâmpadas , setor de risco, motivo de sobre tensão na rede após mudança de 220 para 380 "
 1999,Luz do refletor piscando igual vídeo pilar acabamento ,06/07/2026,17:25,Fran.Duarte ,Filial 01,Elétrica,Concluído,07/07/2026,08:32,Guilherme,nan,Sim,nan
 2000,Fixar prateleira,07/07/2026,08:46,Fran,Filial 1 ,Instalação,Concluído,08/07/2026,11:38,Guilherme,nan,Não,nan
-2001,Substituir lâmpadas PCP  ,08/07/2026,13:45,Manutenção,Filial 02 - PCP / Risco,,Pendente,nan,nan,nan,nan,Sim,nan
-2002,Levar cadeiras novas para refeitório matriz,08/07/2026,13:46,Cilene,Matriz,,Pendente,nan,nan,nan,nan,Não,nan
-2003,Buscar arqueadora na assistência ,08/07/2026,13:47,Manutenção,Assistência técnica  p/ Filial 02 corte,Elétrica,Concluído,10/07/2026,07:15,Guilherme,Ismael,Não,
+2001,Substituir lâmpadas PCP  ,08/07/2026,13:45,Manutenção,Filial 02 - PCP / Risco,Elétrica,Concluído,10/07/2026,07:16,Guilherme,Ismael,Sim,
+2002,Levar cadeiras novas para refeitório matriz,08/07/2026,13:46,Cilene,Matriz,Instalação,Concluído,10/07/2026,07:16,Guilherme,Ismael,Não,nan
+2003,Buscar arqueadora na assistência ,08/07/2026,13:47,Manutenção,Assistência técnica  p/ Filial 02 corte,Elétrica,Concluído,10/07/2026,07:15,Guilherme,Ismael,Não,nan
 2004,Substituir cremalheiras portão veicular,08/07/2026,13:48,Weder,Expedição,Mecânica,Concluído,10/07/2026,07:15,Guilherme,nan,Não,nan
 2005,Compra disco faca e pedra de amolar para enfestadeira 01,08/07/2026,13:50,Joelson,Filial 02 - corte,Mecânica,Concluído,10/07/2026,07:14,Ismael,Guilherme,Não,nan
 2006,Transportar araras da filial 01 para matriz setor de tecidos,08/07/2026,13:51,Fran,Filial 01 p/ matriz,Instalação,Concluído,10/07/2026,07:14,Ismael,Guilherme,Não,nan
