@@ -2001,7 +2001,7 @@ Serviço executado"
 1922,Retirada e instalação de ar condicionado,02/06/2026,16:59,Renato Silva,Matriz p/ Filial 01,Refrigeração,Concluído,02/06/2026,17:06,Ismael,Ismael,Sim,Serviço realizado por terceiros
 1923,Instalação de refletores no tanque de lavar telas,02/06/2026,17:00,Alan,Estamparia,Elétrica,Concluído,02/06/2026,17:06,Guilherme,Ismael,Não,2 refletores instalados
 1924,Substituir capacitor maquina de cintar fardo,02/06/2026,17:01,Joelson,Filial 02,Elétrica,Concluído,05/06/2026,11:44,Guilherme,nan,Sim,nan
-1925,Substituição de refletores ,02/06/2026,17:02,Weder,Expedição ,,Pendente,nan,nan,Ismael,nan,Não,nan
+1925,Substituição de refletores ,02/06/2026,17:02,Weder,Expedição ,Elétrica,Em execução,,,Ismael,,Não,Serviço a ser realizado por terceiros 
 1926,Colocar tecido em placa de madeira para usar como tela para projetor ,02/06/2026,17:02,Estalei,Matriz,Instalação,Concluído,05/06/2026,11:44,Guilherme,Ismael,Não,nan
 1927,Orçar readequação de sistema de hidrante (barracão 03),02/06/2026,17:04,Rafael ,Matriz,,Pausado,nan,nan,Ismael,nan,Não,Aguardando projeto para orçar
 1928,"Colocar prateleiras na parede, para guardas quadros ",03/06/2026,09:38,Alan Cruz ,Estamparia,Instalação,Em execução,nan,nan,Ismael,Ismael,Não,nan
@@ -2123,7 +2123,7 @@ Serviço executado"
 2040,"Por favor verificar Sifão da Pia da Cozinha Filial 02, está com vazamento de água. Aparentemente rachado!",21/07/2026,11:56,Wagner Almeida - PPCP,Filial 02,Hidráulica,Concluído,23/07/2026,07:29,Ismael,nan,Sim,nan
 2041,Reaperto em cadeiras ,22/07/2026,17:00,Lucia,Filial 01 ,Instalação,Concluído,23/07/2026,07:29,Ismael,nan,Não,nan
 2042,Mudança de armários (por motivo de goteira)  ,22/07/2026,17:00,Lucia,Filial 01,Instalação,Concluído,23/07/2026,07:29,Ismael,nan,Não,nan
-2043,Substituição de sistema de iluminação  (luminárias) ,22/07/2026,17:02,Weder,Expedição ,Elétrica,Concluído,27/07/2026,07:04,Ismael,,Não,Serviço realizado por terceiros 
+2043,Substituição de sistema de iluminação  (luminárias) ,22/07/2026,17:02,Weder,Expedição ,Elétrica,Concluído,27/07/2026,07:04,Ismael,nan,Não,Serviço realizado por terceiros 
 2044,Troca de luminária (passadeiras),22/07/2026,17:04,Lucia,Filial 01 ,Elétrica,Concluído,23/07/2026,07:29,Guilherme,nan,Não,nan
 2045,Substituição de lâmpadas ,23/07/2026,13:27,Cleber,Setor de tecidos,Elétrica,Concluído,24/07/2026,14:12,Ismael,nan,Não,Substituição de 3 lâmpadas 
 2046,Mudança de local de interfone,23/07/2026,13:28,Fran - qualidade,Matriz - setor de qualidade ,Elétrica,Concluído,24/07/2026,14:11,Guilherme,nan,Não,nan
