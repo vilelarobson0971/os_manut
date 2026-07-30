@@ -2114,7 +2114,7 @@ Serviço executado"
 2033,Trocar lâmpadas  estamparia ,16/07/2026,12:15,Manutenção ,Filial 01 - estamparia ,Elétrica,Concluído,17/07/2026,07:26,Ismael,nan,Não,substituído 7 lâmpadas 
 2034,Providenciar 8 ripões para estufa estamparia ,17/07/2026,13:18,Maycon,Filial 01 ,Instalação,Concluído,20/07/2026,07:21,Ismael,nan,Não,nan
 2035,Instalar refletor mesa de corte (Edilson),17/07/2026,13:19,Lucas ,Filial 02 - corte,Elétrica,Concluído,20/07/2026,07:20,Ismael,nan,Não,nan
-2036,"O ar-condicionado da sala do marketing está com cheiro muito forte. É possível fazer uma limpeza nele, para, deixar melhor o ambiente?",17/07/2026,13:55,Marketing,Sala do Marketing,,Pendente,nan,nan,nan,nan,Sim,nan
+2036,"O ar-condicionado da sala do marketing está com cheiro muito forte. É possível fazer uma limpeza nele, para, deixar melhor o ambiente?",17/07/2026,13:55,Marketing,Sala do Marketing,Refrigeração,Concluído,30/07/2026,12:06,Guilherme,Ismael,Sim,Executado serviço de higienização e limpeza
 2037,Caldeira não esta ligando,20/07/2026,17:00,Rosi,Filial 01 ,Elétrica,Concluído,23/07/2026,07:31,Ismael,nan,Não,"
 "
 2038,Fixar guarda corpo filial 02,21/07/2026,10:28,Manutenção,Filial 02,Instalação,Concluído,23/07/2026,07:31,Ismael,nan,Não,"
@@ -2141,4 +2141,4 @@ Serviço executado"
 2058,Instalação de luminária corredor sala do laboratório   ,29/07/2026,14:44,Fran - qualidade ,Matriz - qualidade ,Elétrica,Concluído,30/07/2026,07:15,Guilherme,nan,Não,nan
 2059,Fitar 5 mesas ,29/07/2026,14:46,Renato Silva,Filial 02 - acabamento ,Instalação,Concluído,30/07/2026,07:15,Guilherme,Ismael,Não,nan
 2060,Refletores proxímos a porta 01 do pátio não estão acendendo.,30/07/2026,09:24,Wesley,Filial 1,,Pendente,nan,nan,nan,nan,Não,nan
-2061,Mover as mesas do acabamento da embalagem e dobra,30/07/2026,10:30,Fran.Duarte,Filial ,,Pendente,,,,,Não,
+2061,Mover as mesas do acabamento da embalagem e dobra,30/07/2026,10:30,Fran.Duarte,Filial ,,Pendente,nan,nan,nan,nan,Não,nan
