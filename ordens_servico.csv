@@ -2168,7 +2168,7 @@ Serviço executado"
 2085,"Substituir TV , sala reunião 02 matriz por TV sala reunião Filial 01  ",14/08/2026,11:02,Renato Silva,Matriz p/ Filial 01,Elétrica,Pausado,nan,nan,Guilherme,nan,Não,nan
 2086,Substituir fechadura banheiro feminino qualidade ,14/08/2026,11:03,Manutenção ,Matriz - qualidade ,Civil,Concluído,17/08/2026,13:45,Ismael,nan,Não,nan
 2087,Trocar lâmpadas setor financeiro,17/08/2026,11:57,Thiago,Matriz,Elétrica,Concluído,17/08/2026,13:45,Ismael,nan,Não,nan
-2088,Comprar correia para maquina de corte semiautomatica ,17/08/2026,11:59,Lucas ,Filial nova - 04,,Pendente,nan,nan,nan,nan,Não,nan
+2088,Comprar correia para maquina de corte semiautomatica ,17/08/2026,11:59,Lucas ,Filial nova - 04,Mecânica,Concluído,26/08/2026,12:36,Guilherme,Ismael,Não,Substituído correia 
 2089,Arrumar encosto da cadeira do Lucas no corte,17/08/2026,14:09,Fran. Duarte ,Filial 02 ,Instalação,Concluído,17/08/2026,15:09,Ismael,nan,Sim,nan
 2090,Substituir lanterna traseira da Montana ,17/08/2026,15:10,Manutenção ,Matriz,,Pendente,nan,nan,nan,nan,Não,nan
 2091,Regulagem de altura ventilador,17/08/2026,15:11,Cleo,Filial 01,Refrigeração,Concluído,19/08/2026,13:47,Ismael,nan,Não,nan
@@ -2188,7 +2188,7 @@ Serviço executado"
 2105,Substituição da correia da Fucionadeira (Jacaré) ,21/08/2026,12:16,Cleo ,Filial 02 ,Mecânica,Concluído,21/08/2026,16:51,Ismael,nan,Não,nan
 2106,Alinhamento de correia Fucionadeira automática ,21/08/2026,12:17,Cleo ,Filial 02 ,Mecânica,Concluído,25/08/2026,07:12,Ismael,nan,Não,Substituído esteira
 2107,Substituir chave seletora dosadora sistema de tratamento ,21/08/2026,12:19,Maycon ,Filial 02 ,Elétrica,Concluído,25/08/2026,07:11,Ismael,nan,Não,nan
-2108,Instalar tomada 220 tanque de lavar telas ,21/08/2026,12:19,Maycon ,Filial 02 - estamparia ,Elétrica,Concluído,26/08/2026,12:35,Ismael,,Não,nan
+2108,Instalar tomada 220 tanque de lavar telas ,21/08/2026,12:19,Maycon ,Filial 02 - estamparia ,Elétrica,Concluído,26/08/2026,12:35,Ismael,nan,Não,nan
 2109,esteira Fucionadeira esta patinando ,21/08/2026,16:52,Cleo,Filial 02 ,Mecânica,Concluído,25/08/2026,07:11,Ismael,nan,Não,nan
 2110,Programar revisão Fucionadeira (jacaré) ,25/08/2026,07:14,Manutenção ,Filial 02 ,,Pendente,nan,nan,nan,nan,Não,nan
 2111,Fixar papeleira banheiro masculino,26/08/2026,07:28,Josi,Filial 02 ,Instalação,Concluído,26/08/2026,12:34,Ismael,nan,Não,nan
