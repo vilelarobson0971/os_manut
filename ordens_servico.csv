@@ -2109,7 +2109,7 @@ Serviço executado"
 2028,Trocar lâmpada  ,15/07/2026,16:02,Engenharia ,Filial 01,Elétrica,Concluído,17/07/2026,07:27,Guilherme,nan,Não,nan
 2029,"Setor de qualidade, pintura salas, fixação de suporte para cabides, instalação de 2 bancadas em granito, perfurar parede para instalação de duto de sucção  e instalação de suporte para suspender maquina de lavar. ",16/07/2026,07:21,Fran - Qualidade ,Matriz - Setor de qualidade,Instalação,Concluído,30/07/2026,07:16,Guilherme,Ismael,Não,nan
 2030,Serviço de reparo em telhados ,16/07/2026,07:25,Manutenção,"Matriz barracões 2, 3, 4 e filial 01",Civil,Concluído,27/07/2026,17:03,Ismael,nan,Não,Serviço executado por terceiros 
-2031,Pintura da divisória manchada.,16/07/2026,09:44,Wesley,PPCP - Filial 1,Civil,Pausado,nan,nan,Guilherme,nan,Não,nan
+2031,Pintura da divisória manchada.,16/07/2026,09:44,Wesley,PPCP - Filial 1,Civil,Concluído,04/09/2026,07:19,Guilherme,,Não,nan
 2032,Suspender bomba sapo estação de tratamento de efluentes,16/07/2026,12:14,Maycon,Filial 02 - estamparia ,Instalação,Concluído,17/07/2026,07:26,Ismael,nan,Não,nan
 2033,Trocar lâmpadas  estamparia ,16/07/2026,12:15,Manutenção ,Filial 01 - estamparia ,Elétrica,Concluído,17/07/2026,07:26,Ismael,nan,Não,substituído 7 lâmpadas 
 2034,Providenciar 8 ripões para estufa estamparia ,17/07/2026,13:18,Maycon,Filial 01 ,Instalação,Concluído,20/07/2026,07:21,Ismael,nan,Não,nan
@@ -2160,7 +2160,7 @@ Serviço executado"
 2077,Ferro caldeira da Nana dando choque ,11/08/2026,08:03,Fran.Duarte,Filial ,Elétrica,Concluído,12/08/2026,07:14,Ismael,nan,Sim,nan
 2078,Verificar caldeira com vazamento,12/08/2026,07:20,Fran,Filial 01 - acabamento,Hidráulica,Concluído,13/08/2026,07:28,Ismael,nan,Não,Substituído reparos e tubo de vidro 
 2079,Separar 2 mesas e 10 cadeiras ,12/08/2026,07:21,Junior - marketing,Matriz ,Instalação,Concluído,13/08/2026,07:27,Ismael,nan,Não,nan
-2080,"Pintura salas, compra, reunião e PCP",13/08/2026,11:25,Manutenção,Filial 01,Civil,Concluído,04/09/2026,07:19,Guilherme,,Não,nan
+2080,"Pintura salas, compra, reunião e PCP",13/08/2026,11:25,Manutenção,Filial 01,Civil,Concluído,04/09/2026,07:19,Guilherme,nan,Não,nan
 2081,Movimentação e acondicionamento de araras,13/08/2026,11:26,Fran,Filial 01,Instalação,Concluído,14/08/2026,10:59,Ismael,nan,Não,nan
 2082,Levara climatizadores  secção de fotos,13/08/2026,11:28,Flavio - marketing,Matriz / Eventos de fotos,Instalação,Concluído,14/08/2026,10:59,Ismael,nan,Não,nan
 2083,Enlonar araras com roupas  ,13/08/2026,11:29,Fran,Filial 01,Instalação,Concluído,14/08/2026,10:58,Ismael,nan,Não,nan
